@@ -18,6 +18,8 @@ npm install merak-protocol-design-system
 import "merak-protocol-design-system/style.css"
 ```
 
+Use `merak-protocol-design-system/showcase.css` only for the bundled component gallery. Reusable layout patterns use `mp-*` classes such as `mp-eyebrow`, `mp-section-heading`, `mp-grid`, `mp-button-row`, and `mp-badge-row`.
+
 The package includes CSS variables, base styles, motion utilities, and component styles under `src/styles`.
 
 Optional browser-native behavior components are documented in [docs/custom-elements.md](docs/custom-elements.md).

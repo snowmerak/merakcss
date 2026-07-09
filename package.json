@@ -23,6 +23,7 @@
   "exports": {
     ".": "./src/style.css",
     "./style.css": "./src/style.css",
+    "./showcase.css": "./src/showcase.css",
     "./styles/*": "./src/styles/*",
     "./elements/merak-tabs": "./src/elements/merak-tabs.js",
     "./elements/data-components": "./src/elements/merak-data-components.js",
@@ -34,6 +35,7 @@
     "src/*.js",
     "src/elements",
     "src/style.css",
+    "src/showcase.css",
     "src/styles",
     "skills/merak-protocol-design-system",
     "docs/concept.md",

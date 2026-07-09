@@ -58,6 +58,14 @@ Spacing and shape:
 - Sidebar width is `240px`.
 - Radius should stay restrained: `4px` badge/input, `8px` button/card, `12px` large panel.
 
+## Public CSS and Custom Elements
+
+Use `style.css` for production UI. It contains tokens, base styles, components, and reusable layout patterns. Use `showcase.css` only for the bundled gallery; do not apply its `#app`, `showcase-*`, or hero layout rules to product UI.
+
+Prefer these public layout classes: `mp-eyebrow`, `mp-section-heading`, `mp-grid`, `mp-grid--wide`, `mp-button-row`, `mp-badge-row`, `mp-text--secondary`, `mp-text--muted`, and `mp-heading--section`. Legacy unprefixed showcase names remain compatible but are not the recommended API.
+
+Use native HTML plus Merak CSS for primitive controls and content. Prefer Merak custom elements for stateful composite UI: `merak-tabs`, `merak-command`, `merak-toast-region`, `merak-graph`, `merak-inspector`, `merak-sidebar`, `merak-gate-card`, `merak-agent-panel`, and `merak-timeline`. Pass objects and callbacks through JavaScript properties; use `merak-*` CustomEvents for state changes.
+
 ## Voice
 
 Prefer judgment-like system copy:

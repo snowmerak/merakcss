@@ -1,4 +1,4 @@
-import './style.css'
+import './showcase.css'
 import { setupAlertDemo } from './alert.js'
 import { setupGraphDrag } from './graph.js'
 import { setupMotionDemo } from './motion.js'
