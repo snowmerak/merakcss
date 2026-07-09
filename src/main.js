@@ -1631,6 +1631,49 @@ document.querySelector('#app').innerHTML = `
       </article>
     </div>
   </section>
+
+  <section class="showcase-section" aria-labelledby="list-title">
+    <div class="mp-section-heading">
+      <p class="mp-eyebrow">Component 19</p>
+      <h2 id="list-title">List</h2>
+      <p>Semantic ordered, nested, compact, and task lists for Markdown output and technical records.</p>
+    </div>
+
+    <div class="mp-grid mp-grid--wide">
+      <article class="mp-card">
+        <div class="mp-card__header">
+          <div>
+            <p class="mp-card__eyebrow">Trace Steps</p>
+            <h3 class="mp-card__title">Ordered and Nested</h3>
+          </div>
+        </div>
+        <ol class="mp-list">
+          <li>Observe input</li>
+          <li>Retrieve evidence
+            <ul class="mp-list mp-list--compact">
+              <li>Policy records</li>
+              <li>Archive references</li>
+            </ul>
+          </li>
+          <li>Archive result</li>
+        </ol>
+      </article>
+
+      <article class="mp-card">
+        <div class="mp-card__header">
+          <div>
+            <p class="mp-card__eyebrow">Review Queue</p>
+            <h3 class="mp-card__title">Task List</h3>
+          </div>
+        </div>
+        <ul class="mp-list mp-list--task">
+          <li><label><input type="checkbox" checked><span>Verify permission path</span></label></li>
+          <li><label><input type="checkbox"><span>Review partial source</span></label></li>
+          <li><label><input type="checkbox"><span>Seal decision record</span></label></li>
+        </ul>
+      </article>
+    </div>
+  </section>
 </main>
 `
 

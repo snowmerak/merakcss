@@ -64,6 +64,8 @@ Use `style.css` for production UI. It contains tokens, base styles, components, 
 
 Prefer these public layout classes: `mp-eyebrow`, `mp-section-heading`, `mp-grid`, `mp-grid--wide`, `mp-button-row`, `mp-badge-row`, `mp-text--secondary`, `mp-text--muted`, and `mp-heading--section`. Legacy unprefixed showcase names remain compatible but are not the recommended API.
 
+Use `mp-list` for semantic ordered and unordered records. Use `mp-list--compact` for dense nested items and `mp-list--task` for checkbox-backed review items. This is the required list mapping for Markdown output.
+
 Use native HTML plus Merak CSS for primitive controls and content. Prefer Merak custom elements for stateful composite UI: `merak-tabs`, `merak-command`, `merak-toast-region`, `merak-graph`, `merak-inspector`, `merak-sidebar`, `merak-gate-card`, `merak-agent-panel`, and `merak-timeline`. Pass objects and callbacks through JavaScript properties; use `merak-*` CustomEvents for state changes.
 
 ## Voice
