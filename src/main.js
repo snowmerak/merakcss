@@ -971,6 +971,102 @@ document.querySelector('#app').innerHTML = `
       </article>
     </div>
   </section>
+
+  <section class="showcase-section" aria-labelledby="inspector-title">
+    <div class="section-heading">
+      <p class="eyebrow">Component 10</p>
+      <h2 id="inspector-title">Inspector Panel</h2>
+      <p>Right-side object inspection for selected nodes, permissions, documents, agents, and traces.</p>
+    </div>
+
+    <div class="inspector-demo">
+      <article class="inspector-stage" aria-label="Selectable records">
+        <div class="mp-card__header">
+          <span class="mp-icon" aria-hidden="true">⌖</span>
+          <div>
+            <p class="mp-card__eyebrow">Selection Surface</p>
+            <h3 class="mp-card__title">Objects</h3>
+          </div>
+        </div>
+        <div class="inspector-object inspector-object--selected">
+          <span class="mp-icon" aria-hidden="true">□</span>
+          <div>
+            <strong class="inspector-object__title">archive:alpha</strong>
+            <div class="inspector-object__meta">resource / selected</div>
+          </div>
+          <span class="mp-badge mp-badge--verified mp-badge--sm">VERIFIED</span>
+        </div>
+        <div class="inspector-object">
+          <span class="mp-icon" aria-hidden="true">⌁</span>
+          <div>
+            <strong class="inspector-object__title">TRC-0428</strong>
+            <div class="inspector-object__meta">trace / linked</div>
+          </div>
+          <span class="mp-badge mp-badge--sealed mp-badge--sm">SEALED</span>
+        </div>
+        <div class="inspector-object">
+          <span class="mp-icon" aria-hidden="true">#</span>
+          <div>
+            <strong class="inspector-object__title">policy:read-path</strong>
+            <div class="inspector-object__meta">policy / inherited</div>
+          </div>
+          <span class="mp-badge mp-badge--low mp-badge--sm">LOW</span>
+        </div>
+        <div class="mp-alert mp-alert--info" role="status">
+          <span class="mp-alert__icon" aria-hidden="true">i</span>
+          <div class="mp-alert__content">
+            <strong class="mp-alert__title">Inspector first.</strong>
+            <p class="mp-alert__message">Use side inspection before modal interruption.</p>
+          </div>
+        </div>
+      </article>
+
+      <aside class="mp-inspector" aria-label="Inspector panel">
+        <header class="mp-inspector__header">
+          <span class="mp-inspector__eyebrow">Selected Resource</span>
+          <strong class="mp-inspector__title">archive:alpha</strong>
+          <div class="badge-row">
+            <span class="mp-badge mp-badge--verified mp-badge--sm">VERIFIED</span>
+            <span class="mp-badge mp-badge--type mp-badge--sm">RESOURCE</span>
+          </div>
+        </header>
+        <div class="mp-inspector__body">
+          <section class="mp-inspector__section">
+            <span class="mp-inspector__label">Overview</span>
+            <p class="mp-inspector__text">Archived design record with stable references and a verified permission path.</p>
+          </section>
+          <section class="mp-inspector__section">
+            <span class="mp-inspector__label">Metadata</span>
+            <dl class="mp-inspector__dl">
+              <dt>Owner</dt>
+              <dd>system:indexer</dd>
+              <dt>Updated</dt>
+              <dd>2026-07-09 18:42</dd>
+              <dt>Stability</dt>
+              <dd>high</dd>
+            </dl>
+          </section>
+          <section class="mp-inspector__section">
+            <span class="mp-inspector__label">Relations</span>
+            <div class="badge-row">
+              <span class="mp-badge mp-badge--type mp-badge--sm">TRC-0428</span>
+              <span class="mp-badge mp-badge--type mp-badge--sm">policy:read</span>
+              <span class="mp-badge mp-badge--type mp-badge--sm">group:editors</span>
+            </div>
+          </section>
+          <section class="mp-inspector__section">
+            <span class="mp-inspector__label">Trace</span>
+            <p class="mp-inspector__text">user:alice → group:editors → archive:alpha</p>
+          </section>
+        </div>
+        <footer class="mp-inspector__footer">
+          <button type="button" class="mp-button mp-button--primary mp-button--sm">Open Record</button>
+          <button type="button" class="mp-button mp-button--secondary mp-button--sm">View Trace</button>
+          <button type="button" class="mp-button mp-button--ghost mp-button--sm">Copy ID</button>
+        </footer>
+      </aside>
+    </div>
+  </section>
 </main>
 `
 
