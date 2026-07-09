@@ -24,6 +24,8 @@ The package includes CSS variables, base styles, motion utilities, and component
 
 Optional browser-native behavior components are documented in [docs/custom-elements.md](docs/custom-elements.md).
 
+Use `renderMerakMarkdown()` from `merak-protocol-design-system/markdown` to convert Markdown into HTML built from existing Merak components. See [docs/markdown.md](docs/markdown.md).
+
 ## Codex Skill
 
 The agent skill is included at:

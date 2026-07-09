@@ -7,6 +7,7 @@ import { setupTabs } from './tabs.js'
 import { setupCommandInput } from './command.js'
 import './elements/merak-interactive-elements.js'
 import './elements/merak-data-components.js'
+import { renderMerakMarkdown } from './markdown.js'
 
 document.querySelector('#app').innerHTML = `
 <main class="showcase">
@@ -1676,6 +1677,9 @@ document.querySelector('#app').innerHTML = `
   </section>
 </main>
 `
+
+document.querySelector('#app').insertAdjacentHTML('beforeend', `<section class="showcase-section"><div class="mp-section-heading"><p class="mp-eyebrow">Integration</p><h2>Markdown Renderer</h2><p>Markdown maps to existing Merak elements.</p></div><article class="mp-card" id="markdown-output"></article></section>`)
+document.querySelector('#markdown-output').innerHTML = renderMerakMarkdown('## Trace Record\n\nAccess is inherited through `group:editors`.\n\n> Source confidence is partial.\n\n- Observe input\n- Verify path\n  - policy:read-path\n\n- [x] Link evidence\n- [ ] Seal record\n\n| Source | Status |\n| --- | --- |\n| policy:read-path | VERIFIED |')
 
 setupAlertDemo({
   trigger: document.querySelector('#alert-demo-trigger'),

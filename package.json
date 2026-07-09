@@ -28,6 +28,7 @@
     "./elements/merak-tabs": "./src/elements/merak-tabs.js",
     "./elements/data-components": "./src/elements/merak-data-components.js",
     "./elements/interactive-components": "./src/elements/merak-interactive-elements.js",
+    "./markdown": "./src/markdown.js",
     "./skill": "./skills/merak-protocol-design-system/SKILL.md",
     "./skill.md": "./skills/merak-protocol-design-system/SKILL.md"
   },
@@ -40,6 +41,7 @@
     "skills/merak-protocol-design-system",
     "docs/concept.md",
     "docs/custom-elements.md",
+    "docs/markdown.md",
     "public/favicon.svg",
     "public/icons.svg",
     "index.html"
@@ -61,5 +63,9 @@
     "stylelint": "^17.14.0",
     "stylelint-config-standard": "^40.0.0",
     "vite": "^8.1.1"
+  },
+  "dependencies": {
+    "dompurify": "^3.4.11",
+    "marked": "^18.0.6"
   }
 }
