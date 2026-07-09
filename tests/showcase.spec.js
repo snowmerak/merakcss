@@ -81,6 +81,13 @@ test('supports a custom-element property and callback API', async ({ page }) => 
   expect(await page.evaluate(() => window.merakTabCallback)).toBe('trace')
 })
 
+test('updates the Markdown preview from the editable source', async ({ page }) => {
+  const input = page.locator('#markdown-input')
+  await input.fill('## Updated Record\n\n- [x] Verified')
+  await expect(page.locator('#markdown-output').getByRole('heading', { name: 'Updated Record' })).toBeVisible()
+  await expect(page.locator('#markdown-output').getByRole('checkbox')).toBeChecked()
+})
+
 test('has no automatically detectable WCAG A/AA violations', async ({ page }) => {
   await page.addStyleTag({
     content: `

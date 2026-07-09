@@ -1678,8 +1678,16 @@ document.querySelector('#app').innerHTML = `
 </main>
 `
 
-document.querySelector('#app').insertAdjacentHTML('beforeend', `<section class="showcase-section"><div class="mp-section-heading"><p class="mp-eyebrow">Integration</p><h2>Markdown Renderer</h2><p>Markdown maps to existing Merak elements.</p></div><article class="mp-card" id="markdown-output"></article></section>`)
-document.querySelector('#markdown-output').innerHTML = renderMerakMarkdown('## Trace Record\n\nAccess is inherited through `group:editors`.\n\n> Source confidence is partial.\n\n- Observe input\n- Verify path\n  - policy:read-path\n\n- [x] Link evidence\n- [ ] Seal record\n\n| Source | Status |\n| --- | --- |\n| policy:read-path | VERIFIED |')
+const markdownSample = '## Trace Record\n\nAccess is inherited through `group:editors`.\n\n> Source confidence is partial.\n\n- Observe input\n- Verify path\n  - policy:read-path\n\n- [x] Link evidence\n- [ ] Seal record\n\n| Source | Status |\n| --- | --- |\n| policy:read-path | VERIFIED |'
+
+document.querySelector('.showcase').insertAdjacentHTML('beforeend', `<section class="showcase-section" aria-labelledby="markdown-title"><div class="mp-section-heading"><p class="mp-eyebrow">Integration</p><h2 id="markdown-title">Markdown Renderer</h2><p>Edit Markdown and inspect the Merak component output.</p></div><div class="mp-grid mp-grid--wide"><article class="mp-card"><label class="field-group" for="markdown-input"><span class="mp-label">Markdown input</span><textarea class="mp-textarea" id="markdown-input" spellcheck="false"></textarea></label></article><article class="mp-card" id="markdown-output" aria-live="polite"></article></div></section>`)
+
+const markdownInput = document.querySelector('#markdown-input')
+const markdownOutput = document.querySelector('#markdown-output')
+markdownInput.value = markdownSample
+const renderMarkdownPreview = () => { markdownOutput.innerHTML = renderMerakMarkdown(markdownInput.value) }
+markdownInput.addEventListener('input', renderMarkdownPreview)
+renderMarkdownPreview()
 
 setupAlertDemo({
   trigger: document.querySelector('#alert-demo-trigger'),
