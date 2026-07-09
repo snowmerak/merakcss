@@ -13,4 +13,6 @@
 @import "./styles/components/timeline.css";
 @import "./styles/components/inspector.css";
 @import "./styles/components/icon.css";
+@import "./styles/components/sidebar.css";
+@import "./styles/components/tabs.css";
 @import "./styles/components/link-list.css";

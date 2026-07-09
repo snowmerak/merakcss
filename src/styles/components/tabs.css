@@ -1,0 +1,69 @@
+.mp-tabs {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.mp-tabs__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+  border-bottom: 1px solid var(--color-border-muted);
+}
+
+.mp-tabs__tab {
+  min-height: 38px;
+  padding: 0 var(--space-3);
+  border: 0;
+  border-bottom: 2px solid transparent;
+  color: var(--color-text-muted);
+  background: transparent;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  transition:
+    color 180ms var(--ease-system),
+    border-color 180ms var(--ease-system),
+    background-color 180ms var(--ease-system);
+}
+
+.mp-tabs__tab:hover {
+  color: var(--color-text-primary);
+  background: rgb(240 248 255 / 0.035);
+}
+
+.mp-tabs__tab[aria-selected="true"] {
+  border-color: var(--color-accent-line);
+  color: var(--color-accent);
+}
+
+.mp-tabs__panel {
+  display: grid;
+  gap: var(--space-3);
+  animation: motion-fade-in 500ms var(--ease-system);
+}
+
+.mp-tabs__panel[hidden] {
+  display: none;
+}
+
+.mp-segmented-tabs {
+  display: inline-flex;
+  width: fit-content;
+  padding: var(--space-1);
+  border: 1px solid var(--color-border-muted);
+  border-radius: var(--radius-md);
+  background: rgb(0 0 0 / 0.12);
+}
+
+.mp-segmented-tabs .mp-tabs__tab {
+  min-height: 32px;
+  border: 0;
+  border-radius: var(--radius-sm);
+}
+
+.mp-segmented-tabs .mp-tabs__tab[aria-selected="true"] {
+  color: var(--color-bg-base);
+  background: var(--color-accent);
+}

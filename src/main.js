@@ -2,6 +2,8 @@ import './style.css'
 import { setupAlertDemo } from './alert.js'
 import { setupGraphDrag } from './graph.js'
 import { setupMotionDemo } from './motion.js'
+import { setupSidebarDemo } from './navigation.js'
+import { setupTabs } from './tabs.js'
 
 document.querySelector('#app').innerHTML = `
 <main class="showcase">
@@ -1274,6 +1276,134 @@ document.querySelector('#app').innerHTML = `
       </article>
     </div>
   </section>
+
+  <section class="showcase-section" aria-labelledby="sidebar-title">
+    <div class="section-heading">
+      <p class="eyebrow">Component 13</p>
+      <h2 id="sidebar-title">Sidebar</h2>
+      <p>Application shell navigation with one Alice Blue selected item and restrained secondary states.</p>
+    </div>
+
+    <article class="mp-card">
+      <div class="app-shell-preview">
+        <aside class="mp-sidebar" aria-label="Primary navigation">
+          <div class="mp-sidebar__brand">
+            <span class="mp-sidebar__mark">M</span>
+            <div>
+              <strong class="mp-sidebar__title">MERAK<br>PROTOCOL</strong>
+              <div class="mp-sidebar__subtitle">Design System</div>
+            </div>
+          </div>
+
+          <div class="mp-sidebar__section">
+            <span class="mp-sidebar__label">System</span>
+            <nav class="mp-sidebar__nav">
+              <a class="mp-sidebar__item" href="#" aria-current="page" data-sidebar-title="Foundation" data-sidebar-description="System tokens and baseline surfaces are selected.">
+                <svg class="mp-symbol" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 5 6v5c0 4.6 2.8 7.8 7 10 4.2-2.2 7-5.4 7-10V6l-7-3Z"></path></svg>
+                Foundation
+              </a>
+              <a class="mp-sidebar__item" href="#" data-sidebar-title="Components" data-sidebar-description="Reusable primitives for records, traces, gates, and controls are selected.">
+                <svg class="mp-symbol" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16"></path><path d="M4 12h16"></path><path d="M4 17h16"></path></svg>
+                Components
+              </a>
+              <a class="mp-sidebar__item" href="#" data-sidebar-title="Graphs" data-sidebar-description="Relationship and permission path views are selected.">
+                <svg class="mp-symbol" viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="12" r="2.5"></circle><circle cx="18" cy="6" r="2.5"></circle><circle cx="18" cy="18" r="2.5"></circle><path d="m8.2 10.8 7.6-3.6"></path><path d="m8.2 13.2 7.6 3.6"></path></svg>
+                Graphs
+              </a>
+              <a class="mp-sidebar__item" href="#" data-sidebar-title="Relics" data-sidebar-description="Archived records and sealed knowledge surfaces are selected.">
+                <svg class="mp-symbol" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h14v11H5z"></path><path d="M7 8V5h10v3"></path><path d="M9 12h6"></path></svg>
+                Relics
+              </a>
+            </nav>
+          </div>
+
+          <div class="mp-sidebar__section">
+            <span class="mp-sidebar__label">Status</span>
+            <div class="badge-row">
+              <span class="mp-badge mp-badge--active mp-badge--sm">ACTIVE</span>
+              <span class="mp-badge mp-badge--sealed mp-badge--sm">DARK</span>
+            </div>
+          </div>
+        </aside>
+
+        <div class="app-shell-preview__main">
+          <header class="app-shell-preview__header">
+            <div>
+              <p class="mp-card__eyebrow" data-sidebar-current>Foundation</p>
+              <h3 class="mp-card__title">System Overview</h3>
+            </div>
+            <button type="button" class="mp-button mp-button--secondary mp-button--sm">Inspect</button>
+          </header>
+          <div class="app-shell-preview__content">
+            <div class="mp-alert mp-alert--success" role="status">
+              <span class="mp-alert__icon" aria-hidden="true">✓</span>
+              <div class="mp-alert__content">
+                <strong class="mp-alert__title">Trace verified.</strong>
+                <p class="mp-alert__message" data-sidebar-preview-description>System tokens and baseline surfaces are selected.</p>
+              </div>
+            </div>
+            <div class="example-grid">
+              <article class="mp-card mp-card--trace">
+                <p class="mp-card__eyebrow">Trace</p>
+                <h3 class="mp-card__title">TRC-0428</h3>
+                <p class="mp-card__body">Navigation item opens detail without leaving context.</p>
+              </article>
+              <article class="mp-card mp-card--gate">
+                <p class="mp-card__eyebrow">Gate</p>
+                <h3 class="mp-card__title">Access granted.</h3>
+                <p class="mp-card__body">Sidebar keeps global system sections stable.</p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <section class="showcase-section" aria-labelledby="tabs-title">
+    <div class="section-heading">
+      <p class="eyebrow">Component 14</p>
+      <h2 id="tabs-title">Tabs</h2>
+      <p>Tabbed detail views for overview, trace, decision, and action surfaces.</p>
+    </div>
+
+    <div class="example-grid example-grid--wide">
+      <article class="mp-card">
+        <div class="mp-tabs">
+          <div class="mp-tabs__list" role="tablist" aria-label="Record detail tabs">
+            <button class="mp-tabs__tab" type="button" role="tab" aria-selected="true" data-tab-title="archive:alpha" data-tab-eyebrow="Overview" data-tab-body="Selected object has a verified path and three linked records.">Overview</button>
+            <button class="mp-tabs__tab" type="button" role="tab" aria-selected="false" data-tab-title="TRC-0428" data-tab-eyebrow="Trace" data-tab-body="Observe input, retrieve sources, verify path, and archive result are linked.">Trace</button>
+            <button class="mp-tabs__tab" type="button" role="tab" aria-selected="false" data-tab-title="Access granted." data-tab-eyebrow="Decision" data-tab-body="Permission is inherited through group:editors with low risk.">Decision</button>
+            <button class="mp-tabs__tab" type="button" role="tab" aria-selected="false" data-tab-title="Open record" data-tab-eyebrow="Action" data-tab-body="Available actions are inspect trace, copy record ID, and export evidence.">Action</button>
+          </div>
+          <div class="mp-tabs__panel" role="tabpanel">
+            <p class="mp-card__eyebrow" data-tab-panel-eyebrow>Overview</p>
+            <h3 class="mp-card__title" data-tab-panel-title>archive:alpha</h3>
+            <p class="mp-card__body" data-tab-panel-body>Selected object has a verified path and three linked records.</p>
+            <div class="badge-row">
+              <span class="mp-badge mp-badge--verified">VERIFIED</span>
+              <span class="mp-badge mp-badge--type">RESOURCE</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="mp-card">
+        <div class="mp-tabs">
+          <div class="mp-segmented-tabs" role="tablist" aria-label="Mode tabs">
+            <button class="mp-tabs__tab" type="button" role="tab" aria-selected="true" data-tab-title="Mode selection" data-tab-eyebrow="Oracle" data-tab-body="Oracle mode summarizes the current judgment and confidence.">Oracle</button>
+            <button class="mp-tabs__tab" type="button" role="tab" aria-selected="false" data-tab-title="Trace inspection" data-tab-eyebrow="Trace" data-tab-body="Trace mode focuses on evidence order and linked records.">Trace</button>
+            <button class="mp-tabs__tab" type="button" role="tab" aria-selected="false" data-tab-title="System monitor" data-tab-eyebrow="Monitor" data-tab-body="Monitor mode shows state, risk, and recent execution health.">Monitor</button>
+          </div>
+          <div class="mp-tabs__panel" role="tabpanel">
+            <p class="mp-card__eyebrow" data-tab-panel-eyebrow>Oracle</p>
+            <h3 class="mp-card__title" data-tab-panel-title>Mode selection</h3>
+            <p class="mp-card__body" data-tab-panel-body>Oracle mode summarizes the current judgment and confidence.</p>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
 </main>
 `
 
@@ -1288,3 +1418,6 @@ setupMotionDemo({
   trigger: document.querySelector('#motion-demo-trigger'),
   targets: document.querySelectorAll('[data-motion-replay]'),
 })
+
+setupSidebarDemo(document.querySelector('.app-shell-preview'))
+setupTabs(document.querySelectorAll('.mp-tabs'))
