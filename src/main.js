@@ -1,6 +1,7 @@
 import './style.css'
 import { setupAlertDemo } from './alert.js'
 import { setupGraphDrag } from './graph.js'
+import { setupMotionDemo } from './motion.js'
 
 document.querySelector('#app').innerHTML = `
 <main class="showcase">
@@ -1224,10 +1225,15 @@ document.querySelector('#app').innerHTML = `
       <p class="eyebrow">System 12</p>
       <h2 id="motion-title">Motion</h2>
       <p>Small transitions for hover, focus, panel entry, path emphasis, and alert lifecycle.</p>
+      <div class="button-row">
+        <button id="motion-demo-trigger" type="button" class="mp-button mp-button--secondary mp-button--sm">
+          Replay Motion
+        </button>
+      </div>
     </div>
 
     <div class="example-grid">
-      <article class="mp-card motion-enter">
+      <article class="mp-card motion-enter motion-demo-slow" data-motion-replay="motion-enter">
         <div class="mp-card__header">
           <span class="mp-icon" aria-hidden="true">↥</span>
           <div>
@@ -1239,7 +1245,7 @@ document.querySelector('#app').innerHTML = `
         <code>.motion-enter</code>
       </article>
 
-      <article class="mp-card motion-panel-slide">
+      <article class="mp-card motion-panel-slide motion-demo-slow" data-motion-replay="motion-panel-slide">
         <div class="mp-card__header">
           <span class="mp-icon" aria-hidden="true">▣</span>
           <div>
@@ -1251,7 +1257,7 @@ document.querySelector('#app').innerHTML = `
         <code>.motion-panel-slide</code>
       </article>
 
-      <article class="mp-card">
+      <article class="mp-card motion-demo-slow" data-motion-replay="motion-fade-in">
         <div class="mp-card__header">
           <span class="mp-icon" aria-hidden="true">⌁</span>
           <div>
@@ -1259,7 +1265,7 @@ document.querySelector('#app').innerHTML = `
             <h3 class="mp-card__title">Graph emphasis</h3>
           </div>
         </div>
-        <svg class="mp-graph" viewBox="0 0 240 80" role="img" aria-label="Pulsing path motion example">
+        <svg class="motion-preview-graph" viewBox="0 0 240 80" role="img" aria-label="Pulsing path motion example">
           <path class="mp-graph__edge mp-graph__edge--selected motion-path-pulse" d="M28 42 C84 12 156 68 212 36"></path>
           <circle cx="28" cy="42" r="8" fill="var(--color-bg-surface)" stroke="var(--color-accent-line)" stroke-width="1.5"></circle>
           <circle cx="212" cy="36" r="8" fill="var(--color-bg-surface)" stroke="var(--color-accent-line)" stroke-width="1.5"></circle>
@@ -1277,3 +1283,8 @@ setupAlertDemo({
 })
 
 setupGraphDrag(document.querySelector('.mp-graph'))
+
+setupMotionDemo({
+  trigger: document.querySelector('#motion-demo-trigger'),
+  targets: document.querySelectorAll('[data-motion-replay]'),
+})

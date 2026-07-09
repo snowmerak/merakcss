@@ -1,17 +1,35 @@
 .motion-enter {
-  animation: motion-enter 180ms var(--ease-system);
+  animation: motion-enter 900ms var(--ease-system);
 }
 
 .motion-fade-in {
-  animation: motion-fade-in 180ms var(--ease-system);
+  animation: motion-fade-in 900ms var(--ease-system);
 }
 
 .motion-panel-slide {
-  animation: motion-panel-slide 240ms var(--ease-system);
+  animation: motion-panel-slide 1100ms var(--ease-system);
 }
 
 .motion-path-pulse {
-  animation: motion-path-pulse 1200ms var(--ease-system) infinite;
+  animation: motion-path-pulse 1800ms var(--ease-system) infinite;
+}
+
+.motion-preview-graph {
+  width: 100%;
+  height: 96px;
+  color: var(--color-accent-line);
+}
+
+.motion-demo-slow.motion-enter {
+  animation-duration: 900ms;
+}
+
+.motion-demo-slow.motion-fade-in {
+  animation-duration: 900ms;
+}
+
+.motion-demo-slow.motion-panel-slide {
+  animation-duration: 1100ms;
 }
 
 @keyframes motion-enter {
