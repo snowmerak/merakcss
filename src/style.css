@@ -7,6 +7,7 @@
 @import "./styles/components/card.css";
 @import "./styles/components/badge.css";
 @import "./styles/components/input.css";
+@import "./styles/components/command.css";
 @import "./styles/components/alert.css";
 @import "./styles/components/table.css";
 @import "./styles/components/graph.css";
@@ -15,4 +16,6 @@
 @import "./styles/components/icon.css";
 @import "./styles/components/sidebar.css";
 @import "./styles/components/tabs.css";
+@import "./styles/components/gate-card.css";
+@import "./styles/components/agent-panel.css";
 @import "./styles/components/link-list.css";

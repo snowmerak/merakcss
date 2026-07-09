@@ -39,8 +39,7 @@
 
 .mp-input,
 .mp-textarea,
-.mp-select,
-.mp-command {
+.mp-select {
   width: 100%;
   border: 1px solid var(--color-border-muted);
   border-radius: var(--radius-sm);
@@ -53,8 +52,7 @@
 }
 
 .mp-input,
-.mp-select,
-.mp-command {
+.mp-select {
   min-height: 40px;
   padding: 0 var(--space-3);
 }
@@ -66,23 +64,20 @@
 }
 
 .mp-input::placeholder,
-.mp-textarea::placeholder,
-.mp-command::placeholder {
+.mp-textarea::placeholder {
   color: var(--color-text-muted);
 }
 
 .mp-input:hover,
 .mp-textarea:hover,
-.mp-select:hover,
-.mp-command:hover {
+.mp-select:hover {
   border-color: var(--color-border-default);
   background: rgb(0 0 0 / 0.16);
 }
 
 .mp-input:focus,
 .mp-textarea:focus,
-.mp-select:focus,
-.mp-command:focus {
+.mp-select:focus {
   border-color: var(--color-accent-line);
   background: rgb(0 0 0 / 0.2);
   box-shadow: 0 0 0 3px rgb(175 205 235 / 0.12);
@@ -91,8 +86,7 @@
 
 .mp-input:disabled,
 .mp-textarea:disabled,
-.mp-select:disabled,
-.mp-command:disabled {
+.mp-select:disabled {
   cursor: not-allowed;
   color: var(--color-text-muted);
   background: rgb(154 164 175 / 0.06);
@@ -292,33 +286,6 @@
 .mp-toggle input:focus-visible + .mp-toggle__track {
   outline: 2px solid var(--color-accent-line);
   outline-offset: 2px;
-}
-
-.mp-command-shell {
-  display: flex;
-  align-items: center;
-  border: 1px solid var(--color-border-muted);
-  border-radius: var(--radius-sm);
-  background: rgb(0 0 0 / 0.16);
-}
-
-.mp-command-shell:focus-within {
-  border-color: var(--color-accent-line);
-  box-shadow: 0 0 0 3px rgb(175 205 235 / 0.12);
-}
-
-.mp-command-prefix {
-  padding-left: var(--space-3);
-  color: var(--color-accent-line);
-  font-family: var(--font-mono);
-  font-weight: 700;
-}
-
-.mp-command-shell .mp-command {
-  border: 0;
-  background: transparent;
-  box-shadow: none;
-  font-family: var(--font-mono);
 }
 
 @media (max-width: 860px) {

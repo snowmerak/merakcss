@@ -4,6 +4,7 @@ import { setupGraphDrag } from './graph.js'
 import { setupMotionDemo } from './motion.js'
 import { setupSidebarDemo } from './navigation.js'
 import { setupTabs } from './tabs.js'
+import { setupCommandInput } from './command.js'
 
 document.querySelector('#app').innerHTML = `
 <main class="showcase">
@@ -429,23 +430,6 @@ document.querySelector('#app').innerHTML = `
         </div>
       </article>
 
-      <article class="mp-card mp-card--trace">
-        <div class="mp-card__header">
-          <span class="mp-icon" aria-hidden="true">&gt;</span>
-          <div>
-            <p class="mp-card__eyebrow">Command</p>
-            <h3 class="mp-card__title">Agent Input</h3>
-          </div>
-        </div>
-        <label class="field-group">
-          <span class="mp-label">Command</span>
-          <span class="mp-command-shell">
-            <span class="mp-command-prefix">&gt;</span>
-            <input class="mp-command" type="text" value="analyze auth graph for user:alice">
-          </span>
-          <span class="mp-help">Designed for agent actions, search, and command palettes.</span>
-        </label>
-      </article>
     </div>
   </section>
 
@@ -1404,6 +1388,201 @@ document.querySelector('#app').innerHTML = `
       </article>
     </div>
   </section>
+
+  <section class="showcase-section" aria-labelledby="command-title">
+    <div class="section-heading">
+      <p class="eyebrow">Component 15</p>
+      <h2 id="command-title">Command Input</h2>
+      <p>Keyboard-first command entry for agent actions, search, validation hints, and recent commands.</p>
+    </div>
+
+    <div class="example-grid example-grid--wide">
+      <article class="mp-card mp-card--trace">
+        <div class="mp-card__header">
+          <span class="mp-icon" aria-hidden="true">&gt;</span>
+          <div>
+            <p class="mp-card__eyebrow">Interactive</p>
+            <h3 class="mp-card__title">Agent Command</h3>
+          </div>
+        </div>
+        <div class="mp-command-shell" data-command-demo>
+          <label class="field-group">
+            <span class="mp-label">Command</span>
+            <span class="mp-command-line">
+              <span class="mp-command-prefix">&gt;</span>
+              <input class="mp-command" type="text" value="analyze auth graph for user:alice" autocomplete="off">
+            </span>
+          </label>
+          <div class="mp-command-panel">
+            <span class="mp-command-panel__label">Suggestions</span>
+            <div class="mp-command-suggestions">
+              <button type="button" class="mp-command-suggestion is-active" data-command-value="analyze auth graph for user:alice">
+                analyze auth graph for user:alice
+                <span class="mp-command-suggestion__meta">graph</span>
+              </button>
+              <button type="button" class="mp-command-suggestion" data-command-value="verify trace TRC-0428">
+                verify trace TRC-0428
+                <span class="mp-command-suggestion__meta">trace</span>
+              </button>
+              <button type="button" class="mp-command-suggestion" data-command-value="archive decision as sealed">
+                archive decision as sealed
+                <span class="mp-command-suggestion__meta">archive</span>
+              </button>
+            </div>
+            <p class="mp-command-hint">Press Enter to run. Suggestions can seed the command.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="mp-card">
+        <div class="mp-card__header">
+          <span class="mp-icon" aria-hidden="true">⌁</span>
+          <div>
+            <p class="mp-card__eyebrow">Observation</p>
+            <h3 class="mp-card__title">Command Result</h3>
+          </div>
+        </div>
+        <div class="mp-command-result" aria-live="polite">
+          <span class="mp-command-result__label">Last Command</span>
+          <span class="mp-command-result__value" data-command-result>analyze auth graph for user:alice</span>
+        </div>
+        <div class="badge-row">
+          <span class="mp-badge mp-badge--verified mp-badge--sm">READY</span>
+          <span class="mp-badge mp-badge--type mp-badge--sm">AGENT</span>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="showcase-section" aria-labelledby="gate-card-title">
+    <div class="section-heading">
+      <p class="eyebrow">Component 16</p>
+      <h2 id="gate-card-title">Permission Gate Card</h2>
+      <p>Subject, permission, object, decision, path, and reason in one inspectable card.</p>
+    </div>
+
+    <div class="example-grid example-grid--wide">
+      <article class="gate-card">
+        <div class="mp-card__header">
+          <span class="mp-icon" aria-hidden="true">□</span>
+          <div>
+            <p class="mp-card__eyebrow">Gate Card</p>
+            <h3 class="mp-card__title">Access granted.</h3>
+          </div>
+          <span class="mp-badge mp-badge--verified">GRANTED</span>
+        </div>
+        <div class="gate-card__equation">
+          <div class="gate-card__node">
+            <span class="gate-card__label">Subject</span>
+            <span class="gate-card__value">user:alice</span>
+          </div>
+          <span class="gate-card__arrow">→</span>
+          <div class="gate-card__node">
+            <span class="gate-card__label">Permission</span>
+            <span class="gate-card__value">read</span>
+          </div>
+          <span class="gate-card__arrow">→</span>
+          <div class="gate-card__node">
+            <span class="gate-card__label">Object</span>
+            <span class="gate-card__value">archive:alpha</span>
+          </div>
+        </div>
+        <div class="gate-card__details">
+          <div class="gate-card__detail">
+            <span class="gate-card__label">Path</span>
+            <span class="gate-card__value">user:alice → group:editors → archive:alpha</span>
+          </div>
+          <div class="gate-card__detail">
+            <span class="gate-card__label">Reason</span>
+            <span class="gate-card__value">Inherited project membership.</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="gate-card gate-card--denied">
+        <div class="mp-card__header">
+          <span class="mp-icon" aria-hidden="true">!</span>
+          <div>
+            <p class="mp-card__eyebrow">Denied State</p>
+            <h3 class="mp-card__title">Access denied by policy.</h3>
+          </div>
+          <span class="mp-badge mp-badge--error">DENIED</span>
+        </div>
+        <p class="mp-card__body">No path exists between subject and object for destructive permission.</p>
+        <div class="gate-card__details">
+          <div class="gate-card__detail">
+            <span class="gate-card__label">Permission</span>
+            <span class="gate-card__value">delete</span>
+          </div>
+          <div class="gate-card__detail">
+            <span class="gate-card__label">Risk</span>
+            <span class="gate-card__value">high / manual review required</span>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="showcase-section" aria-labelledby="agent-panel-title">
+    <div class="section-heading">
+      <p class="eyebrow">Component 17</p>
+      <h2 id="agent-panel-title">Agent Execution Panel</h2>
+      <p>Intent, plan, tool call, observation, decision, and result as a traceable agent run.</p>
+    </div>
+
+    <article class="agent-panel">
+      <div class="agent-panel__summary">
+        <div>
+          <p class="mp-card__eyebrow">Run RUN-190</p>
+          <h3 class="mp-card__title">Analyze authorization graph</h3>
+        </div>
+        <div class="badge-row">
+          <span class="mp-badge mp-badge--active">ACTIVE</span>
+          <span class="mp-badge mp-badge--type">AGENT</span>
+        </div>
+      </div>
+
+      <div class="agent-flow">
+        <div class="agent-flow__step">
+          <span class="agent-flow__index">01</span>
+          <div>
+            <strong class="agent-flow__title">Intent</strong>
+            <div class="agent-flow__meta">analyze auth graph for user:alice</div>
+          </div>
+          <span class="mp-badge mp-badge--verified mp-badge--sm">OK</span>
+        </div>
+        <div class="agent-flow__step">
+          <span class="agent-flow__index">02</span>
+          <div>
+            <strong class="agent-flow__title">Plan</strong>
+            <div class="agent-flow__meta">retrieve policies → verify path → archive result</div>
+          </div>
+          <span class="mp-badge mp-badge--verified mp-badge--sm">OK</span>
+        </div>
+        <div class="agent-flow__step agent-flow__step--active">
+          <span class="agent-flow__index">03</span>
+          <div>
+            <strong class="agent-flow__title">Tool Call</strong>
+            <div class="agent-flow__meta">graph.lookup(subject=user:alice)</div>
+          </div>
+          <span class="mp-badge mp-badge--partial mp-badge--sm">RUNNING</span>
+        </div>
+        <div class="agent-flow__step">
+          <span class="agent-flow__index">04</span>
+          <div>
+            <strong class="agent-flow__title">Decision</strong>
+            <div class="agent-flow__meta">access granted / confidence high</div>
+          </div>
+          <span class="mp-badge mp-badge--pending mp-badge--sm">NEXT</span>
+        </div>
+      </div>
+
+      <div class="agent-panel__observation">
+        <span class="mp-card__eyebrow">Observation</span>
+        <code class="agent-panel__log">group:editors grants read on archive:alpha through policy:read-path</code>
+      </div>
+    </article>
+  </section>
 </main>
 `
 
@@ -1421,3 +1600,4 @@ setupMotionDemo({
 
 setupSidebarDemo(document.querySelector('.app-shell-preview'))
 setupTabs(document.querySelectorAll('.mp-tabs'))
+setupCommandInput(document.querySelector('[data-command-demo]'))
