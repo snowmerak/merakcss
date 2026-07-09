@@ -1,0 +1,188 @@
+.graph-shell {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 280px;
+  min-height: 420px;
+  overflow: hidden;
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-md);
+  background:
+    radial-gradient(circle at 50% 45%, rgb(175 205 235 / 0.08), transparent 18rem),
+    rgb(0 0 0 / 0.12);
+}
+
+.graph-canvas {
+  position: relative;
+  min-height: 420px;
+  overflow: hidden;
+  background-image:
+    linear-gradient(rgb(240 248 255 / 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(240 248 255 / 0.025) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+.mp-graph {
+  width: 100%;
+  height: 100%;
+  min-height: 420px;
+}
+
+.mp-graph__edge {
+  stroke: rgb(175 205 235 / 0.34);
+  stroke-width: 1.35;
+  fill: none;
+}
+
+.mp-graph__edge--muted {
+  stroke: rgb(154 164 175 / 0.24);
+}
+
+.mp-graph__edge--selected {
+  stroke: var(--color-accent-line);
+  stroke-width: 2;
+  filter: drop-shadow(0 0 8px rgb(175 205 235 / 0.22));
+}
+
+.mp-graph__edge--risk {
+  stroke: rgb(214 107 97 / 0.75);
+  stroke-dasharray: 4 4;
+}
+
+.mp-graph__node {
+  cursor: grab;
+  touch-action: none;
+}
+
+.mp-graph__node circle,
+.mp-graph__node rect {
+  stroke: var(--color-border-default);
+  stroke-width: 1.5;
+  fill: var(--color-bg-surface);
+  transition:
+    fill 160ms var(--ease-system),
+    stroke 160ms var(--ease-system),
+    filter 160ms var(--ease-system),
+    transform 160ms var(--ease-system);
+}
+
+.mp-graph__node text {
+  fill: var(--color-text-secondary);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  pointer-events: none;
+  text-anchor: middle;
+}
+
+.mp-graph__node:hover circle,
+.mp-graph__node:hover rect {
+  stroke: var(--color-accent-line);
+  fill: var(--color-bg-elevated);
+  filter: drop-shadow(0 0 10px rgb(175 205 235 / 0.18));
+}
+
+.mp-graph__node.is-dragging {
+  cursor: grabbing;
+}
+
+.mp-graph__node.is-dragging circle,
+.mp-graph__node.is-dragging rect {
+  stroke: var(--color-accent);
+  filter: drop-shadow(0 0 18px rgb(175 205 235 / 0.32));
+}
+
+.mp-graph__node--selected circle,
+.mp-graph__node--selected rect {
+  stroke: var(--color-accent);
+  fill: rgb(175 205 235 / 0.18);
+  filter: drop-shadow(0 0 14px rgb(175 205 235 / 0.28));
+}
+
+.mp-graph__node--selected text {
+  fill: var(--color-accent);
+}
+
+.mp-graph__node--verified circle,
+.mp-graph__node--verified rect {
+  stroke: var(--color-success);
+  fill: rgb(111 191 138 / 0.12);
+}
+
+.mp-graph__node--risk circle,
+.mp-graph__node--risk rect {
+  stroke: var(--color-danger);
+  fill: rgb(214 107 97 / 0.12);
+}
+
+.graph-inspector {
+  display: grid;
+  align-content: start;
+  gap: var(--space-4);
+  padding: var(--space-5);
+  border-left: 1px solid var(--color-border-muted);
+  background: rgb(0 0 0 / 0.12);
+}
+
+.graph-inspector__section {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.graph-inspector__label {
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.graph-inspector__value {
+  color: var(--color-text-primary);
+  font-size: 0.92rem;
+}
+
+.graph-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.graph-legend__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+}
+
+.graph-legend__swatch {
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-full);
+  background: var(--color-neutral);
+}
+
+.graph-legend__swatch--selected {
+  background: var(--color-accent-line);
+}
+
+.graph-legend__swatch--verified {
+  background: var(--color-success);
+}
+
+.graph-legend__swatch--risk {
+  background: var(--color-danger);
+}
+
+@media (max-width: 860px) {
+  .graph-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .graph-inspector {
+    border-top: 1px solid var(--color-border-muted);
+    border-left: 0;
+  }
+}

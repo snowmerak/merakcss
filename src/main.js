@@ -1,5 +1,6 @@
 import './style.css'
 import { setupAlertDemo } from './alert.js'
+import { setupGraphDrag } from './graph.js'
 
 document.querySelector('#app').innerHTML = `
 <main class="showcase">
@@ -746,6 +747,109 @@ document.querySelector('#app').innerHTML = `
       </article>
     </div>
   </section>
+
+  <section class="showcase-section" aria-labelledby="graph-title">
+    <div class="section-heading">
+      <p class="eyebrow">Component 08</p>
+      <h2 id="graph-title">Graph View</h2>
+      <p>Permission paths, knowledge links, agent workflow states, and selected node inspection.</p>
+    </div>
+
+    <article class="mp-card">
+      <div class="mp-card__header">
+        <span class="mp-icon" aria-hidden="true">◎</span>
+        <div>
+          <p class="mp-card__eyebrow">Permission Graph</p>
+          <h3 class="mp-card__title">Subject → Permission → Object → Decision</h3>
+        </div>
+      </div>
+      <div class="graph-shell">
+        <div class="graph-canvas">
+          <svg class="mp-graph" viewBox="0 0 760 420" role="img" aria-labelledby="permission-graph-title permission-graph-desc">
+            <title id="permission-graph-title">Permission graph example</title>
+            <desc id="permission-graph-desc">A user node connects through group and policy nodes to a selected archive object. A risky external policy path is shown in red.</desc>
+            <defs>
+              <marker id="graph-arrow" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+                <path d="M 0 0 L 10 5 L 0 10 z" fill="rgb(175 205 235 / 0.55)"></path>
+              </marker>
+              <marker id="graph-arrow-risk" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+                <path d="M 0 0 L 10 5 L 0 10 z" fill="rgb(214 107 97 / 0.8)"></path>
+              </marker>
+            </defs>
+
+            <path class="mp-graph__edge mp-graph__edge--selected" data-from="user" data-to="group" marker-end="url(#graph-arrow)"></path>
+            <path class="mp-graph__edge mp-graph__edge--selected" data-from="group" data-to="archive" marker-end="url(#graph-arrow)"></path>
+            <path class="mp-graph__edge" data-from="user" data-to="policy" marker-end="url(#graph-arrow)"></path>
+            <path class="mp-graph__edge mp-graph__edge--muted" data-from="policy" data-to="trace" marker-end="url(#graph-arrow)"></path>
+            <path class="mp-graph__edge mp-graph__edge--risk" data-from="group" data-to="external" data-curve="arc-up" marker-end="url(#graph-arrow-risk)"></path>
+            <path class="mp-graph__edge mp-graph__edge--muted" data-from="trace" data-to="archive" marker-end="url(#graph-arrow)"></path>
+
+            <g class="mp-graph__node mp-graph__node--verified" data-node-id="user" transform="translate(92 216)" tabindex="0">
+              <circle r="54"></circle>
+              <text y="-4">USER</text>
+              <text y="12">alice</text>
+            </g>
+            <g class="mp-graph__node mp-graph__node--verified" data-node-id="group" transform="translate(362 148)" tabindex="0">
+              <rect x="-48" y="-30" width="96" height="60" rx="8"></rect>
+              <text y="-4">GROUP</text>
+              <text y="12">editors</text>
+            </g>
+            <g class="mp-graph__node mp-graph__node--selected" data-node-id="archive" transform="translate(614 216)" tabindex="0">
+              <circle r="58"></circle>
+              <text y="-4">ARCHIVE</text>
+              <text y="12">alpha</text>
+            </g>
+            <g class="mp-graph__node" data-node-id="policy" transform="translate(376 286)" tabindex="0">
+              <rect x="-54" y="-30" width="108" height="60" rx="8"></rect>
+              <text y="-4">POLICY</text>
+              <text y="12">read-path</text>
+            </g>
+            <g class="mp-graph__node mp-graph__node--risk" data-node-id="external" transform="translate(514 92)" tabindex="0">
+              <rect x="-54" y="-28" width="108" height="56" rx="8"></rect>
+              <text y="-4">POLICY</text>
+              <text y="12">external</text>
+            </g>
+            <g class="mp-graph__node" data-node-id="trace" transform="translate(614 340)" tabindex="0">
+              <circle r="38"></circle>
+              <text y="-4">TRACE</text>
+              <text y="12">0428</text>
+            </g>
+          </svg>
+        </div>
+
+        <aside class="graph-inspector" aria-label="Selected graph node">
+          <div class="graph-inspector__section">
+            <span class="graph-inspector__label">Selected Node</span>
+            <strong class="graph-inspector__value">archive:alpha</strong>
+            <div class="badge-row">
+              <span class="mp-badge mp-badge--verified mp-badge--sm">VERIFIED</span>
+              <span class="mp-badge mp-badge--type mp-badge--sm">RESOURCE</span>
+            </div>
+          </div>
+          <div class="graph-inspector__section">
+            <span class="graph-inspector__label">Decision</span>
+            <span class="graph-inspector__value">Access granted.</span>
+          </div>
+          <div class="graph-inspector__section">
+            <span class="graph-inspector__label">Path</span>
+            <span class="mp-table__mono">user:alice → group:editors → archive:alpha</span>
+          </div>
+          <div class="graph-inspector__section">
+            <span class="graph-inspector__label">Legend</span>
+            <div class="graph-legend">
+              <span class="graph-legend__item"><span class="graph-legend__swatch graph-legend__swatch--selected"></span>selected</span>
+              <span class="graph-legend__item"><span class="graph-legend__swatch graph-legend__swatch--verified"></span>verified</span>
+              <span class="graph-legend__item"><span class="graph-legend__swatch graph-legend__swatch--risk"></span>risk</span>
+            </div>
+          </div>
+          <div class="button-row">
+            <button type="button" class="mp-button mp-button--secondary mp-button--sm">Show Verified Path</button>
+            <button type="button" class="mp-button mp-button--ghost mp-button--sm">Inspect Trace</button>
+          </div>
+        </aside>
+      </div>
+    </article>
+  </section>
 </main>
 `
 
@@ -753,3 +857,5 @@ setupAlertDemo({
   trigger: document.querySelector('#alert-demo-trigger'),
   placement: () => document.querySelector('#alert-demo-placement')?.value,
 })
+
+setupGraphDrag(document.querySelector('.mp-graph'))
