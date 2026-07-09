@@ -5,6 +5,8 @@ import { setupMotionDemo } from './motion.js'
 import { setupSidebarDemo } from './navigation.js'
 import { setupTabs } from './tabs.js'
 import { setupCommandInput } from './command.js'
+import './elements/merak-interactive-elements.js'
+import './elements/merak-data-components.js'
 
 document.querySelector('#app').innerHTML = `
 <main class="showcase">
@@ -1405,7 +1407,7 @@ document.querySelector('#app').innerHTML = `
             <h3 class="mp-card__title">Agent Command</h3>
           </div>
         </div>
-        <div class="mp-command-shell" data-command-demo>
+        <merak-command class="mp-command-shell" data-command-demo>
           <label class="field-group">
             <span class="mp-label">Command</span>
             <span class="mp-command-line">
@@ -1431,7 +1433,7 @@ document.querySelector('#app').innerHTML = `
             </div>
             <p class="mp-command-hint">Press Enter to run. Suggestions can seed the command.</p>
           </div>
-        </div>
+        </merak-command>
       </article>
 
       <article class="mp-card">
@@ -1634,10 +1636,30 @@ document.querySelector('#app').innerHTML = `
 
 setupAlertDemo({
   trigger: document.querySelector('#alert-demo-trigger'),
+  region: (() => {
+    const region = document.createElement('merak-toast-region')
+    region.setAttribute('placement', 'bottom-right')
+    document.body.append(region)
+    return region
+  })(),
   placement: () => document.querySelector('#alert-demo-placement')?.value,
 })
 
-setupGraphDrag(document.querySelector('.mp-graph'))
+function upgradeToCustomElement(selector, tagName) {
+  document.querySelectorAll(selector).forEach((element) => {
+    if (element.parentElement?.localName === tagName) return
+    const host = document.createElement(tagName)
+    element.replaceWith(host)
+    host.append(element)
+  })
+}
+
+upgradeToCustomElement('.graph-shell', 'merak-graph')
+upgradeToCustomElement('.inspector-demo', 'merak-inspector')
+upgradeToCustomElement('.mp-sidebar', 'merak-sidebar')
+upgradeToCustomElement('.gate-card', 'merak-gate-card')
+upgradeToCustomElement('.agent-panel', 'merak-agent-panel')
+upgradeToCustomElement('.mp-timeline', 'merak-timeline')
 
 setupMotionDemo({
   trigger: document.querySelector('#motion-demo-trigger'),
@@ -1646,4 +1668,3 @@ setupMotionDemo({
 
 setupSidebarDemo(document.querySelector('.app-shell-preview'))
 setupTabs(document.querySelectorAll('.mp-tabs'))
-setupCommandInput(document.querySelector('[data-command-demo]'))

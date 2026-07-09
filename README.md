@@ -20,6 +20,8 @@ import "merak-protocol-design-system/style.css"
 
 The package includes CSS variables, base styles, motion utilities, and component styles under `src/styles`.
 
+Optional browser-native behavior components are documented in [docs/custom-elements.md](docs/custom-elements.md).
+
 ## Codex Skill
 
 The agent skill is included at:

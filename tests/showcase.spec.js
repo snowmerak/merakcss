@@ -51,6 +51,36 @@ test('updates tabs, command results, and sidebar selection', async ({ page }) =>
   await expect(page.locator('[data-sidebar-current]')).toHaveText('Graphs')
 })
 
+test('supports a custom-element property and callback API', async ({ page }) => {
+  await page.evaluate(async () => {
+    await import('/src/elements/merak-tabs.js')
+
+    const tabs = document.createElement('merak-tabs')
+    tabs.setAttribute('label', 'Element API demo')
+    tabs.items = [
+      { value: 'overview', label: 'Overview' },
+      { value: 'trace', label: 'Trace' },
+      { value: 'decision', label: 'Decision', disabled: true },
+    ]
+    tabs.renderPanel = (item) => `Selected: ${item.label}`
+    tabs.onChange = (detail) => {
+      window.merakTabCallback = detail.value
+    }
+    tabs.addEventListener('merak-change', (event) => {
+      window.merakTabEvent = event.detail.value
+    })
+    document.body.append(tabs)
+  })
+
+  const tabs = page.locator('merak-tabs')
+  await expect(tabs.getByRole('tab', { name: 'Overview' })).toHaveAttribute('aria-selected', 'true')
+  await tabs.getByRole('tab', { name: 'Overview' }).press('ArrowRight')
+  await expect(tabs.getByRole('tab', { name: 'Trace' })).toHaveAttribute('aria-selected', 'true')
+  await expect(tabs.getByRole('tabpanel')).toHaveText('Selected: Trace')
+  expect(await page.evaluate(() => window.merakTabEvent)).toBe('trace')
+  expect(await page.evaluate(() => window.merakTabCallback)).toBe('trace')
+})
+
 test('has no automatically detectable WCAG A/AA violations', async ({ page }) => {
   await page.addStyleTag({
     content: `

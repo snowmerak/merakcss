@@ -24,15 +24,20 @@
     ".": "./src/style.css",
     "./style.css": "./src/style.css",
     "./styles/*": "./src/styles/*",
+    "./elements/merak-tabs": "./src/elements/merak-tabs.js",
+    "./elements/data-components": "./src/elements/merak-data-components.js",
+    "./elements/interactive-components": "./src/elements/merak-interactive-elements.js",
     "./skill": "./skills/merak-protocol-design-system/SKILL.md",
     "./skill.md": "./skills/merak-protocol-design-system/SKILL.md"
   },
   "files": [
     "src/*.js",
+    "src/elements",
     "src/style.css",
     "src/styles",
     "skills/merak-protocol-design-system",
     "docs/concept.md",
+    "docs/custom-elements.md",
     "public/favicon.svg",
     "public/icons.svg",
     "index.html"

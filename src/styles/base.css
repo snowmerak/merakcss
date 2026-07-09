@@ -78,6 +78,18 @@ svg {
   max-width: 100%;
 }
 
+merak-tabs,
+merak-command,
+merak-graph,
+merak-inspector,
+merak-sidebar,
+merak-gate-card,
+merak-agent-panel,
+merak-timeline,
+merak-toast-region {
+  display: block;
+}
+
 h1,
 h2,
 h3,
