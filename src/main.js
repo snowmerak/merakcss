@@ -1583,6 +1583,52 @@ document.querySelector('#app').innerHTML = `
       </div>
     </article>
   </section>
+
+  <section class="showcase-section" aria-labelledby="divider-title">
+    <div class="section-heading">
+      <p class="eyebrow">Component 18</p>
+      <h2 id="divider-title">Divider</h2>
+      <p>Horizontal and vertical divider lines, with or without textual labels and accent options.</p>
+    </div>
+
+    <div class="example-grid example-grid--wide">
+      <article class="mp-card">
+        <div class="mp-card__header">
+          <div>
+            <p class="mp-card__eyebrow">Horizontal</p>
+            <h3 class="mp-card__title">Divider Lines</h3>
+          </div>
+        </div>
+        <div class="mp-card__body" style="display: flex; flex-direction: column; gap: var(--space-4);">
+          <p>Text block above the default empty divider line.</p>
+          <hr class="mp-divider" />
+          <p>Text block below empty divider line. Below is a divider with text label.</p>
+          <div class="mp-divider">Trace Records</div>
+          <p>Text block below horizontal text divider.</p>
+          <div class="mp-divider mp-divider--accent">Critical Signal</div>
+          <p>Text block below accent-colored divider line.</p>
+        </div>
+      </article>
+
+      <article class="mp-card">
+        <div class="mp-card__header">
+          <div>
+            <p class="mp-card__eyebrow">Vertical</p>
+            <h3 class="mp-card__title">In-line Split</h3>
+          </div>
+        </div>
+        <div class="mp-card__body">
+          <div style="display: flex; align-items: center; justify-content: center; height: 100px;">
+            <span>Subject</span>
+            <hr class="mp-divider--vertical" />
+            <span>Object</span>
+            <hr class="mp-divider--vertical" />
+            <span class="mp-badge mp-badge--verified">VERIFIED</span>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
 </main>
 `
 
