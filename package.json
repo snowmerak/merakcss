@@ -1,8 +1,40 @@
 {
   "name": "merak-protocol-design-system",
   "version": "0.0.0",
-  "private": true,
+  "description": "Merak Protocol design system CSS, component examples, and Codex agent skill.",
+  "private": false,
   "type": "module",
+  "license": "MIT",
+  "keywords": [
+    "design-system",
+    "css",
+    "dark-ui",
+    "codex-skill",
+    "agent-workflow",
+    "traceability",
+    "permission-ui"
+  ],
+  "style": "src/style.css",
+  "exports": {
+    ".": "./src/style.css",
+    "./style.css": "./src/style.css",
+    "./styles/*": "./src/styles/*",
+    "./skill": "./skills/merak-protocol-design-system/SKILL.md",
+    "./skill.md": "./skills/merak-protocol-design-system/SKILL.md"
+  },
+  "files": [
+    "src/*.js",
+    "src/style.css",
+    "src/styles",
+    "skills/merak-protocol-design-system",
+    "docs/concept.md",
+    "public/favicon.svg",
+    "public/icons.svg",
+    "index.html"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
