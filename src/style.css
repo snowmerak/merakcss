@@ -1,6 +1,7 @@
 @import "./styles/tokens.css";
 @import "./styles/base.css";
 @import "./styles/layout.css";
+@import "./styles/motion.css";
 
 @import "./styles/components/button.css";
 @import "./styles/components/card.css";
@@ -11,4 +12,5 @@
 @import "./styles/components/graph.css";
 @import "./styles/components/timeline.css";
 @import "./styles/components/inspector.css";
+@import "./styles/components/icon.css";
 @import "./styles/components/link-list.css";

@@ -16,7 +16,7 @@
   border-radius: var(--radius-md);
   color: var(--color-text-secondary);
   background: var(--alert-bg);
-  animation: alert-enter 180ms var(--ease-system);
+  animation: motion-enter 180ms var(--ease-system);
 }
 
 .mp-alert__icon {
@@ -137,38 +137,7 @@
 
 .mp-alert.is-leaving {
   pointer-events: none;
-  animation: alert-exit 160ms var(--ease-system) forwards;
-}
-
-@keyframes alert-enter {
-  from {
-    opacity: 0;
-    transform: translateY(-4px) scale(0.985);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-@keyframes alert-exit {
-  from {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-
-  to {
-    opacity: 0;
-    transform: translateY(-4px) scale(0.985);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .mp-alert,
-  .mp-alert.is-leaving {
-    animation-duration: 1ms;
-  }
+  animation: motion-exit 160ms var(--ease-system) forwards;
 }
 
 @media (max-width: 560px) {

@@ -1067,6 +1067,207 @@ document.querySelector('#app').innerHTML = `
       </aside>
     </div>
   </section>
+
+  <section class="showcase-section" aria-labelledby="icon-title">
+    <div class="section-heading">
+      <p class="eyebrow">Component 11</p>
+      <h2 id="icon-title">Iconography</h2>
+      <p>Line icons with 1.5px strokes. Motifs stay structural, not decorative.</p>
+    </div>
+
+    <article class="mp-card">
+      <div class="mp-card__header">
+        <span class="mp-icon" aria-hidden="true">◇</span>
+        <div>
+          <p class="mp-card__eyebrow">Motifs</p>
+          <h3 class="mp-card__title">Protocol Symbols</h3>
+        </div>
+      </div>
+
+      <div class="icon-grid">
+        <div class="icon-sample">
+          <div class="icon-sample__header">
+            <svg class="mp-symbol mp-symbol--lg" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="m12 3 2.35 5.2 5.65.6-4.2 3.8 1.2 5.55L12 15.3l-5 2.85 1.2-5.55L4 8.8l5.65-.6L12 3Z"></path>
+            </svg>
+            <strong class="icon-sample__title">Star</strong>
+          </div>
+          <p class="icon-sample__meaning">기준점, 핵심 정보</p>
+        </div>
+
+        <div class="icon-sample">
+          <div class="icon-sample__header">
+            <svg class="mp-symbol mp-symbol--lg" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M5 20V8l7-4 7 4v12"></path>
+              <path d="M9 20v-7a3 3 0 0 1 6 0v7"></path>
+              <path d="M5 8h14"></path>
+            </svg>
+            <strong class="icon-sample__title">Gate</strong>
+          </div>
+          <p class="icon-sample__meaning">권한, 접근</p>
+        </div>
+
+        <div class="icon-sample">
+          <div class="icon-sample__header">
+            <svg class="mp-symbol mp-symbol--lg" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M3 12s3.5-6 9-6 9 6 9 6-3.5 6-9 6-9-6-9-6Z"></path>
+              <circle cx="12" cy="12" r="2.5"></circle>
+            </svg>
+            <strong class="icon-sample__title">Eye</strong>
+          </div>
+          <p class="icon-sample__meaning">관찰, 검증</p>
+        </div>
+
+        <div class="icon-sample">
+          <div class="icon-sample__header">
+            <svg class="mp-symbol mp-symbol--lg" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M5 8h14v11H5z"></path>
+              <path d="M7 8V5h10v3"></path>
+              <path d="M9 12h6"></path>
+            </svg>
+            <strong class="icon-sample__title">Archive</strong>
+          </div>
+          <p class="icon-sample__meaning">기록, 보존</p>
+        </div>
+
+        <div class="icon-sample">
+          <div class="icon-sample__header">
+            <svg class="mp-symbol mp-symbol--lg" viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="6" cy="12" r="2.5"></circle>
+              <circle cx="18" cy="6" r="2.5"></circle>
+              <circle cx="18" cy="18" r="2.5"></circle>
+              <path d="m8.2 10.8 7.6-3.6"></path>
+              <path d="m8.2 13.2 7.6 3.6"></path>
+            </svg>
+            <strong class="icon-sample__title">Graph Node</strong>
+          </div>
+          <p class="icon-sample__meaning">관계, 경로</p>
+        </div>
+
+        <div class="icon-sample">
+          <div class="icon-sample__header">
+            <svg class="mp-symbol mp-symbol--lg" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 3 5 6v5c0 4.6 2.8 7.8 7 10 4.2-2.2 7-5.4 7-10V6l-7-3Z"></path>
+              <path d="m9.5 12 1.7 1.7 3.6-4"></path>
+            </svg>
+            <strong class="icon-sample__title">Seal</strong>
+          </div>
+          <p class="icon-sample__meaning">확정, 잠금</p>
+        </div>
+
+        <div class="icon-sample">
+          <div class="icon-sample__header">
+            <svg class="mp-symbol mp-symbol--lg" viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="8"></circle>
+              <path d="m15.5 8.5-2.2 5-4.8 2 2.2-5 4.8-2Z"></path>
+            </svg>
+            <strong class="icon-sample__title">Compass</strong>
+          </div>
+          <p class="icon-sample__meaning">방향, 탐색</p>
+        </div>
+
+        <div class="icon-sample">
+          <div class="icon-sample__header">
+            <svg class="mp-symbol mp-symbol--lg" viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="4" y="5" width="16" height="14" rx="2"></rect>
+              <path d="m8 10 3 2-3 2"></path>
+              <path d="M13 15h4"></path>
+            </svg>
+            <strong class="icon-sample__title">Terminal</strong>
+          </div>
+          <p class="icon-sample__meaning">실행, 명령</p>
+        </div>
+      </div>
+    </article>
+
+    <article class="mp-card">
+      <div class="mp-card__header">
+        <span class="mp-icon" aria-hidden="true">+</span>
+        <div>
+          <p class="mp-card__eyebrow">Buttons</p>
+          <h3 class="mp-card__title">Icon Actions</h3>
+        </div>
+      </div>
+      <div class="icon-button-row">
+        <button type="button" class="mp-icon-button" aria-label="Observe">
+          <svg class="mp-symbol mp-symbol--sm" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M3 12s3.5-6 9-6 9 6 9 6-3.5 6-9 6-9-6-9-6Z"></path>
+            <circle cx="12" cy="12" r="2.5"></circle>
+          </svg>
+        </button>
+        <button type="button" class="mp-icon-button" aria-label="Archive">
+          <svg class="mp-symbol mp-symbol--sm" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M5 8h14v11H5z"></path>
+            <path d="M7 8V5h10v3"></path>
+            <path d="M9 12h6"></path>
+          </svg>
+        </button>
+        <button type="button" class="mp-icon-button" aria-label="Navigate">
+          <svg class="mp-symbol mp-symbol--sm" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="8"></circle>
+            <path d="m15.5 8.5-2.2 5-4.8 2 2.2-5 4.8-2Z"></path>
+          </svg>
+        </button>
+        <button type="button" class="mp-icon-button mp-icon-button--danger" aria-label="Revoke">
+          <svg class="mp-symbol mp-symbol--sm" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 3 5 6v5c0 4.6 2.8 7.8 7 10 4.2-2.2 7-5.4 7-10V6l-7-3Z"></path>
+            <path d="m9 9 6 6"></path>
+            <path d="m15 9-6 6"></path>
+          </svg>
+        </button>
+      </div>
+    </article>
+  </section>
+
+  <section class="showcase-section" aria-labelledby="motion-title">
+    <div class="section-heading">
+      <p class="eyebrow">System 12</p>
+      <h2 id="motion-title">Motion</h2>
+      <p>Small transitions for hover, focus, panel entry, path emphasis, and alert lifecycle.</p>
+    </div>
+
+    <div class="example-grid">
+      <article class="mp-card motion-enter">
+        <div class="mp-card__header">
+          <span class="mp-icon" aria-hidden="true">↥</span>
+          <div>
+            <p class="mp-card__eyebrow">Enter</p>
+            <h3 class="mp-card__title">180ms / system ease</h3>
+          </div>
+        </div>
+        <p class="mp-card__body">Used for alerts, inline records, and small surfaced states.</p>
+        <code>.motion-enter</code>
+      </article>
+
+      <article class="mp-card motion-panel-slide">
+        <div class="mp-card__header">
+          <span class="mp-icon" aria-hidden="true">▣</span>
+          <div>
+            <p class="mp-card__eyebrow">Panel</p>
+            <h3 class="mp-card__title">Inspector slide</h3>
+          </div>
+        </div>
+        <p class="mp-card__body">Subtle panel movement for inspector surfaces and side details.</p>
+        <code>.motion-panel-slide</code>
+      </article>
+
+      <article class="mp-card">
+        <div class="mp-card__header">
+          <span class="mp-icon" aria-hidden="true">⌁</span>
+          <div>
+            <p class="mp-card__eyebrow">Path</p>
+            <h3 class="mp-card__title">Graph emphasis</h3>
+          </div>
+        </div>
+        <svg class="mp-graph" viewBox="0 0 240 80" role="img" aria-label="Pulsing path motion example">
+          <path class="mp-graph__edge mp-graph__edge--selected motion-path-pulse" d="M28 42 C84 12 156 68 212 36"></path>
+          <circle cx="28" cy="42" r="8" fill="var(--color-bg-surface)" stroke="var(--color-accent-line)" stroke-width="1.5"></circle>
+          <circle cx="212" cy="36" r="8" fill="var(--color-bg-surface)" stroke="var(--color-accent-line)" stroke-width="1.5"></circle>
+        </svg>
+        <code>.motion-path-pulse</code>
+      </article>
+    </div>
+  </section>
 </main>
 `
 
