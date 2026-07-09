@@ -26,7 +26,7 @@ Use this palette as the source of truth:
 --color-border-muted: #2E343D;
 --color-text-primary: #E8EDF3;
 --color-text-secondary: #B5BEC9;
---color-text-muted: #7F8A96;
+--color-text-muted: #9AA4AF;
 --color-accent: #F0F8FF;
 --color-accent-soft: #DCEEFF;
 --color-accent-line: #AFCDEB;

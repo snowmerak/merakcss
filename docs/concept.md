@@ -48,7 +48,7 @@
 | `--color-border-muted`   | `#2E343D` | 약한 구분선                     |
 | `--color-text-primary`   | `#E8EDF3` | 주요 텍스트                     |
 | `--color-text-secondary` | `#B5BEC9` | 보조 텍스트                     |
-| `--color-text-muted`     | `#7F8A96` | 메타 정보                      |
+| `--color-text-muted`     | `#9AA4AF` | 메타 정보                      |
 | `--color-accent`         | `#F0F8FF` | Alice Blue, 핵심 포인트         |
 | `--color-accent-soft`    | `#DCEEFF` | hover, selected background |
 | `--color-accent-line`    | `#AFCDEB` | 선, 그래프, 포커스                |

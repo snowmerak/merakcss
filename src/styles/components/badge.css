@@ -61,7 +61,7 @@
 .mp-badge--error,
 .mp-badge--high,
 .mp-badge--danger {
-  --badge-color: var(--color-danger);
+  --badge-color: #ffc6c1;
   --badge-bg: rgb(214 107 97 / 0.09);
 }
 
