@@ -850,6 +850,127 @@ document.querySelector('#app').innerHTML = `
       </div>
     </article>
   </section>
+
+  <section class="showcase-section" aria-labelledby="timeline-title">
+    <div class="section-heading">
+      <p class="eyebrow">Component 09</p>
+      <h2 id="timeline-title">Timeline / Trace Panel</h2>
+      <p>Decision traces, execution order, evidence links, actors, sources, and compact run steps.</p>
+    </div>
+
+    <div class="trace-layout">
+      <article class="mp-card">
+        <div class="mp-card__header">
+          <span class="mp-icon" aria-hidden="true">↧</span>
+          <div>
+            <p class="mp-card__eyebrow">Vertical Timeline</p>
+            <h3 class="mp-card__title">Verification Flow</h3>
+          </div>
+        </div>
+        <ol class="mp-timeline">
+          <li class="mp-timeline__item">
+            <div class="mp-timeline__header">
+              <span class="mp-timeline__step">01 Observe Input</span>
+              <time class="mp-timeline__time">18:42:10</time>
+            </div>
+            <strong class="mp-timeline__title">Command received.</strong>
+            <p class="mp-card__body">Analyze auth graph for user:alice and locate verified access path.</p>
+            <div class="mp-timeline__meta">
+              <span>actor:user:alice</span>
+              <span>source:command</span>
+              <span>trace:TRC-0428</span>
+            </div>
+          </li>
+          <li class="mp-timeline__item">
+            <div class="mp-timeline__header">
+              <span class="mp-timeline__step">02 Retrieve Sources</span>
+              <time class="mp-timeline__time">18:42:12</time>
+            </div>
+            <strong class="mp-timeline__title">Policy and archive records loaded.</strong>
+            <p class="mp-card__body">Three related policies and two archive records were linked to the request.</p>
+            <div class="badge-row">
+              <span class="mp-badge mp-badge--type mp-badge--sm">POLICY</span>
+              <span class="mp-badge mp-badge--type mp-badge--sm">ARCHIVE</span>
+            </div>
+          </li>
+          <li class="mp-timeline__item mp-timeline__item--active">
+            <div class="mp-timeline__header">
+              <span class="mp-timeline__step">03 Verify Path</span>
+              <time class="mp-timeline__time">18:42:15</time>
+            </div>
+            <strong class="mp-timeline__title">Path verified.</strong>
+            <p class="mp-card__body">user:alice inherits read permission through group:editors.</p>
+            <div class="badge-row">
+              <span class="mp-badge mp-badge--verified mp-badge--sm">VERIFIED</span>
+              <span class="mp-badge mp-badge--low mp-badge--sm">LOW</span>
+            </div>
+          </li>
+          <li class="mp-timeline__item">
+            <div class="mp-timeline__header">
+              <span class="mp-timeline__step">04 Archive Result</span>
+              <time class="mp-timeline__time">18:42:18</time>
+            </div>
+            <strong class="mp-timeline__title">Record sealed.</strong>
+            <p class="mp-card__body">Decision and evidence were preserved for later inspection.</p>
+            <div class="badge-row">
+              <span class="mp-badge mp-badge--sealed mp-badge--sm">SEALED</span>
+            </div>
+          </li>
+        </ol>
+      </article>
+
+      <article class="mp-card">
+        <div class="mp-card__header">
+          <span class="mp-icon" aria-hidden="true">≡</span>
+          <div>
+            <p class="mp-card__eyebrow">Compact Trace</p>
+            <h3 class="mp-card__title">Agent Execution</h3>
+          </div>
+        </div>
+        <div class="trace-panel">
+          <div class="trace-panel__item">
+            <span class="trace-panel__index">01</span>
+            <div class="trace-panel__body">
+              <strong class="trace-panel__title">Intent parsed</strong>
+              <div class="trace-panel__meta">source:command</div>
+            </div>
+            <span class="mp-badge mp-badge--verified mp-badge--sm">OK</span>
+          </div>
+          <div class="trace-panel__item">
+            <span class="trace-panel__index">02</span>
+            <div class="trace-panel__body">
+              <strong class="trace-panel__title">Plan generated</strong>
+              <div class="trace-panel__meta">steps:4</div>
+            </div>
+            <span class="mp-badge mp-badge--verified mp-badge--sm">OK</span>
+          </div>
+          <div class="trace-panel__item trace-panel__item--active">
+            <span class="trace-panel__index">03</span>
+            <div class="trace-panel__body">
+              <strong class="trace-panel__title">Tool observation linked</strong>
+              <div class="trace-panel__meta">records:5</div>
+            </div>
+            <span class="mp-badge mp-badge--partial mp-badge--sm">PARTIAL</span>
+          </div>
+          <div class="trace-panel__item">
+            <span class="trace-panel__index">04</span>
+            <div class="trace-panel__body">
+              <strong class="trace-panel__title">Decision archived</strong>
+              <div class="trace-panel__meta">trace:TRC-0428</div>
+            </div>
+            <span class="mp-badge mp-badge--sealed mp-badge--sm">SEALED</span>
+          </div>
+        </div>
+        <div class="mp-alert mp-alert--info" role="status">
+          <span class="mp-alert__icon" aria-hidden="true">i</span>
+          <div class="mp-alert__content">
+            <strong class="mp-alert__title">No oracle without trace.</strong>
+            <p class="mp-alert__message">Every agent step should leave an inspectable event.</p>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
 </main>
 `
 
