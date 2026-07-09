@@ -1,0 +1,122 @@
+#app {
+  width: min(100%, 1180px);
+  min-height: 100vh;
+  margin-inline: auto;
+  padding: var(--space-12) var(--space-6);
+}
+
+.showcase {
+  display: grid;
+  gap: var(--space-12);
+}
+
+.showcase-hero {
+  display: grid;
+  grid-template-columns: minmax(220px, 320px) minmax(0, 1fr);
+  align-items: center;
+  gap: var(--space-8);
+  padding: var(--space-8);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-lg);
+  background:
+    linear-gradient(135deg, rgb(240 248 255 / 0.065), transparent 44%),
+    var(--color-bg-subtle);
+  box-shadow: var(--shadow-panel);
+}
+
+.showcase-hero__mark {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 280px;
+  border: 1px solid var(--color-border-muted);
+  border-radius: var(--radius-lg);
+  background:
+    radial-gradient(circle, rgb(240 248 255 / 0.11), transparent 45%),
+    var(--color-bg-surface);
+  overflow: hidden;
+}
+
+.showcase-hero__mark::before,
+.showcase-hero__mark::after {
+  position: absolute;
+  inset: 18%;
+  content: "";
+  border: 1px solid rgb(175 205 235 / 0.22);
+  border-radius: 50%;
+}
+
+.showcase-hero__mark::after {
+  inset: 31%;
+}
+
+.showcase-hero__mark span {
+  position: relative;
+  z-index: 1;
+  color: var(--color-accent);
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-shadow: 0 0 34px rgb(175 205 235 / 0.36);
+}
+
+.showcase-hero__content {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.showcase-hero__content p {
+  max-width: 52ch;
+  font-size: 1rem;
+}
+
+.showcase-section {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.section-heading {
+  display: grid;
+  gap: var(--space-2);
+  max-width: 680px;
+}
+
+.eyebrow {
+  color: var(--color-accent-line);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.example-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-4);
+}
+
+.example-grid--wide {
+  grid-template-columns: minmax(0, 2fr) minmax(260px, 1fr);
+}
+
+@media (max-width: 860px) {
+  #app {
+    padding: var(--space-6) var(--space-4);
+  }
+
+  .showcase-hero,
+  .example-grid,
+  .example-grid--wide {
+    grid-template-columns: 1fr;
+  }
+
+  .showcase-hero {
+    padding: var(--space-5);
+  }
+
+  .showcase-hero__mark {
+    min-height: 220px;
+  }
+}

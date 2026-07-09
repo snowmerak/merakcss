@@ -1,0 +1,79 @@
+.mp-card {
+  display: grid;
+  gap: var(--space-3);
+  padding: var(--space-5);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-md);
+  background: var(--color-bg-surface);
+}
+
+.mp-card--oracle {
+  border-color: rgb(175 205 235 / 0.42);
+}
+
+.mp-card--trace {
+  border-color: rgb(142 188 230 / 0.34);
+}
+
+.mp-card--gate {
+  border-color: rgb(111 191 138 / 0.36);
+}
+
+.mp-card--relic {
+  border-color: rgb(215 168 79 / 0.38);
+}
+
+.mp-card__header {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+}
+
+.mp-card__eyebrow {
+  margin-bottom: var(--space-1);
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.mp-card__title {
+  color: var(--color-text-primary);
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.mp-card__body {
+  font-size: 0.92rem;
+}
+
+.mp-card__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+}
+
+.mp-card__actions {
+  display: flex;
+  justify-content: flex-start;
+  padding-top: var(--space-1);
+}
+
+.mp-icon {
+  display: grid;
+  flex: 0 0 auto;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-sm);
+  color: var(--color-accent-line);
+  background: rgb(240 248 255 / 0.04);
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+}

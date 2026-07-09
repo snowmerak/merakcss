@@ -1,0 +1,118 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+  min-height: 100%;
+  background:
+    radial-gradient(circle at 50% -10%, rgb(175 205 235 / 0.12), transparent 30rem),
+    var(--color-bg-base);
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  background:
+    linear-gradient(180deg, rgb(255 255 255 / 0.025), transparent 22rem),
+    var(--color-bg-base);
+}
+
+body::before {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  content: "";
+  background-image:
+    linear-gradient(rgb(240 248 255 / 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(240 248 255 / 0.025) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: linear-gradient(to bottom, black, transparent 75%);
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+a {
+  color: var(--color-accent-line);
+  text-decoration: none;
+  transition:
+    color 180ms var(--ease-system),
+    border-color 180ms var(--ease-system),
+    background-color 180ms var(--ease-system);
+}
+
+a:hover {
+  color: var(--color-accent);
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--color-accent-line);
+  outline-offset: 2px;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-block: 0;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.15;
+  letter-spacing: 0;
+}
+
+h1 {
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 1rem;
+  font-weight: 650;
+  text-transform: uppercase;
+}
+
+p {
+  color: var(--color-text-secondary);
+}
+
+code {
+  padding: 0.15rem 0.35rem;
+  border: 1px solid var(--color-border-muted);
+  border-radius: var(--radius-sm);
+  color: var(--color-accent-soft);
+  background: rgb(0 0 0 / 0.2);
+  font-family: var(--font-mono);
+  font-size: 0.88em;
+}
