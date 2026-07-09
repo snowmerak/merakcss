@@ -1,0 +1,4 @@
+interface:
+  display_name: "Merak Protocol Design System"
+  short_description: "Build UI with Merak Protocol visual rules and components."
+  default_prompt: "Use the Merak Protocol Design System skill to design or implement a UI component."
