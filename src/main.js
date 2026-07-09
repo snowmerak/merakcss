@@ -551,6 +551,201 @@ document.querySelector('#app').innerHTML = `
       </article>
     </div>
   </section>
+
+  <section class="showcase-section" aria-labelledby="table-title">
+    <div class="section-heading">
+      <p class="eyebrow">Component 07</p>
+      <h2 id="table-title">Table</h2>
+      <p>Dense records for logs, permissions, documents, statuses, risk, and actions.</p>
+    </div>
+
+    <article class="mp-card">
+      <div class="mp-card__header">
+        <span class="mp-icon" aria-hidden="true">▤</span>
+        <div>
+          <p class="mp-card__eyebrow">Dense</p>
+          <h3 class="mp-card__title">Permission Evaluation Log</h3>
+        </div>
+      </div>
+      <div class="table-shell">
+        <div class="mp-table-toolbar">
+          <div>
+            <strong class="mp-table-toolbar__title">Latest checks</strong>
+            <div class="mp-table-toolbar__meta">6 records / sticky header ready</div>
+          </div>
+          <div class="button-row">
+            <button type="button" class="mp-button mp-button--secondary mp-button--sm">Filter</button>
+            <button type="button" class="mp-button mp-button--primary mp-button--sm">Export</button>
+          </div>
+        </div>
+        <div class="table-scroll">
+          <table class="mp-table mp-table--dense mp-table--sticky">
+            <caption>Permission checks</caption>
+            <thead>
+              <tr>
+                <th scope="col">Time</th>
+                <th scope="col">Subject</th>
+                <th scope="col">Permission</th>
+                <th scope="col">Object</th>
+                <th scope="col">Decision</th>
+                <th scope="col">Risk</th>
+                <th scope="col">Trace</th>
+                <th scope="col" class="mp-table__action-cell"><span class="mp-table__muted">Action</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="mp-table__mono">18:42:10</td>
+                <td><span class="mp-table__primary">user:alice</span></td>
+                <td>read</td>
+                <td>archive:alpha</td>
+                <td><span class="mp-badge mp-badge--verified mp-badge--sm">GRANTED</span></td>
+                <td><span class="mp-badge mp-badge--low mp-badge--sm">LOW</span></td>
+                <td class="mp-table__mono">TRC-0428</td>
+                <td class="mp-table__action-cell"><span class="mp-table__actions"><button type="button" class="mp-button mp-button--ghost mp-button--sm">View</button></span></td>
+              </tr>
+              <tr>
+                <td class="mp-table__mono">18:41:33</td>
+                <td><span class="mp-table__primary">agent:scribe</span></td>
+                <td>write</td>
+                <td>relic:briefing</td>
+                <td><span class="mp-badge mp-badge--partial mp-badge--sm">PARTIAL</span></td>
+                <td><span class="mp-badge mp-badge--medium mp-badge--sm">MEDIUM</span></td>
+                <td class="mp-table__mono">TRC-0427</td>
+                <td class="mp-table__action-cell"><span class="mp-table__actions"><button type="button" class="mp-button mp-button--ghost mp-button--sm">View</button></span></td>
+              </tr>
+              <tr>
+                <td class="mp-table__mono">18:39:51</td>
+                <td><span class="mp-table__primary">user:guest</span></td>
+                <td>delete</td>
+                <td>policy:gate-03</td>
+                <td><span class="mp-badge mp-badge--error mp-badge--sm">DENIED</span></td>
+                <td><span class="mp-badge mp-badge--high mp-badge--sm">HIGH</span></td>
+                <td class="mp-table__mono">TRC-0426</td>
+                <td class="mp-table__action-cell"><span class="mp-table__actions"><button type="button" class="mp-button mp-button--ghost mp-button--sm">View</button></span></td>
+              </tr>
+              <tr>
+                <td class="mp-table__mono">18:37:04</td>
+                <td><span class="mp-table__primary">system:indexer</span></td>
+                <td>seal</td>
+                <td>record:decision-12</td>
+                <td><span class="mp-badge mp-badge--sealed mp-badge--sm">SEALED</span></td>
+                <td><span class="mp-badge mp-badge--low mp-badge--sm">LOW</span></td>
+                <td class="mp-table__mono">TRC-0425</td>
+                <td class="mp-table__action-cell"><span class="mp-table__actions"><button type="button" class="mp-button mp-button--ghost mp-button--sm">View</button></span></td>
+              </tr>
+              <tr>
+                <td class="mp-table__mono">18:34:22</td>
+                <td><span class="mp-table__primary">agent:oracle</span></td>
+                <td>evaluate</td>
+                <td>source:batch-7</td>
+                <td><span class="mp-badge mp-badge--pending mp-badge--sm">PENDING</span></td>
+                <td><span class="mp-badge mp-badge--medium mp-badge--sm">MEDIUM</span></td>
+                <td class="mp-table__mono">TRC-0424</td>
+                <td class="mp-table__action-cell"><span class="mp-table__actions"><button type="button" class="mp-button mp-button--ghost mp-button--sm">View</button></span></td>
+              </tr>
+              <tr>
+                <td class="mp-table__mono">18:31:09</td>
+                <td><span class="mp-table__primary">user:min</span></td>
+                <td>read</td>
+                <td>document:concept</td>
+                <td><span class="mp-badge mp-badge--verified mp-badge--sm">GRANTED</span></td>
+                <td><span class="mp-badge mp-badge--low mp-badge--sm">LOW</span></td>
+                <td class="mp-table__mono">TRC-0423</td>
+                <td class="mp-table__action-cell"><span class="mp-table__actions"><button type="button" class="mp-button mp-button--ghost mp-button--sm">View</button></span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </article>
+
+    <div class="example-grid example-grid--wide">
+      <article class="mp-card">
+        <div class="mp-card__header">
+          <span class="mp-icon" aria-hidden="true">≋</span>
+          <div>
+            <p class="mp-card__eyebrow">Documents</p>
+            <h3 class="mp-card__title">Archive Index</h3>
+          </div>
+        </div>
+        <div class="table-shell">
+          <div class="table-scroll">
+            <table class="mp-table mp-table--dense">
+              <thead>
+                <tr>
+                  <th scope="col">Title</th>
+                  <th scope="col">Type</th>
+                  <th scope="col">Confidence</th>
+                  <th scope="col">Updated</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="mp-table__primary">Design Direction</td>
+                  <td><span class="mp-badge mp-badge--type mp-badge--sm">ARCHIVE</span></td>
+                  <td><span class="mp-badge mp-badge--verified mp-badge--sm">VERIFIED</span></td>
+                  <td class="mp-table__mono">2026-07-09</td>
+                </tr>
+                <tr>
+                  <td class="mp-table__primary">Permission Notes</td>
+                  <td><span class="mp-badge mp-badge--type mp-badge--sm">POLICY</span></td>
+                  <td><span class="mp-badge mp-badge--partial mp-badge--sm">PARTIAL</span></td>
+                  <td class="mp-table__mono">2026-07-08</td>
+                </tr>
+                <tr>
+                  <td class="mp-table__primary">Agent Flow</td>
+                  <td><span class="mp-badge mp-badge--type mp-badge--sm">AGENT</span></td>
+                  <td><span class="mp-badge mp-badge--pending mp-badge--sm">PENDING</span></td>
+                  <td class="mp-table__mono">2026-07-07</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </article>
+
+      <article class="mp-card">
+        <div class="mp-card__header">
+          <span class="mp-icon" aria-hidden="true">#</span>
+          <div>
+            <p class="mp-card__eyebrow">Compact</p>
+            <h3 class="mp-card__title">Agent Runs</h3>
+          </div>
+        </div>
+        <div class="table-shell">
+          <div class="table-scroll">
+            <table class="mp-table mp-table--dense">
+              <thead>
+                <tr>
+                  <th scope="col">Run</th>
+                  <th scope="col">Status</th>
+                  <th scope="col">Trace</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="mp-table__mono">RUN-190</td>
+                  <td><span class="mp-badge mp-badge--active mp-badge--sm">ACTIVE</span></td>
+                  <td class="mp-table__mono">6 steps</td>
+                </tr>
+                <tr>
+                  <td class="mp-table__mono">RUN-189</td>
+                  <td><span class="mp-badge mp-badge--sealed mp-badge--sm">SEALED</span></td>
+                  <td class="mp-table__mono">9 steps</td>
+                </tr>
+                <tr>
+                  <td class="mp-table__mono">RUN-188</td>
+                  <td><span class="mp-badge mp-badge--error mp-badge--sm">ERROR</span></td>
+                  <td class="mp-table__mono">3 steps</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
 </main>
 `
 
