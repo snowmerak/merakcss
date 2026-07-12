@@ -82,11 +82,18 @@ merak-tabs,
 merak-command,
 merak-graph,
 merak-inspector,
-merak-sidebar,
 merak-gate-card,
 merak-agent-panel,
 merak-timeline,
 merak-toast-region {
+  display: block;
+}
+
+merak-sidebar:not(.mp-sidebar) {
+  display: contents;
+}
+
+merak-sidebar.mp-sidebar {
   display: block;
 }
 

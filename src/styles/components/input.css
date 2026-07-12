@@ -9,6 +9,7 @@
 
 .field-group {
   display: grid;
+  grid-template-rows: auto 1fr;
   gap: var(--space-2);
 }
 
@@ -61,6 +62,7 @@
   min-height: 112px;
   padding: var(--space-3);
   resize: vertical;
+  height: 100%;
 }
 
 .mp-input::placeholder,
