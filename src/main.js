@@ -1,5 +1,5 @@
 import './showcase.css'
-import { setupAlertDemo } from './alert.js'
+import { setupAlertDemo, setupToastDemo } from './alert.js'
 import { setupGraphDrag } from './graph.js'
 import { setupMotionDemo } from './motion.js'
 import { setupSidebarDemo } from './navigation.js'
@@ -2329,6 +2329,272 @@ document.querySelector('#app').innerHTML = `
       </article>
     </div>
   </section>
+
+  <section class="showcase-section" aria-labelledby="feedback-title">
+    <div class="mp-section-heading">
+      <p class="mp-eyebrow">Component 24</p>
+      <h2 id="feedback-title">Feedback</h2>
+      <p>Toasts, progress, skeleton placeholders, empty states, and quiet spinners for dense dashboards.</p>
+    </div>
+
+    <div class="mp-grid mp-grid--wide">
+      <article class="mp-card">
+        <div class="mp-card__header">
+          <div>
+            <p class="mp-card__eyebrow">Toast</p>
+            <h3 class="mp-card__title">Notification Stack</h3>
+          </div>
+        </div>
+        <div class="mp-toast-stack" aria-label="Static toast examples">
+          <div class="mp-toast mp-toast--info">
+            <span class="mp-toast__icon" aria-hidden="true">i</span>
+            <div class="mp-toast__body">
+              <strong class="mp-toast__title">Trace analysis running.</strong>
+              <p class="mp-toast__message">Observation queue accepted for TRC-0428.</p>
+            </div>
+          </div>
+          <div class="mp-toast mp-toast--success">
+            <span class="mp-toast__icon" aria-hidden="true">✓</span>
+            <div class="mp-toast__body">
+              <strong class="mp-toast__title">Record sealed.</strong>
+              <p class="mp-toast__message">archive:alpha is now immutable.</p>
+            </div>
+          </div>
+          <div class="mp-toast mp-toast--warning">
+            <span class="mp-toast__icon" aria-hidden="true">!</span>
+            <div class="mp-toast__body">
+              <strong class="mp-toast__title">Source confidence is partial.</strong>
+              <p class="mp-toast__message">Two citations remain unverified.</p>
+            </div>
+          </div>
+          <div class="mp-toast mp-toast--danger">
+            <span class="mp-toast__icon" aria-hidden="true">×</span>
+            <div class="mp-toast__body">
+              <strong class="mp-toast__title">Access denied by policy.</strong>
+              <p class="mp-toast__message">No path for delete on archive:beta.</p>
+            </div>
+          </div>
+        </div>
+        <div class="mp-field" style="margin-top: var(--space-4)">
+          <label class="mp-field__label" for="toast-demo-placement">Placement</label>
+          <select id="toast-demo-placement" class="mp-select">
+            <option value="top-left">Top left</option>
+            <option value="top-center">Top center</option>
+            <option value="top-right">Top right</option>
+            <option value="center">Center</option>
+            <option value="bottom-left">Bottom left</option>
+            <option value="bottom-center">Bottom center</option>
+            <option value="bottom-right" selected>Bottom right</option>
+          </select>
+        </div>
+        <div class="button-row" style="margin-top: var(--space-3)">
+          <button id="toast-demo-trigger" type="button" class="mp-button mp-button--primary">
+            Show Toast
+          </button>
+        </div>
+      </article>
+
+      <article class="mp-card">
+        <div class="mp-card__header">
+          <div>
+            <p class="mp-card__eyebrow">Progress</p>
+            <h3 class="mp-card__title">Trace Jobs</h3>
+          </div>
+        </div>
+        <div class="mp-progress-stack">
+          <div
+            class="mp-progress mp-progress--info"
+            role="progressbar"
+            aria-valuemin="0"
+            aria-valuemax="100"
+            aria-valuenow="72"
+            aria-valuetext="72 percent"
+            aria-label="Evidence retrieval"
+            style="--mp-progress: 72%"
+          >
+            <div class="mp-progress__header">
+              <span class="mp-progress__label">Evidence retrieval</span>
+              <span class="mp-progress__value">72%</span>
+            </div>
+            <div class="mp-progress__track">
+              <div class="mp-progress__fill"></div>
+            </div>
+          </div>
+
+          <div
+            class="mp-progress mp-progress--success"
+            role="progressbar"
+            aria-valuemin="0"
+            aria-valuemax="100"
+            aria-valuenow="100"
+            aria-valuetext="100 percent complete"
+            aria-label="Seal complete"
+            style="--mp-progress: 100%"
+          >
+            <div class="mp-progress__header">
+              <span class="mp-progress__label">Seal complete</span>
+              <span class="mp-progress__value">100%</span>
+            </div>
+            <div class="mp-progress__track">
+              <div class="mp-progress__fill"></div>
+            </div>
+          </div>
+
+          <div
+            class="mp-progress mp-progress--warning mp-progress--sm"
+            role="progressbar"
+            aria-valuemin="0"
+            aria-valuemax="100"
+            aria-valuenow="34"
+            aria-label="Manual review queue"
+            style="--mp-progress: 34%"
+          >
+            <div class="mp-progress__header">
+              <span class="mp-progress__label">Review queue</span>
+              <span class="mp-progress__value">34%</span>
+            </div>
+            <div class="mp-progress__track">
+              <div class="mp-progress__fill"></div>
+            </div>
+          </div>
+
+          <div
+            class="mp-progress mp-progress--indeterminate"
+            role="progressbar"
+            aria-label="Path verification running"
+          >
+            <div class="mp-progress__header">
+              <span class="mp-progress__label">Path verification</span>
+              <span class="mp-progress__value">
+                <span class="mp-spinner mp-spinner--sm" aria-hidden="true"></span>
+                running
+              </span>
+            </div>
+            <div class="mp-progress__track">
+              <div class="mp-progress__fill"></div>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <div class="mp-grid">
+      <article class="mp-card">
+        <div class="mp-card__header">
+          <div>
+            <p class="mp-card__eyebrow">Skeleton</p>
+            <h3 class="mp-card__title">Loading Record</h3>
+          </div>
+        </div>
+        <div class="mp-skeleton" aria-busy="true" aria-live="polite" aria-label="Loading inspector record">
+          <div class="mp-skeleton__row">
+            <div class="mp-skeleton__circle"></div>
+            <div class="mp-skeleton__lines">
+              <div class="mp-skeleton__line mp-skeleton__line--lg"></div>
+              <div class="mp-skeleton__line mp-skeleton__line--md"></div>
+            </div>
+          </div>
+          <div class="mp-skeleton__block"></div>
+          <div class="mp-skeleton__lines">
+            <div class="mp-skeleton__line mp-skeleton__line--lg"></div>
+            <div class="mp-skeleton__line mp-skeleton__line--md"></div>
+            <div class="mp-skeleton__line mp-skeleton__line--sm"></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="mp-card">
+        <div class="mp-card__header">
+          <div>
+            <p class="mp-card__eyebrow">Spinner</p>
+            <h3 class="mp-card__title">Quiet Activity</h3>
+          </div>
+        </div>
+        <div class="mp-feedback-stack">
+          <div class="mp-spinner-label" role="status" aria-live="polite">
+            <span class="mp-spinner" aria-hidden="true"></span>
+            <span class="mp-spinner-label__text">Analyzing path</span>
+          </div>
+          <div class="mp-spinner-label" role="status">
+            <span class="mp-spinner mp-spinner--sm" aria-hidden="true"></span>
+            <span class="mp-spinner-label__text">Indexing evidence</span>
+          </div>
+          <div class="mp-spinner-label" role="status">
+            <span class="mp-spinner mp-spinner--lg" aria-hidden="true"></span>
+            <span class="mp-spinner-label__text">Sealing archive</span>
+          </div>
+          <button type="button" class="mp-button mp-button--secondary mp-button--sm" disabled>
+            <span class="mp-spinner mp-spinner--sm mp-spinner--inline" aria-hidden="true"></span>
+            Working
+          </button>
+        </div>
+      </article>
+
+      <article class="mp-card">
+        <div class="mp-card__header">
+          <div>
+            <p class="mp-card__eyebrow">Empty</p>
+            <h3 class="mp-card__title">State Variants</h3>
+          </div>
+        </div>
+        <div class="mp-feedback-stack">
+          <div class="mp-empty-state mp-empty-state--default" role="status">
+            <span class="mp-empty-state__icon" aria-hidden="true">
+              <svg class="mp-symbol mp-symbol--sm" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M5 8h14v11H5z"></path>
+                <path d="M7 8V5h10v3"></path>
+                <path d="M9 12h6"></path>
+              </svg>
+            </span>
+            <h4 class="mp-empty-state__title">No records yet.</h4>
+            <p class="mp-empty-state__body">Capture a trace before requesting an oracle judgment.</p>
+            <div class="mp-empty-state__meta">scope:workspace</div>
+            <div class="mp-empty-state__actions">
+              <button type="button" class="mp-button mp-button--primary mp-button--sm">Run Trace</button>
+              <button type="button" class="mp-button mp-button--secondary mp-button--sm">Import</button>
+            </div>
+          </div>
+
+          <div class="mp-empty-state mp-empty-state--filtered" role="status">
+            <span class="mp-empty-state__icon" aria-hidden="true">
+              <svg class="mp-symbol mp-symbol--sm" viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="12" cy="12" r="8"></circle>
+                <path d="m15.5 8.5-2.2 5-4.8 2 2.2-5 4.8-2Z"></path>
+              </svg>
+            </span>
+            <h4 class="mp-empty-state__title">No matches for current filters.</h4>
+            <p class="mp-empty-state__body">Clear status chips or broaden type selection to restore the index.</p>
+            <div class="mp-empty-state__meta">filters: VERIFIED + TRACE</div>
+          </div>
+
+          <div class="mp-empty-state mp-empty-state--archived" role="status">
+            <span class="mp-empty-state__icon" aria-hidden="true">
+              <svg class="mp-symbol mp-symbol--sm" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 3 5 6v5c0 4.6 2.8 7.8 7 10 4.2-2.2 7-5.4 7-10V6l-7-3Z"></path>
+                <path d="m9.5 12 1.7 1.7 3.6-4"></path>
+              </svg>
+            </span>
+            <h4 class="mp-empty-state__title">Archive is sealed.</h4>
+            <p class="mp-empty-state__body">This collection is read-only. Open a sealed record to inspect lineage.</p>
+            <div class="mp-empty-state__meta">archive:alpha</div>
+          </div>
+
+          <div class="mp-empty-state mp-empty-state--denied" role="status">
+            <span class="mp-empty-state__icon" aria-hidden="true">
+              <svg class="mp-symbol mp-symbol--sm" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 3 5 6v5c0 4.6 2.8 7.8 7 10 4.2-2.2 7-5.4 7-10V6l-7-3Z"></path>
+                <path d="m9 9 6 6"></path>
+                <path d="m15 9-6 6"></path>
+              </svg>
+            </span>
+            <h4 class="mp-empty-state__title">Access denied by policy.</h4>
+            <p class="mp-empty-state__body">No permission path exists for this subject and object pair.</p>
+            <div class="mp-empty-state__meta">user:bob → delete → archive:beta</div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
 </main>
 `
 
@@ -2343,15 +2609,24 @@ const renderMarkdownPreview = () => { markdownOutput.innerHTML = renderMerakMark
 markdownInput.addEventListener('input', renderMarkdownPreview)
 renderMarkdownPreview()
 
+const feedbackToastRegion = (() => {
+  const region = document.createElement('merak-toast-region')
+  region.setAttribute('placement', 'bottom-right')
+  region.setAttribute('aria-label', 'Notifications')
+  document.body.append(region)
+  return region
+})()
+
 setupAlertDemo({
   trigger: document.querySelector('#alert-demo-trigger'),
-  region: (() => {
-    const region = document.createElement('merak-toast-region')
-    region.setAttribute('placement', 'bottom-right')
-    document.body.append(region)
-    return region
-  })(),
+  region: feedbackToastRegion,
   placement: () => document.querySelector('#alert-demo-placement')?.value,
+})
+
+setupToastDemo({
+  trigger: document.querySelector('#toast-demo-trigger'),
+  region: feedbackToastRegion,
+  placement: () => document.querySelector('#toast-demo-placement')?.value,
 })
 
 function upgradeToCustomElement(selector, tagName) {

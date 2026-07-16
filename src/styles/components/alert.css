@@ -93,7 +93,8 @@
   pointer-events: none;
 }
 
-.mp-toast-region .mp-alert {
+.mp-toast-region .mp-alert,
+.mp-toast-region .mp-toast {
   pointer-events: auto;
 }
 
