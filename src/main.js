@@ -5,6 +5,7 @@ import { setupMotionDemo } from './motion.js'
 import { setupSidebarDemo } from './navigation.js'
 import { setupTabs } from './tabs.js'
 import { setupFilterBar } from './filter-bar.js'
+import { setupCommandPalette, setupContextMenu, setupPagination } from './navigation-extra.js'
 import { setupCommandInput } from './command.js'
 import './elements/merak-interactive-elements.js'
 import './elements/merak-data-components.js'
@@ -2595,6 +2596,341 @@ document.querySelector('#app').innerHTML = `
       </article>
     </div>
   </section>
+
+  <section class="showcase-section" aria-labelledby="navigation-extra-title">
+    <div class="mp-section-heading">
+      <p class="mp-eyebrow">Component 25</p>
+      <h2 id="navigation-extra-title">Navigation</h2>
+      <p>Breadcrumbs, pagination, command palette, and context menus for dense archive and gate surfaces.</p>
+    </div>
+
+    <div class="mp-grid mp-grid--wide">
+      <article class="mp-card">
+        <div class="mp-card__header">
+          <div>
+            <p class="mp-card__eyebrow">Path</p>
+            <h3 class="mp-card__title">Breadcrumb</h3>
+          </div>
+        </div>
+        <nav class="mp-breadcrumb" aria-label="Breadcrumb">
+          <ol class="mp-breadcrumb__list">
+            <li class="mp-breadcrumb__item">
+              <a class="mp-breadcrumb__link" href="#navigation-extra-title">
+                <span class="mp-breadcrumb__icon" aria-hidden="true">
+                  <svg class="mp-symbol" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M12 3 5 6v5c0 4.6 2.8 7.8 7 10 4.2-2.2 7-5.4 7-10V6l-7-3Z"></path>
+                  </svg>
+                </span>
+                Archives
+              </a>
+            </li>
+            <li class="mp-breadcrumb__item" aria-hidden="true">
+              <span class="mp-breadcrumb__separator">
+                <svg class="mp-symbol" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="m9 6 6 6-6 6"></path>
+                </svg>
+              </span>
+            </li>
+            <li class="mp-breadcrumb__item">
+              <a class="mp-breadcrumb__link" href="#navigation-extra-title">alpha</a>
+            </li>
+            <li class="mp-breadcrumb__item" aria-hidden="true">
+              <span class="mp-breadcrumb__separator">
+                <svg class="mp-symbol" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="m9 6 6 6-6 6"></path>
+                </svg>
+              </span>
+            </li>
+            <li class="mp-breadcrumb__item">
+              <a class="mp-breadcrumb__link" href="#navigation-extra-title">TRC-0428</a>
+            </li>
+            <li class="mp-breadcrumb__item" aria-hidden="true">
+              <span class="mp-breadcrumb__separator">
+                <svg class="mp-symbol" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="m9 6 6 6-6 6"></path>
+                </svg>
+              </span>
+            </li>
+            <li class="mp-breadcrumb__item">
+              <span class="mp-breadcrumb__current" aria-current="page">Gate Decision</span>
+            </li>
+          </ol>
+        </nav>
+        <p class="mp-card__body" style="margin-top: var(--space-4)">
+          user:alice → read → archive:alpha · policy:read-path
+        </p>
+      </article>
+
+      <article class="mp-card">
+        <div class="mp-card__header">
+          <div>
+            <p class="mp-card__eyebrow">Index</p>
+            <h3 class="mp-card__title">Pagination</h3>
+          </div>
+        </div>
+        <nav id="pagination-demo" class="mp-pagination mp-pagination--dense" aria-label="Pagination">
+          <button type="button" class="mp-pagination__control" data-pagination-prev aria-label="Previous page">
+            <svg class="mp-symbol" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="m14 6-6 6 6 6"></path>
+            </svg>
+            Prev
+          </button>
+          <ul class="mp-pagination__list">
+            <li class="mp-pagination__item">
+              <button type="button" class="mp-pagination__page" data-page="1" aria-label="Page 1">1</button>
+            </li>
+            <li class="mp-pagination__item">
+              <button type="button" class="mp-pagination__page" data-page="2" aria-current="page" aria-label="Page 2">2</button>
+            </li>
+            <li class="mp-pagination__item">
+              <button type="button" class="mp-pagination__page" data-page="3" aria-label="Page 3">3</button>
+            </li>
+            <li class="mp-pagination__item">
+              <span class="mp-pagination__ellipsis" aria-hidden="true">…</span>
+            </li>
+            <li class="mp-pagination__item">
+              <button type="button" class="mp-pagination__page" data-page="4" aria-label="Page 4">4</button>
+            </li>
+          </ul>
+          <button type="button" class="mp-pagination__control" data-pagination-next aria-label="Next page">
+            Next
+            <svg class="mp-symbol" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="m10 6 6 6-6 6"></path>
+            </svg>
+          </button>
+          <span class="mp-pagination__meta" data-pagination-meta>Page 2 / 4</span>
+        </nav>
+        <p class="mp-card__body" style="margin-top: var(--space-4)">
+          Trace index for sealed archive records.
+        </p>
+      </article>
+    </div>
+
+    <div class="mp-grid mp-grid--wide">
+      <article class="mp-card">
+        <div class="mp-card__header">
+          <div>
+            <p class="mp-card__eyebrow">Command</p>
+            <h3 class="mp-card__title">Command Palette</h3>
+          </div>
+        </div>
+        <div id="command-palette-demo" class="mp-command-palette-host" data-open="false">
+          <div class="button-row">
+            <button type="button" class="mp-button mp-button--secondary mp-button--sm" data-command-palette-open>
+              Open Palette
+            </button>
+            <span class="mp-text--muted" data-command-palette-result>verify path TRC-0428</span>
+          </div>
+
+          <div class="mp-command-palette" role="dialog" aria-modal="false" aria-label="Command palette" hidden>
+            <div class="mp-command-palette__header">
+              <div class="mp-command-palette__eyebrow">Operator commands</div>
+              <label class="mp-command-palette__search" for="command-palette-input">
+                <svg class="mp-command-palette__search-icon mp-symbol" viewBox="0 0 16 16" aria-hidden="true">
+                  <circle cx="7" cy="7" r="4.25"></circle>
+                  <path d="m10.25 10.25 3 3"></path>
+                </svg>
+                <input
+                  id="command-palette-input"
+                  class="mp-command-palette__input"
+                  type="search"
+                  placeholder="Search traces, gates, archives…"
+                  aria-controls="command-palette-list"
+                  autocomplete="off"
+                >
+              </label>
+            </div>
+
+            <div class="mp-command-palette__groups" id="command-palette-list" role="listbox" aria-label="Commands">
+              <div class="mp-command-palette__group" role="group" aria-labelledby="command-palette-group-trace">
+                <div class="mp-command-palette__group-label" id="command-palette-group-trace">Trace</div>
+                <ul class="mp-command-palette__list" role="none">
+                  <li role="none">
+                    <button type="button" class="mp-command-palette__item" role="option" aria-selected="true" data-command="verify path TRC-0428">
+                      <span class="mp-command-palette__item-icon" aria-hidden="true">
+                        <svg class="mp-symbol" viewBox="0 0 24 24" aria-hidden="true">
+                          <path d="M3 12s3.5-6 9-6 9 6 9 6-3.5 6-9 6-9-6-9-6Z"></path>
+                          <circle cx="12" cy="12" r="2.5"></circle>
+                        </svg>
+                      </span>
+                      <span class="mp-command-palette__item-label">Verify path TRC-0428</span>
+                      <span class="mp-command-palette__item-meta">Trace</span>
+                    </button>
+                  </li>
+                  <li role="none">
+                    <button type="button" class="mp-command-palette__item" role="option" aria-selected="false" data-command="open inspector TRC-0199">
+                      <span class="mp-command-palette__item-icon" aria-hidden="true">
+                        <svg class="mp-symbol" viewBox="0 0 24 24" aria-hidden="true">
+                          <rect x="4" y="5" width="16" height="14" rx="2"></rect>
+                          <path d="m8 10 3 2-3 2"></path>
+                          <path d="M13 15h4"></path>
+                        </svg>
+                      </span>
+                      <span class="mp-command-palette__item-label">Open inspector TRC-0199</span>
+                      <span class="mp-command-palette__item-meta">Trace</span>
+                    </button>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="mp-command-palette__group" role="group" aria-labelledby="command-palette-group-gate">
+                <div class="mp-command-palette__group-label" id="command-palette-group-gate">Gate</div>
+                <ul class="mp-command-palette__list" role="none">
+                  <li role="none">
+                    <button type="button" class="mp-command-palette__item" role="option" aria-selected="false" data-command="review gate user:alice">
+                      <span class="mp-command-palette__item-icon" aria-hidden="true">
+                        <svg class="mp-symbol" viewBox="0 0 24 24" aria-hidden="true">
+                          <path d="M5 20V8l7-4 7 4v12"></path>
+                          <path d="M9 20v-7a3 3 0 0 1 6 0v7"></path>
+                          <path d="M5 8h14"></path>
+                        </svg>
+                      </span>
+                      <span class="mp-command-palette__item-label">Review gate user:alice</span>
+                      <span class="mp-command-palette__item-meta">Gate</span>
+                    </button>
+                  </li>
+                  <li role="none">
+                    <button type="button" class="mp-command-palette__item" role="option" aria-selected="false" data-command="deny delete archive:beta">
+                      <span class="mp-command-palette__item-icon" aria-hidden="true">
+                        <svg class="mp-symbol" viewBox="0 0 24 24" aria-hidden="true">
+                          <path d="M12 3 5 6v5c0 4.6 2.8 7.8 7 10 4.2-2.2 7-5.4 7-10V6l-7-3Z"></path>
+                          <path d="m9 9 6 6"></path>
+                          <path d="m15 9-6 6"></path>
+                        </svg>
+                      </span>
+                      <span class="mp-command-palette__item-label">Deny delete archive:beta</span>
+                      <span class="mp-command-palette__item-meta">Gate</span>
+                    </button>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="mp-command-palette__group" role="group" aria-labelledby="command-palette-group-archive">
+                <div class="mp-command-palette__group-label" id="command-palette-group-archive">Archive</div>
+                <ul class="mp-command-palette__list" role="none">
+                  <li role="none">
+                    <button type="button" class="mp-command-palette__item" role="option" aria-selected="false" data-command="seal archive:alpha">
+                      <span class="mp-command-palette__item-icon" aria-hidden="true">
+                        <svg class="mp-symbol" viewBox="0 0 24 24" aria-hidden="true">
+                          <path d="M5 8h14v11H5z"></path>
+                          <path d="M7 8V5h10v3"></path>
+                          <path d="M9 12h6"></path>
+                        </svg>
+                      </span>
+                      <span class="mp-command-palette__item-label">Seal archive:alpha</span>
+                      <span class="mp-command-palette__item-meta">Archive</span>
+                    </button>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="mp-command-palette__empty" data-command-palette-empty hidden>
+              No matching operator command.
+            </div>
+
+            <div class="mp-command-palette__footer">
+              <span>↑↓ move</span>
+              <span>Enter run</span>
+              <span>Esc close</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="mp-card">
+        <div class="mp-card__header">
+          <div>
+            <p class="mp-card__eyebrow">Actions</p>
+            <h3 class="mp-card__title">Context Menu</h3>
+          </div>
+        </div>
+        <div id="context-menu-demo" class="mp-context-stage">
+          <p class="mp-context-stage__hint">
+            Right-click the record, or focus it and press Shift+F10.
+          </p>
+          <button type="button" class="mp-context-stage__target" data-context-target>
+            <span class="mp-context-stage__target-title">TRC-0428</span>
+            <span class="mp-context-stage__target-meta">policy:read-path · PARTIAL</span>
+          </button>
+          <div class="mp-context-stage__result">
+            Last action: <span data-context-result>none</span>
+          </div>
+
+          <div class="mp-context-menu" role="menu" aria-label="Trace actions" hidden>
+            <div class="mp-context-menu__label">Trace actions</div>
+            <ul class="mp-context-menu__list">
+              <li role="none">
+                <button type="button" class="mp-context-menu__item" role="menuitem" data-action="Inspect record">
+                  <span class="mp-context-menu__item-icon" aria-hidden="true">
+                    <svg class="mp-symbol" viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="M3 12s3.5-6 9-6 9 6 9 6-3.5 6-9 6-9-6-9-6Z"></path>
+                      <circle cx="12" cy="12" r="2.5"></circle>
+                    </svg>
+                  </span>
+                  Inspect record
+                  <span class="mp-context-menu__shortcut">I</span>
+                </button>
+              </li>
+              <li role="none">
+                <button type="button" class="mp-context-menu__item" role="menuitem" data-action="Copy path">
+                  <span class="mp-context-menu__item-icon" aria-hidden="true">
+                    <svg class="mp-symbol" viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="M8 8h10v12H8z"></path>
+                      <path d="M6 16H5V4h10v1"></path>
+                    </svg>
+                  </span>
+                  Copy path
+                  <span class="mp-context-menu__shortcut">C</span>
+                </button>
+              </li>
+              <li role="none">
+                <button type="button" class="mp-context-menu__item" role="menuitem" data-action="Link evidence">
+                  <span class="mp-context-menu__item-icon" aria-hidden="true">
+                    <svg class="mp-symbol" viewBox="0 0 24 24" aria-hidden="true">
+                      <circle cx="6" cy="12" r="2.5"></circle>
+                      <circle cx="18" cy="6" r="2.5"></circle>
+                      <circle cx="18" cy="18" r="2.5"></circle>
+                      <path d="m8.2 10.8 7.6-3.6"></path>
+                      <path d="m8.2 13.2 7.6 3.6"></path>
+                    </svg>
+                  </span>
+                  Link evidence
+                  <span class="mp-context-menu__shortcut">L</span>
+                </button>
+              </li>
+              <li class="mp-context-menu__separator" role="separator"></li>
+              <li role="none">
+                <button type="button" class="mp-context-menu__item" role="menuitem" data-action="Seal record">
+                  <span class="mp-context-menu__item-icon" aria-hidden="true">
+                    <svg class="mp-symbol" viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="M12 3 5 6v5c0 4.6 2.8 7.8 7 10 4.2-2.2 7-5.4 7-10V6l-7-3Z"></path>
+                      <path d="m9.5 12 1.7 1.7 3.6-4"></path>
+                    </svg>
+                  </span>
+                  Seal record
+                  <span class="mp-context-menu__shortcut">S</span>
+                </button>
+              </li>
+              <li role="none">
+                <button type="button" class="mp-context-menu__item mp-context-menu__item--danger" role="menuitem" data-action="Revoke path">
+                  <span class="mp-context-menu__item-icon" aria-hidden="true">
+                    <svg class="mp-symbol" viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="M12 3 5 6v5c0 4.6 2.8 7.8 7 10 4.2-2.2 7-5.4 7-10V6l-7-3Z"></path>
+                      <path d="m9 9 6 6"></path>
+                      <path d="m15 9-6 6"></path>
+                    </svg>
+                  </span>
+                  Revoke path
+                  <span class="mp-context-menu__shortcut">R</span>
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
 </main>
 `
 
@@ -2653,3 +2989,6 @@ setupMotionDemo({
 setupSidebarDemo(document.querySelector('.app-shell-preview'))
 setupTabs(document.querySelectorAll('.mp-tabs'))
 setupFilterBar(document.querySelector('#filter-bar-demo'))
+setupPagination(document.querySelector('#pagination-demo'))
+setupCommandPalette(document.querySelector('#command-palette-demo'))
+setupContextMenu(document.querySelector('#context-menu-demo'))

@@ -1,6 +1,7 @@
 .mp-card {
   display: grid;
   gap: var(--space-3);
+  align-content: start;
   padding: var(--space-5);
   border: 1px solid var(--color-border-default);
   border-radius: var(--radius-md);

@@ -17,6 +17,7 @@
 @import "./styles/components/icon.css";
 @import "./styles/components/sidebar.css";
 @import "./styles/components/tabs.css";
+@import "./styles/components/navigation-extra.css";
 @import "./styles/components/gate-card.css";
 @import "./styles/components/agent-panel.css";
 @import "./styles/components/link-list.css";
