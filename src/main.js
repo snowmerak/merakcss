@@ -1138,30 +1138,75 @@ document.querySelector('#app').innerHTML = `
             <h3 class="mp-card__title">Objects</h3>
           </div>
         </div>
-        <div class="inspector-object inspector-object--selected">
+        <button
+          type="button"
+          class="inspector-object inspector-object--selected"
+          aria-pressed="true"
+          data-object-id="archive:alpha"
+          data-object-eyebrow="Selected Resource"
+          data-object-type="RESOURCE"
+          data-object-badge="VERIFIED"
+          data-object-badge-variant="verified"
+          data-object-overview="Archived design record with stable references and a verified permission path."
+          data-object-owner="system:indexer"
+          data-object-updated="2026-07-09 18:42"
+          data-object-stability="high"
+          data-object-relations="TRC-0428|policy:read|group:editors"
+          data-object-trace="user:alice → group:editors → archive:alpha"
+        >
           <span class="mp-icon" aria-hidden="true">${iconSvg('square', { size: 'sm' })}</span>
           <div>
             <strong class="inspector-object__title">archive:alpha</strong>
             <div class="inspector-object__meta">resource / selected</div>
           </div>
           <span class="mp-badge mp-badge--verified mp-badge--sm">VERIFIED</span>
-        </div>
-        <div class="inspector-object">
+        </button>
+        <button
+          type="button"
+          class="inspector-object"
+          aria-pressed="false"
+          data-object-id="TRC-0428"
+          data-object-eyebrow="Selected Trace"
+          data-object-type="TRACE"
+          data-object-badge="SEALED"
+          data-object-badge-variant="sealed"
+          data-object-overview="Linked observation trail for the current permission path."
+          data-object-owner="agent:observer"
+          data-object-updated="2026-07-09 18:40"
+          data-object-stability="medium"
+          data-object-relations="archive:alpha|policy:read-path|user:alice"
+          data-object-trace="observe → evaluate → seal TRC-0428"
+        >
           <span class="mp-icon" aria-hidden="true">${iconSvg('bolt', { size: 'sm' })}</span>
           <div>
             <strong class="inspector-object__title">TRC-0428</strong>
             <div class="inspector-object__meta">trace / linked</div>
           </div>
           <span class="mp-badge mp-badge--sealed mp-badge--sm">SEALED</span>
-        </div>
-        <div class="inspector-object">
+        </button>
+        <button
+          type="button"
+          class="inspector-object"
+          aria-pressed="false"
+          data-object-id="policy:read-path"
+          data-object-eyebrow="Selected Policy"
+          data-object-type="POLICY"
+          data-object-badge="LOW"
+          data-object-badge-variant="low"
+          data-object-overview="Inherited read policy used by group:editors for archive access."
+          data-object-owner="system:policy"
+          data-object-updated="2026-07-08 11:16"
+          data-object-stability="low"
+          data-object-relations="group:editors|archive:alpha|TRC-0428"
+          data-object-trace="policy:read-path → group:editors → archive:alpha"
+        >
           <span class="mp-icon" aria-hidden="true">${iconSvg('hash', { size: 'sm' })}</span>
           <div>
             <strong class="inspector-object__title">policy:read-path</strong>
             <div class="inspector-object__meta">policy / inherited</div>
           </div>
           <span class="mp-badge mp-badge--low mp-badge--sm">LOW</span>
-        </div>
+        </button>
         <div class="mp-alert mp-alert--info" role="status">
           <span class="mp-alert__icon" aria-hidden="true">${statusIconHtml('info')}</span>
           <div class="mp-alert__content">
@@ -3066,8 +3111,11 @@ function upgradeToCustomElement(selector, tagName) {
   document.querySelectorAll(selector).forEach((element) => {
     if (element.parentElement?.localName === tagName) return
     const host = document.createElement(tagName)
-    element.replaceWith(host)
+    const parent = element.parentNode
+    const next = element.nextSibling
+    // Attach children before connecting so connectedCallback sees markup.
     host.append(element)
+    parent.insertBefore(host, next)
   })
 }
 

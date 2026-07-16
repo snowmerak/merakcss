@@ -1,6 +1,8 @@
 # Merak Protocol Design System
-
-Pastel lavender-gray dark UI with stroke-less flat surface tiers and Alice Blue as a trust/selection signal for traceability, permission gates, AI agent workflows, and archive interfaces.
+  
+  Pastel lavender-gray dark UI with stroke-less surface tiers, soft ambient elevation, and Alice Blue as a trust/selection signal for traceability, permission gates, AI agent workflows, and archive interfaces.
+  
+**Status containers stay neutral.** Large panels (alert, toast, decision banner, confidence meter, empty state, gate card) use inset/elevated surfaces; semantic color lives on icons, rails, bars, and compact badges—not full-bleed weak washes.
 
 ## Demo
 

@@ -1,14 +1,17 @@
 .gate-card {
+  --gate-color: var(--mp-success-base);
+
   display: grid;
   gap: var(--space-4);
   padding: var(--space-5);
   border: 0;
   border-radius: var(--radius-md);
-  background: color-mix(in srgb, var(--mp-bg-surface) 88%, var(--mp-success-base) 12%);
+  background: var(--mp-bg-surface);
+  box-shadow: var(--mp-shadow-soft), inset 3px 0 0 var(--gate-color);
 }
 
 .gate-card--denied {
-  background: color-mix(in srgb, var(--mp-bg-surface) 88%, var(--mp-danger-base) 12%);
+  --gate-color: var(--mp-danger-base);
 }
 
 .gate-card__equation {

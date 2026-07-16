@@ -5,7 +5,7 @@
 
 .mp-alert {
   --alert-color: var(--mp-info-base);
-  --alert-bg: var(--mp-info-weak);
+  --alert-bg: var(--mp-bg-inset);
 
   display: grid;
   grid-template-columns: auto minmax(0, 1fr);
@@ -16,6 +16,7 @@
   border-radius: var(--radius-md);
   color: var(--mp-text-secondary);
   background: var(--alert-bg);
+  box-shadow: inset 3px 0 0 var(--alert-color);
   animation: motion-enter 900ms var(--ease-system);
 }
 
@@ -56,22 +57,18 @@
 
 .mp-alert--info {
   --alert-color: var(--mp-info-base);
-  --alert-bg: var(--mp-info-weak);
 }
 
 .mp-alert--success {
   --alert-color: var(--mp-success-base);
-  --alert-bg: var(--mp-success-weak);
 }
 
 .mp-alert--warning {
   --alert-color: var(--mp-warning-base);
-  --alert-bg: var(--mp-warning-weak);
 }
 
 .mp-alert--error {
   --alert-color: var(--mp-danger-base);
-  --alert-bg: var(--mp-danger-weak);
 }
 
 .mp-alert--compact {

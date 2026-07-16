@@ -3,16 +3,16 @@
 
   /*
    * Brighter lavender-gray pastel dark.
-   * Flat fills only — no decorative gradients for structure.
-   * Structure = surface tiers. Signal = Alice Blue scale (slightly higher chroma).
+   * Structure = surface tiers + soft ambient lift.
+   * Signal = Alice Blue scale (slightly higher chroma).
    */
 
-  /* Surfaces: lifted, cool lavender-gray */
-  --mp-bg-canvas: #171b24;
-  --mp-bg-base: #1d2330;
-  --mp-bg-surface: #272e3d;
-  --mp-bg-inset: #1a2030;
-  --mp-bg-elevated: #323a4d;
+  /* Surfaces: deeper canvas so panels lift more clearly */
+  --mp-bg-canvas: #12161f;
+  --mp-bg-base: #181e2a;
+  --mp-bg-surface: #2a3142;
+  --mp-bg-inset: #161c28;
+  --mp-bg-elevated: #353d52;
   --mp-bg-interactive: rgb(214 220 255 / 0.06);
   --mp-bg-hover: rgb(214 220 255 / 0.1);
   --mp-bg-selected: rgb(from var(--mp-accent-200) r g b / 0.08);
@@ -78,8 +78,16 @@
   --mp-neutral-base: #8b95ab;
   --mp-neutral-text: #c2cadb;
 
-  /* Float only */
-  --mp-shadow-float: 0 12px 32px rgb(12 14 24 / 0.34);
+  /* Elevation — contact (near) + ambient (far); no bright edge stroke */
+  --mp-shadow-soft:
+    0 1px 2px rgb(0 0 0 / 0.42),
+    0 10px 24px rgb(0 0 0 / 0.28);
+  --mp-shadow-panel:
+    0 2px 4px rgb(0 0 0 / 0.46),
+    0 16px 36px rgb(0 0 0 / 0.34);
+  --mp-shadow-float:
+    0 4px 8px rgb(0 0 0 / 0.5),
+    0 28px 56px rgb(0 0 0 / 0.4);
 
   /* Typography / space / radius / motion */
   --font-sans: Pretendard, Inter, "Noto Sans KR", system-ui, sans-serif;

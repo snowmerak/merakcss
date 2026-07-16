@@ -1,6 +1,6 @@
 .mp-confidence-meter {
   --meter-color: var(--mp-neutral-base);
-  --meter-bg: var(--mp-neutral-weak);
+  --meter-bg: var(--mp-bg-inset);
   --mp-confidence: 0%;
 
   display: grid;
@@ -71,27 +71,22 @@
 
 .mp-confidence-meter--high {
   --meter-color: var(--mp-success-base);
-  --meter-bg: var(--mp-success-weak);
 }
 
 .mp-confidence-meter--medium {
   --meter-color: var(--mp-warning-base);
-  --meter-bg: var(--mp-warning-weak);
 }
 
 .mp-confidence-meter--low {
   --meter-color: var(--mp-danger-base);
-  --meter-bg: var(--mp-danger-weak);
 }
 
 .mp-confidence-meter--partial {
   --meter-color: var(--mp-info-base);
-  --meter-bg: var(--mp-info-weak);
 }
 
 .mp-confidence-meter--unknown {
   --meter-color: var(--mp-neutral-base);
-  --meter-bg: var(--mp-neutral-weak);
 }
 
 .mp-confidence-meter--compact {

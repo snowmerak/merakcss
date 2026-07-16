@@ -34,7 +34,7 @@
 * 게임 UI 같은 메탈릭 질감
 * openSUSE처럼 보이는 녹색 중심 체계
 * 너무 밝은 일반 SaaS 템플릿 느낌
-* 카드 기본 hairline stroke / 기본 drop shadow로 레이어 흉내 내기
+* 카드 기본 hairline stroke / 장식용 하드 drop shadow로 레이어 흉내 내기 (restrained ambient elevation은 허용)
 * info용 두 번째 파란 시스템 (accent와 충돌)
 
 ## 3. Color System
@@ -55,7 +55,7 @@
 | `--mp-bg-hover` | hover |
 | `--mp-bg-selected` | selected/current |
 
-현재 방향: **brighter lavender-gray pastel dark**, stroke-less, flat.
+현재 방향: **brighter lavender-gray pastel dark**, stroke-less, flat fills + restrained ambient elevation (`soft` / `panel` / `float`).
 
 ### Dividers
 
@@ -108,12 +108,14 @@ Roles:
 예: `--mp-success-weak`, `--mp-success-soft`, `--mp-success-base`, `--mp-success-text`.
 
 ### Palette Principle
-
-* 구조: surface tier 대비 (stroke-less, flat)
+  
+* 구조: surface tier 대비 + restrained ambient elevation (stroke-less; gradient/chrome 없음)
 * 선택/포커스/신뢰: Alice Blue scale
 * hover: interactive/hover surface (accent 금지)
-* 위험/대기/성공: pastel semantic weak/soft + text
-* float only shadow (`--mp-shadow-float`)
+* **큰 컨테이너는 neutral surface/inset/elevated** — alert, toast, decision banner, confidence meter, empty state, gate card 포함
+* 상태 신호는 icon / left rail / bar / badge·button 등 **국소 semantic**에만
+* compact mark(badge, danger button)만 semantic weak/soft fill 허용
+* elevation: contact + ambient (`--mp-shadow-soft` < `--mp-shadow-panel` < `--mp-shadow-float`)
 * 넓은 accent fill 금지 (primary button·strong signal 제외)
 * 값 변경 시 `tokens.css`만 수정하고 문서 hex를 다시 적지 않는다
 
@@ -699,8 +701,8 @@ Capture → Classify → Link → Verify → Seal
 
 ### Style
 
-* Line icon
-* 1.5px stroke
+* Line icon (`src/icons.js` / `iconSvg`)
+* ~1.35px stroke
 * 둥근 끝은 허용
 * 채워진 아이콘은 최소화
 * 장식적 심볼은 핵심 영역에만 사용

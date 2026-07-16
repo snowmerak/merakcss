@@ -20,15 +20,36 @@
   grid-template-columns: auto minmax(0, 1fr) auto;
   gap: var(--space-3);
   align-items: center;
+  width: 100%;
   padding: var(--space-3);
   border: 0;
   border-radius: var(--radius-md);
+  color: inherit;
   background: var(--mp-bg-surface);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
 }
 
-.inspector-object--selected {
-  border-color: transparent;
+.inspector-object:hover {
+  background: var(--mp-bg-hover);
+}
+
+.inspector-object:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--mp-signal-ring);
+}
+
+.inspector-object--selected,
+.inspector-object--selected:hover {
   background: var(--mp-bg-selected);
+  box-shadow: inset 3px 0 0 var(--mp-accent-line);
+}
+
+.inspector-object--selected:focus-visible {
+  box-shadow:
+    inset 3px 0 0 var(--mp-accent-line),
+    0 0 0 3px var(--mp-signal-ring);
 }
 
 .inspector-object__title {

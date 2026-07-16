@@ -1,7 +1,6 @@
 /* Toast — ephemeral notification; region lives in alert.css for placement */
 .mp-toast {
   --toast-color: var(--mp-info-base);
-  --toast-bg: var(--mp-info-weak);
 
   display: grid;
   grid-template-columns: auto minmax(0, 1fr) auto;
@@ -11,8 +10,8 @@
   border: 0;
   border-radius: var(--radius-md);
   color: var(--mp-text-secondary);
-  background: color-mix(in srgb, var(--mp-bg-elevated) 72%, var(--toast-bg) 28%);
-  box-shadow: var(--mp-shadow-float);
+  background: var(--mp-bg-elevated);
+  box-shadow: inset 3px 0 0 var(--toast-color), var(--mp-shadow-float);
   animation: motion-enter 900ms var(--ease-system);
   pointer-events: auto;
 }
@@ -26,6 +25,7 @@
   border: 0;
   border-radius: var(--radius-full);
   color: var(--toast-color);
+  background: rgb(from var(--toast-color) r g b / 0.14);
   line-height: 0;
 }
 
@@ -88,23 +88,19 @@
 
 .mp-toast--info {
   --toast-color: var(--mp-info-base);
-  --toast-bg: var(--mp-info-weak);
 }
 
 .mp-toast--success {
   --toast-color: var(--mp-success-base);
-  --toast-bg: var(--mp-success-weak);
 }
 
 .mp-toast--warning {
   --toast-color: var(--mp-warning-base);
-  --toast-bg: var(--mp-warning-weak);
 }
 
 .mp-toast--danger,
 .mp-toast--error {
   --toast-color: var(--mp-danger-base);
-  --toast-bg: var(--mp-danger-weak);
 }
 
 .mp-toast.is-leaving {
@@ -118,8 +114,8 @@
 
 /* Showcase static samples only — real toasts keep float elevation */
 .mp-toast-stack .mp-toast {
-  background: color-mix(in srgb, var(--mp-bg-inset) 68%, var(--toast-bg) 32%);
-  box-shadow: none;
+  background: var(--mp-bg-inset);
+  box-shadow: inset 3px 0 0 var(--toast-color);
 }
 
 .mp-toast-stack {
@@ -396,9 +392,6 @@
 
 .mp-empty-state--denied {
   --empty-color: var(--mp-danger-base);
-
-  border-color: transparent;
-  background: rgb(from var(--mp-danger-base) r g b / 0.05);
 }
 
 /* Spinner — quiet ring, not neon */

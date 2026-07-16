@@ -9,7 +9,7 @@ description: Design, implement, review, or extend UI using the Merak Protocol pe
 
 Build practical, dense, calm technical interfaces for trust, traceability, permission models, AI agent workflows, and knowledge archives.
 
-Use a **pastel-dark, stroke-less, flat** surface system. Structure comes from background tiers, not hairline card borders. Alice Blue is a restrained pastel signal scale for trust, observation, verification, selection, focus, and reliable data—not a second blue brand system and not a broad fill.
+Use a **pastel-dark, stroke-less** surface system: flat fills (no decorative gradients/chrome), structure from background tiers, plus restrained ambient elevation (`--mp-shadow-soft` / `panel` / `float`). Not hairline card borders. Alice Blue is a restrained pastel signal scale for trust, observation, verification, selection, focus, and reliable data—not a second blue brand system and not a broad fill.
 
 Do not make it fantasy UI, neon UI, gold myth UI, game metal UI, green openSUSE-like UI, or generic bright SaaS UI. Mythic language may appear in naming and structure, but the interface should still feel like a developer tool.
 
@@ -28,8 +28,8 @@ Do not make it fantasy UI, neon UI, gold myth UI, game metal UI, green openSUSE-
 | Accent scale | `--mp-accent-50` … `--mp-accent-700` | raw Alice Blue steps |
 | Accent roles | `--mp-accent-strong`, `--mp-accent-soft`, `--mp-accent`, `--mp-accent-line`, `--mp-accent-deep` | primary fill, soft, default, icon/focus edge, subdued |
 | Signal helpers | `--mp-signal-wash`, `--mp-signal-ring` | selected wash, focus ring alpha |
-| Semantic | `--mp-{success,warning,danger,neutral,info}-{weak,soft,base,text}` | state surfaces + marks; info is accent-family |
-| Float | `--mp-shadow-float` | dialog/menu/popover only |
+| Semantic | `--mp-{success,warning,danger,neutral,info}-{weak,soft,base,text}` | compact marks only (badge/button/icon); not large panel fills |
+| Elevation | `--mp-shadow-soft`, `--mp-shadow-panel`, `--mp-shadow-float` | card lift / elevated chrome / floating overlay |
 
 ### Palette discipline
 
@@ -40,9 +40,11 @@ Do not make it fantasy UI, neon UI, gold myth UI, game metal UI, green openSUSE-
 - Primary action fill = `--mp-accent-strong` + `--mp-text-inverse`.
 - Focus = ring/outline via `--mp-signal-ring` / `--mp-accent-line` (keep keyboard visibility).
 - Form control geometry (checkbox/radio/toggle/spinner) may keep shape strokes; validation may use semantic edge + ring.
-- Semantic states = weak/soft fills + base/text marks (pastel). Avoid neon.
+- **Large containers are neutral.** Alert, toast, decision banner, confidence meter, empty state, and gate card use neutral surface/inset/elevated, never full-bleed semantic weak/mix washes.
+- **Semantic signal is local:** icon color, left accent rail (`inset 3px 0 0`), fill bar, badge/button weak fills, or compact marks — not the whole panel.
+- Compact controls may keep semantic weak/soft (badge, danger button). Avoid neon.
 - Info is not a second blue system — use accent-family info tokens.
-- Shadow only for floating overlays (`--mp-shadow-float`), not default cards.
+- Elevation uses contact + ambient dark shadows (`soft` < `panel` < `float`). No bright edge-stroke highlights.
 - `@media (forced-colors: active)` may restore borders for identification.
 
 Typography:
@@ -303,7 +305,7 @@ Tabs should update `aria-selected`; panels should keep content concise.
 
 ### Iconography
 
-Use inline SVG line icons, `currentColor`, `1.5px` stroke, rounded caps allowed, minimal fills.
+  Use inline SVG line icons via `src/icons.js` (`iconSvg`), `currentColor`, ~`1.35px` stroke, rounded caps, minimal fills. Do not use emoji, icon fonts, or unicode glyphs as icons.
 
 Motifs:
 - Star: 기준점, 핵심 정보
@@ -327,11 +329,11 @@ Fill API: set `--mp-confidence` on the root (e.g. `style="--mp-confidence: 72%"`
 
 Accessibility: root is a `div` with `role="meter"`, `aria-valuemin="0"`, `aria-valuemax="100"`, `aria-valuenow`, and `aria-valuetext` such as `72% · partial`. Keep visible `__value` text so the meter is not value-only for screen readers.
 
-Color discipline: semantic meter color + weak wash only. No full-bleed accent bars. Soft danger text/fill for `--low`, not neon red.
+  Color discipline: neutral inset container; semantic color on the fill bar only (`--meter-color`). No full-bleed weak wash. Soft danger bar for `--low`, not neon red.
 
 ### Decision Banner
 
-Use for identity permission and review outcomes. Distinct from `.mp-alert` (system messages) and `.gate-card` / `merak-gate-card` (full subject→permission→object equation).
+Use for identity permission and review outcomes. Distinct from `.mp-alert` (system messages) and `.gate-card` / `merak-gate-card` (full subject→permission→object equation). Gate cards use neutral surface + left decision rail + decision badge—not success/danger full-card mixes.
 
 CSS root: `.mp-decision-banner`.
 
@@ -341,7 +343,7 @@ State modifiers: `--granted`, `--denied`, `--partial`, `--unknown`, `--approval`
 
 Roles: denied → `role="alert"`; other states → `role="status"`.
 
-Compose existing `.mp-badge.mp-badge--sm` in `__aside` (`GRANTED`, `DENIED`, `PARTIAL`, `PENDING`). Do not restyle badges inside the banner. Prefer semantic weak/soft fills over hero gradients or structural chrome strokes.
+  Compose existing `.mp-badge.mp-badge--sm` in `__aside` (`GRANTED`, `DENIED`, `PARTIAL`, `PENDING`). Do not restyle badges inside the banner. Container is neutral inset + left accent rail + semantic icon; badges keep compact semantic washes.
 
 ### Evidence List
 
@@ -523,7 +525,7 @@ Before finishing, check:
 - Is copy short and judgment-oriented?
 - Are dangerous states red and confirmed?
 - Are pending/partial states warning pastel or accent-family info—not a second blue system?
-- Are cards/panels stroke-less surface tiers, restrained radius, no default drop shadows?
+- Are large status containers neutral (inset/elevated) with local semantic accents, not full-bleed weak washes?
 - Are confidence, decision, evidence, and filters distinct components rather than overloaded alerts or generic lists?
 - Are hover states neutral (`--mp-bg-hover`), with accent reserved for selected/focus/active?
 - Do overlays use native dialog/popover behavior where practical, with correct roles and names?

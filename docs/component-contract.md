@@ -100,6 +100,8 @@
 
 ### 3.3 Card
 
+**Surface note:** `mp-card--oracle|trace|gate|relic` are **category tints** (domain flavor), not decision/status washes. Decision state uses neutral containers + local semantic accents (badge/rail/icon). Gate cards themselves are neutral surface + decision rail.
+
 **Root:** `article.mp-card` (또는 `div.mp-card` when not self-contained)
 
 | Element | Class |
@@ -165,12 +167,15 @@
 | compact | `mp-alert--compact` |
 | floating (toast item) | `mp-alert--floating` |
 
+**Surface rule:** neutral inset container + left accent rail + semantic icon. Do not fill the whole alert with `--mp-*-weak`. Compact badges may keep weak washes. Icons via `iconSvg` / SVG — no unicode glyphs.
+
 **Toast region**
 
 ```html
 <div
   id="mp-toast-region-{placement}"
   class="mp-toast-region mp-toast-region--{placement}"
+  role="region"
   aria-live="polite"
   aria-label="Notifications"
 ></div>
@@ -182,7 +187,7 @@ placement 값: `top-left` | `top-center` | `top-right` | `center` | `bottom-left
 
 ```html
 <div class="mp-alert mp-alert--success" role="status">
-  <span class="mp-alert__icon" aria-hidden="true">✓</span>
+  <span class="mp-alert__icon" aria-hidden="true"><!-- iconSvg('success', { size: 'sm' }) --></span>
   <div class="mp-alert__content">
     <strong class="mp-alert__title">Trace verified.</strong>
     <p class="mp-alert__message">Evidence path is complete.</p>

@@ -1,7 +1,8 @@
 .mp-decision-banner {
   --banner-color: var(--mp-neutral-text);
-  --banner-bg: var(--mp-neutral-weak);
+  --banner-bg: var(--mp-bg-inset);
 
+  position: relative;
   display: grid;
   grid-template-columns: auto minmax(0, 1fr) auto;
   gap: var(--space-3);
@@ -11,6 +12,7 @@
   border-radius: var(--radius-md);
   color: var(--mp-text-secondary);
   background: var(--banner-bg);
+  box-shadow: inset 3px 0 0 var(--banner-color);
 }
 
 .mp-decision-banner__icon {
@@ -22,11 +24,13 @@
   border: 0;
   border-radius: var(--radius-full);
   color: var(--banner-color);
+  background: rgb(from var(--banner-color) r g b / 0.12);
 }
 
 .mp-decision-banner__icon .mp-symbol {
   width: 12px;
   height: 12px;
+  color: inherit;
 }
 
 .mp-decision-banner__body {
@@ -64,28 +68,23 @@
 }
 
 .mp-decision-banner--granted {
-  --banner-color: var(--mp-success-text);
-  --banner-bg: var(--mp-success-weak);
+  --banner-color: var(--mp-success-base);
 }
 
 .mp-decision-banner--denied {
-  --banner-color: var(--mp-danger-text);
-  --banner-bg: var(--mp-danger-weak);
+  --banner-color: var(--mp-danger-base);
 }
 
 .mp-decision-banner--partial {
-  --banner-color: var(--mp-warning-text);
-  --banner-bg: var(--mp-warning-weak);
+  --banner-color: var(--mp-warning-base);
 }
 
 .mp-decision-banner--unknown {
-  --banner-color: var(--mp-neutral-text);
-  --banner-bg: var(--mp-neutral-weak);
+  --banner-color: var(--mp-neutral-base);
 }
 
 .mp-decision-banner--approval {
-  --banner-color: var(--mp-info-text);
-  --banner-bg: var(--mp-info-weak);
+  --banner-color: var(--mp-info-base);
 }
 
 .mp-decision-banner--compact {

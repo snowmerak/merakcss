@@ -1,3 +1,4 @@
+import { setupInspectorObjects } from '../inspector-objects.js'
 import { showAlert } from '../alert.js'
 import { setupCommandInput } from '../command.js'
 import { setupGraphDrag } from '../graph.js'
@@ -26,10 +27,19 @@ class MerakGraph extends HTMLElementBase {
 
 class MerakInspector extends HTMLElementBase {
   connectedCallback() {
-    this.querySelectorAll('.inspector-object').forEach((item) => item.addEventListener('click', () => {
-      this.querySelectorAll('.inspector-object').forEach((entry) => entry.classList.toggle('inspector-object--selected', entry === item))
-      this.dispatchEvent(new CustomEvent('merak-select', { bubbles: true, composed: true, detail: { id: item.querySelector('.inspector-object__title')?.textContent } }))
-    }))
+    const panel = this.querySelector('.mp-inspector') || this.closest('.inspector-demo')?.querySelector('.mp-inspector')
+    setupInspectorObjects(this, {
+      panel,
+      onSelect: (data) => {
+        this.dispatchEvent(
+          new CustomEvent('merak-select', {
+            bubbles: true,
+            composed: true,
+            detail: { id: data.id },
+          }),
+        )
+      },
+    })
   }
 }
 
