@@ -145,7 +145,7 @@
 
 .trace-panel__item--active {
   border-color: transparent;
-  background: var(--mp-signal-wash);
+  background: var(--mp-bg-selected);
 }
 
 .trace-panel__item--active .trace-panel__index {

@@ -99,14 +99,14 @@
   background: var(--mp-accent-strong);
 }
 
-.mp-evidence-list__item--verified .mp-evidence-list__index {
+.mp-evidence-list__item--verified:not(.mp-evidence-list__item--active) .mp-evidence-list__index {
   border-color: transparent;
-  color: var(--mp-success-base);
+  color: var(--mp-success-text);
 }
 
-.mp-evidence-list__item--partial .mp-evidence-list__index {
+.mp-evidence-list__item--partial:not(.mp-evidence-list__item--active) .mp-evidence-list__index {
   border-color: transparent;
-  color: var(--mp-info-base);
+  color: var(--mp-info-text);
 }
 
 .mp-evidence-list__item--missing {

@@ -88,7 +88,29 @@
   min-width: 40px;
   padding: 0;
   border-color: transparent;
+  color: var(--mp-text-secondary);
   background: var(--mp-bg-interactive);
-  font-family: var(--font-mono);
-  font-size: 1rem;
+  line-height: 0;
+}
+
+.mp-button--icon:hover {
+  color: var(--mp-text-primary);
+  background: var(--mp-bg-hover);
+}
+
+.mp-button--icon .mp-symbol {
+  width: 18px;
+  height: 18px;
+  color: inherit;
+  stroke-width: 1.6;
+}
+
+.mp-button--icon.mp-button--danger {
+  color: var(--mp-danger-text);
+  background: var(--mp-danger-weak);
+}
+
+.mp-button--icon.mp-button--danger:hover {
+  color: var(--mp-danger-text);
+  background: var(--mp-danger-soft);
 }

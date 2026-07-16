@@ -12,6 +12,7 @@ import './elements/merak-interactive-elements.js'
 import './elements/merak-data-components.js'
 import { setupShowcaseLayout } from './showcase-nav.js'
 import { renderMerakMarkdown } from './markdown.js'
+import { iconSvg, statusIconHtml } from './icons.js'
 
 document.querySelector('#app').innerHTML = `
 <main class="showcase">
@@ -75,10 +76,10 @@ document.querySelector('#app').innerHTML = `
           </div>
         </div>
         <div class="button-row">
-          <button type="button" class="mp-button mp-button--icon" aria-label="Search">⌕</button>
-          <button type="button" class="mp-button mp-button--icon" aria-label="Add">+</button>
-          <button type="button" class="mp-button mp-button--icon" aria-label="Filter">≡</button>
-          <button type="button" class="mp-button mp-button--icon mp-button--danger" aria-label="Delete">×</button>
+          <button type="button" class="mp-button mp-button--icon" aria-label="Search">${iconSvg('search', { size: 'sm' })}</button>
+          <button type="button" class="mp-button mp-button--icon" aria-label="Add">${iconSvg('plus', { size: 'sm' })}</button>
+          <button type="button" class="mp-button mp-button--icon" aria-label="Filter">${iconSvg('filter', { size: 'sm' })}</button>
+          <button type="button" class="mp-button mp-button--icon mp-button--danger" aria-label="Delete">${iconSvg('close', { size: 'sm' })}</button>
         </div>
       </article>
     </div>
@@ -94,7 +95,7 @@ document.querySelector('#app').innerHTML = `
     <div class="example-grid">
       <article class="mp-card mp-card--oracle">
         <div class="mp-card__header">
-          <span class="mp-icon" aria-hidden="true">◇</span>
+          <span class="mp-icon" aria-hidden="true">${iconSvg('diamond', { size: 'sm' })}</span>
           <div>
             <p class="mp-card__eyebrow">Oracle Card</p>
             <h3 class="mp-card__title">Source confidence: partial.</h3>
@@ -114,7 +115,7 @@ document.querySelector('#app').innerHTML = `
 
       <article class="mp-card mp-card--trace">
         <div class="mp-card__header">
-          <span class="mp-icon" aria-hidden="true">⌁</span>
+          <span class="mp-icon" aria-hidden="true">${iconSvg('bolt', { size: 'sm' })}</span>
           <div>
             <p class="mp-card__eyebrow">Trace Card</p>
             <h3 class="mp-card__title">TRC-0428 verified.</h3>
@@ -134,7 +135,7 @@ document.querySelector('#app').innerHTML = `
 
       <article class="mp-card mp-card--gate">
         <div class="mp-card__header">
-          <span class="mp-icon" aria-hidden="true">□</span>
+          <span class="mp-icon" aria-hidden="true">${iconSvg('square', { size: 'sm' })}</span>
           <div>
             <p class="mp-card__eyebrow">Gate Card</p>
             <h3 class="mp-card__title">Access granted.</h3>
@@ -154,7 +155,7 @@ document.querySelector('#app').innerHTML = `
 
       <article class="mp-card mp-card--relic">
         <div class="mp-card__header">
-          <span class="mp-icon" aria-hidden="true">▣</span>
+          <span class="mp-icon" aria-hidden="true">${iconSvg('box', { size: 'sm' })}</span>
           <div>
             <p class="mp-card__eyebrow">Relic Card</p>
             <h3 class="mp-card__title">Record sealed.</h3>
@@ -184,7 +185,7 @@ document.querySelector('#app').innerHTML = `
     <div class="example-grid">
       <article class="mp-card">
         <div class="mp-card__header">
-          <span class="mp-icon" aria-hidden="true">≋</span>
+          <span class="mp-icon" aria-hidden="true">${iconSvg('waves', { size: 'sm' })}</span>
           <div>
             <p class="mp-card__eyebrow">Default</p>
             <h3 class="mp-card__title">Foundation</h3>
@@ -199,7 +200,7 @@ document.querySelector('#app').innerHTML = `
 
       <article class="mp-card">
         <div class="mp-card__header">
-          <span class="mp-icon" aria-hidden="true">⌖</span>
+          <span class="mp-icon" aria-hidden="true">${iconSvg('crosshair', { size: 'sm' })}</span>
           <div>
             <p class="mp-card__eyebrow">Dense</p>
             <h3 class="mp-card__title">Trace Index</h3>
@@ -214,7 +215,7 @@ document.querySelector('#app').innerHTML = `
 
       <article class="mp-card">
         <div class="mp-card__header">
-          <span class="mp-icon" aria-hidden="true">◌</span>
+          <span class="mp-icon" aria-hidden="true">${iconSvg('circleDashed', { size: 'sm' })}</span>
           <div>
             <p class="mp-card__eyebrow">Quiet</p>
             <h3 class="mp-card__title">Resources</h3>
@@ -239,7 +240,7 @@ document.querySelector('#app').innerHTML = `
     <div class="example-grid">
       <article class="mp-card">
         <div class="mp-card__header">
-          <span class="mp-icon" aria-hidden="true">●</span>
+          <span class="mp-icon" aria-hidden="true">${iconSvg('circle', { size: 'sm' })}</span>
           <div>
             <p class="mp-card__eyebrow">Status</p>
             <h3 class="mp-card__title">Operational State</h3>
@@ -258,7 +259,7 @@ document.querySelector('#app').innerHTML = `
 
       <article class="mp-card">
         <div class="mp-card__header">
-          <span class="mp-icon" aria-hidden="true">!</span>
+          <span class="mp-icon" aria-hidden="true">${iconSvg('warning', { size: 'sm' })}</span>
           <div>
             <p class="mp-card__eyebrow">Risk</p>
             <h3 class="mp-card__title">Evaluation Level</h3>
@@ -274,7 +275,7 @@ document.querySelector('#app').innerHTML = `
 
       <article class="mp-card">
         <div class="mp-card__header">
-          <span class="mp-icon" aria-hidden="true">#</span>
+          <span class="mp-icon" aria-hidden="true">${iconSvg('hash', { size: 'sm' })}</span>
           <div>
             <p class="mp-card__eyebrow">Type</p>
             <h3 class="mp-card__title">Record Category</h3>
@@ -293,7 +294,7 @@ document.querySelector('#app').innerHTML = `
 
       <article class="mp-card mp-card--trace">
         <div class="mp-card__header">
-          <span class="mp-icon" aria-hidden="true">⌁</span>
+          <span class="mp-icon" aria-hidden="true">${iconSvg('bolt', { size: 'sm' })}</span>
           <div>
             <p class="mp-card__eyebrow">Inline Usage</p>
             <h3 class="mp-card__title">Trace record summary</h3>
@@ -321,7 +322,7 @@ document.querySelector('#app').innerHTML = `
     <div class="mp-grid mp-grid--wide">
       <article class="mp-card">
         <div class="mp-card__header">
-          <span class="mp-icon" aria-hidden="true">⌨</span>
+          <span class="mp-icon" aria-hidden="true">${iconSvg('keyboard', { size: 'sm' })}</span>
           <div>
             <p class="mp-card__eyebrow">Fields</p>
             <h3 class="mp-card__title">Text Entry</h3>
@@ -407,7 +408,7 @@ document.querySelector('#app').innerHTML = `
 
       <article class="mp-card">
         <div class="mp-card__header">
-          <span class="mp-icon" aria-hidden="true">⌕</span>
+          <span class="mp-icon" aria-hidden="true">${iconSvg('search', { size: 'sm' })}</span>
           <div>
             <p class="mp-card__eyebrow">Search</p>
             <h3 class="mp-card__title">Lookup</h3>
@@ -416,10 +417,7 @@ document.querySelector('#app').innerHTML = `
         <div class="mp-field">
           <label class="mp-field__label" for="field-search-records">Search Records</label>
           <span class="mp-search">
-            <svg class="mp-search__icon" viewBox="0 0 16 16" aria-hidden="true">
-              <circle cx="7" cy="7" r="4.25"></circle>
-              <path d="m10.25 10.25 3 3"></path>
-            </svg>
+            ${iconSvg('search', { size: 'sm', className: 'mp-search__icon' })}
             <input
               id="field-search-records"
               class="mp-input"
@@ -462,7 +460,7 @@ document.querySelector('#app').innerHTML = `
     <div class="mp-grid">
       <article class="mp-card">
         <div class="mp-card__header">
-          <span class="mp-icon" aria-hidden="true">¶</span>
+          <span class="mp-icon" aria-hidden="true">${iconSvg('paragraph', { size: 'sm' })}</span>
           <div>
             <p class="mp-card__eyebrow">Textarea</p>
             <h3 class="mp-card__title">Evidence Note</h3>
@@ -482,7 +480,7 @@ document.querySelector('#app').innerHTML = `
 
       <article class="mp-card">
         <div class="mp-card__header">
-          <span class="mp-icon" aria-hidden="true">✓</span>
+          <span class="mp-icon" aria-hidden="true">${iconSvg('check', { size: 'sm' })}</span>
           <div>
             <p class="mp-card__eyebrow">Choices</p>
             <h3 class="mp-card__title">Checkbox and Radio</h3>
@@ -548,7 +546,7 @@ document.querySelector('#app').innerHTML = `
 
       <article class="mp-card">
         <div class="mp-card__header">
-          <span class="mp-icon" aria-hidden="true">⎇</span>
+          <span class="mp-icon" aria-hidden="true">${iconSvg('switch', { size: 'sm' })}</span>
           <div>
             <p class="mp-card__eyebrow">Switch</p>
             <h3 class="mp-card__title">Execution Options</h3>
@@ -608,7 +606,7 @@ document.querySelector('#app').innerHTML = `
     <div class="example-grid example-grid--wide">
       <article class="mp-card">
         <div class="mp-card__header">
-          <span class="mp-icon" aria-hidden="true">i</span>
+          <span class="mp-icon" aria-hidden="true">${iconSvg('info', { size: 'sm' })}</span>
           <div>
             <p class="mp-card__eyebrow">Variants</p>
             <h3 class="mp-card__title">System Alerts</h3>
@@ -616,28 +614,28 @@ document.querySelector('#app').innerHTML = `
         </div>
         <div class="alert-stack">
           <div class="mp-alert mp-alert--info" role="status">
-            <span class="mp-alert__icon" aria-hidden="true">i</span>
+            <span class="mp-alert__icon" aria-hidden="true">${statusIconHtml('info')}</span>
             <div class="mp-alert__content">
               <strong class="mp-alert__title">Trace analysis running.</strong>
               <p class="mp-alert__message">Observation is in progress.</p>
             </div>
           </div>
           <div class="mp-alert mp-alert--success" role="status">
-            <span class="mp-alert__icon" aria-hidden="true">✓</span>
+            <span class="mp-alert__icon" aria-hidden="true">${statusIconHtml('success')}</span>
             <div class="mp-alert__content">
               <strong class="mp-alert__title">Trace verified.</strong>
               <p class="mp-alert__message">Evidence path is complete.</p>
             </div>
           </div>
           <div class="mp-alert mp-alert--warning" role="status">
-            <span class="mp-alert__icon" aria-hidden="true">!</span>
+            <span class="mp-alert__icon" aria-hidden="true">${statusIconHtml('warning')}</span>
             <div class="mp-alert__content">
               <strong class="mp-alert__title">Source confidence is partial.</strong>
               <p class="mp-alert__message">Manual review is recommended.</p>
             </div>
           </div>
           <div class="mp-alert mp-alert--error" role="alert">
-            <span class="mp-alert__icon" aria-hidden="true">×</span>
+            <span class="mp-alert__icon" aria-hidden="true">${statusIconHtml('error')}</span>
             <div class="mp-alert__content">
               <strong class="mp-alert__title">Access denied by policy.</strong>
               <p class="mp-alert__message">No permission path was found.</p>
@@ -648,7 +646,7 @@ document.querySelector('#app').innerHTML = `
 
       <article class="mp-card">
         <div class="mp-card__header">
-          <span class="mp-icon" aria-hidden="true">≡</span>
+          <span class="mp-icon" aria-hidden="true">${iconSvg('menu', { size: 'sm' })}</span>
           <div>
             <p class="mp-card__eyebrow">Compact</p>
             <h3 class="mp-card__title">Inline Review Queue</h3>
@@ -656,17 +654,17 @@ document.querySelector('#app').innerHTML = `
         </div>
         <div class="alert-stack">
           <div class="mp-alert mp-alert--compact mp-alert--success" role="status">
-            <span class="mp-alert__icon" aria-hidden="true">✓</span>
+            <span class="mp-alert__icon" aria-hidden="true">${statusIconHtml('success')}</span>
             <strong class="mp-alert__title">Record archived.</strong>
             <span class="mp-badge mp-badge--sealed mp-badge--sm">SEALED</span>
           </div>
           <div class="mp-alert mp-alert--compact mp-alert--warning" role="status">
-            <span class="mp-alert__icon" aria-hidden="true">!</span>
+            <span class="mp-alert__icon" aria-hidden="true">${statusIconHtml('warning')}</span>
             <strong class="mp-alert__title">Manual review required.</strong>
             <span class="mp-badge mp-badge--medium mp-badge--sm">MEDIUM</span>
           </div>
           <div class="mp-alert mp-alert--compact mp-alert--error" role="alert">
-            <span class="mp-alert__icon" aria-hidden="true">×</span>
+            <span class="mp-alert__icon" aria-hidden="true">${statusIconHtml('error')}</span>
             <strong class="mp-alert__title">Path unresolved.</strong>
             <span class="mp-badge mp-badge--high mp-badge--sm">HIGH</span>
           </div>
@@ -675,7 +673,7 @@ document.querySelector('#app').innerHTML = `
 
       <article class="mp-card mp-card--trace">
         <div class="mp-card__header">
-          <span class="mp-icon" aria-hidden="true">↥</span>
+          <span class="mp-icon" aria-hidden="true">${iconSvg('arrowUp', { size: 'sm' })}</span>
           <div>
             <p class="mp-card__eyebrow">Triggered</p>
             <h3 class="mp-card__title">Alert Runtime</h3>
@@ -714,7 +712,7 @@ document.querySelector('#app').innerHTML = `
 
     <article class="mp-card">
       <div class="mp-card__header">
-        <span class="mp-icon" aria-hidden="true">▤</span>
+        <span class="mp-icon" aria-hidden="true">${iconSvg('table', { size: 'sm' })}</span>
         <div>
           <p class="mp-card__eyebrow">Dense</p>
           <h3 class="mp-card__title">Permission Evaluation Log</h3>
@@ -816,7 +814,7 @@ document.querySelector('#app').innerHTML = `
     <div class="example-grid example-grid--wide">
       <article class="mp-card">
         <div class="mp-card__header">
-          <span class="mp-icon" aria-hidden="true">≋</span>
+          <span class="mp-icon" aria-hidden="true">${iconSvg('waves', { size: 'sm' })}</span>
           <div>
             <p class="mp-card__eyebrow">Documents</p>
             <h3 class="mp-card__title">Archive Index</h3>
@@ -860,7 +858,7 @@ document.querySelector('#app').innerHTML = `
 
       <article class="mp-card">
         <div class="mp-card__header">
-          <span class="mp-icon" aria-hidden="true">#</span>
+          <span class="mp-icon" aria-hidden="true">${iconSvg('hash', { size: 'sm' })}</span>
           <div>
             <p class="mp-card__eyebrow">Compact</p>
             <h3 class="mp-card__title">Agent Runs</h3>
@@ -909,7 +907,7 @@ document.querySelector('#app').innerHTML = `
 
     <article class="mp-card">
       <div class="mp-card__header">
-        <span class="mp-icon" aria-hidden="true">◎</span>
+        <span class="mp-icon" aria-hidden="true">${iconSvg('target', { size: 'sm' })}</span>
         <div>
           <p class="mp-card__eyebrow">Permission Graph</p>
           <h3 class="mp-card__title">Subject → Permission → Object → Decision</h3>
@@ -1013,7 +1011,7 @@ document.querySelector('#app').innerHTML = `
     <div class="trace-layout">
       <article class="mp-card">
         <div class="mp-card__header">
-          <span class="mp-icon" aria-hidden="true">↧</span>
+          <span class="mp-icon" aria-hidden="true">${iconSvg('arrowDown', { size: 'sm' })}</span>
           <div>
             <p class="mp-card__eyebrow">Vertical Timeline</p>
             <h3 class="mp-card__title">Verification Flow</h3>
@@ -1073,7 +1071,7 @@ document.querySelector('#app').innerHTML = `
 
       <article class="mp-card">
         <div class="mp-card__header">
-          <span class="mp-icon" aria-hidden="true">≡</span>
+          <span class="mp-icon" aria-hidden="true">${iconSvg('menu', { size: 'sm' })}</span>
           <div>
             <p class="mp-card__eyebrow">Compact Trace</p>
             <h3 class="mp-card__title">Agent Execution</h3>
@@ -1114,7 +1112,7 @@ document.querySelector('#app').innerHTML = `
           </div>
         </div>
         <div class="mp-alert mp-alert--info" role="status">
-          <span class="mp-alert__icon" aria-hidden="true">i</span>
+          <span class="mp-alert__icon" aria-hidden="true">${statusIconHtml('info')}</span>
           <div class="mp-alert__content">
             <strong class="mp-alert__title">No oracle without trace.</strong>
             <p class="mp-alert__message">Every agent step should leave an inspectable event.</p>
@@ -1134,14 +1132,14 @@ document.querySelector('#app').innerHTML = `
     <div class="inspector-demo">
       <article class="inspector-stage" aria-label="Selectable records">
         <div class="mp-card__header">
-          <span class="mp-icon" aria-hidden="true">⌖</span>
+          <span class="mp-icon" aria-hidden="true">${iconSvg('crosshair', { size: 'sm' })}</span>
           <div>
             <p class="mp-card__eyebrow">Selection Surface</p>
             <h3 class="mp-card__title">Objects</h3>
           </div>
         </div>
         <div class="inspector-object inspector-object--selected">
-          <span class="mp-icon" aria-hidden="true">□</span>
+          <span class="mp-icon" aria-hidden="true">${iconSvg('square', { size: 'sm' })}</span>
           <div>
             <strong class="inspector-object__title">archive:alpha</strong>
             <div class="inspector-object__meta">resource / selected</div>
@@ -1149,7 +1147,7 @@ document.querySelector('#app').innerHTML = `
           <span class="mp-badge mp-badge--verified mp-badge--sm">VERIFIED</span>
         </div>
         <div class="inspector-object">
-          <span class="mp-icon" aria-hidden="true">⌁</span>
+          <span class="mp-icon" aria-hidden="true">${iconSvg('bolt', { size: 'sm' })}</span>
           <div>
             <strong class="inspector-object__title">TRC-0428</strong>
             <div class="inspector-object__meta">trace / linked</div>
@@ -1157,7 +1155,7 @@ document.querySelector('#app').innerHTML = `
           <span class="mp-badge mp-badge--sealed mp-badge--sm">SEALED</span>
         </div>
         <div class="inspector-object">
-          <span class="mp-icon" aria-hidden="true">#</span>
+          <span class="mp-icon" aria-hidden="true">${iconSvg('hash', { size: 'sm' })}</span>
           <div>
             <strong class="inspector-object__title">policy:read-path</strong>
             <div class="inspector-object__meta">policy / inherited</div>
@@ -1165,7 +1163,7 @@ document.querySelector('#app').innerHTML = `
           <span class="mp-badge mp-badge--low mp-badge--sm">LOW</span>
         </div>
         <div class="mp-alert mp-alert--info" role="status">
-          <span class="mp-alert__icon" aria-hidden="true">i</span>
+          <span class="mp-alert__icon" aria-hidden="true">${statusIconHtml('info')}</span>
           <div class="mp-alert__content">
             <strong class="mp-alert__title">Inspector first.</strong>
             <p class="mp-alert__message">Use side inspection before modal interruption.</p>
@@ -1229,7 +1227,7 @@ document.querySelector('#app').innerHTML = `
 
     <article class="mp-card">
       <div class="mp-card__header">
-        <span class="mp-icon" aria-hidden="true">◇</span>
+        <span class="mp-icon" aria-hidden="true">${iconSvg('diamond', { size: 'sm' })}</span>
         <div>
           <p class="mp-card__eyebrow">Motifs</p>
           <h3 class="mp-card__title">Protocol Symbols</h3>
@@ -1239,9 +1237,7 @@ document.querySelector('#app').innerHTML = `
       <div class="icon-grid">
         <div class="icon-sample">
           <div class="icon-sample__header">
-            <svg class="mp-symbol mp-symbol--lg" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="m12 3 2.35 5.2 5.65.6-4.2 3.8 1.2 5.55L12 15.3l-5 2.85 1.2-5.55L4 8.8l5.65-.6L12 3Z"></path>
-            </svg>
+            ${iconSvg('star', { size: 'lg' })}
             <strong class="icon-sample__title">Star</strong>
           </div>
           <p class="icon-sample__meaning">기준점, 핵심 정보</p>
@@ -1249,11 +1245,7 @@ document.querySelector('#app').innerHTML = `
 
         <div class="icon-sample">
           <div class="icon-sample__header">
-            <svg class="mp-symbol mp-symbol--lg" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M5 20V8l7-4 7 4v12"></path>
-              <path d="M9 20v-7a3 3 0 0 1 6 0v7"></path>
-              <path d="M5 8h14"></path>
-            </svg>
+            ${iconSvg('gate', { size: 'lg' })}
             <strong class="icon-sample__title">Gate</strong>
           </div>
           <p class="icon-sample__meaning">권한, 접근</p>
@@ -1261,10 +1253,7 @@ document.querySelector('#app').innerHTML = `
 
         <div class="icon-sample">
           <div class="icon-sample__header">
-            <svg class="mp-symbol mp-symbol--lg" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M3 12s3.5-6 9-6 9 6 9 6-3.5 6-9 6-9-6-9-6Z"></path>
-              <circle cx="12" cy="12" r="2.5"></circle>
-            </svg>
+            ${iconSvg('eye', { size: 'lg' })}
             <strong class="icon-sample__title">Eye</strong>
           </div>
           <p class="icon-sample__meaning">관찰, 검증</p>
@@ -1272,11 +1261,7 @@ document.querySelector('#app').innerHTML = `
 
         <div class="icon-sample">
           <div class="icon-sample__header">
-            <svg class="mp-symbol mp-symbol--lg" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M5 8h14v11H5z"></path>
-              <path d="M7 8V5h10v3"></path>
-              <path d="M9 12h6"></path>
-            </svg>
+            ${iconSvg('archive', { size: 'lg' })}
             <strong class="icon-sample__title">Archive</strong>
           </div>
           <p class="icon-sample__meaning">기록, 보존</p>
@@ -1284,13 +1269,7 @@ document.querySelector('#app').innerHTML = `
 
         <div class="icon-sample">
           <div class="icon-sample__header">
-            <svg class="mp-symbol mp-symbol--lg" viewBox="0 0 24 24" aria-hidden="true">
-              <circle cx="6" cy="12" r="2.5"></circle>
-              <circle cx="18" cy="6" r="2.5"></circle>
-              <circle cx="18" cy="18" r="2.5"></circle>
-              <path d="m8.2 10.8 7.6-3.6"></path>
-              <path d="m8.2 13.2 7.6 3.6"></path>
-            </svg>
+            ${iconSvg('graph', { size: 'lg' })}
             <strong class="icon-sample__title">Graph Node</strong>
           </div>
           <p class="icon-sample__meaning">관계, 경로</p>
@@ -1298,10 +1277,7 @@ document.querySelector('#app').innerHTML = `
 
         <div class="icon-sample">
           <div class="icon-sample__header">
-            <svg class="mp-symbol mp-symbol--lg" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M12 3 5 6v5c0 4.6 2.8 7.8 7 10 4.2-2.2 7-5.4 7-10V6l-7-3Z"></path>
-              <path d="m9.5 12 1.7 1.7 3.6-4"></path>
-            </svg>
+            ${iconSvg('seal', { size: 'lg' })}
             <strong class="icon-sample__title">Seal</strong>
           </div>
           <p class="icon-sample__meaning">확정, 잠금</p>
@@ -1309,10 +1285,7 @@ document.querySelector('#app').innerHTML = `
 
         <div class="icon-sample">
           <div class="icon-sample__header">
-            <svg class="mp-symbol mp-symbol--lg" viewBox="0 0 24 24" aria-hidden="true">
-              <circle cx="12" cy="12" r="8"></circle>
-              <path d="m15.5 8.5-2.2 5-4.8 2 2.2-5 4.8-2Z"></path>
-            </svg>
+            ${iconSvg('compass', { size: 'lg' })}
             <strong class="icon-sample__title">Compass</strong>
           </div>
           <p class="icon-sample__meaning">방향, 탐색</p>
@@ -1320,11 +1293,7 @@ document.querySelector('#app').innerHTML = `
 
         <div class="icon-sample">
           <div class="icon-sample__header">
-            <svg class="mp-symbol mp-symbol--lg" viewBox="0 0 24 24" aria-hidden="true">
-              <rect x="4" y="5" width="16" height="14" rx="2"></rect>
-              <path d="m8 10 3 2-3 2"></path>
-              <path d="M13 15h4"></path>
-            </svg>
+            ${iconSvg('terminal', { size: 'lg' })}
             <strong class="icon-sample__title">Terminal</strong>
           </div>
           <p class="icon-sample__meaning">실행, 명령</p>
@@ -1334,7 +1303,7 @@ document.querySelector('#app').innerHTML = `
 
     <article class="mp-card">
       <div class="mp-card__header">
-        <span class="mp-icon" aria-hidden="true">+</span>
+        <span class="mp-icon" aria-hidden="true">${iconSvg('plus', { size: 'sm' })}</span>
         <div>
           <p class="mp-card__eyebrow">Buttons</p>
           <h3 class="mp-card__title">Icon Actions</h3>
@@ -1342,30 +1311,16 @@ document.querySelector('#app').innerHTML = `
       </div>
       <div class="icon-button-row">
         <button type="button" class="mp-icon-button" aria-label="Observe">
-          <svg class="mp-symbol mp-symbol--sm" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M3 12s3.5-6 9-6 9 6 9 6-3.5 6-9 6-9-6-9-6Z"></path>
-            <circle cx="12" cy="12" r="2.5"></circle>
-          </svg>
+          ${iconSvg('eye', { size: 'sm' })}
         </button>
         <button type="button" class="mp-icon-button" aria-label="Archive">
-          <svg class="mp-symbol mp-symbol--sm" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M5 8h14v11H5z"></path>
-            <path d="M7 8V5h10v3"></path>
-            <path d="M9 12h6"></path>
-          </svg>
+          ${iconSvg('archive', { size: 'sm' })}
         </button>
         <button type="button" class="mp-icon-button" aria-label="Navigate">
-          <svg class="mp-symbol mp-symbol--sm" viewBox="0 0 24 24" aria-hidden="true">
-            <circle cx="12" cy="12" r="8"></circle>
-            <path d="m15.5 8.5-2.2 5-4.8 2 2.2-5 4.8-2Z"></path>
-          </svg>
+          ${iconSvg('compass', { size: 'sm' })}
         </button>
         <button type="button" class="mp-icon-button mp-icon-button--danger" aria-label="Revoke">
-          <svg class="mp-symbol mp-symbol--sm" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M12 3 5 6v5c0 4.6 2.8 7.8 7 10 4.2-2.2 7-5.4 7-10V6l-7-3Z"></path>
-            <path d="m9 9 6 6"></path>
-            <path d="m15 9-6 6"></path>
-          </svg>
+          ${iconSvg('revoke', { size: 'sm' })}
         </button>
       </div>
     </article>
@@ -1386,7 +1341,7 @@ document.querySelector('#app').innerHTML = `
     <div class="example-grid">
       <article class="mp-card motion-enter motion-demo-slow" data-motion-replay="motion-enter">
         <div class="mp-card__header">
-          <span class="mp-icon" aria-hidden="true">↥</span>
+          <span class="mp-icon" aria-hidden="true">${iconSvg('arrowUp', { size: 'sm' })}</span>
           <div>
             <p class="mp-card__eyebrow">Enter</p>
             <h3 class="mp-card__title">180ms / system ease</h3>
@@ -1398,7 +1353,7 @@ document.querySelector('#app').innerHTML = `
 
       <article class="mp-card motion-panel-slide motion-demo-slow" data-motion-replay="motion-panel-slide">
         <div class="mp-card__header">
-          <span class="mp-icon" aria-hidden="true">▣</span>
+          <span class="mp-icon" aria-hidden="true">${iconSvg('box', { size: 'sm' })}</span>
           <div>
             <p class="mp-card__eyebrow">Panel</p>
             <h3 class="mp-card__title">Inspector slide</h3>
@@ -1410,7 +1365,7 @@ document.querySelector('#app').innerHTML = `
 
       <article class="mp-card motion-demo-slow" data-motion-replay="motion-fade-in">
         <div class="mp-card__header">
-          <span class="mp-icon" aria-hidden="true">⌁</span>
+          <span class="mp-icon" aria-hidden="true">${iconSvg('bolt', { size: 'sm' })}</span>
           <div>
             <p class="mp-card__eyebrow">Path</p>
             <h3 class="mp-card__title">Graph emphasis</h3>
@@ -1448,19 +1403,19 @@ document.querySelector('#app').innerHTML = `
             <span class="mp-sidebar__label">System</span>
             <nav class="mp-sidebar__nav">
               <a class="mp-sidebar__item" href="#" aria-current="page" data-sidebar-title="Foundation" data-sidebar-description="System tokens and baseline surfaces are selected.">
-                <svg class="mp-symbol" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 5 6v5c0 4.6 2.8 7.8 7 10 4.2-2.2 7-5.4 7-10V6l-7-3Z"></path></svg>
+                ${iconSvg('shield')}
                 Foundation
               </a>
               <a class="mp-sidebar__item" href="#" data-sidebar-title="Components" data-sidebar-description="Reusable primitives for records, traces, gates, and controls are selected.">
-                <svg class="mp-symbol" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16"></path><path d="M4 12h16"></path><path d="M4 17h16"></path></svg>
+                ${iconSvg('menu')}
                 Components
               </a>
               <a class="mp-sidebar__item" href="#" data-sidebar-title="Graphs" data-sidebar-description="Relationship and permission path views are selected.">
-                <svg class="mp-symbol" viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="12" r="2.5"></circle><circle cx="18" cy="6" r="2.5"></circle><circle cx="18" cy="18" r="2.5"></circle><path d="m8.2 10.8 7.6-3.6"></path><path d="m8.2 13.2 7.6 3.6"></path></svg>
+                ${iconSvg('graph')}
                 Graphs
               </a>
               <a class="mp-sidebar__item" href="#" data-sidebar-title="Relics" data-sidebar-description="Archived records and sealed knowledge surfaces are selected.">
-                <svg class="mp-symbol" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h14v11H5z"></path><path d="M7 8V5h10v3"></path><path d="M9 12h6"></path></svg>
+                ${iconSvg('archive')}
                 Relics
               </a>
             </nav>
@@ -1485,7 +1440,7 @@ document.querySelector('#app').innerHTML = `
           </header>
           <div class="app-shell-preview__content">
             <div class="mp-alert mp-alert--success" role="status">
-              <span class="mp-alert__icon" aria-hidden="true">✓</span>
+              <span class="mp-alert__icon" aria-hidden="true">${statusIconHtml('success')}</span>
               <div class="mp-alert__content">
                 <strong class="mp-alert__title">Trace verified.</strong>
                 <p class="mp-alert__message" data-sidebar-preview-description>System tokens and baseline surfaces are selected.</p>
@@ -1564,7 +1519,7 @@ document.querySelector('#app').innerHTML = `
     <div class="example-grid example-grid--wide">
       <article class="mp-card mp-card--trace">
         <div class="mp-card__header">
-          <span class="mp-icon" aria-hidden="true">&gt;</span>
+          <span class="mp-icon" aria-hidden="true">${iconSvg('chevronRight', { size: 'sm' })}</span>
           <div>
             <p class="mp-card__eyebrow">Interactive</p>
             <h3 class="mp-card__title">Agent Command</h3>
@@ -1601,7 +1556,7 @@ document.querySelector('#app').innerHTML = `
 
       <article class="mp-card">
         <div class="mp-card__header">
-          <span class="mp-icon" aria-hidden="true">⌁</span>
+          <span class="mp-icon" aria-hidden="true">${iconSvg('bolt', { size: 'sm' })}</span>
           <div>
             <p class="mp-card__eyebrow">Observation</p>
             <h3 class="mp-card__title">Command Result</h3>
@@ -1629,7 +1584,7 @@ document.querySelector('#app').innerHTML = `
     <div class="example-grid example-grid--wide">
       <article class="gate-card">
         <div class="mp-card__header">
-          <span class="mp-icon" aria-hidden="true">□</span>
+          <span class="mp-icon" aria-hidden="true">${iconSvg('square', { size: 'sm' })}</span>
           <div>
             <p class="mp-card__eyebrow">Gate Card</p>
             <h3 class="mp-card__title">Access granted.</h3>
@@ -1641,12 +1596,12 @@ document.querySelector('#app').innerHTML = `
             <span class="gate-card__label">Subject</span>
             <span class="gate-card__value">user:alice</span>
           </div>
-          <span class="gate-card__arrow">→</span>
+          <span class="gate-card__arrow" aria-hidden="true">${iconSvg('chevronRight', { size: 'sm' })}</span>
           <div class="gate-card__node">
             <span class="gate-card__label">Permission</span>
             <span class="gate-card__value">read</span>
           </div>
-          <span class="gate-card__arrow">→</span>
+          <span class="gate-card__arrow" aria-hidden="true">${iconSvg('chevronRight', { size: 'sm' })}</span>
           <div class="gate-card__node">
             <span class="gate-card__label">Object</span>
             <span class="gate-card__value">archive:alpha</span>
@@ -1666,7 +1621,7 @@ document.querySelector('#app').innerHTML = `
 
       <article class="gate-card gate-card--denied">
         <div class="mp-card__header">
-          <span class="mp-icon" aria-hidden="true">!</span>
+          <span class="mp-icon" aria-hidden="true">${iconSvg('warning', { size: 'sm' })}</span>
           <div>
             <p class="mp-card__eyebrow">Denied State</p>
             <h3 class="mp-card__title">Access denied by policy.</h3>
@@ -1857,6 +1812,7 @@ document.querySelector('#app').innerHTML = `
           <div
             class="mp-confidence-meter mp-confidence-meter--high"
             role="meter"
+            aria-label="Verified path"
             aria-valuemin="0"
             aria-valuemax="100"
             aria-valuenow="94"
@@ -1879,6 +1835,7 @@ document.querySelector('#app').innerHTML = `
           <div
             class="mp-confidence-meter mp-confidence-meter--partial"
             role="meter"
+            aria-label="Partial review"
             aria-valuemin="0"
             aria-valuemax="100"
             aria-valuenow="72"
@@ -1898,6 +1855,7 @@ document.querySelector('#app').innerHTML = `
           <div
             class="mp-confidence-meter mp-confidence-meter--medium"
             role="meter"
+            aria-label="Inherited claim"
             aria-valuemin="0"
             aria-valuemax="100"
             aria-valuenow="48"
@@ -1917,6 +1875,7 @@ document.querySelector('#app').innerHTML = `
           <div
             class="mp-confidence-meter mp-confidence-meter--low"
             role="meter"
+            aria-label="Blocked judgment"
             aria-valuemin="0"
             aria-valuemax="100"
             aria-valuenow="18"
@@ -1936,6 +1895,7 @@ document.querySelector('#app').innerHTML = `
           <div
             class="mp-confidence-meter mp-confidence-meter--unknown"
             role="meter"
+            aria-label="Unknown band"
             aria-valuemin="0"
             aria-valuemax="100"
             aria-valuenow="0"
@@ -1965,6 +1925,7 @@ document.querySelector('#app').innerHTML = `
         <div
           class="mp-confidence-meter mp-confidence-meter--partial mp-confidence-meter--compact"
           role="meter"
+            aria-label="Source confidence"
           aria-valuemin="0"
           aria-valuemax="100"
           aria-valuenow="72"
@@ -2002,10 +1963,7 @@ document.querySelector('#app').innerHTML = `
         <div class="mp-decision-banner-stack">
           <div class="mp-decision-banner mp-decision-banner--granted" role="status">
             <span class="mp-decision-banner__icon" aria-hidden="true">
-              <svg class="mp-symbol mp-symbol--sm" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M12 3 5 6v5c0 4.6 2.8 7.8 7 10 4.2-2.2 7-5.4 7-10V6l-7-3Z"></path>
-                <path d="m9.5 12 1.7 1.7 3.6-4"></path>
-              </svg>
+              ${iconSvg('seal', { size: 'sm' })}
             </span>
             <div class="mp-decision-banner__body">
               <strong class="mp-decision-banner__title">Access granted.</strong>
@@ -2019,11 +1977,7 @@ document.querySelector('#app').innerHTML = `
 
           <div class="mp-decision-banner mp-decision-banner--denied" role="alert">
             <span class="mp-decision-banner__icon" aria-hidden="true">
-              <svg class="mp-symbol mp-symbol--sm" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M12 3 5 6v5c0 4.6 2.8 7.8 7 10 4.2-2.2 7-5.4 7-10V6l-7-3Z"></path>
-                <path d="m9 9 6 6"></path>
-                <path d="m15 9-6 6"></path>
-              </svg>
+              ${iconSvg('revoke', { size: 'sm' })}
             </span>
             <div class="mp-decision-banner__body">
               <strong class="mp-decision-banner__title">Access denied by policy.</strong>
@@ -2037,10 +1991,7 @@ document.querySelector('#app').innerHTML = `
 
           <div class="mp-decision-banner mp-decision-banner--partial" role="status">
             <span class="mp-decision-banner__icon" aria-hidden="true">
-              <svg class="mp-symbol mp-symbol--sm" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M3 12s3.5-6 9-6 9 6 9 6-3.5 6-9 6-9-6-9-6Z"></path>
-                <circle cx="12" cy="12" r="2.5"></circle>
-              </svg>
+              ${iconSvg('eye', { size: 'sm' })}
             </span>
             <div class="mp-decision-banner__body">
               <strong class="mp-decision-banner__title">Source confidence is partial.</strong>
@@ -2054,11 +2005,7 @@ document.querySelector('#app').innerHTML = `
 
           <div class="mp-decision-banner mp-decision-banner--approval" role="status">
             <span class="mp-decision-banner__icon" aria-hidden="true">
-              <svg class="mp-symbol mp-symbol--sm" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M5 20V8l7-4 7 4v12"></path>
-                <path d="M9 20v-7a3 3 0 0 1 6 0v7"></path>
-                <path d="M5 8h14"></path>
-              </svg>
+              ${iconSvg('gate', { size: 'sm' })}
             </span>
             <div class="mp-decision-banner__body">
               <strong class="mp-decision-banner__title">Manual review required.</strong>
@@ -2082,10 +2029,7 @@ document.querySelector('#app').innerHTML = `
         <div class="mp-decision-banner-stack">
           <div class="mp-decision-banner mp-decision-banner--compact mp-decision-banner--granted" role="status">
             <span class="mp-decision-banner__icon" aria-hidden="true">
-              <svg class="mp-symbol mp-symbol--sm" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M12 3 5 6v5c0 4.6 2.8 7.8 7 10 4.2-2.2 7-5.4 7-10V6l-7-3Z"></path>
-                <path d="m9.5 12 1.7 1.7 3.6-4"></path>
-              </svg>
+              ${iconSvg('seal', { size: 'sm' })}
             </span>
             <div class="mp-decision-banner__body">
               <strong class="mp-decision-banner__title">Access granted.</strong>
@@ -2097,11 +2041,7 @@ document.querySelector('#app').innerHTML = `
 
           <div class="mp-decision-banner mp-decision-banner--compact mp-decision-banner--denied" role="alert">
             <span class="mp-decision-banner__icon" aria-hidden="true">
-              <svg class="mp-symbol mp-symbol--sm" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M12 3 5 6v5c0 4.6 2.8 7.8 7 10 4.2-2.2 7-5.4 7-10V6l-7-3Z"></path>
-                <path d="m9 9 6 6"></path>
-                <path d="m15 9-6 6"></path>
-              </svg>
+              ${iconSvg('revoke', { size: 'sm' })}
             </span>
             <div class="mp-decision-banner__body">
               <strong class="mp-decision-banner__title">Access denied by policy.</strong>
@@ -2113,11 +2053,7 @@ document.querySelector('#app').innerHTML = `
 
           <div class="mp-decision-banner mp-decision-banner--compact mp-decision-banner--approval" role="status">
             <span class="mp-decision-banner__icon" aria-hidden="true">
-              <svg class="mp-symbol mp-symbol--sm" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M5 20V8l7-4 7 4v12"></path>
-                <path d="M9 20v-7a3 3 0 0 1 6 0v7"></path>
-                <path d="M5 8h14"></path>
-              </svg>
+              ${iconSvg('gate', { size: 'sm' })}
             </span>
             <div class="mp-decision-banner__body">
               <strong class="mp-decision-banner__title">Manual review required.</strong>
@@ -2289,10 +2225,7 @@ document.querySelector('#app').innerHTML = `
             <label class="field-group">
               <span class="mp-label">Search</span>
               <span class="mp-search">
-                <svg class="mp-search__icon" viewBox="0 0 16 16" aria-hidden="true">
-                  <circle cx="7" cy="7" r="4.25"></circle>
-                  <path d="m10.25 10.25 3 3"></path>
-                </svg>
+                ${iconSvg('search', { size: 'sm', className: 'mp-search__icon' })}
                 <input
                   class="mp-input"
                   type="search"
@@ -2355,28 +2288,28 @@ document.querySelector('#app').innerHTML = `
         </div>
         <div class="mp-toast-stack" aria-label="Static toast examples">
           <div class="mp-toast mp-toast--info">
-            <span class="mp-toast__icon" aria-hidden="true">i</span>
+            <span class="mp-toast__icon" aria-hidden="true">${statusIconHtml('info')}</span>
             <div class="mp-toast__body">
               <strong class="mp-toast__title">Trace analysis running.</strong>
               <p class="mp-toast__message">Observation queue accepted for TRC-0428.</p>
             </div>
           </div>
           <div class="mp-toast mp-toast--success">
-            <span class="mp-toast__icon" aria-hidden="true">✓</span>
+            <span class="mp-toast__icon" aria-hidden="true">${statusIconHtml('success')}</span>
             <div class="mp-toast__body">
               <strong class="mp-toast__title">Record sealed.</strong>
               <p class="mp-toast__message">archive:alpha is now immutable.</p>
             </div>
           </div>
           <div class="mp-toast mp-toast--warning">
-            <span class="mp-toast__icon" aria-hidden="true">!</span>
+            <span class="mp-toast__icon" aria-hidden="true">${statusIconHtml('warning')}</span>
             <div class="mp-toast__body">
               <strong class="mp-toast__title">Source confidence is partial.</strong>
               <p class="mp-toast__message">Two citations remain unverified.</p>
             </div>
           </div>
           <div class="mp-toast mp-toast--danger">
-            <span class="mp-toast__icon" aria-hidden="true">×</span>
+            <span class="mp-toast__icon" aria-hidden="true">${statusIconHtml('error')}</span>
             <div class="mp-toast__body">
               <strong class="mp-toast__title">Access denied by policy.</strong>
               <p class="mp-toast__message">No path for delete on archive:beta.</p>
@@ -2494,7 +2427,7 @@ document.querySelector('#app').innerHTML = `
             <h3 class="mp-card__title">Loading Record</h3>
           </div>
         </div>
-        <div class="mp-skeleton" aria-busy="true" aria-live="polite" aria-label="Loading inspector record">
+        <div class="mp-skeleton" role="status" aria-busy="true" aria-live="polite" aria-label="Loading inspector record">
           <div class="mp-skeleton__row">
             <div class="mp-skeleton__circle"></div>
             <div class="mp-skeleton__lines">
@@ -2548,11 +2481,7 @@ document.querySelector('#app').innerHTML = `
         <div class="mp-feedback-stack">
           <div class="mp-empty-state mp-empty-state--default" role="status">
             <span class="mp-empty-state__icon" aria-hidden="true">
-              <svg class="mp-symbol mp-symbol--sm" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M5 8h14v11H5z"></path>
-                <path d="M7 8V5h10v3"></path>
-                <path d="M9 12h6"></path>
-              </svg>
+              ${iconSvg('archive', { size: 'sm' })}
             </span>
             <h4 class="mp-empty-state__title">No records yet.</h4>
             <p class="mp-empty-state__body">Capture a trace before requesting an oracle judgment.</p>
@@ -2565,10 +2494,7 @@ document.querySelector('#app').innerHTML = `
 
           <div class="mp-empty-state mp-empty-state--filtered" role="status">
             <span class="mp-empty-state__icon" aria-hidden="true">
-              <svg class="mp-symbol mp-symbol--sm" viewBox="0 0 24 24" aria-hidden="true">
-                <circle cx="12" cy="12" r="8"></circle>
-                <path d="m15.5 8.5-2.2 5-4.8 2 2.2-5 4.8-2Z"></path>
-              </svg>
+              ${iconSvg('compass', { size: 'sm' })}
             </span>
             <h4 class="mp-empty-state__title">No matches for current filters.</h4>
             <p class="mp-empty-state__body">Clear status chips or broaden type selection to restore the index.</p>
@@ -2577,10 +2503,7 @@ document.querySelector('#app').innerHTML = `
 
           <div class="mp-empty-state mp-empty-state--archived" role="status">
             <span class="mp-empty-state__icon" aria-hidden="true">
-              <svg class="mp-symbol mp-symbol--sm" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M12 3 5 6v5c0 4.6 2.8 7.8 7 10 4.2-2.2 7-5.4 7-10V6l-7-3Z"></path>
-                <path d="m9.5 12 1.7 1.7 3.6-4"></path>
-              </svg>
+              ${iconSvg('seal', { size: 'sm' })}
             </span>
             <h4 class="mp-empty-state__title">Archive is sealed.</h4>
             <p class="mp-empty-state__body">This collection is read-only. Open a sealed record to inspect lineage.</p>
@@ -2589,11 +2512,7 @@ document.querySelector('#app').innerHTML = `
 
           <div class="mp-empty-state mp-empty-state--denied" role="status">
             <span class="mp-empty-state__icon" aria-hidden="true">
-              <svg class="mp-symbol mp-symbol--sm" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M12 3 5 6v5c0 4.6 2.8 7.8 7 10 4.2-2.2 7-5.4 7-10V6l-7-3Z"></path>
-                <path d="m9 9 6 6"></path>
-                <path d="m15 9-6 6"></path>
-              </svg>
+              ${iconSvg('revoke', { size: 'sm' })}
             </span>
             <h4 class="mp-empty-state__title">Access denied by policy.</h4>
             <p class="mp-empty-state__body">No permission path exists for this subject and object pair.</p>
@@ -2624,18 +2543,14 @@ document.querySelector('#app').innerHTML = `
             <li class="mp-breadcrumb__item">
               <a class="mp-breadcrumb__link" href="#navigation-extra-title">
                 <span class="mp-breadcrumb__icon" aria-hidden="true">
-                  <svg class="mp-symbol" viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M12 3 5 6v5c0 4.6 2.8 7.8 7 10 4.2-2.2 7-5.4 7-10V6l-7-3Z"></path>
-                  </svg>
+                  ${iconSvg('shield')}
                 </span>
                 Archives
               </a>
             </li>
             <li class="mp-breadcrumb__item" aria-hidden="true">
               <span class="mp-breadcrumb__separator">
-                <svg class="mp-symbol" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="m9 6 6 6-6 6"></path>
-                </svg>
+                ${iconSvg('chevronRight')}
               </span>
             </li>
             <li class="mp-breadcrumb__item">
@@ -2643,9 +2558,7 @@ document.querySelector('#app').innerHTML = `
             </li>
             <li class="mp-breadcrumb__item" aria-hidden="true">
               <span class="mp-breadcrumb__separator">
-                <svg class="mp-symbol" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="m9 6 6 6-6 6"></path>
-                </svg>
+                ${iconSvg('chevronRight')}
               </span>
             </li>
             <li class="mp-breadcrumb__item">
@@ -2653,9 +2566,7 @@ document.querySelector('#app').innerHTML = `
             </li>
             <li class="mp-breadcrumb__item" aria-hidden="true">
               <span class="mp-breadcrumb__separator">
-                <svg class="mp-symbol" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="m9 6 6 6-6 6"></path>
-                </svg>
+                ${iconSvg('chevronRight')}
               </span>
             </li>
             <li class="mp-breadcrumb__item">
@@ -2677,9 +2588,7 @@ document.querySelector('#app').innerHTML = `
         </div>
         <nav id="pagination-demo" class="mp-pagination mp-pagination--dense" aria-label="Pagination">
           <button type="button" class="mp-pagination__control" data-pagination-prev aria-label="Previous page">
-            <svg class="mp-symbol" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="m14 6-6 6 6 6"></path>
-            </svg>
+            ${iconSvg('chevronLeft')}
             Prev
           </button>
           <ul class="mp-pagination__list">
@@ -2701,9 +2610,7 @@ document.querySelector('#app').innerHTML = `
           </ul>
           <button type="button" class="mp-pagination__control" data-pagination-next aria-label="Next page">
             Next
-            <svg class="mp-symbol" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="m10 6 6 6-6 6"></path>
-            </svg>
+            ${iconSvg('chevronRight')}
           </button>
           <span class="mp-pagination__meta" data-pagination-meta>Page 2 / 4</span>
         </nav>
@@ -2733,10 +2640,7 @@ document.querySelector('#app').innerHTML = `
             <div class="mp-command-palette__header">
               <div class="mp-command-palette__eyebrow">Operator commands</div>
               <label class="mp-command-palette__search" for="command-palette-input">
-                <svg class="mp-command-palette__search-icon mp-symbol" viewBox="0 0 16 16" aria-hidden="true">
-                  <circle cx="7" cy="7" r="4.25"></circle>
-                  <path d="m10.25 10.25 3 3"></path>
-                </svg>
+                ${iconSvg('search')}
                 <input
                   id="command-palette-input"
                   class="mp-command-palette__input"
@@ -2755,10 +2659,7 @@ document.querySelector('#app').innerHTML = `
                   <li role="none">
                     <button type="button" class="mp-command-palette__item" role="option" aria-selected="true" data-command="verify path TRC-0428">
                       <span class="mp-command-palette__item-icon" aria-hidden="true">
-                        <svg class="mp-symbol" viewBox="0 0 24 24" aria-hidden="true">
-                          <path d="M3 12s3.5-6 9-6 9 6 9 6-3.5 6-9 6-9-6-9-6Z"></path>
-                          <circle cx="12" cy="12" r="2.5"></circle>
-                        </svg>
+                        ${iconSvg('eye')}
                       </span>
                       <span class="mp-command-palette__item-label">Verify path TRC-0428</span>
                       <span class="mp-command-palette__item-meta">Trace</span>
@@ -2767,11 +2668,7 @@ document.querySelector('#app').innerHTML = `
                   <li role="none">
                     <button type="button" class="mp-command-palette__item" role="option" aria-selected="false" data-command="open inspector TRC-0199">
                       <span class="mp-command-palette__item-icon" aria-hidden="true">
-                        <svg class="mp-symbol" viewBox="0 0 24 24" aria-hidden="true">
-                          <rect x="4" y="5" width="16" height="14" rx="2"></rect>
-                          <path d="m8 10 3 2-3 2"></path>
-                          <path d="M13 15h4"></path>
-                        </svg>
+                        ${iconSvg('terminal')}
                       </span>
                       <span class="mp-command-palette__item-label">Open inspector TRC-0199</span>
                       <span class="mp-command-palette__item-meta">Trace</span>
@@ -2786,11 +2683,7 @@ document.querySelector('#app').innerHTML = `
                   <li role="none">
                     <button type="button" class="mp-command-palette__item" role="option" aria-selected="false" data-command="review gate user:alice">
                       <span class="mp-command-palette__item-icon" aria-hidden="true">
-                        <svg class="mp-symbol" viewBox="0 0 24 24" aria-hidden="true">
-                          <path d="M5 20V8l7-4 7 4v12"></path>
-                          <path d="M9 20v-7a3 3 0 0 1 6 0v7"></path>
-                          <path d="M5 8h14"></path>
-                        </svg>
+                        ${iconSvg('gate')}
                       </span>
                       <span class="mp-command-palette__item-label">Review gate user:alice</span>
                       <span class="mp-command-palette__item-meta">Gate</span>
@@ -2799,11 +2692,7 @@ document.querySelector('#app').innerHTML = `
                   <li role="none">
                     <button type="button" class="mp-command-palette__item" role="option" aria-selected="false" data-command="deny delete archive:beta">
                       <span class="mp-command-palette__item-icon" aria-hidden="true">
-                        <svg class="mp-symbol" viewBox="0 0 24 24" aria-hidden="true">
-                          <path d="M12 3 5 6v5c0 4.6 2.8 7.8 7 10 4.2-2.2 7-5.4 7-10V6l-7-3Z"></path>
-                          <path d="m9 9 6 6"></path>
-                          <path d="m15 9-6 6"></path>
-                        </svg>
+                        ${iconSvg('revoke')}
                       </span>
                       <span class="mp-command-palette__item-label">Deny delete archive:beta</span>
                       <span class="mp-command-palette__item-meta">Gate</span>
@@ -2818,11 +2707,7 @@ document.querySelector('#app').innerHTML = `
                   <li role="none">
                     <button type="button" class="mp-command-palette__item" role="option" aria-selected="false" data-command="seal archive:alpha">
                       <span class="mp-command-palette__item-icon" aria-hidden="true">
-                        <svg class="mp-symbol" viewBox="0 0 24 24" aria-hidden="true">
-                          <path d="M5 8h14v11H5z"></path>
-                          <path d="M7 8V5h10v3"></path>
-                          <path d="M9 12h6"></path>
-                        </svg>
+                        ${iconSvg('archive')}
                       </span>
                       <span class="mp-command-palette__item-label">Seal archive:alpha</span>
                       <span class="mp-command-palette__item-meta">Archive</span>
@@ -2837,9 +2722,21 @@ document.querySelector('#app').innerHTML = `
             </div>
 
             <div class="mp-command-palette__footer">
-              <span>↑↓ move</span>
-              <span>Enter run</span>
-              <span>Esc close</span>
+              <span class="mp-command-palette__hint">
+                <kbd class="mp-command-palette__keys">
+                  ${iconSvg('arrowUp', { size: 'sm', label: 'Up arrow' })}
+                  ${iconSvg('arrowDown', { size: 'sm', label: 'Down arrow' })}
+                </kbd>
+                <span>Move</span>
+              </span>
+              <span class="mp-command-palette__hint">
+                <kbd class="mp-command-palette__key">Enter</kbd>
+                <span>Run</span>
+              </span>
+              <span class="mp-command-palette__hint">
+                <kbd class="mp-command-palette__key">Esc</kbd>
+                <span>Close</span>
+              </span>
             </div>
           </div>
         </div>
@@ -2866,14 +2763,11 @@ document.querySelector('#app').innerHTML = `
 
           <div class="mp-context-menu" role="menu" aria-label="Trace actions" hidden>
             <div class="mp-context-menu__label">Trace actions</div>
-            <ul class="mp-context-menu__list">
+            <ul class="mp-context-menu__list" role="none">
               <li role="none">
                 <button type="button" class="mp-context-menu__item" role="menuitem" data-action="Inspect record">
                   <span class="mp-context-menu__item-icon" aria-hidden="true">
-                    <svg class="mp-symbol" viewBox="0 0 24 24" aria-hidden="true">
-                      <path d="M3 12s3.5-6 9-6 9 6 9 6-3.5 6-9 6-9-6-9-6Z"></path>
-                      <circle cx="12" cy="12" r="2.5"></circle>
-                    </svg>
+                    ${iconSvg('eye')}
                   </span>
                   Inspect record
                   <span class="mp-context-menu__shortcut">I</span>
@@ -2882,10 +2776,7 @@ document.querySelector('#app').innerHTML = `
               <li role="none">
                 <button type="button" class="mp-context-menu__item" role="menuitem" data-action="Copy path">
                   <span class="mp-context-menu__item-icon" aria-hidden="true">
-                    <svg class="mp-symbol" viewBox="0 0 24 24" aria-hidden="true">
-                      <path d="M8 8h10v12H8z"></path>
-                      <path d="M6 16H5V4h10v1"></path>
-                    </svg>
+                    ${iconSvg('copy')}
                   </span>
                   Copy path
                   <span class="mp-context-menu__shortcut">C</span>
@@ -2894,13 +2785,7 @@ document.querySelector('#app').innerHTML = `
               <li role="none">
                 <button type="button" class="mp-context-menu__item" role="menuitem" data-action="Link evidence">
                   <span class="mp-context-menu__item-icon" aria-hidden="true">
-                    <svg class="mp-symbol" viewBox="0 0 24 24" aria-hidden="true">
-                      <circle cx="6" cy="12" r="2.5"></circle>
-                      <circle cx="18" cy="6" r="2.5"></circle>
-                      <circle cx="18" cy="18" r="2.5"></circle>
-                      <path d="m8.2 10.8 7.6-3.6"></path>
-                      <path d="m8.2 13.2 7.6 3.6"></path>
-                    </svg>
+                    ${iconSvg('graph')}
                   </span>
                   Link evidence
                   <span class="mp-context-menu__shortcut">L</span>
@@ -2910,10 +2795,7 @@ document.querySelector('#app').innerHTML = `
               <li role="none">
                 <button type="button" class="mp-context-menu__item" role="menuitem" data-action="Seal record">
                   <span class="mp-context-menu__item-icon" aria-hidden="true">
-                    <svg class="mp-symbol" viewBox="0 0 24 24" aria-hidden="true">
-                      <path d="M12 3 5 6v5c0 4.6 2.8 7.8 7 10 4.2-2.2 7-5.4 7-10V6l-7-3Z"></path>
-                      <path d="m9.5 12 1.7 1.7 3.6-4"></path>
-                    </svg>
+                    ${iconSvg('seal')}
                   </span>
                   Seal record
                   <span class="mp-context-menu__shortcut">S</span>
@@ -2922,11 +2804,7 @@ document.querySelector('#app').innerHTML = `
               <li role="none">
                 <button type="button" class="mp-context-menu__item mp-context-menu__item--danger" role="menuitem" data-action="Revoke path">
                   <span class="mp-context-menu__item-icon" aria-hidden="true">
-                    <svg class="mp-symbol" viewBox="0 0 24 24" aria-hidden="true">
-                      <path d="M12 3 5 6v5c0 4.6 2.8 7.8 7 10 4.2-2.2 7-5.4 7-10V6l-7-3Z"></path>
-                      <path d="m9 9 6 6"></path>
-                      <path d="m15 9-6 6"></path>
-                    </svg>
+                    ${iconSvg('revoke')}
                   </span>
                   Revoke path
                   <span class="mp-context-menu__shortcut">R</span>
@@ -2966,10 +2844,7 @@ document.querySelector('#app').innerHTML = `
                   <h3 class="mp-dialog__title" id="gate-dialog-title">Confirm access grant.</h3>
                 </div>
                 <button type="button" class="mp-dialog__close" data-dialog-close aria-label="Close dialog">
-                  <svg class="mp-symbol" viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="m7 7 10 10"></path>
-                    <path d="m17 7-10 10"></path>
-                  </svg>
+                  ${iconSvg('close')}
                 </button>
               </div>
               <p class="mp-dialog__body">
@@ -3004,10 +2879,7 @@ document.querySelector('#app').innerHTML = `
                   <h3 class="mp-dialog__title" id="drawer-title">TRC-0428</h3>
                 </div>
                 <button type="button" class="mp-dialog__close" data-dialog-close aria-label="Close drawer">
-                  <svg class="mp-symbol" viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="m7 7 10 10"></path>
-                    <path d="m17 7-10 10"></path>
-                  </svg>
+                  ${iconSvg('close')}
                 </button>
               </div>
               <p class="mp-dialog__body">
@@ -3061,10 +2933,7 @@ document.querySelector('#app').innerHTML = `
         <div class="mp-overlay-row">
           <span class="mp-tooltip-host">
             <button type="button" class="mp-button mp-button--ghost mp-button--sm" aria-describedby="seal-tooltip">
-              <svg class="mp-symbol mp-symbol--sm" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M12 3 5 6v5c0 4.6 2.8 7.8 7 10 4.2-2.2 7-5.4 7-10V6l-7-3Z"></path>
-                <path d="m9.5 12 1.7 1.7 3.6-4"></path>
-              </svg>
+              ${iconSvg('seal', { size: 'sm' })}
               Seal
             </button>
             <span class="mp-tooltip" id="seal-tooltip" role="tooltip">Seal locks the archive record.</span>
@@ -3072,11 +2941,7 @@ document.querySelector('#app').innerHTML = `
 
           <span class="mp-tooltip-host">
             <button type="button" class="mp-button mp-button--ghost mp-button--sm" aria-describedby="revoke-tooltip">
-              <svg class="mp-symbol mp-symbol--sm" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M12 3 5 6v5c0 4.6 2.8 7.8 7 10 4.2-2.2 7-5.4 7-10V6l-7-3Z"></path>
-                <path d="m9 9 6 6"></path>
-                <path d="m15 9-6 6"></path>
-              </svg>
+              ${iconSvg('revoke', { size: 'sm' })}
               Revoke
             </button>
             <span class="mp-tooltip" id="revoke-tooltip" role="tooltip">Revoke removes the permission path.</span>
@@ -3102,9 +2967,7 @@ document.querySelector('#app').innerHTML = `
             aria-controls="trace-dropdown-menu"
           >
             Trace Actions
-            <svg class="mp-symbol mp-symbol--sm" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="m7 10 5 5 5-5"></path>
-            </svg>
+            ${iconSvg('chevronDown', { size: 'sm' })}
           </button>
 
           <div
@@ -3115,14 +2978,11 @@ document.querySelector('#app').innerHTML = `
             popover="auto"
           >
             <div class="mp-dropdown-menu__label">Trace actions</div>
-            <ul class="mp-dropdown-menu__list">
+            <ul class="mp-dropdown-menu__list" role="none">
               <li role="none">
                 <button type="button" class="mp-dropdown-menu__item" role="menuitem" data-action="Inspect TRC-0428">
                   <span class="mp-dropdown-menu__item-icon" aria-hidden="true">
-                    <svg class="mp-symbol" viewBox="0 0 24 24" aria-hidden="true">
-                      <path d="M3 12s3.5-6 9-6 9 6 9 6-3.5 6-9 6-9-6-9-6Z"></path>
-                      <circle cx="12" cy="12" r="2.5"></circle>
-                    </svg>
+                    ${iconSvg('eye')}
                   </span>
                   Inspect
                   <span class="mp-dropdown-menu__shortcut">I</span>
@@ -3131,10 +2991,7 @@ document.querySelector('#app').innerHTML = `
               <li role="none">
                 <button type="button" class="mp-dropdown-menu__item" role="menuitem" data-action="Copy path TRC-0428">
                   <span class="mp-dropdown-menu__item-icon" aria-hidden="true">
-                    <svg class="mp-symbol" viewBox="0 0 24 24" aria-hidden="true">
-                      <path d="M8 8h10v12H8z"></path>
-                      <path d="M6 16H5V4h10v1"></path>
-                    </svg>
+                    ${iconSvg('copy')}
                   </span>
                   Copy path
                   <span class="mp-dropdown-menu__shortcut">C</span>
@@ -3144,10 +3001,7 @@ document.querySelector('#app').innerHTML = `
               <li role="none">
                 <button type="button" class="mp-dropdown-menu__item" role="menuitem" data-action="Seal TRC-0428">
                   <span class="mp-dropdown-menu__item-icon" aria-hidden="true">
-                    <svg class="mp-symbol" viewBox="0 0 24 24" aria-hidden="true">
-                      <path d="M12 3 5 6v5c0 4.6 2.8 7.8 7 10 4.2-2.2 7-5.4 7-10V6l-7-3Z"></path>
-                      <path d="m9.5 12 1.7 1.7 3.6-4"></path>
-                    </svg>
+                    ${iconSvg('seal')}
                   </span>
                   Seal
                   <span class="mp-dropdown-menu__shortcut">S</span>
@@ -3156,11 +3010,7 @@ document.querySelector('#app').innerHTML = `
               <li role="none">
                 <button type="button" class="mp-dropdown-menu__item mp-dropdown-menu__item--danger" role="menuitem" data-action="Revoke TRC-0428">
                   <span class="mp-dropdown-menu__item-icon" aria-hidden="true">
-                    <svg class="mp-symbol" viewBox="0 0 24 24" aria-hidden="true">
-                      <path d="M12 3 5 6v5c0 4.6 2.8 7.8 7 10 4.2-2.2 7-5.4 7-10V6l-7-3Z"></path>
-                      <path d="m9 9 6 6"></path>
-                      <path d="m15 9-6 6"></path>
-                    </svg>
+                    ${iconSvg('revoke')}
                   </span>
                   Revoke
                   <span class="mp-dropdown-menu__shortcut">R</span>

@@ -1,3 +1,5 @@
+import { iconSvg } from '../icons.js'
+
 const HTMLElementBase = globalThis.HTMLElement ?? class {}
 
 const text = (value) => String(value ?? '').replace(/[&<>'"]/g, (character) => ({
@@ -39,7 +41,7 @@ export class MerakGateCard extends MerakDataElement {
     const decision = gate.decision ?? 'granted'
     this.className = `gate-card${decision === 'denied' ? ' gate-card--denied' : ''}`
     const nodes = [['Subject', gate.subject], ['Permission', gate.permission], ['Object', gate.object]]
-    this.innerHTML = `<div class="gate-card__equation">${nodes.map(([label, value], index) => `<div class="gate-card__node"><span class="gate-card__label">${label}</span><strong class="gate-card__value">${text(value)}</strong></div>${index < 2 ? '<span class="gate-card__arrow">→</span>' : ''}`).join('')}</div>
+    this.innerHTML = `<div class="gate-card__equation">${nodes.map(([label, value], index) => `<div class="gate-card__node"><span class="gate-card__label">${label}</span><strong class="gate-card__value">${text(value)}</strong></div>${index < 2 ? `<span class="gate-card__arrow" aria-hidden="true">${iconSvg('chevronRight', { size: 'sm' })}</span>` : ''}`).join('')}</div>
       <div class="gate-card__details"><div class="gate-card__detail"><span class="gate-card__label">Decision</span>${badge(decision, decision === 'denied' ? 'error' : 'verified')}</div><div class="gate-card__detail"><span class="gate-card__label">Reason</span><strong class="gate-card__value">${text(gate.reason)}</strong></div></div>`
   }
 }

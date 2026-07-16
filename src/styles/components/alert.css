@@ -29,10 +29,13 @@
   border-radius: var(--radius-full);
   background: rgb(from var(--alert-color) r g b / 0.14);
   color: var(--alert-color);
-  font-family: var(--font-mono);
-  font-size: 0.76rem;
-  font-weight: 800;
-  line-height: 1;
+  line-height: 0;
+}
+
+.mp-alert__icon .mp-symbol {
+  width: 14px;
+  height: 14px;
+  color: inherit;
 }
 
 .mp-alert__content {

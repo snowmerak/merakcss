@@ -65,55 +65,65 @@ fieldset.mp-field > legend.mp-field__label {
 
 .mp-field__message,
 .mp-error {
-  color: var(--field-message-color, var(--mp-danger-base));
+  color: var(--field-message-color, var(--mp-danger-text));
   font-size: 0.82rem;
   line-height: 1.4;
 }
 
 .mp-field__message--error,
 .mp-error {
-  --field-message-color: var(--mp-danger-base);
+  --field-message-color: var(--mp-danger-text);
 
-  color: var(--mp-danger-base);
+  color: var(--mp-danger-text);
 }
 
 .mp-field__message--warning {
-  --field-message-color: var(--mp-warning-base);
+  --field-message-color: var(--mp-warning-text);
 
-  color: var(--mp-warning-base);
+  color: var(--mp-warning-text);
 }
 
 .mp-field__message--success {
-  --field-message-color: var(--mp-success-base);
+  --field-message-color: var(--mp-success-text);
 
-  color: var(--mp-success-base);
+  color: var(--mp-success-text);
 }
 
 .mp-field--invalid {
   --field-control-border: rgb(from var(--mp-danger-base) r g b / 0.8);
   --field-control-ring: rgb(from var(--mp-danger-base) r g b / 0.1);
-  --field-message-color: var(--mp-danger-base);
+  --field-message-color: var(--mp-danger-text);
 }
 
 .mp-field--warning {
   --field-control-border: rgb(from var(--mp-warning-base) r g b / 0.85);
   --field-control-ring: rgb(from var(--mp-warning-base) r g b / 0.12);
-  --field-message-color: var(--mp-warning-base);
+  --field-message-color: var(--mp-warning-text);
 }
 
 .mp-field--success {
   --field-control-border: rgb(from var(--mp-success-base) r g b / 0.85);
   --field-control-ring: rgb(from var(--mp-success-base) r g b / 0.12);
-  --field-message-color: var(--mp-success-base);
+  --field-message-color: var(--mp-success-text);
 }
 
 .mp-field--disabled {
-  opacity: 0.72;
+  opacity: 1;
 }
 
 .mp-field--disabled .mp-field__label,
-.mp-field--disabled .mp-label {
+.mp-field--disabled .mp-label,
+.mp-field--disabled .mp-field__hint,
+.mp-field--disabled .mp-help {
   color: var(--mp-text-muted);
+}
+
+.mp-field--disabled .mp-input,
+.mp-field--disabled .mp-textarea,
+.mp-field--disabled .mp-select {
+  color: var(--mp-text-muted);
+  background: var(--mp-bg-inset);
+  opacity: 0.85;
 }
 
 /* Text controls */
@@ -287,7 +297,8 @@ fieldset.mp-field > legend.mp-field__label {
   box-shadow: 0 0 0 3px var(--mp-signal-ring);
 }
 
-.mp-search__icon {
+.mp-search__icon,
+.mp-search .mp-symbol {
   flex: 0 0 auto;
   width: 16px;
   height: 16px;

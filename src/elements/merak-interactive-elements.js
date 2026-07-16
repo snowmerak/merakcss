@@ -34,7 +34,11 @@ class MerakInspector extends HTMLElementBase {
 }
 
 class MerakToastRegion extends HTMLElementBase {
-  connectedCallback() { this.classList.add('mp-toast-region', `mp-toast-region--${this.getAttribute('placement') ?? 'bottom-right'}`); this.setAttribute('aria-live', 'polite') }
+  connectedCallback() {
+    this.classList.add('mp-toast-region', `mp-toast-region--${this.getAttribute('placement') ?? 'bottom-right'}`)
+    this.setAttribute('role', 'region')
+    this.setAttribute('aria-live', 'polite')
+  }
   notify(options) { return showAlert({ ...options, region: this }) }
 }
 

@@ -1,10 +1,5 @@
-const alertIcons = {
-  info: 'i',
-  success: '✓',
-  warning: '!',
-  error: '×',
-  danger: '×',
-}
+import { statusIconName, iconSvg } from './icons.js'
+
 
 const demoAlerts = [
   { variant: 'info', title: 'Trace analysis running.', message: 'Observation is in progress.' },
@@ -31,7 +26,7 @@ function createAlert({ variant = 'info', title, message }) {
   const icon = document.createElement('span')
   icon.className = 'mp-alert__icon'
   icon.setAttribute('aria-hidden', 'true')
-  icon.textContent = alertIcons[variant] ?? alertIcons.info
+  icon.innerHTML = iconSvg(statusIconName(variant), { size: 'sm' })
 
   const content = document.createElement('div')
   content.className = 'mp-alert__content'
@@ -57,7 +52,7 @@ function createToast({ variant = 'info', title, message, dismissible = true } = 
   const icon = document.createElement('span')
   icon.className = 'mp-toast__icon'
   icon.setAttribute('aria-hidden', 'true')
-  icon.textContent = alertIcons[resolved] ?? alertIcons.info
+  icon.innerHTML = iconSvg(statusIconName(resolved), { size: 'sm' })
 
   const body = document.createElement('div')
   body.className = 'mp-toast__body'
@@ -81,7 +76,7 @@ function createToast({ variant = 'info', title, message, dismissible = true } = 
     close.type = 'button'
     close.className = 'mp-toast__close'
     close.setAttribute('aria-label', 'Dismiss notification')
-    close.textContent = '×'
+    close.innerHTML = iconSvg('close', { size: 'sm' })
     close.addEventListener('click', () => dismissToast(toast))
     toast.append(close)
   }
@@ -134,6 +129,7 @@ function getToastRegion(placement = 'bottom-right') {
   const region = document.createElement('div')
   region.id = id
   region.className = `mp-toast-region mp-toast-region--${placement}`
+  region.setAttribute('role', 'region')
   region.setAttribute('aria-live', 'polite')
   region.setAttribute('aria-relevant', 'additions text')
   region.setAttribute('aria-label', 'Notifications')

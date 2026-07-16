@@ -26,10 +26,13 @@
   border: 0;
   border-radius: var(--radius-full);
   color: var(--toast-color);
-  font-family: var(--font-mono);
-  font-size: 0.76rem;
-  font-weight: 800;
-  line-height: 1;
+  line-height: 0;
+}
+
+.mp-toast__icon .mp-symbol {
+  width: 14px;
+  height: 14px;
+  color: inherit;
 }
 
 .mp-toast__body {
@@ -63,9 +66,13 @@
   color: var(--mp-text-muted);
   background: transparent;
   cursor: pointer;
-  font-family: var(--font-mono);
-  font-size: 0.9rem;
-  line-height: 1;
+  line-height: 0;
+}
+
+.mp-toast__close .mp-symbol {
+  width: 14px;
+  height: 14px;
+  color: inherit;
 }
 
 .mp-toast__close:hover {

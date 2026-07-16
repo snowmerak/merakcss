@@ -15,7 +15,7 @@
   --mp-bg-elevated: #323a4d;
   --mp-bg-interactive: rgb(214 220 255 / 0.06);
   --mp-bg-hover: rgb(214 220 255 / 0.1);
-  --mp-bg-selected: rgb(from var(--mp-accent-200) r g b / 0.16);
+  --mp-bg-selected: rgb(from var(--mp-accent-200) r g b / 0.08);
 
   /* Dividers */
   --mp-line-soft: rgb(214 220 255 / 0.06);
@@ -24,9 +24,9 @@
   /* Text */
   --mp-text-primary: #eef2fa;
   --mp-text-secondary: #c9d1e2;
-  --mp-text-tertiary: #a4aec4;
-  --mp-text-muted: #8792ab;
-  --mp-text-disabled: #646e84;
+  --mp-text-tertiary: #b0b9ce;
+  --mp-text-muted: #a0abc2;
+  --mp-text-disabled: #6f7a91;
   --mp-text-inverse: #151925;
 
   /* Alice Blue scale — slightly higher chroma */

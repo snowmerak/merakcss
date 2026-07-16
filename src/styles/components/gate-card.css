@@ -4,11 +4,11 @@
   padding: var(--space-5);
   border: 0;
   border-radius: var(--radius-md);
-  background: color-mix(in srgb, var(--mp-bg-surface) 84%, var(--mp-success-base) 16%);
+  background: color-mix(in srgb, var(--mp-bg-surface) 88%, var(--mp-success-base) 12%);
 }
 
 .gate-card--denied {
-  background: color-mix(in srgb, var(--mp-bg-surface) 84%, var(--mp-danger-base) 16%);
+  background: color-mix(in srgb, var(--mp-bg-surface) 88%, var(--mp-danger-base) 12%);
 }
 
 .gate-card__equation {
@@ -29,7 +29,7 @@
 }
 
 .gate-card__label {
-  color: var(--mp-text-muted);
+  color: var(--mp-text-tertiary);
   font-family: var(--font-mono);
   font-size: 0.66rem;
   font-weight: 800;
@@ -47,9 +47,16 @@
 }
 
 .gate-card__arrow {
+  display: grid;
+  place-items: center;
   color: var(--mp-accent-line);
-  font-family: var(--font-mono);
-  font-weight: 800;
+  line-height: 0;
+}
+
+.gate-card__arrow .mp-symbol {
+  width: 14px;
+  height: 14px;
+  color: inherit;
 }
 
 .gate-card__details {
