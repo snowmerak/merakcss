@@ -59,17 +59,20 @@ npm run build
 
 ## Codex Skill
 
-The agent skill is included at:
+The agent skill Markdown lives in the package at:
 
 ```text
 skills/merak-protocol-design-system/SKILL.md
 ```
 
-Import via package export:
+Package subpaths for tooling (file paths, not JS modules):
 
-```js
-import skill from "merak-protocol-design-system/skill"
+```text
+merak-protocol-design-system/skill
+merak-protocol-design-system/skill.md
 ```
+
+Resolve those exports as documentation for Codex/agents. Do not `import` them as JavaScript—there is no default export; read the Markdown as text or point the agent skill loader at the file path.
 
 It guides design, implementation, and review of Merak Protocol UI (tokens, `mp-*` components, a11y, and product-flow composition).
 
