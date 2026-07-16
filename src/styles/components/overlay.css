@@ -3,10 +3,10 @@
 .mp-drawer,
 .mp-popover,
 .mp-dropdown-menu {
-  color: var(--color-text-secondary);
-  background: var(--surface-elevated);
+  color: var(--mp-text-secondary);
+  background: var(--mp-bg-elevated);
   border: 0;
-  box-shadow: none;
+  box-shadow: var(--mp-shadow-float);
 }
 
 /* Dialog */
@@ -15,8 +15,8 @@
   margin: auto;
   padding: 0;
   border-radius: var(--radius-md);
-  color: var(--color-text-secondary);
-  background: var(--surface-elevated);
+  color: var(--mp-text-secondary);
+  background: var(--mp-bg-elevated);
 }
 
 .mp-dialog::backdrop {
@@ -38,7 +38,7 @@
 
 .mp-dialog__eyebrow {
   margin-bottom: var(--space-1);
-  color: var(--color-text-muted);
+  color: var(--mp-text-muted);
   font-family: var(--font-mono);
   font-size: 0.68rem;
   font-weight: 700;
@@ -48,20 +48,20 @@
 
 .mp-dialog__title {
   margin: 0;
-  color: var(--color-text-primary);
+  color: var(--mp-text-primary);
   font-size: 1rem;
   font-weight: 700;
 }
 
 .mp-dialog__body {
   margin: 0;
-  color: var(--color-text-secondary);
+  color: var(--mp-text-secondary);
   font-size: 0.9rem;
   line-height: 1.45;
 }
 
 .mp-dialog__meta {
-  color: var(--color-text-muted);
+  color: var(--mp-text-muted);
   font-family: var(--font-mono);
   font-size: 0.72rem;
 }
@@ -81,20 +81,20 @@
   padding: 0;
   border: 1px solid transparent;
   border-radius: var(--radius-sm);
-  color: var(--color-text-muted);
+  color: var(--mp-text-muted);
   background: transparent;
   cursor: pointer;
 }
 
 .mp-dialog__close:hover {
-  color: var(--color-text-primary);
+  color: var(--mp-text-primary);
   background: rgb(0 0 0 / 0.14);
 }
 
 .mp-dialog__close:focus-visible {
   outline: none;
-  border-color: var(--color-accent-line);
-  box-shadow: 0 0 0 3px rgb(from var(--color-accent-line) r g b / 0.12);
+  border-color: var(--mp-accent-line);
+  box-shadow: 0 0 0 3px rgb(from var(--mp-accent-line) r g b / 0.12);
 }
 
 .mp-dialog__close .mp-symbol {
@@ -111,8 +111,8 @@
   padding: 0;
   border: 0;
   border-radius: 0;
-  color: var(--color-text-secondary);
-  background: var(--surface-elevated);
+  color: var(--mp-text-secondary);
+  background: var(--mp-bg-elevated);
 }
 
 .mp-drawer::backdrop {
@@ -155,21 +155,21 @@
 
 .mp-popover__title {
   margin: 0 0 var(--space-2);
-  color: var(--color-text-primary);
+  color: var(--mp-text-primary);
   font-size: 0.88rem;
   font-weight: 700;
 }
 
 .mp-popover__body {
   margin: 0;
-  color: var(--color-text-secondary);
+  color: var(--mp-text-secondary);
   font-size: 0.84rem;
   line-height: 1.4;
 }
 
 .mp-popover__meta {
   margin-top: var(--space-2);
-  color: var(--color-text-muted);
+  color: var(--mp-text-muted);
   font-family: var(--font-mono);
   font-size: 0.68rem;
   letter-spacing: 0.04em;
@@ -193,8 +193,8 @@
   padding: 6px 8px;
   border: 0;
   border-radius: var(--radius-sm);
-  color: var(--color-text-primary);
-  background: var(--surface-elevated);
+  color: var(--mp-text-primary);
+  background: var(--mp-bg-elevated);
   box-shadow: none;
   font-family: var(--font-mono);
   font-size: 0.68rem;
@@ -226,7 +226,7 @@
   content: "";
   border-right: 0;
   border-bottom: 0;
-  background: var(--surface-elevated);
+  background: var(--mp-bg-elevated);
   transform: translate(-50%, -50%) rotate(45deg);
 }
 
@@ -254,7 +254,7 @@
 
 .mp-dropdown-menu__label {
   padding: var(--space-1) var(--space-2);
-  color: var(--color-text-muted);
+  color: var(--mp-text-muted);
   font-family: var(--font-mono);
   font-size: 0.64rem;
   font-weight: 700;
@@ -280,7 +280,7 @@
   padding: 0 var(--space-2);
   border: 1px solid transparent;
   border-radius: var(--radius-sm);
-  color: var(--color-text-secondary);
+  color: var(--mp-text-secondary);
   background: transparent;
   font: inherit;
   font-size: 0.86rem;
@@ -290,7 +290,7 @@
 
 .mp-dropdown-menu__item:hover {
   border-color: transparent;
-  color: var(--color-text-primary);
+  color: var(--mp-text-primary);
   background: rgb(0 0 0 / 0.12);
 }
 
@@ -298,19 +298,19 @@
 .mp-dropdown-menu__item[aria-current="true"] {
   outline: none;
   border-color: transparent;
-  color: var(--color-accent);
-  background: var(--surface-selected);
+  color: var(--mp-accent);
+  background: var(--mp-bg-selected);
 }
 
 .mp-dropdown-menu__item--danger {
-  color: var(--color-danger);
+  color: var(--mp-danger-base);
 }
 
 .mp-dropdown-menu__item--danger:hover,
 .mp-dropdown-menu__item--danger:focus-visible {
   border-color: transparent;
-  color: var(--color-danger);
-  background: rgb(from var(--color-danger) r g b / 0.08);
+  color: var(--mp-danger-base);
+  background: rgb(from var(--mp-danger-base) r g b / 0.08);
 }
 
 .mp-dropdown-menu__item-icon {
@@ -327,7 +327,7 @@
 }
 
 .mp-dropdown-menu__shortcut {
-  color: var(--color-text-muted);
+  color: var(--mp-text-muted);
   font-family: var(--font-mono);
   font-size: 0.66rem;
   letter-spacing: 0.04em;
@@ -337,7 +337,7 @@
 .mp-dropdown-menu__separator {
   height: 1px;
   margin: var(--space-1) 0;
-  background: var(--color-border-muted);
+  background: var(--mp-line-soft);
 }
 
 .mp-overlay-row {
@@ -348,7 +348,7 @@
 }
 
 .mp-overlay-result {
-  color: var(--color-text-muted);
+  color: var(--mp-text-muted);
   font-family: var(--font-mono);
   font-size: 0.72rem;
 }

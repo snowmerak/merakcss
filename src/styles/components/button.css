@@ -19,7 +19,7 @@
   padding: 0 var(--space-4);
   border: 1px solid transparent;
   border-radius: var(--radius-md);
-  color: var(--color-text-primary);
+  color: var(--mp-text-primary);
   background: transparent;
   font-weight: 650;
   white-space: nowrap;
@@ -36,8 +36,8 @@
 }
 
 .mp-button--primary {
-  color: var(--color-bg-base);
-  background: linear-gradient(180deg, var(--color-accent), var(--color-accent-soft));
+  color: var(--mp-text-inverse);
+  background: var(--mp-accent-strong);
 }
 
 .mp-button--primary:hover {
@@ -46,34 +46,34 @@
 
 .mp-button--secondary {
   border-color: transparent;
-  background: var(--surface-interactive);
+  background: var(--mp-bg-interactive);
 }
 
 .mp-button--secondary:hover {
   border-color: transparent;
-  color: var(--color-text-primary);
-  background: var(--surface-interactive-hover);
+  color: var(--mp-text-primary);
+  background: var(--mp-bg-hover);
 }
 
 .mp-button--ghost {
-  color: var(--color-text-secondary);
+  color: var(--mp-text-secondary);
 }
 
 .mp-button--ghost:hover {
-  color: var(--color-text-primary);
-  background: var(--surface-interactive-hover);
+  color: var(--mp-text-primary);
+  background: var(--mp-bg-hover);
 }
 
 .mp-button--danger {
   border-color: transparent;
-  color: #f3aaa3;
-  background: rgb(from var(--color-danger) r g b / 0.12);
+  color: var(--mp-danger-text);
+  background: var(--mp-danger-weak);
 }
 
 .mp-button--danger:hover {
   border-color: transparent;
-  color: #ffc6c1;
-  background: rgb(from var(--color-danger) r g b / 0.18);
+  color: var(--mp-danger-text);
+  background: var(--mp-danger-soft);
 }
 
 .mp-button--sm {
@@ -88,7 +88,7 @@
   min-width: 40px;
   padding: 0;
   border-color: transparent;
-  background: var(--surface-interactive);
+  background: var(--mp-bg-interactive);
   font-family: var(--font-mono);
   font-size: 1rem;
 }

@@ -14,14 +14,14 @@
   padding: 0 var(--space-3);
   border: 0;
   border-radius: var(--radius-sm);
-  color: var(--color-text-secondary);
+  color: var(--mp-text-secondary);
   background: rgb(0 0 0 / 0.08);
 }
 
 .mp-link-list a:hover {
   border-color: transparent;
-  color: var(--color-text-primary);
-  background: var(--surface-interactive-hover);
+  color: var(--mp-text-primary);
+  background: var(--mp-bg-hover);
 }
 
 .mp-link-list--dense {
@@ -48,14 +48,14 @@
   height: 22px;
   border: 0;
   border-radius: var(--radius-sm);
-  color: var(--color-accent-line);
+  color: var(--mp-accent-line);
   font-family: var(--font-mono);
   font-size: 0.68rem;
 }
 
 .mp-link-list__meta {
   margin-left: auto;
-  color: var(--color-text-muted);
+  color: var(--mp-text-muted);
   font-family: var(--font-mono);
   font-size: 0.72rem;
 }

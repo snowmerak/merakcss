@@ -20,13 +20,7 @@
   left: 9px;
   width: 1px;
   content: "";
-  background: linear-gradient(
-    to bottom,
-    transparent,
-    var(--color-border-default) 10%,
-    var(--color-border-default) 88%,
-    transparent
-  );
+  background: var(--mp-line-muted);
 }
 
 .mp-timeline__item {
@@ -48,18 +42,18 @@
   content: "";
   border: 0;
   border-radius: var(--radius-full);
-  background: var(--color-text-muted);
+  background: var(--mp-text-muted);
 }
 
 .mp-timeline__item--active {
   border-color: transparent;
-  background: var(--surface-selected);
+  background: var(--mp-bg-selected);
 }
 
 .mp-timeline__item--active::before {
   border-color: transparent;
-  background: var(--color-accent);
-  box-shadow: 0 0 0 4px var(--signal-ring);
+  background: var(--mp-accent-strong);
+  box-shadow: 0 0 0 4px var(--mp-signal-ring);
 }
 
 .mp-timeline__header {
@@ -71,7 +65,7 @@
 }
 
 .mp-timeline__step {
-  color: var(--color-accent-line);
+  color: var(--mp-accent-line);
   font-family: var(--font-mono);
   font-size: 0.72rem;
   font-weight: 800;
@@ -80,13 +74,13 @@
 }
 
 .mp-timeline__time {
-  color: var(--color-text-muted);
+  color: var(--mp-text-muted);
   font-family: var(--font-mono);
   font-size: 0.72rem;
 }
 
 .mp-timeline__title {
-  color: var(--color-text-primary);
+  color: var(--mp-text-primary);
   font-size: 0.98rem;
   font-weight: 700;
 }
@@ -95,7 +89,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-2);
-  color: var(--color-text-muted);
+  color: var(--mp-text-muted);
   font-family: var(--font-mono);
   font-size: 0.74rem;
 }
@@ -124,7 +118,7 @@
   height: 28px;
   border: 0;
   border-radius: var(--radius-full);
-  color: var(--color-accent-line);
+  color: var(--mp-accent-line);
   font-family: var(--font-mono);
   font-size: 0.72rem;
   font-weight: 800;
@@ -136,7 +130,7 @@
 
 .trace-panel__title {
   overflow: hidden;
-  color: var(--color-text-primary);
+  color: var(--mp-text-primary);
   font-size: 0.9rem;
   font-weight: 700;
   text-overflow: ellipsis;
@@ -144,20 +138,20 @@
 }
 
 .trace-panel__meta {
-  color: var(--color-text-muted);
+  color: var(--mp-text-muted);
   font-family: var(--font-mono);
   font-size: 0.72rem;
 }
 
 .trace-panel__item--active {
   border-color: transparent;
-  background: rgb(175 205 235 / 0.055);
+  background: var(--mp-signal-wash);
 }
 
 .trace-panel__item--active .trace-panel__index {
   border-color: transparent;
-  color: var(--color-bg-base);
-  background: var(--color-accent);
+  color: var(--mp-bg-base);
+  background: var(--mp-accent-strong);
 }
 
 @media (max-width: 860px) {

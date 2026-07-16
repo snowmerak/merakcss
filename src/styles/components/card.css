@@ -5,31 +5,23 @@
   padding: var(--space-5);
   border: 0;
   border-radius: var(--radius-md);
-  background: var(--surface-raised);
+  background: var(--mp-bg-surface);
 }
 
 .mp-card--oracle {
-  background:
-    linear-gradient(180deg, rgb(from var(--color-accent) r g b / 0.08), transparent 42%),
-    var(--surface-raised);
+  background: color-mix(in srgb, var(--mp-bg-surface) 86%, var(--mp-accent-400) 14%);
 }
 
 .mp-card--trace {
-  background:
-    linear-gradient(180deg, rgb(from var(--color-info) r g b / 0.08), transparent 42%),
-    var(--surface-raised);
+  background: color-mix(in srgb, var(--mp-bg-surface) 86%, var(--mp-info-base) 14%);
 }
 
 .mp-card--gate {
-  background:
-    linear-gradient(180deg, rgb(from var(--color-success) r g b / 0.08), transparent 42%),
-    var(--surface-raised);
+  background: color-mix(in srgb, var(--mp-bg-surface) 86%, var(--mp-success-base) 14%);
 }
 
 .mp-card--relic {
-  background:
-    linear-gradient(180deg, rgb(from var(--color-warning) r g b / 0.08), transparent 42%),
-    var(--surface-raised);
+  background: color-mix(in srgb, var(--mp-bg-surface) 86%, var(--mp-warning-base) 14%);
 }
 
 .mp-card__header {
@@ -40,7 +32,7 @@
 
 .mp-card__eyebrow {
   margin-bottom: var(--space-1);
-  color: var(--color-text-muted);
+  color: var(--mp-text-muted);
   font-family: var(--font-mono);
   font-size: 0.72rem;
   font-weight: 700;
@@ -49,7 +41,7 @@
 }
 
 .mp-card__title {
-  color: var(--color-text-primary);
+  color: var(--mp-text-primary);
   font-size: 1rem;
   font-weight: 700;
 }
@@ -62,7 +54,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-2);
-  color: var(--color-text-muted);
+  color: var(--mp-text-muted);
   font-family: var(--font-mono);
   font-size: 0.76rem;
 }
@@ -81,8 +73,8 @@
   height: 28px;
   border: 0;
   border-radius: var(--radius-sm);
-  color: var(--color-accent-line);
-  background: var(--surface-interactive);
+  color: var(--mp-accent-line);
+  background: var(--mp-bg-interactive);
   font-family: var(--font-mono);
   font-size: 0.88rem;
 }

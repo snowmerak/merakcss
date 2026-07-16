@@ -1,6 +1,6 @@
 ---
 name: merak-protocol-design-system
-description: Design, implement, review, or extend UI using the Merak Protocol personal design system. Use for dark gray technical dashboards, traceability tools, permission gates, AI agent workflows, archive/knowledge interfaces, graph/timeline/inspector surfaces, identity confidence and decision UI, form controls, feedback (toast/progress/skeleton/empty/spinner), navigation (breadcrumb/pagination/command palette/context menu), overlays (dialog/drawer/popover/tooltip/dropdown), component CSS, design tokens, copy tone, motion, icons, and product-flow composition that should follow the Merak Protocol visual language.
+description: Design, implement, review, or extend UI using the Merak Protocol personal design system. Use for pastel-dark stroke-less technical dashboards, traceability tools, permission gates, AI agent workflows, archive/knowledge interfaces, graph/timeline/inspector surfaces, identity confidence and decision UI, form controls, feedback (toast/progress/skeleton/empty/spinner), navigation (breadcrumb/pagination/command palette/context menu), overlays (dialog/drawer/popover/tooltip/dropdown), component CSS, `--mp-*` design tokens, copy tone, motion, icons, and product-flow composition that should follow the Merak Protocol visual language.
 ---
 
 # Merak Protocol Design System
@@ -9,42 +9,75 @@ description: Design, implement, review, or extend UI using the Merak Protocol pe
 
 Build practical, dense, calm technical interfaces for trust, traceability, permission models, AI agent workflows, and knowledge archives.
 
-Use cold gray surfaces as the interface base and Alice Blue as a restrained signal for trust, observation, verification, selection, focus, and reliable data.
+Use a **pastel-dark, stroke-less, flat** surface system. Structure comes from background tiers, not hairline card borders. Alice Blue is a restrained pastel signal scale for trust, observation, verification, selection, focus, and reliable data—not a second blue brand system and not a broad fill.
 
 Do not make it fantasy UI, neon UI, gold myth UI, game metal UI, green openSUSE-like UI, or generic bright SaaS UI. Mythic language may appear in naming and structure, but the interface should still feel like a developer tool.
 
 ## Visual Rules
 
-Use this palette as the source of truth:
+Token source of truth: `src/styles/tokens.css` (`--mp-*` only). Do not reintroduce legacy `--color-*` / `--surface-*` bridges.
 
 ```css
---color-bg-base: #1A1D21;
---color-bg-subtle: #20242A;
---color-bg-surface: #262B32;
---color-bg-elevated: #303640;
---color-border-default: #3A414C;
---color-border-muted: #2E343D;
---color-text-primary: #E8EDF3;
---color-text-secondary: #B5BEC9;
---color-text-muted: #9AA4AF;
---color-accent: #F0F8FF;
---color-accent-soft: #DCEEFF;
---color-accent-line: #AFCDEB;
---color-accent-deep: #6E9FCB;
---color-success: #6FBF8A;
---color-warning: #D7A84F;
---color-danger: #D66B61;
---color-info: #8EBCE6;
---color-neutral: #9AA4AF;
+/* Surfaces */
+--mp-bg-canvas: #171b24;
+--mp-bg-base: #1d2330;
+--mp-bg-surface: #272e3d;
+--mp-bg-inset: #1a2030;
+--mp-bg-elevated: #323a4d;
+--mp-bg-interactive: rgb(255 255 255 / 0.04);
+--mp-bg-hover: color-mix(in srgb, var(--mp-bg-surface) 92%, white 8%);
+--mp-bg-selected: rgb(from var(--mp-accent-200) r g b / 0.12);
+
+/* Dividers only (not card chrome) */
+--mp-line-soft: rgb(255 255 255 / 0.04);
+--mp-line-muted: rgb(255 255 255 / 0.06);
+
+/* Text */
+--mp-text-primary: #e8edf3;
+--mp-text-secondary: #c4cdd7;
+--mp-text-tertiary: #9aa7b5;
+--mp-text-muted: #788596;
+--mp-text-disabled: #5e6875;
+--mp-text-inverse: #0f141b;
+
+/* Alice Blue scale + roles */
+--mp-accent-100: #ebf4ff; /* strong / primary fill */
+--mp-accent-200: #d7e9ff; /* soft */
+--mp-accent-300: #b9d6fa; /* default accent */
+--mp-accent-400: #94bcec; /* line / icon / focus edge */
+--mp-accent-600: #5a87be; /* deep / subdued */
+--mp-accent-strong: var(--mp-accent-100);
+--mp-accent-soft: var(--mp-accent-200);
+--mp-accent: var(--mp-accent-300);
+--mp-accent-line: var(--mp-accent-400);
+--mp-accent-deep: var(--mp-accent-600);
+--mp-signal-wash: rgb(from var(--mp-accent-200) r g b / 0.1);
+--mp-signal-ring: rgb(from var(--mp-accent-line) r g b / 0.2);
+
+/* Semantic: weak / soft / base / text */
+--mp-success-base: #6db894; --mp-success-text: #b6e4cb;
+--mp-warning-base: #c9a45a; --mp-warning-text: #ecd09a;
+--mp-danger-base: #cc767c;  --mp-danger-text: #efb2b6;
+/* info is absorbed into the accent family */
+--mp-info-base: var(--mp-accent-400); --mp-info-text: var(--mp-accent-200);
+--mp-neutral-base: #7f8a96; --mp-neutral-text: #b5bec9;
+
+/* Float elevation only */
+--mp-shadow-float: 0 12px 32px rgb(0 0 0 / 0.28);
 ```
 
 Palette discipline:
-- Use gray for structure and surfaces.
-- Use Alice Blue only for selected state, focus ring, primary action, verified/trusted data, and graph/path emphasis.
-- Use red for denied/destructive/risk.
-- Use amber for pending/uncertain/manual review.
-- Use soft green for success/granted/verified.
-- Avoid broad accent fills.
+- Structure = surface tiers (`canvas` → `base` → `surface` → `inset`/`elevated`). No structural card strokes. Prefer flat fills over decorative gradients.
+- Dividers use `--mp-line-*` sparingly (table splits, menu groups)—never as default panel chrome.
+- Hover uses `--mp-bg-hover` / interactive wash. Do not paint hover with Alice Blue.
+- Selected / current / active uses `--mp-bg-selected` or accent text/line—not full-bleed accent panels.
+- Primary action fill uses `--mp-accent-strong` with `--mp-text-inverse`.
+- Focus uses ring/outline (`--mp-signal-ring` / accent-line)—keep keyboard visibility.
+- Form control geometry (checkbox/radio/toggle/spinner) may keep shape strokes; validation may use semantic edge + ring.
+- Semantic states use weak/soft fills + base/text marks (pastel, low chroma). Avoid neon.
+- Info is not a second blue system—prefer accent-family info tokens.
+- Shadow only for floating overlays (`--mp-shadow-float`), not default cards.
+- `@media (forced-colors: active)` may restore borders for identification.
 
 Typography:
 - Use `Pretendard, Inter, "Noto Sans KR", system-ui, sans-serif`.
@@ -88,7 +121,7 @@ Avoid motivational SaaS copy such as “start your journey”, “smarter experi
 
 ## Components
 
-When implementing components, prefer `mp-*` classes, CSS variables, and scoped component files. Keep examples inspectable and close to real workflows.
+When implementing components, prefer `mp-*` classes, `--mp-*` tokens, and scoped component files. Keep examples inspectable and close to real workflows.
 
 ### App Shell and Sidebar
 
@@ -107,15 +140,15 @@ Sidebar sections:
 - Graphs
 - Settings
 
-Only the current item should use Alice Blue. Keep all other navigation items muted gray.
+Only the current item should use accent/selected wash. Keep all other navigation items on muted text + transparent/interactive surfaces.
 
 ### Buttons
 
 Variants:
-- Primary: Alice Blue background, dark text, used for main execution.
-- Secondary: gray border or surface background, used for supporting actions.
-- Ghost: transparent, hover-only.
-- Danger: red outline or subtle red background, destructive actions require confirmation.
+- Primary: `--mp-accent-strong` fill, `--mp-text-inverse` text, main execution.
+- Secondary: `--mp-bg-interactive` fill (no structural border), supporting actions.
+- Ghost: transparent; hover uses `--mp-bg-hover` / primary text—not accent wash.
+- Danger: `--mp-danger-weak` / `--mp-danger-soft` fills with `--mp-danger-text`; confirm destructive actions.
 
 Good labels: `Run Trace`, `Verify`, `Grant Access`, `Revoke`, `Archive`, `View Record`.
 
@@ -131,7 +164,7 @@ Core variants:
 
 ### Badges
 
-Badges should be small, dry labels, not decorative pills.
+Badges should be small, dry labels, not decorative pills. Prefer semantic weak fill + text tokens (no chrome stroke).
 
 Status labels: `ACTIVE`, `PENDING`, `INACTIVE`, `ERROR`, `SEALED`, `PARTIAL`, `VERIFIED`.
 
@@ -142,11 +175,11 @@ Type labels: `USER`, `SYSTEM`, `AGENT`, `RESOURCE`, `POLICY`, `TRACE`, `ARCHIVE`
 ### Inputs and Form Controls
 
 Base inputs:
-- surface or subtle black background
-- muted border
-- Alice Blue focus / selected state only
-- muted placeholder
-- semantic borders for invalid (danger), warning, success
+- `--mp-bg-inset` (sunken) field fill
+- no structural chrome stroke; transparent border slot reserved for focus/validation
+- Alice Blue focus ring / checked state only
+- muted placeholder (`--mp-text-muted`)
+- invalid/warning/success may use semantic edge + ring while focused/errored
 
 Field shell (preferred):
 - `.mp-field` with `.mp-field__label`, `.mp-field__hint`, `.mp-field__message`
@@ -237,9 +270,9 @@ Recommended columns:
 Use for relationships, permission paths, dependencies, knowledge links, and agent workflows.
 
 Style:
-- dark gray grid/canvas
-- muted gray nodes
-- selected node in Alice Blue
+- canvas/inset graph field
+- muted neutral nodes
+- selected node via accent stroke/fill wash
 - verified node in soft green
 - risk node in red
 - thin edges with subtle directional arrows
@@ -328,7 +361,7 @@ Fill API: set `--mp-confidence` on the root (e.g. `style="--mp-confidence: 72%"`
 
 Accessibility: root is a `div` with `role="meter"`, `aria-valuemin="0"`, `aria-valuemax="100"`, `aria-valuenow`, and `aria-valuetext` such as `72% · partial`. Keep visible `__value` text so the meter is not value-only for screen readers.
 
-Color discipline: semantic meter color + light wash only. No full-bleed Alice Blue bars. Soft danger for `--low` (badge-high style), not neon red.
+Color discipline: semantic meter color + weak wash only. No full-bleed accent bars. Soft danger text/fill for `--low`, not neon red.
 
 ### Decision Banner
 
@@ -342,7 +375,7 @@ State modifiers: `--granted`, `--denied`, `--partial`, `--unknown`, `--approval`
 
 Roles: denied → `role="alert"`; other states → `role="status"`.
 
-Compose existing `.mp-badge.mp-badge--sm` in `__aside` (`GRANTED`, `DENIED`, `PARTIAL`, `PENDING`). Do not restyle badges inside the banner. Left accent bar via `border-left` is preferred over hero gradient fills.
+Compose existing `.mp-badge.mp-badge--sm` in `__aside` (`GRANTED`, `DENIED`, `PARTIAL`, `PENDING`). Do not restyle badges inside the banner. Prefer semantic weak/soft fills over hero gradients or structural chrome strokes.
 
 ### Evidence List
 
@@ -354,7 +387,7 @@ Elements: `__item`, `__index`, `__body`, `__title`, `__source`, `__meta`, `__tra
 
 Item modifiers: `__item--active`, `__item--verified`, `__item--partial`, `__item--missing`. Root modifier: `--dense`.
 
-Active selection uses the same restrained Alice Blue wash as timeline/trace panels (`border rgb(175 205 235 / 0.42)`, `bg rgb(175 205 235 / 0.055)`). Prefer mono indexes (`01`–`04`) and mono sources (`policy:read-path`, `trace:TRC-0428`).
+Active selection uses `--mp-bg-selected` (same restrained accent wash as timeline/trace). Prefer mono indexes (`01`–`04`) and mono sources (`policy:read-path`, `trace:TRC-0428`).
 
 ### Filter Bar
 
@@ -366,7 +399,7 @@ Elements: `__search` (wrap existing `.mp-search`), `__groups`, `__group`, `__gro
 
 Chips use `aria-pressed="true|false"` for multi-select. Do not reuse `role="tab"` / `aria-selected` for filter chips.
 
-Selected chip style is restrained Alice Blue (border + low-alpha wash), intentionally weaker than solid accent segmented tabs. Gray structure for the bar itself—never an accent panel.
+Selected chip style is restrained `--mp-bg-selected` + accent text, intentionally weaker than solid accent segmented tabs. Bar chrome stays inset/surface—never an accent panel.
 
 Showcase helper: `setupFilterBar(root)` from `src/filter-bar.js` (not a package export). Supports optional exclusive groups via `data-filter-exclusive` on `__group`. Clear control uses `data-filter-clear`.
 
@@ -390,7 +423,7 @@ Listbox ownership: groups are `role="group"` + `aria-labelledby`; structural `ul
 
 Default demos closed (`data-open="false"`, palette `hidden`) so page load does not steal focus. Showcase: `setupCommandPalette`.
 
-Hover is neutral gray; Alice Blue only for selected/active option and focus-visible.
+Hover is neutral interactive/hover surface; accent only for selected/active option and focus-visible.
 
 #### Context menu
 
@@ -406,7 +439,7 @@ Prefer native HTML where possible: `<dialog>` for modal/drawer, Popover API for 
 
 #### Drawer
 
-`.mp-drawer` is a dialog variant. Placement: `--left` / `--right`. Full-height side panel, gray elevated surface.
+`.mp-drawer` is a dialog variant. Placement: `--left` / `--right`. Full-height side panel on `--mp-bg-elevated`.
 
 #### Popover
 
@@ -420,7 +453,7 @@ Prefer native HTML where possible: `<dialog>` for modal/drawer, Popover API for 
 
 Button trigger (`aria-haspopup="menu"`, `aria-expanded`, `aria-controls`) + `.mp-dropdown-menu` (`role="menu"`). Prefer Popover API; anchor to trigger like popover. Menuitems support arrow keys; Escape returns focus to trigger. Showcase: `setupDropdownMenu`.
 
-Alice Blue only for focus-visible / current menuitem—not plain hover.
+Accent only for focus-visible / current menuitem—not plain hover.
 
 ### Motion
 
@@ -506,7 +539,7 @@ When adding a component:
 7. Commit when the component is coherent.
 
 If building in React/Tailwind later:
-- Keep CSS variables as the token source of truth.
+- Keep `--mp-*` tokens in `src/styles/tokens.css` as the source of truth. Do not reintroduce `--color-*` bridges.
 - Let Tailwind reference those variables.
 - Use Radix UI for accessible primitives where useful.
 - Use TanStack Table for complex tables.
@@ -518,14 +551,14 @@ If building in React/Tailwind later:
 Before finishing, check:
 
 - Does it feel like a dense but calm technical tool?
-- Is Alice Blue used only as signal?
+- Is Alice Blue / accent used only as signal (not structure fills)?
 - Are evidence, trace, and decision visually distinct?
 - Are permission paths represented as paths, not declarations?
 - Is copy short and judgment-oriented?
 - Are dangerous states red and confirmed?
-- Are pending/partial states amber or info blue?
-- Are cards and panels restrained, not overly rounded?
+- Are pending/partial states warning pastel or accent-family info—not a second blue system?
+- Are cards/panels stroke-less surface tiers, restrained radius, no default drop shadows?
 - Are confidence, decision, evidence, and filters distinct components rather than overloaded alerts or generic lists?
-- Are hover states neutral gray, with Alice Blue reserved for selected/focus/active?
+- Are hover states neutral (`--mp-bg-hover`), with accent reserved for selected/focus/active?
 - Do overlays use native dialog/popover behavior where practical, with correct roles and names?
 - Is myth present through structure and naming rather than decoration?

@@ -6,7 +6,7 @@
 
 핵심 방향은 다음과 같다.
 
-> 차가운 회색 기반의 웹 인터페이스 위에, 앨리스블루를 신뢰·관찰·검증의 포인트 컬러로 사용하는 구조적 디자인 시스템.
+> 파스텔 다크·stroke-less·flat 면 계층 위에, 앨리스블루 scale을 신뢰·관찰·검증·선택의 신호로 쓰는 구조적 디자인 시스템.
 
 장식적 신화성은 전면에 내세우지 않는다.
 대신 명명법, 상태 표현, 아이콘, 그래프, 카드 구조에서 은근히 드러낸다.
@@ -15,8 +15,9 @@
 
 ### Keywords
 
-* Gray Interface
-* Alice Blue Signal
+* Pastel Dark Surfaces
+* Stroke-less Layers
+* Alice Blue Signal Scale
 * Traceability
 * Permission Gate
 * Archive
@@ -33,50 +34,78 @@
 * 게임 UI 같은 메탈릭 질감
 * openSUSE처럼 보이는 녹색 중심 체계
 * 너무 밝은 일반 SaaS 템플릿 느낌
+* 카드 기본 hairline stroke / 기본 drop shadow로 레이어 흉내 내기
+* info용 두 번째 파란 시스템 (accent와 충돌)
 
 ## 3. Color System
 
-### Core Palette
+Source of truth: `src/styles/tokens.css` (`--mp-*` only).
 
-| Token                    |       Hex | Purpose                    |
-| ------------------------ | --------: | -------------------------- |
-| `--color-bg-base`        | `#1A1D21` | 전체 배경                      |
-| `--color-bg-subtle`      | `#20242A` | 사이드바, 패널 배경                |
-| `--color-bg-surface`     | `#262B32` | 카드, 입력 영역                  |
-| `--color-bg-elevated`    | `#303640` | 모달, 드롭다운, 강조 카드            |
-| `--color-border-default` | `#3A414C` | 기본 테두리                     |
-| `--color-border-muted`   | `#2E343D` | 약한 구분선                     |
-| `--color-text-primary`   | `#E8EDF3` | 주요 텍스트                     |
-| `--color-text-secondary` | `#B5BEC9` | 보조 텍스트                     |
-| `--color-text-muted`     | `#9AA4AF` | 메타 정보                      |
-| `--color-accent`         | `#F0F8FF` | Alice Blue, 핵심 포인트         |
-| `--color-accent-soft`    | `#DCEEFF` | hover, selected background |
-| `--color-accent-line`    | `#AFCDEB` | 선, 그래프, 포커스                |
-| `--color-accent-deep`    | `#6E9FCB` | active, link, graph node   |
+### Surfaces
+
+| Token | Hex / value | Purpose |
+| --- | ---: | --- |
+| `--mp-bg-canvas` | `#171B24` | 최외곽 배경 |
+| `--mp-bg-base` | `#1D2330` | 앱 기본 배경 |
+| `--mp-bg-surface` | `#272E3D` | 카드/패널 |
+| `--mp-bg-inset` | `#1A2030` | 입력, table shell, sunken |
+| `--mp-bg-elevated` | `#323A4D` | dialog, menu, float |
+| `--mp-bg-interactive` | `rgb(255 255 255 / 0.04)` | idle control fill |
+| `--mp-bg-hover` | surface+white mix | hover |
+| `--mp-bg-selected` | accent-200 @ 12% | selected/current |
+
+### Dividers
+
+| Token | Value | Purpose |
+| --- | ---: | --- |
+| `--mp-line-soft` | white 4% | 매우 약한 구분 |
+| `--mp-line-muted` | white 6% | table/header/menu split |
+
+구조용 카드 stroke가 아니다. divider에만 제한적으로 쓴다.
+
+### Text
+
+| Token | Hex | Purpose |
+| --- | ---: | --- |
+| `--mp-text-primary` | `#E8EDF3` | 제목, 핵심 수치 |
+| `--mp-text-secondary` | `#C4CDD7` | 본문 |
+| `--mp-text-tertiary` | `#9AA7B5` | 메타 |
+| `--mp-text-muted` | `#788596` | hint, placeholder |
+| `--mp-text-disabled` | `#5E6875` | disabled |
+| `--mp-text-inverse` | `#0F141B` | strong accent 위 텍스트 |
+
+### Alice Blue Scale
+
+| Token | Hex | Role |
+| --- | ---: | --- |
+| `--mp-accent-100` | `#EBF4FF` | strong / primary fill |
+| `--mp-accent-200` | `#D7E9FF` | soft |
+| `--mp-accent-300` | `#B9D6FA` | default accent |
+| `--mp-accent-400` | `#94BCEC` | line / icon / focus edge |
+| `--mp-accent-600` | `#5A87BE` | deep / subdued |
+
+Aliases: `--mp-accent-strong`, `--mp-accent-soft`, `--mp-accent`, `--mp-accent-line`, `--mp-accent-deep`, plus `--mp-signal-wash` / `--mp-signal-ring`.
 
 ### Semantic Palette
 
-| Token             |       Hex | Purpose    |
-| ----------------- | --------: | ---------- |
-| `--color-success` | `#6FBF8A` | 성공, 허용     |
-| `--color-warning` | `#D7A84F` | 주의, 대기     |
-| `--color-danger`  | `#D66B61` | 실패, 차단     |
-| `--color-info`    | `#8EBCE6` | 정보, 관찰     |
-| `--color-neutral` | `#9AA4AF` | 비활성, 일반 상태 |
+각 상태는 `weak` / `soft` / `base` / `text` 4단.
+
+| Family | base | text | 용도 |
+| --- | ---: | ---: | --- |
+| success | `#6DB894` | `#B6E4CB` | 허용, 검증 완료 |
+| warning | `#C9A45A` | `#ECD09A` | 대기, 수동 검토 |
+| danger | `#CC767C` | `#EFB2B6` | 거부, 위험 |
+| neutral | `#7F8A96` | `#B5BEC9` | 미분류, 비활성 |
+| info | accent-400 | accent-200 | 관찰 (accent family) |
 
 ### Palette Principle
 
-앨리스블루는 넓은 면적에 쓰지 않는다.
-주요 액션, 선택 상태, 신뢰 가능한 데이터, 관찰 포인트, 포커스 링에만 사용한다.
-
-즉:
-
-* 배경: 회색
-* 정보 구조: 회색 계열
-* 신뢰/관찰/선택: Alice Blue
-* 위험/차단: Red
-* 대기/불확실: Amber
-* 성공/허용: Soft Green
+* 구조: surface tier 대비 (stroke-less)
+* 선택/포커스/신뢰: Alice Blue scale
+* hover: neutral interactive surface (accent 금지)
+* 위험/대기/성공: pastel semantic weak/soft + text
+* float only shadow (`--mp-shadow-float`)
+* 넓은 accent fill 금지 (primary button·strong signal 제외)
 
 ## 4. Typography
 
@@ -189,8 +218,8 @@ Avoid:
 
 ### Sidebar Rule
 
-현재 선택된 항목만 Alice Blue로 강조한다.
-나머지는 회색 톤으로 억제한다.
+현재 선택된 항목만 accent/selected wash로 강조한다.
+나머지는 muted text + interactive surface로 억제한다.
 
 ---
 
@@ -203,10 +232,10 @@ Avoid:
 주요 실행.
 예: 저장, 실행, 승인, 분석 시작.
 
-* Background: Alice Blue 계열
-* Text: dark gray
+* Background: `--mp-accent-strong` 계열
+* Text: `--mp-text-inverse`
 * Hover: slightly brighter
-* Disabled: muted gray
+* Disabled: muted text/surface
 
 #### Secondary
 
@@ -385,8 +414,8 @@ Badge는 작고 건조해야 한다.
 ### Style
 
 * 배경: surface
-* 테두리: muted border
-* focus ring: Alice Blue
+* 구조 stroke 없음 (inset fill)
+* focus ring: accent-line / signal-ring
 * placeholder: muted text
 
 ### Special Input
@@ -503,12 +532,12 @@ For documents:
 
 ### Visual Style
 
-* Background: dark gray
-* Nodes: muted gray
-* Selected node: Alice Blue
-* Risk node: danger red
-* Verified node: success green
-* Edge: thin line
+* Background: canvas/inset
+* Nodes: neutral muted
+* Selected node: accent wash/stroke
+* Risk node: danger pastel
+* Verified node: success pastel
+* Edge: thin accent/neutral line
 * Directional edge: subtle arrow
 
 ### Graph Types

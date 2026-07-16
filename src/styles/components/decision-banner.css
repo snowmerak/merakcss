@@ -1,6 +1,6 @@
 .mp-decision-banner {
-  --banner-color: var(--color-neutral);
-  --banner-bg: rgb(from var(--color-neutral) r g b / 0.12);
+  --banner-color: var(--mp-neutral-text);
+  --banner-bg: var(--mp-neutral-weak);
 
   display: grid;
   grid-template-columns: auto minmax(0, 1fr) auto;
@@ -9,7 +9,7 @@
   padding: var(--space-3) var(--space-4);
   border: 0;
   border-radius: var(--radius-md);
-  color: var(--color-text-secondary);
+  color: var(--mp-text-secondary);
   background: var(--banner-bg);
 }
 
@@ -36,20 +36,20 @@
 }
 
 .mp-decision-banner__title {
-  color: var(--color-text-primary);
+  color: var(--mp-text-primary);
   font-size: 0.92rem;
   font-weight: 700;
   line-height: 1.35;
 }
 
 .mp-decision-banner__reason {
-  color: var(--color-text-secondary);
+  color: var(--mp-text-secondary);
   font-size: 0.86rem;
   line-height: 1.45;
 }
 
 .mp-decision-banner__meta {
-  color: var(--color-text-muted);
+  color: var(--mp-text-muted);
   font-family: var(--font-mono);
   font-size: 0.7rem;
   letter-spacing: 0.02em;
@@ -64,28 +64,28 @@
 }
 
 .mp-decision-banner--granted {
-  --banner-color: var(--color-success);
-  --banner-bg: rgb(111 191 138 / 0.08);
+  --banner-color: var(--mp-success-text);
+  --banner-bg: var(--mp-success-weak);
 }
 
 .mp-decision-banner--denied {
-  --banner-color: var(--color-danger);
-  --banner-bg: rgb(214 107 97 / 0.09);
+  --banner-color: var(--mp-danger-text);
+  --banner-bg: var(--mp-danger-weak);
 }
 
 .mp-decision-banner--partial {
-  --banner-color: var(--color-warning);
-  --banner-bg: rgb(215 168 79 / 0.09);
+  --banner-color: var(--mp-warning-text);
+  --banner-bg: var(--mp-warning-weak);
 }
 
 .mp-decision-banner--unknown {
-  --banner-color: var(--color-neutral);
-  --banner-bg: rgb(154 164 175 / 0.08);
+  --banner-color: var(--mp-neutral-text);
+  --banner-bg: var(--mp-neutral-weak);
 }
 
 .mp-decision-banner--approval {
-  --banner-color: var(--color-info);
-  --banner-bg: rgb(142 188 230 / 0.08);
+  --banner-color: var(--mp-info-text);
+  --banner-bg: var(--mp-info-weak);
 }
 
 .mp-decision-banner--compact {

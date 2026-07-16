@@ -5,7 +5,7 @@
   overflow: hidden;
   border: 0;
   border-radius: var(--radius-md);
-  background: var(--color-bg-base);
+  background: var(--mp-bg-base);
 }
 
 .mp-sidebar {
@@ -14,7 +14,7 @@
   gap: var(--space-5);
   padding: var(--space-5);
   border-right: 0;
-  background: var(--surface-subtle);
+  background: var(--mp-bg-inset);
 }
 
 .mp-sidebar__brand {
@@ -32,21 +32,21 @@
   height: 36px;
   border: 0;
   border-radius: var(--radius-md);
-  color: var(--color-accent);
-  background: rgb(240 248 255 / 0.04);
+  color: var(--mp-accent);
+  background: var(--mp-signal-wash);
   font-family: var(--font-mono);
   font-weight: 800;
 }
 
 .mp-sidebar__title {
-  color: var(--color-text-primary);
+  color: var(--mp-text-primary);
   font-size: 0.95rem;
   font-weight: 800;
   line-height: 1.2;
 }
 
 .mp-sidebar__subtitle {
-  color: var(--color-text-muted);
+  color: var(--mp-text-muted);
   font-family: var(--font-mono);
   font-size: 0.7rem;
 }
@@ -57,7 +57,7 @@
 }
 
 .mp-sidebar__label {
-  color: var(--color-text-muted);
+  color: var(--mp-text-muted);
   font-family: var(--font-mono);
   font-size: 0.68rem;
   font-weight: 800;
@@ -78,7 +78,7 @@
   padding: 0 var(--space-3);
   border: 1px solid transparent;
   border-radius: var(--radius-sm);
-  color: var(--color-text-secondary);
+  color: var(--mp-text-secondary);
   background: transparent;
   font-size: 0.9rem;
   transition:
@@ -89,14 +89,14 @@
 
 .mp-sidebar__item:hover {
   border-color: transparent;
-  color: var(--color-text-primary);
-  background: rgb(240 248 255 / 0.04);
+  color: var(--mp-text-primary);
+  background: var(--mp-signal-wash);
 }
 
 .mp-sidebar__item[aria-current="page"] {
   border-color: transparent;
-  color: var(--color-accent);
-  background: var(--surface-selected);
+  color: var(--mp-accent);
+  background: var(--mp-bg-selected);
 }
 
 .mp-sidebar__item .mp-symbol {

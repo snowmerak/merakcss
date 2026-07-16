@@ -3,7 +3,7 @@
   gap: var(--space-2);
   margin: 0;
   padding-inline-start: var(--space-6);
-  color: var(--color-text-secondary);
+  color: var(--mp-text-secondary);
 }
 
 .mp-list li {
@@ -11,7 +11,7 @@
 }
 
 .mp-list li::marker {
-  color: var(--color-accent-line);
+  color: var(--mp-accent-line);
   font-family: var(--font-mono);
   font-weight: 700;
 }
@@ -49,6 +49,6 @@
 }
 
 .mp-list--task input[type="checkbox"]:checked + span {
-  color: var(--color-text-muted);
+  color: var(--mp-text-muted);
   text-decoration: line-through;
 }

@@ -1,6 +1,6 @@
 .mp-confidence-meter {
-  --meter-color: var(--color-neutral);
-  --meter-bg: rgb(154 164 175 / 0.08);
+  --meter-color: var(--mp-neutral-base);
+  --meter-bg: var(--mp-neutral-weak);
   --mp-confidence: 0%;
 
   display: grid;
@@ -20,7 +20,7 @@
 }
 
 .mp-confidence-meter__label {
-  color: var(--color-text-muted);
+  color: var(--mp-text-muted);
   font-family: var(--font-mono);
   font-size: 0.68rem;
   font-weight: 700;
@@ -29,7 +29,7 @@
 }
 
 .mp-confidence-meter__value {
-  color: var(--color-text-primary);
+  color: var(--mp-text-primary);
   font-family: var(--font-mono);
   font-size: 0.82rem;
   font-weight: 700;
@@ -42,22 +42,18 @@
   overflow: hidden;
   border: 0;
   border-radius: var(--radius-full);
-  background: rgb(0 0 0 / 0.2);
+  background: var(--mp-bg-inset);
 }
 
 .mp-confidence-meter__fill {
   width: var(--mp-confidence);
   height: 100%;
-  background: linear-gradient(
-    90deg,
-    color-mix(in srgb, var(--meter-color) 78%, transparent),
-    var(--meter-color)
-  );
+  background: var(--meter-color);
   transition: width 180ms var(--ease-system);
 }
 
 .mp-confidence-meter__meta {
-  color: var(--color-text-muted);
+  color: var(--mp-text-muted);
   font-family: var(--font-mono);
   font-size: 0.7rem;
   letter-spacing: 0.02em;
@@ -66,7 +62,7 @@
 .mp-confidence-meter__scale {
   display: flex;
   justify-content: space-between;
-  color: var(--color-text-muted);
+  color: var(--mp-text-muted);
   font-family: var(--font-mono);
   font-size: 0.62rem;
   letter-spacing: 0.06em;
@@ -74,28 +70,28 @@
 }
 
 .mp-confidence-meter--high {
-  --meter-color: var(--color-success);
-  --meter-bg: rgb(111 191 138 / 0.09);
+  --meter-color: var(--mp-success-base);
+  --meter-bg: var(--mp-success-weak);
 }
 
 .mp-confidence-meter--medium {
-  --meter-color: var(--color-warning);
-  --meter-bg: rgb(215 168 79 / 0.09);
+  --meter-color: var(--mp-warning-base);
+  --meter-bg: var(--mp-warning-weak);
 }
 
 .mp-confidence-meter--low {
-  --meter-color: #ffc6c1;
-  --meter-bg: rgb(214 107 97 / 0.09);
+  --meter-color: var(--mp-danger-base);
+  --meter-bg: var(--mp-danger-weak);
 }
 
 .mp-confidence-meter--partial {
-  --meter-color: var(--color-info);
-  --meter-bg: rgb(142 188 230 / 0.09);
+  --meter-color: var(--mp-info-base);
+  --meter-bg: var(--mp-info-weak);
 }
 
 .mp-confidence-meter--unknown {
-  --meter-color: var(--color-neutral);
-  --meter-bg: rgb(154 164 175 / 0.08);
+  --meter-color: var(--mp-neutral-base);
+  --meter-bg: var(--mp-neutral-weak);
 }
 
 .mp-confidence-meter--compact {

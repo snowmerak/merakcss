@@ -12,9 +12,7 @@
   padding: var(--space-5);
   border: 0;
   border-radius: var(--radius-md);
-  background:
-    linear-gradient(135deg, rgb(240 248 255 / 0.035), transparent 42%),
-    rgb(0 0 0 / 0.1);
+  background: var(--mp-bg-inset);
 }
 
 .inspector-object {
@@ -25,17 +23,17 @@
   padding: var(--space-3);
   border: 0;
   border-radius: var(--radius-md);
-  background: var(--surface-raised);
+  background: var(--mp-bg-surface);
 }
 
 .inspector-object--selected {
   border-color: transparent;
-  background: var(--surface-selected);
+  background: var(--mp-bg-selected);
 }
 
 .inspector-object__title {
   overflow: hidden;
-  color: var(--color-text-primary);
+  color: var(--mp-text-primary);
   font-size: 0.95rem;
   font-weight: 700;
   text-overflow: ellipsis;
@@ -43,7 +41,7 @@
 }
 
 .inspector-object__meta {
-  color: var(--color-text-muted);
+  color: var(--mp-text-muted);
   font-family: var(--font-mono);
   font-size: 0.72rem;
 }
@@ -54,7 +52,7 @@
   overflow: hidden;
   border: 0;
   border-radius: var(--radius-md);
-  background: var(--surface-subtle);
+  background: var(--mp-bg-inset);
 }
 
 .mp-inspector__header {
@@ -66,7 +64,7 @@
 }
 
 .mp-inspector__eyebrow {
-  color: var(--color-accent-line);
+  color: var(--mp-accent-line);
   font-family: var(--font-mono);
   font-size: 0.72rem;
   font-weight: 800;
@@ -75,7 +73,7 @@
 }
 
 .mp-inspector__title {
-  color: var(--color-text-primary);
+  color: var(--mp-text-primary);
   font-size: 1.05rem;
   font-weight: 800;
 }
@@ -92,7 +90,7 @@
 }
 
 .mp-inspector__label {
-  color: var(--color-text-muted);
+  color: var(--mp-text-muted);
   font-family: var(--font-mono);
   font-size: 0.7rem;
   font-weight: 800;
@@ -101,7 +99,7 @@
 }
 
 .mp-inspector__text {
-  color: var(--color-text-secondary);
+  color: var(--mp-text-secondary);
   font-size: 0.9rem;
 }
 
@@ -113,7 +111,7 @@
 }
 
 .mp-inspector__dl dt {
-  color: var(--color-text-muted);
+  color: var(--mp-text-muted);
   font-family: var(--font-mono);
   font-size: 0.72rem;
 }
@@ -121,7 +119,7 @@
 .mp-inspector__dl dd {
   min-width: 0;
   margin: 0;
-  color: var(--color-text-secondary);
+  color: var(--mp-text-secondary);
   font-size: 0.85rem;
 }
 

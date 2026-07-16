@@ -4,8 +4,8 @@
 }
 
 .mp-alert {
-  --alert-color: var(--color-info);
-  --alert-bg: rgb(from var(--color-info) r g b / 0.12);
+  --alert-color: var(--mp-info-base);
+  --alert-bg: var(--mp-info-weak);
 
   display: grid;
   grid-template-columns: auto minmax(0, 1fr);
@@ -14,7 +14,7 @@
   padding: var(--space-3) var(--space-4);
   border: 0;
   border-radius: var(--radius-md);
-  color: var(--color-text-secondary);
+  color: var(--mp-text-secondary);
   background: var(--alert-bg);
   animation: motion-enter 900ms var(--ease-system);
 }
@@ -41,34 +41,34 @@
 }
 
 .mp-alert__title {
-  color: var(--color-text-primary);
+  color: var(--mp-text-primary);
   font-size: 0.92rem;
   font-weight: 700;
 }
 
 .mp-alert__message {
-  color: var(--color-text-secondary);
+  color: var(--mp-text-secondary);
   font-size: 0.88rem;
 }
 
 .mp-alert--info {
-  --alert-color: var(--color-info);
-  --alert-bg: rgb(142 188 230 / 0.08);
+  --alert-color: var(--mp-info-base);
+  --alert-bg: var(--mp-info-weak);
 }
 
 .mp-alert--success {
-  --alert-color: var(--color-success);
-  --alert-bg: rgb(111 191 138 / 0.08);
+  --alert-color: var(--mp-success-base);
+  --alert-bg: var(--mp-success-weak);
 }
 
 .mp-alert--warning {
-  --alert-color: var(--color-warning);
-  --alert-bg: rgb(215 168 79 / 0.09);
+  --alert-color: var(--mp-warning-base);
+  --alert-bg: var(--mp-warning-weak);
 }
 
 .mp-alert--error {
-  --alert-color: var(--color-danger);
-  --alert-bg: rgb(214 107 97 / 0.09);
+  --alert-color: var(--mp-danger-base);
+  --alert-bg: var(--mp-danger-weak);
 }
 
 .mp-alert--compact {

@@ -7,32 +7,16 @@
 html {
   min-width: 320px;
   min-height: 100%;
-  background:
-    radial-gradient(circle at 50% -10%, rgb(175 205 235 / 0.12), transparent 30rem),
-    var(--color-bg-base);
+  background: var(--mp-bg-canvas);
 }
 
 body {
   min-width: 320px;
   min-height: 100vh;
   margin: 0;
-  background:
-    linear-gradient(180deg, rgb(255 255 255 / 0.025), transparent 22rem),
-    var(--color-bg-base);
+  background: var(--mp-bg-canvas);
 }
 
-body::before {
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  content: "";
-  background-image:
-    linear-gradient(rgb(240 248 255 / 0.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgb(240 248 255 / 0.025) 1px, transparent 1px);
-  background-size: 48px 48px;
-  mask-image: linear-gradient(to bottom, black, transparent 75%);
-}
 
 button,
 input,
@@ -51,7 +35,7 @@ button:disabled {
 }
 
 a {
-  color: var(--color-accent-line);
+  color: var(--mp-accent-line);
   text-decoration: none;
   transition:
     color 180ms var(--ease-system),
@@ -60,7 +44,7 @@ a {
 }
 
 a:hover {
-  color: var(--color-accent);
+  color: var(--mp-accent);
 }
 
 a:focus-visible,
@@ -68,7 +52,7 @@ button:focus-visible,
 input:focus-visible,
 select:focus-visible,
 textarea:focus-visible {
-  outline: 2px solid var(--color-accent-line);
+  outline: 2px solid var(--mp-accent-line);
   outline-offset: 2px;
 }
 
@@ -123,14 +107,14 @@ h2 {
 }
 
 p {
-  color: var(--color-text-secondary);
+  color: var(--mp-text-secondary);
 }
 
 code {
   padding: 0.15rem 0.35rem;
   border: 0;
   border-radius: var(--radius-sm);
-  color: var(--color-accent-soft);
+  color: var(--mp-accent-soft);
   background: rgb(0 0 0 / 0.2);
   font-family: var(--font-mono);
   font-size: 0.88em;

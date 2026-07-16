@@ -12,7 +12,7 @@
 /* Field shell — public BEM; field-group remains a legacy alias */
 .mp-field,
 .field-group {
-  --field-message-color: var(--color-text-muted);
+  --field-message-color: var(--mp-text-muted);
 
   display: grid;
   gap: var(--space-2);
@@ -48,7 +48,7 @@ fieldset.mp-field > legend.mp-field__label {
 
 .mp-field__label,
 .mp-label {
-  color: var(--color-text-secondary);
+  color: var(--mp-text-secondary);
   font-family: var(--font-mono);
   font-size: 0.72rem;
   font-weight: 700;
@@ -58,53 +58,53 @@ fieldset.mp-field > legend.mp-field__label {
 
 .mp-field__hint,
 .mp-help {
-  color: var(--color-text-muted);
+  color: var(--mp-text-muted);
   font-size: 0.82rem;
   line-height: 1.4;
 }
 
 .mp-field__message,
 .mp-error {
-  color: var(--field-message-color, var(--color-danger));
+  color: var(--field-message-color, var(--mp-danger-base));
   font-size: 0.82rem;
   line-height: 1.4;
 }
 
 .mp-field__message--error,
 .mp-error {
-  --field-message-color: var(--color-danger);
+  --field-message-color: var(--mp-danger-base);
 
-  color: var(--color-danger);
+  color: var(--mp-danger-base);
 }
 
 .mp-field__message--warning {
-  --field-message-color: var(--color-warning);
+  --field-message-color: var(--mp-warning-base);
 
-  color: var(--color-warning);
+  color: var(--mp-warning-base);
 }
 
 .mp-field__message--success {
-  --field-message-color: var(--color-success);
+  --field-message-color: var(--mp-success-base);
 
-  color: var(--color-success);
+  color: var(--mp-success-base);
 }
 
 .mp-field--invalid {
-  --field-control-border: rgb(from var(--color-danger) r g b / 0.8);
-  --field-control-ring: rgb(from var(--color-danger) r g b / 0.1);
-  --field-message-color: var(--color-danger);
+  --field-control-border: rgb(from var(--mp-danger-base) r g b / 0.8);
+  --field-control-ring: rgb(from var(--mp-danger-base) r g b / 0.1);
+  --field-message-color: var(--mp-danger-base);
 }
 
 .mp-field--warning {
-  --field-control-border: rgb(from var(--color-warning) r g b / 0.85);
-  --field-control-ring: rgb(from var(--color-warning) r g b / 0.12);
-  --field-message-color: var(--color-warning);
+  --field-control-border: rgb(from var(--mp-warning-base) r g b / 0.85);
+  --field-control-ring: rgb(from var(--mp-warning-base) r g b / 0.12);
+  --field-message-color: var(--mp-warning-base);
 }
 
 .mp-field--success {
-  --field-control-border: rgb(from var(--color-success) r g b / 0.85);
-  --field-control-ring: rgb(from var(--color-success) r g b / 0.12);
-  --field-message-color: var(--color-success);
+  --field-control-border: rgb(from var(--mp-success-base) r g b / 0.85);
+  --field-control-ring: rgb(from var(--mp-success-base) r g b / 0.12);
+  --field-message-color: var(--mp-success-base);
 }
 
 .mp-field--disabled {
@@ -113,7 +113,7 @@ fieldset.mp-field > legend.mp-field__label {
 
 .mp-field--disabled .mp-field__label,
 .mp-field--disabled .mp-label {
-  color: var(--color-text-muted);
+  color: var(--mp-text-muted);
 }
 
 /* Text controls */
@@ -125,7 +125,7 @@ fieldset.mp-field > legend.mp-field__label {
 
   /* form shell uses sunken fill; validation/focus still use ring + border-color */
   border-radius: var(--radius-sm);
-  color: var(--color-text-primary);
+  color: var(--mp-text-primary);
   background: rgb(0 0 0 / 0.12);
   transition:
     background-color 180ms var(--ease-system),
@@ -148,7 +148,7 @@ fieldset.mp-field > legend.mp-field__label {
 
 .mp-input::placeholder,
 .mp-textarea::placeholder {
-  color: var(--color-text-muted);
+  color: var(--mp-text-muted);
 }
 
 .mp-input:hover:not(:disabled),
@@ -164,9 +164,9 @@ fieldset.mp-field > legend.mp-field__label {
 .mp-input:focus-visible,
 .mp-textarea:focus-visible,
 .mp-select:focus-visible {
-  border-color: var(--color-accent-line);
+  border-color: var(--mp-accent-line);
   background: rgb(0 0 0 / 0.2);
-  box-shadow: 0 0 0 3px rgb(175 205 235 / 0.12);
+  box-shadow: 0 0 0 3px var(--mp-signal-ring);
   outline: none;
 }
 
@@ -196,8 +196,8 @@ fieldset.mp-field > legend.mp-field__label {
 .mp-textarea:disabled,
 .mp-select:disabled {
   cursor: not-allowed;
-  color: var(--color-text-muted);
-  background: rgb(154 164 175 / 0.06);
+  color: var(--mp-text-muted);
+  background: var(--mp-neutral-weak);
   opacity: 0.72;
 }
 
@@ -207,8 +207,8 @@ fieldset.mp-field > legend.mp-field__label {
 .mp-input.mp-input--invalid,
 .mp-textarea.mp-textarea--invalid,
 .mp-select.mp-select--invalid {
-  border-color: rgb(from var(--color-danger) r g b / 0.8);
-  box-shadow: 0 0 0 3px rgb(from var(--color-danger) r g b / 0.1);
+  border-color: rgb(from var(--mp-danger-base) r g b / 0.8);
+  box-shadow: 0 0 0 3px rgb(from var(--mp-danger-base) r g b / 0.1);
 }
 
 .mp-input.mp-input--warning,
@@ -217,8 +217,8 @@ fieldset.mp-field > legend.mp-field__label {
 .mp-input[data-state="warning"],
 .mp-textarea[data-state="warning"],
 .mp-select[data-state="warning"] {
-  border-color: rgb(from var(--color-warning) r g b / 0.85);
-  box-shadow: 0 0 0 3px rgb(from var(--color-warning) r g b / 0.12);
+  border-color: rgb(from var(--mp-warning-base) r g b / 0.85);
+  box-shadow: 0 0 0 3px rgb(from var(--mp-warning-base) r g b / 0.12);
 }
 
 .mp-input.mp-input--success,
@@ -227,16 +227,16 @@ fieldset.mp-field > legend.mp-field__label {
 .mp-input[data-state="success"],
 .mp-textarea[data-state="success"],
 .mp-select[data-state="success"] {
-  border-color: rgb(from var(--color-success) r g b / 0.85);
-  box-shadow: 0 0 0 3px rgb(from var(--color-success) r g b / 0.12);
+  border-color: rgb(from var(--mp-success-base) r g b / 0.85);
+  box-shadow: 0 0 0 3px rgb(from var(--mp-success-base) r g b / 0.12);
 }
 
 .mp-select {
   appearance: none;
   padding-right: 36px;
   background-image:
-    linear-gradient(45deg, transparent 50%, var(--color-text-muted) 50%),
-    linear-gradient(135deg, var(--color-text-muted) 50%, transparent 50%);
+    linear-gradient(45deg, transparent 50%, var(--mp-text-muted) 50%),
+    linear-gradient(135deg, var(--mp-text-muted) 50%, transparent 50%);
   background-position:
     calc(100% - 17px) 17px,
     calc(100% - 12px) 17px;
@@ -250,13 +250,13 @@ fieldset.mp-field > legend.mp-field__label {
 }
 
 .mp-select option {
-  color: var(--color-text-primary);
-  background: var(--color-bg-surface);
+  color: var(--mp-text-primary);
+  background: var(--mp-bg-surface);
 }
 
 .mp-select option:checked {
-  color: var(--color-bg-base);
-  background: var(--color-accent-line);
+  color: var(--mp-bg-base);
+  background: var(--mp-accent-line);
 }
 
 /* Search */
@@ -268,7 +268,7 @@ fieldset.mp-field > legend.mp-field__label {
   padding: 0 var(--space-3);
   border: 0;
   border-radius: var(--radius-sm);
-  color: var(--color-text-muted);
+  color: var(--mp-text-muted);
   background: rgb(0 0 0 / 0.12);
   transition:
     background-color 180ms var(--ease-system),
@@ -282,9 +282,9 @@ fieldset.mp-field > legend.mp-field__label {
 }
 
 .mp-search:focus-within {
-  border-color: var(--color-accent-line);
+  border-color: var(--mp-accent-line);
   background: rgb(0 0 0 / 0.2);
-  box-shadow: 0 0 0 3px rgb(175 205 235 / 0.12);
+  box-shadow: 0 0 0 3px var(--mp-signal-ring);
 }
 
 .mp-search__icon {
@@ -304,7 +304,7 @@ fieldset.mp-field > legend.mp-field__label {
   min-height: 40px;
   padding: 0;
   border: 0;
-  color: var(--color-text-primary);
+  color: var(--mp-text-primary);
   background: transparent;
   box-shadow: none;
   outline: none;
@@ -322,14 +322,14 @@ fieldset.mp-field > legend.mp-field__label {
   display: inline-flex;
   align-items: center;
   gap: var(--space-2);
-  color: var(--color-text-secondary);
+  color: var(--mp-text-secondary);
   font-size: 0.92rem;
   cursor: pointer;
 }
 
 .mp-choice:has(:disabled) {
   cursor: not-allowed;
-  color: var(--color-text-muted);
+  color: var(--mp-text-muted);
   opacity: 0.72;
 }
 
@@ -361,29 +361,29 @@ fieldset.mp-field > legend.mp-field__label {
 
 .mp-checkbox:hover:not(:disabled),
 .mp-radio:hover:not(:disabled) {
-  border-color: var(--color-text-muted);
+  border-color: var(--mp-text-muted);
   background: rgb(0 0 0 / 0.22);
 }
 
 .mp-checkbox:focus-visible,
 .mp-radio:focus-visible {
   outline: none;
-  border-color: var(--color-accent-line);
-  box-shadow: 0 0 0 3px rgb(175 205 235 / 0.12);
+  border-color: var(--mp-accent-line);
+  box-shadow: 0 0 0 3px var(--mp-signal-ring);
 }
 
 .mp-checkbox:checked,
 .mp-radio:checked {
-  border-color: var(--color-accent-line);
-  background: var(--color-accent);
+  border-color: var(--mp-accent-line);
+  background: var(--mp-accent);
 }
 
 .mp-checkbox:checked::before {
   width: 8px;
   height: 5px;
   content: "";
-  border-bottom: 2px solid var(--color-bg-base);
-  border-left: 2px solid var(--color-bg-base);
+  border-bottom: 2px solid var(--mp-bg-base);
+  border-left: 2px solid var(--mp-bg-base);
   transform: translateY(-1px) rotate(-45deg);
 }
 
@@ -392,7 +392,7 @@ fieldset.mp-field > legend.mp-field__label {
   height: 6px;
   content: "";
   border-radius: var(--radius-full);
-  background: var(--color-bg-base);
+  background: var(--mp-bg-base);
 }
 
 .mp-checkbox:disabled,
@@ -405,37 +405,37 @@ fieldset.mp-field > legend.mp-field__label {
 .mp-radio[aria-invalid="true"],
 .mp-checkbox.mp-checkbox--invalid,
 .mp-radio.mp-radio--invalid {
-  border-color: rgb(from var(--color-danger) r g b / 0.85);
+  border-color: rgb(from var(--mp-danger-base) r g b / 0.85);
 }
 
 .mp-checkbox[aria-invalid="true"]:checked,
 .mp-radio[aria-invalid="true"]:checked,
 .mp-checkbox.mp-checkbox--invalid:checked,
 .mp-radio.mp-radio--invalid:checked {
-  border-color: var(--color-danger);
-  background: rgb(from var(--color-danger) r g b / 0.85);
+  border-color: var(--mp-danger-base);
+  background: rgb(from var(--mp-danger-base) r g b / 0.85);
 }
 
 .mp-checkbox.mp-checkbox--warning,
 .mp-radio.mp-radio--warning {
-  border-color: rgb(from var(--color-warning) r g b / 0.85);
+  border-color: rgb(from var(--mp-warning-base) r g b / 0.85);
 }
 
 .mp-checkbox.mp-checkbox--warning:checked,
 .mp-radio.mp-radio--warning:checked {
-  border-color: var(--color-warning);
-  background: var(--color-warning);
+  border-color: var(--mp-warning-base);
+  background: var(--mp-warning-base);
 }
 
 .mp-checkbox.mp-checkbox--success,
 .mp-radio.mp-radio--success {
-  border-color: rgb(from var(--color-success) r g b / 0.85);
+  border-color: rgb(from var(--mp-success-base) r g b / 0.85);
 }
 
 .mp-checkbox.mp-checkbox--success:checked,
 .mp-radio.mp-radio--success:checked {
-  border-color: var(--color-success);
-  background: var(--color-success);
+  border-color: var(--mp-success-base);
+  background: var(--mp-success-base);
 }
 
 /* Switch — public API; mp-toggle remains a legacy alias */
@@ -444,7 +444,7 @@ fieldset.mp-field > legend.mp-field__label {
   display: inline-flex;
   align-items: center;
   gap: var(--space-2);
-  color: var(--color-text-secondary);
+  color: var(--mp-text-secondary);
   font-size: 0.92rem;
   cursor: pointer;
 }
@@ -452,7 +452,7 @@ fieldset.mp-field > legend.mp-field__label {
 .mp-switch:has(:disabled),
 .mp-toggle:has(:disabled) {
   cursor: not-allowed;
-  color: var(--color-text-muted);
+  color: var(--mp-text-muted);
   opacity: 0.72;
 }
 
@@ -494,7 +494,7 @@ fieldset.mp-field > legend.mp-field__label {
   height: 12px;
   content: "";
   border-radius: var(--radius-full);
-  background: var(--color-text-muted);
+  background: var(--mp-text-muted);
   transition:
     background-color 180ms var(--ease-system),
     transform 180ms var(--ease-system);
@@ -502,20 +502,20 @@ fieldset.mp-field > legend.mp-field__label {
 
 .mp-switch:hover:not(:has(:disabled)) .mp-switch__track,
 .mp-toggle:hover:not(:has(:disabled)) .mp-toggle__track {
-  border-color: var(--color-text-muted);
+  border-color: var(--mp-text-muted);
 }
 
 .mp-switch > input[type="checkbox"]:checked + .mp-switch__track,
 .mp-switch__input:checked + .mp-switch__track,
 .mp-toggle > input[type="checkbox"]:checked + .mp-toggle__track {
-  border-color: var(--color-accent-line);
-  background: rgb(175 205 235 / 0.18);
+  border-color: var(--mp-accent-line);
+  background: var(--mp-bg-selected);
 }
 
 .mp-switch > input[type="checkbox"]:checked + .mp-switch__track::before,
 .mp-switch__input:checked + .mp-switch__track::before,
 .mp-toggle > input[type="checkbox"]:checked + .mp-toggle__track::before {
-  background: var(--color-accent);
+  background: var(--mp-accent);
   transform: translateX(18px);
 }
 
@@ -523,8 +523,8 @@ fieldset.mp-field > legend.mp-field__label {
 .mp-switch__input:focus-visible + .mp-switch__track,
 .mp-toggle > input[type="checkbox"]:focus-visible + .mp-toggle__track {
   outline: none;
-  border-color: var(--color-accent-line);
-  box-shadow: 0 0 0 3px rgb(175 205 235 / 0.12);
+  border-color: var(--mp-accent-line);
+  box-shadow: 0 0 0 3px var(--mp-signal-ring);
 }
 
 .mp-switch > input[type="checkbox"]:disabled + .mp-switch__track,
@@ -535,44 +535,44 @@ fieldset.mp-field > legend.mp-field__label {
 
 .mp-switch--invalid > input[type="checkbox"] + .mp-switch__track,
 .mp-switch > input[type="checkbox"][aria-invalid="true"] + .mp-switch__track {
-  border-color: rgb(from var(--color-danger) r g b / 0.85);
+  border-color: rgb(from var(--mp-danger-base) r g b / 0.85);
 }
 
 .mp-switch--invalid > input[type="checkbox"]:checked + .mp-switch__track,
 .mp-switch > input[type="checkbox"][aria-invalid="true"]:checked + .mp-switch__track {
-  border-color: var(--color-danger);
-  background: rgb(from var(--color-danger) r g b / 0.16);
+  border-color: var(--mp-danger-base);
+  background: rgb(from var(--mp-danger-base) r g b / 0.16);
 }
 
 .mp-switch--invalid > input[type="checkbox"]:checked + .mp-switch__track::before,
 .mp-switch > input[type="checkbox"][aria-invalid="true"]:checked + .mp-switch__track::before {
-  background: var(--color-danger);
+  background: var(--mp-danger-base);
 }
 
 .mp-switch--warning > input[type="checkbox"] + .mp-switch__track {
-  border-color: rgb(from var(--color-warning) r g b / 0.85);
+  border-color: rgb(from var(--mp-warning-base) r g b / 0.85);
 }
 
 .mp-switch--warning > input[type="checkbox"]:checked + .mp-switch__track {
-  border-color: var(--color-warning);
-  background: rgb(from var(--color-warning) r g b / 0.16);
+  border-color: var(--mp-warning-base);
+  background: rgb(from var(--mp-warning-base) r g b / 0.16);
 }
 
 .mp-switch--warning > input[type="checkbox"]:checked + .mp-switch__track::before {
-  background: var(--color-warning);
+  background: var(--mp-warning-base);
 }
 
 .mp-switch--success > input[type="checkbox"] + .mp-switch__track {
-  border-color: rgb(from var(--color-success) r g b / 0.85);
+  border-color: rgb(from var(--mp-success-base) r g b / 0.85);
 }
 
 .mp-switch--success > input[type="checkbox"]:checked + .mp-switch__track {
-  border-color: var(--color-success);
-  background: rgb(from var(--color-success) r g b / 0.16);
+  border-color: var(--mp-success-base);
+  background: rgb(from var(--mp-success-base) r g b / 0.16);
 }
 
 .mp-switch--success > input[type="checkbox"]:checked + .mp-switch__track::before {
-  background: var(--color-success);
+  background: var(--mp-success-base);
 }
 
 .mp-switch__label {

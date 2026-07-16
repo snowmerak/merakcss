@@ -412,7 +412,7 @@ concept Priority와 현재 쇼케이스 구현을 정렬한 로드맵이다.
 
 라이브러리 컴포넌트 완료 조건:
 
-1. concept / skill 톤과 시각 규칙 준수 (Alice Blue = signal only)
+1. concept / skill 톤과 시각 규칙 준수 (`--mp-*`, Alice Blue = signal only, stroke-less surfaces)
 2. `component-contract.md`의 DOM/class와 일치
 3. keyboard / aria 기본 동작 확인
 4. showcase 또는 Storybook 예시 존재

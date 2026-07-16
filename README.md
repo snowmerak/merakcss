@@ -1,6 +1,6 @@
 # Merak Protocol Design System
 
-Dark gray technical UI system with Alice Blue signal color for traceability, permission gates, AI agent workflows, and archive interfaces.
+Pastel lavender-gray dark UI with stroke-less flat surface tiers and Alice Blue as a trust/selection signal for traceability, permission gates, AI agent workflows, and archive interfaces.
 
 ## Demo
 

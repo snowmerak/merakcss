@@ -7,7 +7,7 @@
 
 .mp-eyebrow,
 .eyebrow {
-  color: var(--color-accent-line);
+  color: var(--mp-accent-line);
   font-family: var(--font-mono);
   font-size: 0.75rem;
   font-weight: 700;
@@ -47,11 +47,11 @@
 }
 
 .mp-text--secondary {
-  color: var(--color-text-secondary);
+  color: var(--mp-text-secondary);
 }
 
 .mp-text--muted {
-  color: var(--color-text-muted);
+  color: var(--mp-text-muted);
 }
 
 .mp-heading--section {

@@ -1,39 +1,87 @@
 :root {
   color-scheme: dark;
 
-  /* Layer stack: base < subtle < surface < elevated.
-     Structure relies on fill contrast, not hairline strokes. */
-  --color-bg-base: #15181c;
-  --color-bg-subtle: #1c2026;
-  --color-bg-surface: #262b33;
-  --color-bg-elevated: #323943;
-  --color-border-default: #3a414c;
-  --color-border-muted: #2e343d;
-  --color-text-primary: #e8edf3;
-  --color-text-secondary: #b5bec9;
-  --color-text-muted: #9aa4af;
-  --color-accent: #f0f8ff;
-  --color-accent-soft: #dceeff;
-  --color-accent-line: #afcdeb;
-  --color-accent-deep: #6e9fcb;
-  --color-success: #6fbf8a;
-  --color-warning: #d7a84f;
-  --color-danger: #d66b61;
-  --color-info: #8ebce6;
-  --color-neutral: #9aa4af;
+  /*
+   * Brighter lavender-gray pastel dark.
+   * Flat fills only — no decorative gradients for structure.
+   * Structure = surface tiers. Signal = Alice Blue scale (slightly higher chroma).
+   */
 
-  --surface-base: var(--color-bg-base);
-  --surface-subtle: var(--color-bg-subtle);
-  --surface-raised: var(--color-bg-surface);
-  --surface-elevated: var(--color-bg-elevated);
-  --surface-sunken: rgb(0 0 0 / 0.22);
-  --surface-interactive: rgb(255 255 255 / 0.04);
-  --surface-interactive-hover: rgb(255 255 255 / 0.07);
-  --surface-selected: rgb(from var(--color-accent) r g b / 0.08);
-  --surface-selected-strong: rgb(from var(--color-accent) r g b / 0.14);
-  --signal-ring: rgb(from var(--color-accent-line) r g b / 0.16);
-  --signal-wash: rgb(from var(--color-accent) r g b / 0.055);
+  /* Surfaces: lifted, cool lavender-gray */
+  --mp-bg-canvas: #171b24;
+  --mp-bg-base: #1d2330;
+  --mp-bg-surface: #272e3d;
+  --mp-bg-inset: #1a2030;
+  --mp-bg-elevated: #323a4d;
+  --mp-bg-interactive: rgb(214 220 255 / 0.06);
+  --mp-bg-hover: rgb(214 220 255 / 0.1);
+  --mp-bg-selected: rgb(from var(--mp-accent-200) r g b / 0.16);
 
+  /* Dividers */
+  --mp-line-soft: rgb(214 220 255 / 0.06);
+  --mp-line-muted: rgb(214 220 255 / 0.1);
+
+  /* Text */
+  --mp-text-primary: #eef2fa;
+  --mp-text-secondary: #c9d1e2;
+  --mp-text-tertiary: #a4aec4;
+  --mp-text-muted: #8792ab;
+  --mp-text-disabled: #646e84;
+  --mp-text-inverse: #151925;
+
+  /* Alice Blue scale — slightly higher chroma */
+  --mp-accent-50: #f7fbff;
+  --mp-accent-100: #ebf4ff;
+  --mp-accent-200: #d7e9ff;
+  --mp-accent-300: #b9d6fa;
+  --mp-accent-400: #94bcec;
+  --mp-accent-500: #74a3da;
+  --mp-accent-600: #5a87be;
+  --mp-accent-700: #486c99;
+
+  /* Accent roles */
+  --mp-accent-strong: var(--mp-accent-100);
+  --mp-accent-soft: var(--mp-accent-200);
+  --mp-accent: var(--mp-accent-300);
+  --mp-accent-line: var(--mp-accent-400);
+  --mp-accent-deep: var(--mp-accent-600);
+  --mp-signal-wash: rgb(from var(--mp-accent-200) r g b / 0.14);
+  --mp-signal-ring: rgb(from var(--mp-accent-line) r g b / 0.26);
+
+  /* Success — pastel, a bit fresher */
+  --mp-success-weak: #1f322c;
+  --mp-success-soft: #2b463c;
+  --mp-success-base: #6db894;
+  --mp-success-text: #b6e4cb;
+
+  /* Warning */
+  --mp-warning-weak: #32291c;
+  --mp-warning-soft: #4a3b24;
+  --mp-warning-base: #c9a45a;
+  --mp-warning-text: #ecd09a;
+
+  /* Danger — dusty rose, slightly clearer */
+  --mp-danger-weak: #322225;
+  --mp-danger-soft: #4a2f34;
+  --mp-danger-base: #cc767c;
+  --mp-danger-text: #efb2b6;
+
+  /* Info = accent family */
+  --mp-info-weak: rgb(from var(--mp-accent-500) r g b / 0.16);
+  --mp-info-soft: rgb(from var(--mp-accent-400) r g b / 0.22);
+  --mp-info-base: var(--mp-accent-400);
+  --mp-info-text: var(--mp-accent-200);
+
+  /* Neutral */
+  --mp-neutral-weak: #232937;
+  --mp-neutral-soft: #31384a;
+  --mp-neutral-base: #8b95ab;
+  --mp-neutral-text: #c2cadb;
+
+  /* Float only */
+  --mp-shadow-float: 0 12px 32px rgb(12 14 24 / 0.34);
+
+  /* Typography / space / radius / motion */
   --font-sans: Pretendard, Inter, "Noto Sans KR", system-ui, sans-serif;
   --font-mono: "JetBrains Mono", "Geist Mono", "SFMono-Regular", Consolas,
     monospace;
@@ -52,15 +100,14 @@
   --radius-lg: 12px;
   --radius-full: 999px;
 
-  --shadow-panel: 0 18px 60px rgb(0 0 0 / 0.28);
   --ease-system: cubic-bezier(0.2, 0, 0, 1);
 
   font-family: var(--font-sans);
   font-size: 16px;
   font-weight: 400;
   line-height: 1.5;
-  color: var(--color-text-primary);
-  background: var(--color-bg-base);
+  color: var(--mp-text-primary);
+  background: var(--mp-bg-canvas);
   text-rendering: optimizeLegibility;
   font-synthesis: none;
   -webkit-font-smoothing: antialiased;

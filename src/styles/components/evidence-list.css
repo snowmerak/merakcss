@@ -24,8 +24,8 @@
   height: 28px;
   border: 0;
   border-radius: var(--radius-full);
-  background: var(--surface-interactive);
-  color: var(--color-text-muted);
+  background: var(--mp-bg-interactive);
+  color: var(--mp-text-muted);
   font-family: var(--font-mono);
   font-size: 0.7rem;
   font-weight: 800;
@@ -40,7 +40,7 @@
 
 .mp-evidence-list__title {
   overflow: hidden;
-  color: var(--color-text-primary);
+  color: var(--mp-text-primary);
   font-size: 0.9rem;
   font-weight: 700;
   text-overflow: ellipsis;
@@ -49,7 +49,7 @@
 
 .mp-evidence-list__source {
   overflow: hidden;
-  color: var(--color-text-muted);
+  color: var(--mp-text-muted);
   font-family: var(--font-mono);
   font-size: 0.7rem;
   letter-spacing: 0.02em;
@@ -61,7 +61,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-2);
-  color: var(--color-text-muted);
+  color: var(--mp-text-muted);
   font-family: var(--font-mono);
   font-size: 0.68rem;
 }
@@ -80,33 +80,33 @@
 }
 
 .mp-evidence-list__link:hover {
-  color: var(--color-accent);
+  color: var(--mp-accent);
 }
 
 .mp-evidence-list__item:has(.mp-evidence-list__link:hover) {
   border-color: transparent;
-  background: rgb(240 248 255 / 0.055);
+  background: var(--mp-bg-selected);
 }
 
 .mp-evidence-list__item--active {
   border-color: transparent;
-  background: var(--surface-selected);
+  background: var(--mp-bg-selected);
 }
 
 .mp-evidence-list__item--active .mp-evidence-list__index {
   border-color: transparent;
-  color: var(--color-bg-base);
-  background: var(--color-accent);
+  color: var(--mp-text-inverse);
+  background: var(--mp-accent-strong);
 }
 
 .mp-evidence-list__item--verified .mp-evidence-list__index {
   border-color: transparent;
-  color: var(--color-success);
+  color: var(--mp-success-base);
 }
 
 .mp-evidence-list__item--partial .mp-evidence-list__index {
   border-color: transparent;
-  color: var(--color-info);
+  color: var(--mp-info-base);
 }
 
 .mp-evidence-list__item--missing {
@@ -115,11 +115,11 @@
 
 .mp-evidence-list__item--missing .mp-evidence-list__index {
   border-color: transparent;
-  color: #ffc6c1;
+  color: var(--mp-danger-text);
 }
 
 .mp-evidence-list__item--missing .mp-evidence-list__title {
-  color: var(--color-text-muted);
+  color: var(--mp-text-muted);
 }
 
 .mp-evidence-list--dense {

@@ -4,15 +4,11 @@
   padding: var(--space-5);
   border: 0;
   border-radius: var(--radius-md);
-  background:
-    linear-gradient(135deg, rgb(from var(--color-success) r g b / 0.12), transparent 46%),
-    var(--surface-raised);
+  background: color-mix(in srgb, var(--mp-bg-surface) 84%, var(--mp-success-base) 16%);
 }
 
 .gate-card--denied {
-  background:
-    linear-gradient(135deg, rgb(from var(--color-danger) r g b / 0.12), transparent 46%),
-    var(--surface-raised);
+  background: color-mix(in srgb, var(--mp-bg-surface) 84%, var(--mp-danger-base) 16%);
 }
 
 .gate-card__equation {
@@ -33,7 +29,7 @@
 }
 
 .gate-card__label {
-  color: var(--color-text-muted);
+  color: var(--mp-text-muted);
   font-family: var(--font-mono);
   font-size: 0.66rem;
   font-weight: 800;
@@ -43,7 +39,7 @@
 
 .gate-card__value {
   overflow: hidden;
-  color: var(--color-text-primary);
+  color: var(--mp-text-primary);
   font-family: var(--font-mono);
   font-size: 0.84rem;
   text-overflow: ellipsis;
@@ -51,7 +47,7 @@
 }
 
 .gate-card__arrow {
-  color: var(--color-accent-line);
+  color: var(--mp-accent-line);
   font-family: var(--font-mono);
   font-weight: 800;
 }

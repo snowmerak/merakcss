@@ -8,8 +8,8 @@
 }
 
 .mp-command-shell:focus-within {
-  border-color: var(--color-accent-line);
-  box-shadow: 0 0 0 3px rgb(175 205 235 / 0.12);
+  border-color: var(--mp-accent-line);
+  box-shadow: 0 0 0 3px var(--mp-signal-ring);
 }
 
 .mp-command-line {
@@ -19,7 +19,7 @@
 }
 
 .mp-command-prefix {
-  color: var(--color-accent-line);
+  color: var(--mp-accent-line);
   font-family: var(--font-mono);
   font-weight: 800;
 }
@@ -31,7 +31,7 @@
   min-height: 32px;
   padding: 0;
   border: 0;
-  color: var(--color-text-primary);
+  color: var(--mp-text-primary);
   background: transparent;
   box-shadow: none;
   outline: none;
@@ -39,7 +39,7 @@
 }
 
 .mp-command::placeholder {
-  color: var(--color-text-muted);
+  color: var(--mp-text-muted);
 }
 
 .mp-command-panel {
@@ -50,7 +50,7 @@
 }
 
 .mp-command-panel__label {
-  color: var(--color-text-muted);
+  color: var(--mp-text-muted);
   font-family: var(--font-mono);
   font-size: 0.68rem;
   font-weight: 800;
@@ -72,7 +72,7 @@
   padding: 0 var(--space-2);
   border: 1px solid transparent;
   border-radius: var(--radius-sm);
-  color: var(--color-text-secondary);
+  color: var(--mp-text-secondary);
   background: transparent;
   font-family: var(--font-mono);
   font-size: 0.78rem;
@@ -82,17 +82,17 @@
 .mp-command-suggestion:hover,
 .mp-command-suggestion.is-active {
   border-color: transparent;
-  color: var(--color-accent);
-  background: var(--surface-selected);
+  color: var(--mp-accent);
+  background: var(--mp-bg-selected);
 }
 
 .mp-command-suggestion__meta {
-  color: var(--color-text-muted);
+  color: var(--mp-text-muted);
   font-size: 0.7rem;
 }
 
 .mp-command-hint {
-  color: var(--color-text-muted);
+  color: var(--mp-text-muted);
   font-size: 0.82rem;
 }
 
@@ -106,7 +106,7 @@
 }
 
 .mp-command-result__label {
-  color: var(--color-accent-line);
+  color: var(--mp-accent-line);
   font-family: var(--font-mono);
   font-size: 0.68rem;
   font-weight: 800;
@@ -115,7 +115,7 @@
 }
 
 .mp-command-result__value {
-  color: var(--color-text-secondary);
+  color: var(--mp-text-secondary);
   font-family: var(--font-mono);
   font-size: 0.82rem;
 }

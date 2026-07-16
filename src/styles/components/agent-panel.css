@@ -4,7 +4,7 @@
   padding: var(--space-5);
   border: 0;
   border-radius: var(--radius-md);
-  background: var(--surface-raised);
+  background: var(--mp-bg-surface);
 }
 
 .agent-panel__summary {
@@ -35,7 +35,7 @@
 
 .agent-flow__step--active {
   border-color: transparent;
-  background: var(--surface-selected);
+  background: var(--mp-bg-selected);
 }
 
 .agent-flow__index {
@@ -45,8 +45,8 @@
   height: 30px;
   border: 0;
   border-radius: var(--radius-full);
-  color: var(--color-accent-line);
-  background: var(--surface-interactive);
+  color: var(--mp-accent-line);
+  background: var(--mp-bg-interactive);
   font-family: var(--font-mono);
   font-size: 0.72rem;
   font-weight: 800;
@@ -54,18 +54,18 @@
 
 .agent-flow__step--active .agent-flow__index {
   border-color: transparent;
-  color: var(--color-bg-base);
-  background: var(--color-accent);
+  color: var(--mp-text-inverse);
+  background: var(--mp-accent-strong);
 }
 
 .agent-flow__title {
-  color: var(--color-text-primary);
+  color: var(--mp-text-primary);
   font-size: 0.92rem;
   font-weight: 700;
 }
 
 .agent-flow__meta {
-  color: var(--color-text-muted);
+  color: var(--mp-text-muted);
   font-family: var(--font-mono);
   font-size: 0.72rem;
 }
@@ -80,7 +80,7 @@
 }
 
 .agent-panel__log {
-  color: var(--color-text-secondary);
+  color: var(--mp-text-secondary);
   font-family: var(--font-mono);
   font-size: 0.82rem;
   line-height: 1.6;

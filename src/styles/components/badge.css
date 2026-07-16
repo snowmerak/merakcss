@@ -10,8 +10,8 @@
 }
 
 .mp-badge {
-  --badge-color: var(--color-neutral);
-  --badge-bg: rgb(154 164 175 / 0.08);
+  --badge-color: var(--mp-neutral-text);
+  --badge-bg: var(--mp-neutral-weak);
 
   display: inline-flex;
   align-items: center;
@@ -41,47 +41,47 @@
 .mp-badge--verified,
 .mp-badge--low,
 .mp-badge--success {
-  --badge-color: var(--color-success);
-  --badge-bg: rgb(111 191 138 / 0.09);
+  --badge-color: var(--mp-success-text);
+  --badge-bg: var(--mp-success-weak);
 }
 
 .mp-badge--pending,
 .mp-badge--medium,
 .mp-badge--warning {
-  --badge-color: var(--color-warning);
-  --badge-bg: rgb(215 168 79 / 0.09);
+  --badge-color: var(--mp-warning-text);
+  --badge-bg: var(--mp-warning-weak);
 }
 
 .mp-badge--inactive,
 .mp-badge--neutral {
-  --badge-color: var(--color-neutral);
-  --badge-bg: rgb(154 164 175 / 0.08);
+  --badge-color: var(--mp-neutral-text);
+  --badge-bg: var(--mp-neutral-weak);
 }
 
 .mp-badge--error,
 .mp-badge--high,
 .mp-badge--danger {
-  --badge-color: #ffc6c1;
-  --badge-bg: rgb(214 107 97 / 0.09);
+  --badge-color: var(--mp-danger-text);
+  --badge-bg: var(--mp-danger-weak);
 }
 
 .mp-badge--critical {
-  --badge-color: #ffc6c1;
-  --badge-bg: rgb(214 107 97 / 0.16);
+  --badge-color: var(--mp-danger-text);
+  --badge-bg: var(--mp-danger-soft);
 }
 
 .mp-badge--sealed {
-  --badge-color: var(--color-accent-line);
-  --badge-bg: rgb(175 205 235 / 0.08);
+  --badge-color: var(--mp-accent-line);
+  --badge-bg: var(--mp-info-weak);
 }
 
 .mp-badge--partial,
 .mp-badge--info {
-  --badge-color: var(--color-info);
-  --badge-bg: rgb(142 188 230 / 0.09);
+  --badge-color: var(--mp-info-text);
+  --badge-bg: var(--mp-info-weak);
 }
 
 .mp-badge--type {
-  --badge-color: var(--color-text-secondary);
-  --badge-bg: rgb(240 248 255 / 0.045);
+  --badge-color: var(--mp-text-secondary);
+  --badge-bg: var(--mp-neutral-weak);
 }
