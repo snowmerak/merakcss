@@ -12,16 +12,16 @@
   gap: var(--space-2);
   min-height: 38px;
   padding: 0 var(--space-3);
-  border: 1px solid var(--color-border-muted);
+  border: 0;
   border-radius: var(--radius-sm);
   color: var(--color-text-secondary);
   background: rgb(0 0 0 / 0.08);
 }
 
 .mp-link-list a:hover {
-  border-color: var(--color-accent-line);
-  color: var(--color-accent);
-  background: rgb(240 248 255 / 0.055);
+  border-color: transparent;
+  color: var(--color-text-primary);
+  background: var(--surface-interactive-hover);
 }
 
 .mp-link-list--dense {
@@ -46,7 +46,7 @@
   place-items: center;
   min-width: 24px;
   height: 22px;
-  border: 1px solid var(--color-border-muted);
+  border: 0;
   border-radius: var(--radius-sm);
   color: var(--color-accent-line);
   font-family: var(--font-mono);

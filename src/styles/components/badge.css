@@ -18,7 +18,7 @@
   justify-content: center;
   min-height: 24px;
   padding: 0 var(--space-2);
-  border: 1px solid rgb(from var(--badge-color) r g b / 0.55);
+  border: 0;
   border-radius: var(--radius-sm);
   color: var(--badge-color);
   background: var(--badge-bg);

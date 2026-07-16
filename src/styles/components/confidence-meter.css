@@ -6,7 +6,7 @@
   display: grid;
   gap: var(--space-2);
   padding: var(--space-3);
-  border: 1px solid var(--color-border-muted);
+  border: 0;
   border-radius: var(--radius-md);
   background: var(--meter-bg);
 }
@@ -40,7 +40,7 @@
 .mp-confidence-meter__track {
   height: 6px;
   overflow: hidden;
-  border: 1px solid var(--color-border-muted);
+  border: 0;
   border-radius: var(--radius-full);
   background: rgb(0 0 0 / 0.2);
 }

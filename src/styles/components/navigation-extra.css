@@ -109,7 +109,7 @@
   min-width: 32px;
   min-height: 32px;
   padding: 0 var(--space-2);
-  border: 1px solid var(--color-border-muted);
+  border: 0;
   border-radius: var(--radius-sm);
   color: var(--color-text-secondary);
   background: rgb(0 0 0 / 0.1);
@@ -137,15 +137,15 @@
 
 .mp-pagination__page:hover,
 .mp-pagination__control:hover:not(:disabled) {
-  border-color: var(--color-border-default);
+  border-color: transparent;
   color: var(--color-text-primary);
   background: rgb(0 0 0 / 0.16);
 }
 
 .mp-pagination__page[aria-current="page"] {
-  border-color: var(--color-accent-line);
+  border-color: transparent;
   color: var(--color-accent);
-  background: rgb(from var(--color-accent) r g b / 0.055);
+  background: var(--surface-selected);
 }
 
 .mp-pagination__page:focus-visible,
@@ -193,10 +193,10 @@
   gap: var(--space-3);
   width: min(100%, 520px);
   padding: var(--space-3);
-  border: 1px solid var(--color-border-muted);
+  border: 0;
   border-radius: var(--radius-md);
   background: var(--color-bg-elevated);
-  box-shadow: var(--shadow-panel);
+  /* elevation via surface tier */ box-shadow: none;
 }
 
 .mp-command-palette__header {
@@ -219,7 +219,7 @@
   gap: var(--space-2);
   min-height: 40px;
   padding: 0 var(--space-3);
-  border: 1px solid var(--color-border-muted);
+  border: 0;
   border-radius: var(--radius-sm);
   background: rgb(0 0 0 / 0.16);
 }
@@ -300,16 +300,16 @@
 }
 
 .mp-command-palette__item:hover {
-  border-color: var(--color-border-default);
+  border-color: transparent;
   color: var(--color-text-primary);
   background: rgb(0 0 0 / 0.12);
 }
 
 .mp-command-palette__item[aria-selected="true"],
 .mp-command-palette__item.is-active {
-  border-color: rgb(from var(--color-accent-line) r g b / 0.42);
+  border-color: transparent;
   color: var(--color-accent);
-  background: rgb(from var(--color-accent) r g b / 0.055);
+  background: var(--surface-selected);
 }
 
 .mp-command-palette__item:focus-visible {
@@ -384,10 +384,10 @@
   gap: var(--space-1);
   min-width: 220px;
   padding: var(--space-2);
-  border: 1px solid var(--color-border-muted);
+  border: 0;
   border-radius: var(--radius-md);
   background: var(--color-bg-elevated);
-  box-shadow: var(--shadow-panel);
+  /* elevation via surface tier */ box-shadow: none;
 }
 
 .mp-context-menu[hidden] {
@@ -431,7 +431,7 @@
 }
 
 .mp-context-menu__item:hover {
-  border-color: var(--color-border-default);
+  border-color: transparent;
   color: var(--color-text-primary);
   background: rgb(0 0 0 / 0.12);
 }
@@ -439,9 +439,9 @@
 .mp-context-menu__item:focus-visible,
 .mp-context-menu__item[aria-current="true"] {
   outline: none;
-  border-color: rgb(from var(--color-accent-line) r g b / 0.42);
+  border-color: transparent;
   color: var(--color-accent);
-  background: rgb(from var(--color-accent) r g b / 0.055);
+  background: var(--surface-selected);
 }
 
 .mp-context-menu__item--danger {
@@ -450,7 +450,7 @@
 
 .mp-context-menu__item--danger:hover,
 .mp-context-menu__item--danger:focus-visible {
-  border-color: rgb(from var(--color-danger) r g b / 0.55);
+  border-color: transparent;
   color: var(--color-danger);
   background: rgb(from var(--color-danger) r g b / 0.08);
 }
@@ -493,7 +493,7 @@
   gap: var(--space-3);
   min-height: 180px;
   padding: var(--space-4);
-  border: 1px dashed var(--color-border-muted);
+  border: 0;
   border-radius: var(--radius-md);
   background: rgb(0 0 0 / 0.08);
 }
@@ -508,7 +508,7 @@
   gap: var(--space-2);
   width: min(100%, 280px);
   padding: var(--space-3);
-  border: 1px solid var(--color-border-muted);
+  border: 0;
   border-radius: var(--radius-sm);
   background: rgb(0 0 0 / 0.12);
   cursor: context-menu;
@@ -516,7 +516,7 @@
 }
 
 .mp-context-stage__target:hover {
-  border-color: var(--color-border-default);
+  border-color: transparent;
   background: rgb(0 0 0 / 0.16);
 }
 

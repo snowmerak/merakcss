@@ -1,14 +1,13 @@
 .mp-decision-banner {
   --banner-color: var(--color-neutral);
-  --banner-bg: rgb(154 164 175 / 0.08);
+  --banner-bg: rgb(from var(--color-neutral) r g b / 0.12);
 
   display: grid;
   grid-template-columns: auto minmax(0, 1fr) auto;
   gap: var(--space-3);
   align-items: start;
   padding: var(--space-3) var(--space-4);
-  border: 1px solid rgb(from var(--banner-color) r g b / 0.55);
-  border-left: 3px solid var(--banner-color);
+  border: 0;
   border-radius: var(--radius-md);
   color: var(--color-text-secondary);
   background: var(--banner-bg);
@@ -20,7 +19,7 @@
   width: 22px;
   height: 22px;
   margin-top: 1px;
-  border: 1px solid rgb(from var(--banner-color) r g b / 0.72);
+  border: 0;
   border-radius: var(--radius-full);
   color: var(--banner-color);
 }

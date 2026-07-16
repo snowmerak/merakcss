@@ -2,7 +2,7 @@
   display: grid;
   gap: var(--space-3);
   padding: var(--space-3);
-  border: 1px solid var(--color-border-muted);
+  border: 0;
   border-radius: var(--radius-md);
   background: rgb(0 0 0 / 0.16);
 }
@@ -46,7 +46,7 @@
   display: grid;
   gap: var(--space-2);
   padding-top: var(--space-3);
-  border-top: 1px solid var(--color-border-muted);
+  border-top: 0;
 }
 
 .mp-command-panel__label {
@@ -81,9 +81,9 @@
 
 .mp-command-suggestion:hover,
 .mp-command-suggestion.is-active {
-  border-color: rgb(175 205 235 / 0.38);
+  border-color: transparent;
   color: var(--color-accent);
-  background: rgb(175 205 235 / 0.07);
+  background: var(--surface-selected);
 }
 
 .mp-command-suggestion__meta {
@@ -100,7 +100,7 @@
   display: grid;
   gap: var(--space-1);
   padding: var(--space-3);
-  border: 1px solid var(--color-border-muted);
+  border: 0;
   border-radius: var(--radius-sm);
   background: rgb(0 0 0 / 0.1);
 }

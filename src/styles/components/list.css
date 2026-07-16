@@ -38,7 +38,7 @@
 
 .mp-list--task li {
   padding: var(--space-2);
-  border: 1px solid var(--color-border-muted);
+  border: 0;
   border-radius: var(--radius-sm);
   background: rgb(0 0 0 / 0.08);
 }

@@ -3,25 +3,33 @@
   gap: var(--space-3);
   align-content: start;
   padding: var(--space-5);
-  border: 1px solid var(--color-border-default);
+  border: 0;
   border-radius: var(--radius-md);
-  background: var(--color-bg-surface);
+  background: var(--surface-raised);
 }
 
 .mp-card--oracle {
-  border-color: rgb(175 205 235 / 0.42);
+  background:
+    linear-gradient(180deg, rgb(from var(--color-accent) r g b / 0.08), transparent 42%),
+    var(--surface-raised);
 }
 
 .mp-card--trace {
-  border-color: rgb(142 188 230 / 0.34);
+  background:
+    linear-gradient(180deg, rgb(from var(--color-info) r g b / 0.08), transparent 42%),
+    var(--surface-raised);
 }
 
 .mp-card--gate {
-  border-color: rgb(111 191 138 / 0.36);
+  background:
+    linear-gradient(180deg, rgb(from var(--color-success) r g b / 0.08), transparent 42%),
+    var(--surface-raised);
 }
 
 .mp-card--relic {
-  border-color: rgb(215 168 79 / 0.38);
+  background:
+    linear-gradient(180deg, rgb(from var(--color-warning) r g b / 0.08), transparent 42%),
+    var(--surface-raised);
 }
 
 .mp-card__header {
@@ -71,10 +79,10 @@
   place-items: center;
   width: 28px;
   height: 28px;
-  border: 1px solid var(--color-border-default);
+  border: 0;
   border-radius: var(--radius-sm);
   color: var(--color-accent-line);
-  background: rgb(240 248 255 / 0.04);
+  background: var(--surface-interactive);
   font-family: var(--font-mono);
   font-size: 0.88rem;
 }

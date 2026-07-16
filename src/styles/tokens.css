@@ -1,10 +1,12 @@
 :root {
   color-scheme: dark;
 
-  --color-bg-base: #1a1d21;
-  --color-bg-subtle: #20242a;
-  --color-bg-surface: #262b32;
-  --color-bg-elevated: #303640;
+  /* Layer stack: base < subtle < surface < elevated.
+     Structure relies on fill contrast, not hairline strokes. */
+  --color-bg-base: #15181c;
+  --color-bg-subtle: #1c2026;
+  --color-bg-surface: #262b33;
+  --color-bg-elevated: #323943;
   --color-border-default: #3a414c;
   --color-border-muted: #2e343d;
   --color-text-primary: #e8edf3;
@@ -19,6 +21,18 @@
   --color-danger: #d66b61;
   --color-info: #8ebce6;
   --color-neutral: #9aa4af;
+
+  --surface-base: var(--color-bg-base);
+  --surface-subtle: var(--color-bg-subtle);
+  --surface-raised: var(--color-bg-surface);
+  --surface-elevated: var(--color-bg-elevated);
+  --surface-sunken: rgb(0 0 0 / 0.22);
+  --surface-interactive: rgb(255 255 255 / 0.04);
+  --surface-interactive-hover: rgb(255 255 255 / 0.07);
+  --surface-selected: rgb(from var(--color-accent) r g b / 0.08);
+  --surface-selected-strong: rgb(from var(--color-accent) r g b / 0.14);
+  --signal-ring: rgb(from var(--color-accent-line) r g b / 0.16);
+  --signal-wash: rgb(from var(--color-accent) r g b / 0.055);
 
   --font-sans: Pretendard, Inter, "Noto Sans KR", system-ui, sans-serif;
   --font-mono: "JetBrains Mono", "Geist Mono", "SFMono-Regular", Consolas,

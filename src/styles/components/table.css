@@ -1,8 +1,8 @@
 .table-shell {
   overflow: hidden;
-  border: 1px solid var(--color-border-default);
+  border: 0;
   border-radius: var(--radius-md);
-  background: rgb(0 0 0 / 0.08);
+  background: var(--surface-sunken);
 }
 
 .table-scroll {
@@ -26,8 +26,9 @@
 
 .mp-table caption {
   padding: var(--space-3) var(--space-4);
-  border-bottom: 1px solid var(--color-border-muted);
+  border-bottom: 0;
   color: var(--color-text-muted);
+  background: rgb(0 0 0 / 0.1);
   font-family: var(--font-mono);
   font-size: 0.72rem;
   font-weight: 700;
@@ -39,10 +40,14 @@
 .mp-table th,
 .mp-table td {
   padding: 10px var(--space-4);
-  border-bottom: 1px solid var(--color-border-muted);
+  border-bottom: 0;
   text-align: left;
   vertical-align: middle;
   white-space: normal;
+}
+
+.mp-table tbody tr:nth-child(even) {
+  background: rgb(255 255 255 / 0.015);
 }
 
 .mp-table th {
@@ -118,7 +123,7 @@
   justify-content: space-between;
   gap: var(--space-3);
   padding: var(--space-3) var(--space-4);
-  border-bottom: 1px solid var(--color-border-muted);
+  border-bottom: 0;
   background: rgb(0 0 0 / 0.08);
 }
 

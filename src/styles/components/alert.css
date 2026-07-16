@@ -5,14 +5,14 @@
 
 .mp-alert {
   --alert-color: var(--color-info);
-  --alert-bg: rgb(142 188 230 / 0.08);
+  --alert-bg: rgb(from var(--color-info) r g b / 0.12);
 
   display: grid;
   grid-template-columns: auto minmax(0, 1fr);
   gap: var(--space-3);
   align-items: start;
   padding: var(--space-3) var(--space-4);
-  border: 1px solid rgb(from var(--alert-color) r g b / 0.58);
+  border: 0;
   border-radius: var(--radius-md);
   color: var(--color-text-secondary);
   background: var(--alert-bg);
@@ -25,8 +25,9 @@
   width: 20px;
   height: 20px;
   margin-top: 1px;
-  border: 1px solid rgb(from var(--alert-color) r g b / 0.72);
+  border: 0;
   border-radius: var(--radius-full);
+  background: rgb(from var(--alert-color) r g b / 0.14);
   color: var(--alert-color);
   font-family: var(--font-mono);
   font-size: 0.76rem;
@@ -81,7 +82,7 @@
 }
 
 .mp-alert--floating {
-  box-shadow: 0 14px 38px rgb(0 0 0 / 0.18);
+  box-shadow: none;
 }
 
 .mp-toast-region {

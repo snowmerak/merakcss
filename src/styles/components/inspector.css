@@ -10,7 +10,7 @@
   gap: var(--space-3);
   align-content: start;
   padding: var(--space-5);
-  border: 1px solid var(--color-border-default);
+  border: 0;
   border-radius: var(--radius-md);
   background:
     linear-gradient(135deg, rgb(240 248 255 / 0.035), transparent 42%),
@@ -23,15 +23,14 @@
   gap: var(--space-3);
   align-items: center;
   padding: var(--space-3);
-  border: 1px solid var(--color-border-muted);
+  border: 0;
   border-radius: var(--radius-md);
-  background: var(--color-bg-surface);
+  background: var(--surface-raised);
 }
 
 .inspector-object--selected {
-  border-color: rgb(175 205 235 / 0.5);
-  background: rgb(175 205 235 / 0.06);
-  box-shadow: inset 3px 0 0 var(--color-accent-line);
+  border-color: transparent;
+  background: var(--surface-selected);
 }
 
 .inspector-object__title {
@@ -53,16 +52,16 @@
   display: grid;
   align-content: start;
   overflow: hidden;
-  border: 1px solid var(--color-border-default);
+  border: 0;
   border-radius: var(--radius-md);
-  background: var(--color-bg-subtle);
+  background: var(--surface-subtle);
 }
 
 .mp-inspector__header {
   display: grid;
   gap: var(--space-2);
   padding: var(--space-5);
-  border-bottom: 1px solid var(--color-border-muted);
+  border-bottom: 0;
   background: rgb(0 0 0 / 0.1);
 }
 
@@ -131,7 +130,7 @@
   flex-wrap: wrap;
   gap: var(--space-2);
   padding: var(--space-4) var(--space-5);
-  border-top: 1px solid var(--color-border-muted);
+  border-top: 0;
   background: rgb(0 0 0 / 0.08);
 }
 

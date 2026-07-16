@@ -25,7 +25,7 @@
   max-height: calc(100vh - var(--space-12));
   padding: var(--space-4);
   overflow: auto;
-  border: 1px solid var(--color-border-muted);
+  border: 0;
   border-radius: var(--radius-md);
   background: rgb(0 0 0 / 0.14);
 }
@@ -50,7 +50,7 @@
 .showcase-toc__group {
   margin-top: var(--space-2);
   padding-top: var(--space-2);
-  border-top: 1px solid var(--color-border-muted);
+  border-top: 0;
   color: var(--color-text-muted);
   font-family: var(--font-mono);
   font-size: 0.62rem;
@@ -91,9 +91,9 @@
 }
 
 .showcase-toc a[aria-current="true"] {
-  border-color: rgb(from var(--color-accent-line) r g b / 0.42);
+  border-color: transparent;
   color: var(--color-accent);
-  background: rgb(from var(--color-accent) r g b / 0.055);
+  background: var(--surface-selected);
 }
 
 .showcase-toc__index {
@@ -115,12 +115,12 @@
   align-items: center;
   gap: var(--space-6);
   padding: var(--space-6);
-  border: 1px solid var(--color-border-default);
+  border: 0;
   border-radius: var(--radius-lg);
   background:
     linear-gradient(135deg, rgb(240 248 255 / 0.065), transparent 44%),
-    var(--color-bg-subtle);
-  box-shadow: var(--shadow-panel);
+    var(--surface-subtle);
+  box-shadow: none;
 }
 
 .showcase-hero__mark {
@@ -128,11 +128,11 @@
   display: grid;
   place-items: center;
   min-height: 180px;
-  border: 1px solid var(--color-border-muted);
+  border: 0;
   border-radius: var(--radius-lg);
   background:
     radial-gradient(circle, rgb(240 248 255 / 0.11), transparent 45%),
-    var(--color-bg-surface);
+    var(--surface-raised);
   overflow: hidden;
 }
 
@@ -141,7 +141,7 @@
   position: absolute;
   inset: 18%;
   content: "";
-  border: 1px solid rgb(175 205 235 / 0.22);
+  border: 0;
   border-radius: 50%;
 }
 
@@ -186,7 +186,7 @@
 }
 
 .showcase-section + .showcase-section {
-  border-top: 1px solid var(--color-border-muted);
+  border-top: 0;
   padding-top: var(--space-8);
 }
 

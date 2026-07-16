@@ -12,7 +12,7 @@
   gap: var(--space-3);
   align-items: center;
   padding: var(--space-2) var(--space-3);
-  border: 1px solid var(--color-border-muted);
+  border: 0;
   border-radius: var(--radius-sm);
   background: rgb(0 0 0 / 0.08);
 }
@@ -22,8 +22,9 @@
   place-items: center;
   width: 28px;
   height: 28px;
-  border: 1px solid var(--color-border-default);
+  border: 0;
   border-radius: var(--radius-full);
+  background: var(--surface-interactive);
   color: var(--color-text-muted);
   font-family: var(--font-mono);
   font-size: 0.7rem;
@@ -83,37 +84,37 @@
 }
 
 .mp-evidence-list__item:has(.mp-evidence-list__link:hover) {
-  border-color: var(--color-accent-line);
+  border-color: transparent;
   background: rgb(240 248 255 / 0.055);
 }
 
 .mp-evidence-list__item--active {
-  border-color: rgb(175 205 235 / 0.42);
-  background: rgb(175 205 235 / 0.055);
+  border-color: transparent;
+  background: var(--surface-selected);
 }
 
 .mp-evidence-list__item--active .mp-evidence-list__index {
-  border-color: var(--color-accent-line);
+  border-color: transparent;
   color: var(--color-bg-base);
   background: var(--color-accent);
 }
 
 .mp-evidence-list__item--verified .mp-evidence-list__index {
-  border-color: rgb(from var(--color-success) r g b / 0.72);
+  border-color: transparent;
   color: var(--color-success);
 }
 
 .mp-evidence-list__item--partial .mp-evidence-list__index {
-  border-color: rgb(from var(--color-info) r g b / 0.72);
+  border-color: transparent;
   color: var(--color-info);
 }
 
 .mp-evidence-list__item--missing {
-  border-color: rgb(from var(--color-danger) r g b / 0.35);
+  border-color: transparent;
 }
 
 .mp-evidence-list__item--missing .mp-evidence-list__index {
-  border-color: rgb(from var(--color-danger) r g b / 0.45);
+  border-color: transparent;
   color: #ffc6c1;
 }
 

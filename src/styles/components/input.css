@@ -73,16 +73,19 @@ fieldset.mp-field > legend.mp-field__label {
 .mp-field__message--error,
 .mp-error {
   --field-message-color: var(--color-danger);
+
   color: var(--color-danger);
 }
 
 .mp-field__message--warning {
   --field-message-color: var(--color-warning);
+
   color: var(--color-warning);
 }
 
 .mp-field__message--success {
   --field-message-color: var(--color-success);
+
   color: var(--color-success);
 }
 
@@ -118,7 +121,9 @@ fieldset.mp-field > legend.mp-field__label {
 .mp-textarea,
 .mp-select {
   width: 100%;
-  border: 1px solid var(--field-control-border, var(--color-border-muted));
+  border: 1px solid transparent;
+
+  /* form shell uses sunken fill; validation/focus still use ring + border-color */
   border-radius: var(--radius-sm);
   color: var(--color-text-primary);
   background: rgb(0 0 0 / 0.12);
@@ -149,7 +154,7 @@ fieldset.mp-field > legend.mp-field__label {
 .mp-input:hover:not(:disabled),
 .mp-textarea:hover:not(:disabled),
 .mp-select:hover:not(:disabled) {
-  border-color: var(--field-control-border, var(--color-border-default));
+  border-color: var(--field-control-border, transparent);
   background: rgb(0 0 0 / 0.16);
 }
 
@@ -261,7 +266,7 @@ fieldset.mp-field > legend.mp-field__label {
   gap: var(--space-2);
   min-height: 40px;
   padding: 0 var(--space-3);
-  border: 1px solid var(--color-border-muted);
+  border: 0;
   border-radius: var(--radius-sm);
   color: var(--color-text-muted);
   background: rgb(0 0 0 / 0.12);
@@ -272,7 +277,7 @@ fieldset.mp-field > legend.mp-field__label {
 }
 
 .mp-search:hover {
-  border-color: var(--color-border-default);
+  border-color: transparent;
   background: rgb(0 0 0 / 0.16);
 }
 
@@ -336,7 +341,7 @@ fieldset.mp-field > legend.mp-field__label {
   width: 16px;
   height: 16px;
   margin: 0;
-  border: 1px solid var(--color-border-default);
+  border: 0;
   background: rgb(0 0 0 / 0.16);
   appearance: none;
   cursor: pointer;
@@ -471,7 +476,7 @@ fieldset.mp-field > legend.mp-field__label {
   flex: 0 0 auto;
   width: 38px;
   height: 20px;
-  border: 1px solid var(--color-border-default);
+  border: 0;
   border-radius: var(--radius-full);
   background: rgb(0 0 0 / 0.2);
   transition:
