@@ -10,6 +10,7 @@ import { setupDialog, setupDropdownMenu, setupPopover } from './overlay.js'
 import { setupCommandInput } from './command.js'
 import './elements/merak-interactive-elements.js'
 import './elements/merak-data-components.js'
+import { setupShowcaseLayout } from './showcase-nav.js'
 import { renderMerakMarkdown } from './markdown.js'
 
 document.querySelector('#app').innerHTML = `
@@ -25,9 +26,14 @@ document.querySelector('#app').innerHTML = `
         Traceable interface primitives for verification, permission gates,
         archive records, and agent workflows.
       </p>
+      <div class="showcase-hero__meta">
+        <span class="mp-badge mp-badge--sm mp-badge--type">26 components</span>
+        <span class="mp-badge mp-badge--sm mp-badge--sealed">CSS-first</span>
+        <span class="mp-badge mp-badge--sm mp-badge--partial">Alice Blue signal</span>
+      </div>
       <div class="button-row">
-        <button type="button" class="mp-button mp-button--primary">Run Trace</button>
-        <button type="button" class="mp-button mp-button--secondary">View Record</button>
+        <a class="mp-button mp-button--primary" href="#button-title">Browse components</a>
+        <a class="mp-button mp-button--secondary" href="#markdown-title">Markdown demo</a>
       </div>
     </div>
   </section>
@@ -3183,6 +3189,8 @@ markdownInput.value = markdownSample
 const renderMarkdownPreview = () => { markdownOutput.innerHTML = renderMerakMarkdown(markdownInput.value) }
 markdownInput.addEventListener('input', renderMarkdownPreview)
 renderMarkdownPreview()
+
+setupShowcaseLayout()
 
 const feedbackToastRegion = (() => {
   const region = document.createElement('merak-toast-region')
