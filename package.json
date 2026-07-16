@@ -1,6 +1,6 @@
 {
   "name": "merak-protocol-design-system",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Merak Protocol design system CSS, component examples, and Codex agent skill.",
   "private": false,
   "type": "module",
