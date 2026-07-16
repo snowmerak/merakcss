@@ -1,6 +1,6 @@
 ---
 name: merak-protocol-design-system
-description: Design, implement, review, or extend UI using the Merak Protocol personal design system. Use for dark gray technical dashboards, traceability tools, permission gates, AI agent workflows, archive/knowledge interfaces, graph/timeline/inspector surfaces, component CSS, design tokens, copy tone, motion, icons, and product-flow composition that should follow the Merak Protocol visual language.
+description: Design, implement, review, or extend UI using the Merak Protocol personal design system. Use for dark gray technical dashboards, traceability tools, permission gates, AI agent workflows, archive/knowledge interfaces, graph/timeline/inspector surfaces, identity confidence and decision UI, component CSS, design tokens, copy tone, motion, icons, and product-flow composition that should follow the Merak Protocol visual language.
 ---
 
 # Merak Protocol Design System
@@ -64,9 +64,9 @@ Use `style.css` for production UI. It contains tokens, base styles, components, 
 
 Prefer these public layout classes: `mp-eyebrow`, `mp-section-heading`, `mp-grid`, `mp-grid--wide`, `mp-button-row`, `mp-badge-row`, `mp-text--secondary`, `mp-text--muted`, and `mp-heading--section`. Legacy unprefixed showcase names remain compatible but are not the recommended API.
 
-Use `mp-list` for semantic ordered and unordered records. Use `mp-list--compact` for dense nested items and `mp-list--task` for checkbox-backed review items. This is the required list mapping for Markdown output.
+Use `mp-list` for semantic ordered and unordered records. Use `mp-list--compact` for dense nested items and `mp-list--task` for checkbox-backed review items. This is the required list mapping for Markdown output. Use `mp-evidence-list` for citation/evidence records in dashboards; do not use it as a Markdown list substitute.
 
-Use native HTML plus Merak CSS for primitive controls and content. Prefer Merak custom elements for stateful composite UI: `merak-tabs`, `merak-command`, `merak-toast-region`, `merak-graph`, `merak-inspector`, `merak-sidebar`, `merak-gate-card`, `merak-agent-panel`, and `merak-timeline`. Pass objects and callbacks through JavaScript properties; use `merak-*` CustomEvents for state changes.
+Use native HTML plus Merak CSS for primitive controls and content. Prefer Merak custom elements for stateful composite UI: `merak-tabs`, `merak-command`, `merak-toast-region`, `merak-graph`, `merak-inspector`, `merak-sidebar`, `merak-gate-card`, `merak-agent-panel`, and `merak-timeline`. Pass objects and callbacks through JavaScript properties; use `merak-*` CustomEvents for state changes. Confidence meters, decision banners, evidence lists, and filter bars are CSS-first primitives (plus optional `setupFilterBar`); do not invent custom elements for them unless product state requires it.
 
 ## Voice
 
@@ -273,6 +273,62 @@ Motifs:
 - Compass: 방향, 탐색
 - Terminal: 실행, 명령
 
+### Confidence Meter
+
+Use for source confidence, path strength, and judgment bands. CSS root: `.mp-confidence-meter`.
+
+Elements: `__header`, `__label`, `__value`, `__track`, `__fill`, `__meta`, optional `__scale`.
+
+Band modifiers: `--high`, `--medium`, `--low`, `--partial`, `--unknown`. Layout: `--compact`.
+
+Fill API: set `--mp-confidence` on the root (e.g. `style="--mp-confidence: 72%"`). Do not invent a second width API. Missing value reads as `0%`.
+
+Accessibility: root is a `div` with `role="meter"`, `aria-valuemin="0"`, `aria-valuemax="100"`, `aria-valuenow`, and `aria-valuetext` such as `72% · partial`. Keep visible `__value` text so the meter is not value-only for screen readers.
+
+Color discipline: semantic meter color + light wash only. No full-bleed Alice Blue bars. Soft danger for `--low` (badge-high style), not neon red.
+
+### Decision Banner
+
+Use for identity permission and review outcomes. Distinct from `.mp-alert` (system messages) and `.gate-card` / `merak-gate-card` (full subject→permission→object equation).
+
+CSS root: `.mp-decision-banner`.
+
+Elements: `__icon`, `__body`, `__title`, `__reason`, `__meta`, `__aside`.
+
+State modifiers: `--granted`, `--denied`, `--partial`, `--unknown`, `--approval`. Layout: `--compact` (icon | title | aside; reason/meta hidden).
+
+Roles: denied → `role="alert"`; other states → `role="status"`.
+
+Compose existing `.mp-badge.mp-badge--sm` in `__aside` (`GRANTED`, `DENIED`, `PARTIAL`, `PENDING`). Do not restyle badges inside the banner. Left accent bar via `border-left` is preferred over hero gradient fills.
+
+### Evidence List
+
+Use for dense citation and evidence records on dashboards. Not a vertical timeline (no rail) and not a Markdown list (use `mp-list` for that).
+
+CSS root: `ul.mp-evidence-list` or `ol.mp-evidence-list`.
+
+Elements: `__item`, `__index`, `__body`, `__title`, `__source`, `__meta`, `__trail`. Optional `__link` on navigable titles.
+
+Item modifiers: `__item--active`, `__item--verified`, `__item--partial`, `__item--missing`. Root modifier: `--dense`.
+
+Active selection uses the same restrained Alice Blue wash as timeline/trace panels (`border rgb(175 205 235 / 0.42)`, `bg rgb(175 205 235 / 0.055)`). Prefer mono indexes (`01`–`04`) and mono sources (`policy:read-path`, `trace:TRC-0428`).
+
+### Filter Bar
+
+Use for dense record filtering: search + multi-select chips + clear/apply.
+
+CSS root: `.mp-filter-bar` with `role="toolbar"` and an accessible name (e.g. `aria-label="Filter records"`).
+
+Elements: `__search` (wrap existing `.mp-search`), `__groups`, `__group`, `__group-label`, `__chip` (`button type="button"`), `__count` (`[data-filter-count]`), `__actions` (reuse `.mp-button.mp-button--sm`).
+
+Chips use `aria-pressed="true|false"` for multi-select. Do not reuse `role="tab"` / `aria-selected` for filter chips.
+
+Selected chip style is restrained Alice Blue (border + low-alpha wash), intentionally weaker than solid accent segmented tabs. Gray structure for the bar itself—never an accent panel.
+
+Showcase helper: `setupFilterBar(root)` from `src/filter-bar.js` (not a package export). Supports optional exclusive groups via `data-filter-exclusive` on `__group`. Clear control uses `data-filter-clear`.
+
+Responsive: stack at `max-width: 860px`; search may go full width by `560px`.
+
 ### Motion
 
 Use motion sparingly. Allowed motion:
@@ -300,13 +356,19 @@ Input → Trace → Evaluate → Decision → Archive
 
 Use for AI response verification, document evidence, security policy decisions, permission checks, and log analysis.
 
+Typical surface stack for verification:
+
+```text
+Filter Bar → Evidence List → Confidence Meter → Decision Banner → Archive / Gate Card
+```
+
 Permission Flow:
 
 ```text
 Subject → Permission → Object → Path → Decision
 ```
 
-States: `Granted`, `Denied`, `Partial`, `Unknown`, `Requires Approval`.
+States: `Granted`, `Denied`, `Partial`, `Unknown`, `Requires Approval`. Render those outcomes with Decision Banner; pair Partial/Unknown with Confidence Meter bands and Evidence List citations when the path needs inspection.
 
 Agent Flow:
 
@@ -333,8 +395,9 @@ When working in the Merak CSS repo, prefer these existing files and patterns:
 - `src/styles/layout.css` for showcase layout.
 - `src/styles/motion.css` for shared animation utilities.
 - `src/styles/components/*.css` for component styles.
+- Identity primitives: `confidence-meter.css`, `decision-banner.css`, `evidence-list.css`, `filter-bar.css`.
 - `src/main.js` for showcase examples.
-- Small JS modules such as `alert.js`, `command.js`, `graph.js`, `motion.js`, `navigation.js`, and `tabs.js` for interactions.
+- Small JS modules such as `alert.js`, `command.js`, `filter-bar.js`, `graph.js`, `motion.js`, `navigation.js`, and `tabs.js` for interactions.
 
 When adding a component:
 
@@ -366,4 +429,5 @@ Before finishing, check:
 - Are dangerous states red and confirmed?
 - Are pending/partial states amber or info blue?
 - Are cards and panels restrained, not overly rounded?
+- Are confidence, decision, evidence, and filters distinct components rather than overloaded alerts or generic lists?
 - Is myth present through structure and naming rather than decoration?

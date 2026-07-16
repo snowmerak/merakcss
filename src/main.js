@@ -4,6 +4,7 @@ import { setupGraphDrag } from './graph.js'
 import { setupMotionDemo } from './motion.js'
 import { setupSidebarDemo } from './navigation.js'
 import { setupTabs } from './tabs.js'
+import { setupFilterBar } from './filter-bar.js'
 import { setupCommandInput } from './command.js'
 import './elements/merak-interactive-elements.js'
 import './elements/merak-data-components.js'
@@ -1675,6 +1676,506 @@ document.querySelector('#app').innerHTML = `
       </article>
     </div>
   </section>
+
+  <section class="showcase-section" aria-labelledby="confidence-meter-title">
+    <div class="mp-section-heading">
+      <p class="mp-eyebrow">Component 20</p>
+      <h2 id="confidence-meter-title">Confidence Meter</h2>
+      <p>Source confidence bands for verified paths, partial review, and blocked judgments.</p>
+    </div>
+
+    <div class="mp-grid mp-grid--wide">
+      <article class="mp-card">
+        <div class="mp-card__header">
+          <div>
+            <p class="mp-card__eyebrow">Bands</p>
+            <h3 class="mp-card__title">Judgment Confidence</h3>
+          </div>
+        </div>
+        <div class="mp-confidence-meter-stack">
+          <div
+            class="mp-confidence-meter mp-confidence-meter--high"
+            role="meter"
+            aria-valuemin="0"
+            aria-valuemax="100"
+            aria-valuenow="94"
+            aria-valuetext="94% · high"
+            style="--mp-confidence: 94%"
+          >
+            <div class="mp-confidence-meter__header">
+              <span class="mp-confidence-meter__label">Verified path</span>
+              <span class="mp-confidence-meter__value">94%</span>
+            </div>
+            <div class="mp-confidence-meter__track">
+              <div class="mp-confidence-meter__fill"></div>
+            </div>
+            <div class="mp-confidence-meter__meta">policy:read-path · TRC-0428</div>
+            <div class="mp-confidence-meter__scale" aria-hidden="true">
+              <span>0</span><span>50</span><span>100</span>
+            </div>
+          </div>
+
+          <div
+            class="mp-confidence-meter mp-confidence-meter--partial"
+            role="meter"
+            aria-valuemin="0"
+            aria-valuemax="100"
+            aria-valuenow="72"
+            aria-valuetext="72% · partial"
+            style="--mp-confidence: 72%"
+          >
+            <div class="mp-confidence-meter__header">
+              <span class="mp-confidence-meter__label">Partial review</span>
+              <span class="mp-confidence-meter__value">72%</span>
+            </div>
+            <div class="mp-confidence-meter__track">
+              <div class="mp-confidence-meter__fill"></div>
+            </div>
+            <div class="mp-confidence-meter__meta">Source confidence is partial.</div>
+          </div>
+
+          <div
+            class="mp-confidence-meter mp-confidence-meter--medium"
+            role="meter"
+            aria-valuemin="0"
+            aria-valuemax="100"
+            aria-valuenow="48"
+            aria-valuetext="48% · medium"
+            style="--mp-confidence: 48%"
+          >
+            <div class="mp-confidence-meter__header">
+              <span class="mp-confidence-meter__label">Inherited claim</span>
+              <span class="mp-confidence-meter__value">48%</span>
+            </div>
+            <div class="mp-confidence-meter__track">
+              <div class="mp-confidence-meter__fill"></div>
+            </div>
+            <div class="mp-confidence-meter__meta">group:editors · archive:alpha</div>
+          </div>
+
+          <div
+            class="mp-confidence-meter mp-confidence-meter--low"
+            role="meter"
+            aria-valuemin="0"
+            aria-valuemax="100"
+            aria-valuenow="18"
+            aria-valuetext="18% · low"
+            style="--mp-confidence: 18%"
+          >
+            <div class="mp-confidence-meter__header">
+              <span class="mp-confidence-meter__label">Blocked judgment</span>
+              <span class="mp-confidence-meter__value">18%</span>
+            </div>
+            <div class="mp-confidence-meter__track">
+              <div class="mp-confidence-meter__fill"></div>
+            </div>
+            <div class="mp-confidence-meter__meta">Missing seal on TRC-0199</div>
+          </div>
+
+          <div
+            class="mp-confidence-meter mp-confidence-meter--unknown"
+            role="meter"
+            aria-valuemin="0"
+            aria-valuemax="100"
+            aria-valuenow="0"
+            aria-valuetext="0% · unknown"
+            style="--mp-confidence: 0%"
+          >
+            <div class="mp-confidence-meter__header">
+              <span class="mp-confidence-meter__label">Unknown band</span>
+              <span class="mp-confidence-meter__value">0%</span>
+            </div>
+            <div class="mp-confidence-meter__track">
+              <div class="mp-confidence-meter__fill"></div>
+            </div>
+            <div class="mp-confidence-meter__meta">No oracle without trace.</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="mp-card mp-card--oracle">
+        <div class="mp-card__header">
+          <div>
+            <p class="mp-card__eyebrow">Oracle Context</p>
+            <h3 class="mp-card__title">Compact Meter</h3>
+          </div>
+          <span class="mp-badge mp-badge--partial mp-badge--sm">PARTIAL</span>
+        </div>
+        <div
+          class="mp-confidence-meter mp-confidence-meter--partial mp-confidence-meter--compact"
+          role="meter"
+          aria-valuemin="0"
+          aria-valuemax="100"
+          aria-valuenow="72"
+          aria-valuetext="72% · partial"
+          style="--mp-confidence: 72%"
+        >
+          <div class="mp-confidence-meter__header">
+            <span class="mp-confidence-meter__label">Source confidence</span>
+            <span class="mp-confidence-meter__value">72%</span>
+          </div>
+          <div class="mp-confidence-meter__track">
+            <div class="mp-confidence-meter__fill"></div>
+          </div>
+          <div class="mp-confidence-meter__meta">Evidence 8 · TRC-0428</div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="showcase-section" aria-labelledby="decision-banner-title">
+    <div class="mp-section-heading">
+      <p class="mp-eyebrow">Component 21</p>
+      <h2 id="decision-banner-title">Decision Banner</h2>
+      <p>Permission and review decisions with path context and dry status labels.</p>
+    </div>
+
+    <div class="mp-grid mp-grid--wide">
+      <article class="mp-card">
+        <div class="mp-card__header">
+          <div>
+            <p class="mp-card__eyebrow">States</p>
+            <h3 class="mp-card__title">Identity Decisions</h3>
+          </div>
+        </div>
+        <div class="mp-decision-banner-stack">
+          <div class="mp-decision-banner mp-decision-banner--granted" role="status">
+            <span class="mp-decision-banner__icon" aria-hidden="true">
+              <svg class="mp-symbol mp-symbol--sm" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 3 5 6v5c0 4.6 2.8 7.8 7 10 4.2-2.2 7-5.4 7-10V6l-7-3Z"></path>
+                <path d="m9.5 12 1.7 1.7 3.6-4"></path>
+              </svg>
+            </span>
+            <div class="mp-decision-banner__body">
+              <strong class="mp-decision-banner__title">Access granted.</strong>
+              <p class="mp-decision-banner__reason">Permission path resolved through group inheritance.</p>
+              <p class="mp-decision-banner__meta">user:alice → read → archive:alpha</p>
+            </div>
+            <div class="mp-decision-banner__aside">
+              <span class="mp-badge mp-badge--verified mp-badge--sm">GRANTED</span>
+            </div>
+          </div>
+
+          <div class="mp-decision-banner mp-decision-banner--denied" role="alert">
+            <span class="mp-decision-banner__icon" aria-hidden="true">
+              <svg class="mp-symbol mp-symbol--sm" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 3 5 6v5c0 4.6 2.8 7.8 7 10 4.2-2.2 7-5.4 7-10V6l-7-3Z"></path>
+                <path d="m9 9 6 6"></path>
+                <path d="m15 9-6 6"></path>
+              </svg>
+            </span>
+            <div class="mp-decision-banner__body">
+              <strong class="mp-decision-banner__title">Access denied by policy.</strong>
+              <p class="mp-decision-banner__reason">No permission path was found for the requested action.</p>
+              <p class="mp-decision-banner__meta">user:bob → write → archive:beta</p>
+            </div>
+            <div class="mp-decision-banner__aside">
+              <span class="mp-badge mp-badge--danger mp-badge--sm">DENIED</span>
+            </div>
+          </div>
+
+          <div class="mp-decision-banner mp-decision-banner--partial" role="status">
+            <span class="mp-decision-banner__icon" aria-hidden="true">
+              <svg class="mp-symbol mp-symbol--sm" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M3 12s3.5-6 9-6 9 6 9 6-3.5 6-9 6-9-6-9-6Z"></path>
+                <circle cx="12" cy="12" r="2.5"></circle>
+              </svg>
+            </span>
+            <div class="mp-decision-banner__body">
+              <strong class="mp-decision-banner__title">Source confidence is partial.</strong>
+              <p class="mp-decision-banner__reason">Two records support the claim; seal is incomplete.</p>
+              <p class="mp-decision-banner__meta">user:alice → read → policy:read-path</p>
+            </div>
+            <div class="mp-decision-banner__aside">
+              <span class="mp-badge mp-badge--partial mp-badge--sm">PARTIAL</span>
+            </div>
+          </div>
+
+          <div class="mp-decision-banner mp-decision-banner--approval" role="status">
+            <span class="mp-decision-banner__icon" aria-hidden="true">
+              <svg class="mp-symbol mp-symbol--sm" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M5 20V8l7-4 7 4v12"></path>
+                <path d="M9 20v-7a3 3 0 0 1 6 0v7"></path>
+                <path d="M5 8h14"></path>
+              </svg>
+            </span>
+            <div class="mp-decision-banner__body">
+              <strong class="mp-decision-banner__title">Manual review required.</strong>
+              <p class="mp-decision-banner__reason">Decision is held for operator approval before seal.</p>
+              <p class="mp-decision-banner__meta">user:carol → elevate → gate:ops</p>
+            </div>
+            <div class="mp-decision-banner__aside">
+              <span class="mp-badge mp-badge--pending mp-badge--sm">PENDING</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="mp-card">
+        <div class="mp-card__header">
+          <div>
+            <p class="mp-card__eyebrow">Queue</p>
+            <h3 class="mp-card__title">Compact Decisions</h3>
+          </div>
+        </div>
+        <div class="mp-decision-banner-stack">
+          <div class="mp-decision-banner mp-decision-banner--compact mp-decision-banner--granted" role="status">
+            <span class="mp-decision-banner__icon" aria-hidden="true">
+              <svg class="mp-symbol mp-symbol--sm" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 3 5 6v5c0 4.6 2.8 7.8 7 10 4.2-2.2 7-5.4 7-10V6l-7-3Z"></path>
+                <path d="m9.5 12 1.7 1.7 3.6-4"></path>
+              </svg>
+            </span>
+            <div class="mp-decision-banner__body">
+              <strong class="mp-decision-banner__title">Access granted.</strong>
+            </div>
+            <div class="mp-decision-banner__aside">
+              <span class="mp-badge mp-badge--verified mp-badge--sm">GRANTED</span>
+            </div>
+          </div>
+
+          <div class="mp-decision-banner mp-decision-banner--compact mp-decision-banner--denied" role="alert">
+            <span class="mp-decision-banner__icon" aria-hidden="true">
+              <svg class="mp-symbol mp-symbol--sm" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 3 5 6v5c0 4.6 2.8 7.8 7 10 4.2-2.2 7-5.4 7-10V6l-7-3Z"></path>
+                <path d="m9 9 6 6"></path>
+                <path d="m15 9-6 6"></path>
+              </svg>
+            </span>
+            <div class="mp-decision-banner__body">
+              <strong class="mp-decision-banner__title">Access denied by policy.</strong>
+            </div>
+            <div class="mp-decision-banner__aside">
+              <span class="mp-badge mp-badge--danger mp-badge--sm">DENIED</span>
+            </div>
+          </div>
+
+          <div class="mp-decision-banner mp-decision-banner--compact mp-decision-banner--approval" role="status">
+            <span class="mp-decision-banner__icon" aria-hidden="true">
+              <svg class="mp-symbol mp-symbol--sm" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M5 20V8l7-4 7 4v12"></path>
+                <path d="M9 20v-7a3 3 0 0 1 6 0v7"></path>
+                <path d="M5 8h14"></path>
+              </svg>
+            </span>
+            <div class="mp-decision-banner__body">
+              <strong class="mp-decision-banner__title">Manual review required.</strong>
+            </div>
+            <div class="mp-decision-banner__aside">
+              <span class="mp-badge mp-badge--pending mp-badge--sm">PENDING</span>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="showcase-section" aria-labelledby="evidence-list-title">
+    <div class="mp-section-heading">
+      <p class="mp-eyebrow">Component 22</p>
+      <h2 id="evidence-list-title">Evidence List</h2>
+      <p>Citation records for traces, policies, and linked observations.</p>
+    </div>
+
+    <div class="mp-grid mp-grid--wide">
+      <article class="mp-card">
+        <div class="mp-card__header">
+          <div>
+            <p class="mp-card__eyebrow">Trace Citations</p>
+            <h3 class="mp-card__title">Linked Evidence</h3>
+          </div>
+        </div>
+        <ol class="mp-evidence-list">
+          <li class="mp-evidence-list__item mp-evidence-list__item--verified mp-evidence-list__item--active">
+            <span class="mp-evidence-list__index" aria-hidden="true">01</span>
+            <div class="mp-evidence-list__body">
+              <a class="mp-evidence-list__link mp-evidence-list__title" href="#evidence-list-title">Permission path verified.</a>
+              <div class="mp-evidence-list__source">policy:read-path</div>
+              <div class="mp-evidence-list__meta">
+                <span>14:02:11</span>
+                <span>actor:alice</span>
+                <span>type:policy</span>
+              </div>
+            </div>
+            <div class="mp-evidence-list__trail">
+              <span class="mp-badge mp-badge--verified mp-badge--sm">VERIFIED</span>
+            </div>
+          </li>
+          <li class="mp-evidence-list__item mp-evidence-list__item--partial">
+            <span class="mp-evidence-list__index" aria-hidden="true">02</span>
+            <div class="mp-evidence-list__body">
+              <div class="mp-evidence-list__title">Source confidence is partial.</div>
+              <div class="mp-evidence-list__source">trace:TRC-0428</div>
+              <div class="mp-evidence-list__meta">
+                <span>14:02:18</span>
+                <span>actor:system</span>
+                <span>type:trace</span>
+              </div>
+            </div>
+            <div class="mp-evidence-list__trail">
+              <span class="mp-badge mp-badge--partial mp-badge--sm">PARTIAL</span>
+            </div>
+          </li>
+          <li class="mp-evidence-list__item mp-evidence-list__item--verified">
+            <span class="mp-evidence-list__index" aria-hidden="true">03</span>
+            <div class="mp-evidence-list__body">
+              <div class="mp-evidence-list__title">Archive reference sealed.</div>
+              <div class="mp-evidence-list__source">archive:alpha/seal-11</div>
+              <div class="mp-evidence-list__meta">
+                <span>14:03:02</span>
+                <span>actor:oracle</span>
+                <span>type:archive</span>
+              </div>
+            </div>
+            <div class="mp-evidence-list__trail">
+              <span class="mp-badge mp-badge--sealed mp-badge--sm">SEALED</span>
+            </div>
+          </li>
+          <li class="mp-evidence-list__item mp-evidence-list__item--missing">
+            <span class="mp-evidence-list__index" aria-hidden="true">04</span>
+            <div class="mp-evidence-list__body">
+              <div class="mp-evidence-list__title">Observation link missing.</div>
+              <div class="mp-evidence-list__source">trace:TRC-0199</div>
+              <div class="mp-evidence-list__meta">
+                <span>14:03:41</span>
+                <span>actor:system</span>
+                <span>type:trace</span>
+              </div>
+            </div>
+            <div class="mp-evidence-list__trail">
+              <span class="mp-badge mp-badge--danger mp-badge--sm">MISSING</span>
+            </div>
+          </li>
+        </ol>
+      </article>
+
+      <article class="mp-card">
+        <div class="mp-card__header">
+          <div>
+            <p class="mp-card__eyebrow">Side Panel</p>
+            <h3 class="mp-card__title">Dense Citations</h3>
+          </div>
+        </div>
+        <ul class="mp-evidence-list mp-evidence-list--dense">
+          <li class="mp-evidence-list__item mp-evidence-list__item--verified">
+            <span class="mp-evidence-list__index" aria-hidden="true">01</span>
+            <div class="mp-evidence-list__body">
+              <div class="mp-evidence-list__title">policy:read-path</div>
+              <div class="mp-evidence-list__source">VERIFIED · 14:02</div>
+            </div>
+            <div class="mp-evidence-list__trail">
+              <span class="mp-badge mp-badge--verified mp-badge--sm">OK</span>
+            </div>
+          </li>
+          <li class="mp-evidence-list__item mp-evidence-list__item--partial mp-evidence-list__item--active">
+            <span class="mp-evidence-list__index" aria-hidden="true">02</span>
+            <div class="mp-evidence-list__body">
+              <div class="mp-evidence-list__title">trace:TRC-0428</div>
+              <div class="mp-evidence-list__source">PARTIAL · 14:02</div>
+            </div>
+            <div class="mp-evidence-list__trail">
+              <span class="mp-badge mp-badge--partial mp-badge--sm">REV</span>
+            </div>
+          </li>
+          <li class="mp-evidence-list__item">
+            <span class="mp-evidence-list__index" aria-hidden="true">03</span>
+            <div class="mp-evidence-list__body">
+              <div class="mp-evidence-list__title">archive:alpha</div>
+              <div class="mp-evidence-list__source">SEALED · 14:03</div>
+            </div>
+            <div class="mp-evidence-list__trail">
+              <span class="mp-badge mp-badge--sealed mp-badge--sm">SEAL</span>
+            </div>
+          </li>
+          <li class="mp-evidence-list__item mp-evidence-list__item--missing">
+            <span class="mp-evidence-list__index" aria-hidden="true">04</span>
+            <div class="mp-evidence-list__body">
+              <div class="mp-evidence-list__title">trace:TRC-0199</div>
+              <div class="mp-evidence-list__source">MISSING · 14:03</div>
+            </div>
+            <div class="mp-evidence-list__trail">
+              <span class="mp-badge mp-badge--danger mp-badge--sm">GAP</span>
+            </div>
+          </li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section class="showcase-section" aria-labelledby="filter-bar-title">
+    <div class="mp-section-heading">
+      <p class="mp-eyebrow">Component 23</p>
+      <h2 id="filter-bar-title">Filter Bar</h2>
+      <p>Search and multi-filter chips for traces, decisions, and archive indexes.</p>
+    </div>
+
+    <div class="mp-grid">
+      <article class="mp-card" style="grid-column: 1 / -1">
+        <div class="mp-card__header">
+          <div>
+            <p class="mp-card__eyebrow">Toolbar</p>
+            <h3 class="mp-card__title">Record Filters</h3>
+          </div>
+        </div>
+
+        <div
+          id="filter-bar-demo"
+          class="mp-filter-bar"
+          role="toolbar"
+          aria-label="Filter records"
+        >
+          <div class="mp-filter-bar__search">
+            <label class="field-group">
+              <span class="mp-label">Search</span>
+              <span class="mp-search">
+                <svg class="mp-search__icon" viewBox="0 0 16 16" aria-hidden="true">
+                  <circle cx="7" cy="7" r="4.25"></circle>
+                  <path d="m10.25 10.25 3 3"></path>
+                </svg>
+                <input
+                  class="mp-input"
+                  type="search"
+                  placeholder="Filter trace, subject, policy…"
+                  aria-label="Filter trace, subject, policy"
+                >
+              </span>
+            </label>
+          </div>
+
+          <div class="mp-filter-bar__groups">
+            <div class="mp-filter-bar__group" role="group" aria-label="Status">
+              <span class="mp-filter-bar__group-label">Status</span>
+              <button type="button" class="mp-filter-bar__chip" aria-pressed="true">VERIFIED</button>
+              <button type="button" class="mp-filter-bar__chip" aria-pressed="false">PARTIAL</button>
+              <button type="button" class="mp-filter-bar__chip" aria-pressed="false">DENIED</button>
+              <button type="button" class="mp-filter-bar__chip" aria-pressed="false">SEALED</button>
+            </div>
+
+            <div class="mp-filter-bar__group" role="group" aria-label="Type">
+              <span class="mp-filter-bar__group-label">Type</span>
+              <button type="button" class="mp-filter-bar__chip" aria-pressed="true">TRACE</button>
+              <button type="button" class="mp-filter-bar__chip" aria-pressed="false">POLICY</button>
+              <button type="button" class="mp-filter-bar__chip" aria-pressed="false">ARCHIVE</button>
+            </div>
+          </div>
+
+          <div class="mp-filter-bar__count">
+            <span>Active</span>
+            <span data-filter-count>2</span>
+          </div>
+
+          <div class="mp-filter-bar__actions">
+            <button type="button" class="mp-button mp-button--secondary mp-button--sm" data-filter-clear>
+              Clear filters
+            </button>
+            <button type="button" class="mp-button mp-button--primary mp-button--sm">
+              Apply
+            </button>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
 </main>
 `
 
@@ -1723,3 +2224,4 @@ setupMotionDemo({
 
 setupSidebarDemo(document.querySelector('.app-shell-preview'))
 setupTabs(document.querySelectorAll('.mp-tabs'))
+setupFilterBar(document.querySelector('#filter-bar-demo'))

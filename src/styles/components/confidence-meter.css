@@ -1,0 +1,121 @@
+.mp-confidence-meter {
+  --meter-color: var(--color-neutral);
+  --meter-bg: rgb(154 164 175 / 0.08);
+  --mp-confidence: 0%;
+
+  display: grid;
+  gap: var(--space-2);
+  padding: var(--space-3);
+  border: 1px solid var(--color-border-muted);
+  border-radius: var(--radius-md);
+  background: var(--meter-bg);
+}
+
+.mp-confidence-meter__header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-2);
+}
+
+.mp-confidence-meter__label {
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.mp-confidence-meter__value {
+  color: var(--color-text-primary);
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.02em;
+}
+
+.mp-confidence-meter__track {
+  height: 6px;
+  overflow: hidden;
+  border: 1px solid var(--color-border-muted);
+  border-radius: var(--radius-full);
+  background: rgb(0 0 0 / 0.2);
+}
+
+.mp-confidence-meter__fill {
+  width: var(--mp-confidence);
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--meter-color) 78%, transparent),
+    var(--meter-color)
+  );
+  transition: width 180ms var(--ease-system);
+}
+
+.mp-confidence-meter__meta {
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.02em;
+}
+
+.mp-confidence-meter__scale {
+  display: flex;
+  justify-content: space-between;
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.mp-confidence-meter--high {
+  --meter-color: var(--color-success);
+  --meter-bg: rgb(111 191 138 / 0.09);
+}
+
+.mp-confidence-meter--medium {
+  --meter-color: var(--color-warning);
+  --meter-bg: rgb(215 168 79 / 0.09);
+}
+
+.mp-confidence-meter--low {
+  --meter-color: #ffc6c1;
+  --meter-bg: rgb(214 107 97 / 0.09);
+}
+
+.mp-confidence-meter--partial {
+  --meter-color: var(--color-info);
+  --meter-bg: rgb(142 188 230 / 0.09);
+}
+
+.mp-confidence-meter--unknown {
+  --meter-color: var(--color-neutral);
+  --meter-bg: rgb(154 164 175 / 0.08);
+}
+
+.mp-confidence-meter--compact {
+  gap: var(--space-1);
+  padding: var(--space-2) var(--space-3);
+}
+
+.mp-confidence-meter--compact .mp-confidence-meter__track {
+  height: 4px;
+}
+
+.mp-confidence-meter--compact .mp-confidence-meter__label {
+  font-size: 0.62rem;
+}
+
+.mp-confidence-meter--compact .mp-confidence-meter__value {
+  font-size: 0.74rem;
+}
+
+.mp-confidence-meter-stack {
+  display: grid;
+  gap: var(--space-3);
+}
