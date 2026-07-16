@@ -137,13 +137,26 @@ Risk labels: `LOW`, `MEDIUM`, `HIGH`, `CRITICAL`.
 
 Type labels: `USER`, `SYSTEM`, `AGENT`, `RESOURCE`, `POLICY`, `TRACE`, `ARCHIVE`.
 
-### Inputs and Command Input
+### Inputs and Form Controls
 
 Base inputs:
 - surface or subtle black background
 - muted border
-- Alice Blue focus ring
+- Alice Blue focus / selected state only
 - muted placeholder
+- semantic borders for invalid (danger), warning, success
+
+Field shell (preferred):
+- `.mp-field` with `.mp-field__label`, `.mp-field__hint`, `.mp-field__message`
+- state modifiers: `--invalid`, `--warning`, `--success`, `--disabled`
+- Associate labels with `for`/`id`. Wire hints and messages with `aria-describedby`. Use `aria-invalid="true"` for invalid controls.
+
+Controls:
+- `.mp-input`, `.mp-textarea`, `.mp-select`
+- `.mp-checkbox`, `.mp-radio` inside `.mp-choice` labels
+- `.mp-switch` with visually hidden checkbox + `.mp-switch__track` (legacy `.mp-toggle` still works)
+
+Keep controls dense and technical—not bright SaaS pills or neon toggles.
 
 Command Input is a separate component for agent actions, search, and command palettes.
 

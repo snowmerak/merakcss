@@ -304,13 +304,13 @@ document.querySelector('#app').innerHTML = `
   </section>
 
   <section class="showcase-section" aria-labelledby="input-title">
-    <div class="section-heading">
-      <p class="eyebrow">Component 05</p>
-      <h2 id="input-title">Input</h2>
-      <p>Text fields, textarea, select, checkbox, radio, toggle, search, and command input.</p>
+    <div class="mp-section-heading">
+      <p class="mp-eyebrow">Component 05</p>
+      <h2 id="input-title">Input / Form Controls</h2>
+      <p>Field shells, text inputs, select, checkbox, radio, switch, search, and validation states.</p>
     </div>
 
-    <div class="example-grid example-grid--wide">
+    <div class="mp-grid mp-grid--wide">
       <article class="mp-card">
         <div class="mp-card__header">
           <span class="mp-icon" aria-hidden="true">⌨</span>
@@ -319,32 +319,81 @@ document.querySelector('#app').innerHTML = `
             <h3 class="mp-card__title">Text Entry</h3>
           </div>
         </div>
-        <div class="form-grid form-grid--two">
-          <label class="field-group">
-            <span class="mp-label">Trace ID</span>
-            <input class="mp-input" type="text" placeholder="TRC-0428" value="TRC-0428">
-            <span class="mp-help">Stable identifier for a trace record.</span>
-          </label>
-          <label class="field-group">
-            <span class="mp-label">Disabled</span>
-            <input class="mp-input" type="text" value="Record sealed" disabled>
-            <span class="mp-help">Locked by archive state.</span>
-          </label>
-          <label class="field-group">
-            <span class="mp-label">Policy Key</span>
-            <input class="mp-input" type="text" value="gate:read:archive" aria-invalid="true">
-            <span class="mp-error">Policy path is unresolved.</span>
-          </label>
-          <label class="field-group">
-            <span class="mp-label">Source Type</span>
-            <select class="mp-select">
+        <div class="mp-form-grid mp-form-grid--two">
+          <div class="mp-field">
+            <label class="mp-field__label" for="field-trace-id">Trace ID</label>
+            <input
+              id="field-trace-id"
+              class="mp-input"
+              type="text"
+              placeholder="TRC-0428"
+              value="TRC-0428"
+              aria-describedby="field-trace-id-hint"
+            >
+            <span class="mp-field__hint" id="field-trace-id-hint">Stable identifier for a trace record.</span>
+          </div>
+
+          <div class="mp-field mp-field--disabled">
+            <label class="mp-field__label" for="field-sealed">Disabled</label>
+            <input id="field-sealed" class="mp-input" type="text" value="Record sealed" disabled>
+            <span class="mp-field__hint">Locked by archive state.</span>
+          </div>
+
+          <div class="mp-field mp-field--invalid">
+            <label class="mp-field__label" for="field-policy-key">Policy Key</label>
+            <input
+              id="field-policy-key"
+              class="mp-input"
+              type="text"
+              value="gate:read:archive"
+              aria-invalid="true"
+              aria-describedby="field-policy-key-msg"
+            >
+            <span class="mp-field__message mp-field__message--error" id="field-policy-key-msg">
+              Policy path is unresolved.
+            </span>
+          </div>
+
+          <div class="mp-field mp-field--warning">
+            <label class="mp-field__label" for="field-subject">Subject</label>
+            <input
+              id="field-subject"
+              class="mp-input"
+              type="text"
+              value="user:alice"
+              data-state="warning"
+              aria-describedby="field-subject-msg"
+            >
+            <span class="mp-field__message mp-field__message--warning" id="field-subject-msg">
+              Membership is pending review.
+            </span>
+          </div>
+
+          <div class="mp-field mp-field--success">
+            <label class="mp-field__label" for="field-archive">Archive Ref</label>
+            <input
+              id="field-archive"
+              class="mp-input"
+              type="text"
+              value="archive:alpha"
+              data-state="success"
+              aria-describedby="field-archive-msg"
+            >
+            <span class="mp-field__message mp-field__message--success" id="field-archive-msg">
+              Path verified against sealed record.
+            </span>
+          </div>
+
+          <div class="mp-field">
+            <label class="mp-field__label" for="field-source-type">Source Type</label>
+            <select id="field-source-type" class="mp-select" aria-describedby="field-source-type-hint">
               <option>Trace</option>
-              <option>Policy</option>
+              <option selected>Policy</option>
               <option>Archive</option>
               <option>Agent</option>
             </select>
-            <span class="mp-help">Used for classification.</span>
-          </label>
+            <span class="mp-field__hint" id="field-source-type-hint">Used for classification.</span>
+          </div>
         </div>
       </article>
 
@@ -356,21 +405,53 @@ document.querySelector('#app').innerHTML = `
             <h3 class="mp-card__title">Lookup</h3>
           </div>
         </div>
-        <label class="field-group">
-          <span class="mp-label">Search Records</span>
+        <div class="mp-field">
+          <label class="mp-field__label" for="field-search-records">Search Records</label>
           <span class="mp-search">
             <svg class="mp-search__icon" viewBox="0 0 16 16" aria-hidden="true">
               <circle cx="7" cy="7" r="4.25"></circle>
               <path d="m10.25 10.25 3 3"></path>
             </svg>
-            <input class="mp-input" type="search" placeholder="Find trace, gate, relic...">
+            <input
+              id="field-search-records"
+              class="mp-input"
+              type="search"
+              placeholder="Find trace, gate, relic..."
+              aria-describedby="field-search-records-hint"
+            >
           </span>
-          <span class="mp-help">Search should feel quiet and keyboard-first.</span>
-        </label>
+          <span class="mp-field__hint" id="field-search-records-hint">Search should feel quiet and keyboard-first.</span>
+        </div>
+
+        <div class="mp-field" style="margin-top: var(--space-4)">
+          <label class="mp-field__label" for="field-select-disabled">Disabled Select</label>
+          <select id="field-select-disabled" class="mp-select" disabled>
+            <option>Sealed only</option>
+          </select>
+          <span class="mp-field__hint">Filter locked by operator policy.</span>
+        </div>
+
+        <div class="mp-field mp-field--invalid" style="margin-top: var(--space-4)">
+          <label class="mp-field__label" for="field-select-invalid">Risk Band</label>
+          <select
+            id="field-select-invalid"
+            class="mp-select"
+            aria-invalid="true"
+            aria-describedby="field-select-invalid-msg"
+          >
+            <option value="">Select band</option>
+            <option>LOW</option>
+            <option>MEDIUM</option>
+            <option>HIGH</option>
+          </select>
+          <span class="mp-field__message mp-field__message--error" id="field-select-invalid-msg">
+            Risk band is required before grant.
+          </span>
+        </div>
       </article>
     </div>
 
-    <div class="example-grid">
+    <div class="mp-grid">
       <article class="mp-card">
         <div class="mp-card__header">
           <span class="mp-icon" aria-hidden="true">¶</span>
@@ -379,11 +460,16 @@ document.querySelector('#app').innerHTML = `
             <h3 class="mp-card__title">Evidence Note</h3>
           </div>
         </div>
-        <label class="field-group">
-          <span class="mp-label">Summary</span>
-          <textarea class="mp-textarea" placeholder="Describe the evidence path.">No oracle without trace. Two records support the current decision.</textarea>
-          <span class="mp-help">Keep copy short and judgment-oriented.</span>
-        </label>
+        <div class="mp-field">
+          <label class="mp-field__label" for="field-summary">Summary</label>
+          <textarea
+            id="field-summary"
+            class="mp-textarea"
+            placeholder="Describe the evidence path."
+            aria-describedby="field-summary-hint"
+          >No oracle without trace. Two records support the current decision.</textarea>
+          <span class="mp-field__hint" id="field-summary-hint">Keep copy short and judgment-oriented.</span>
+        </div>
       </article>
 
       <article class="mp-card">
@@ -391,24 +477,64 @@ document.querySelector('#app').innerHTML = `
           <span class="mp-icon" aria-hidden="true">✓</span>
           <div>
             <p class="mp-card__eyebrow">Choices</p>
-            <h3 class="mp-card__title">Checks and Radios</h3>
+            <h3 class="mp-card__title">Checkbox and Radio</h3>
           </div>
         </div>
-        <div class="form-grid">
-          <div class="field-group">
-            <span class="mp-label">Flags</span>
-            <div class="field-row">
-              <label class="mp-choice"><input class="mp-checkbox" type="checkbox" checked> Verified</label>
-              <label class="mp-choice"><input class="mp-checkbox" type="checkbox"> Requires review</label>
+        <div class="mp-form-grid">
+          <fieldset class="mp-field">
+            <legend class="mp-field__label">Flags</legend>
+            <div class="mp-field__control-row">
+              <label class="mp-choice" for="field-flag-verified">
+                <input id="field-flag-verified" class="mp-checkbox" type="checkbox" checked>
+                Verified
+              </label>
+              <label class="mp-choice" for="field-flag-review">
+                <input id="field-flag-review" class="mp-checkbox" type="checkbox">
+                Requires review
+              </label>
+              <label class="mp-choice" for="field-flag-disabled">
+                <input id="field-flag-disabled" class="mp-checkbox" type="checkbox" disabled>
+                Sealed lock
+              </label>
             </div>
-          </div>
-          <div class="field-group">
-            <span class="mp-label">Decision</span>
-            <div class="field-row">
-              <label class="mp-choice"><input class="mp-radio" type="radio" name="decision" checked> Granted</label>
-              <label class="mp-choice"><input class="mp-radio" type="radio" name="decision"> Denied</label>
+          </fieldset>
+
+          <fieldset class="mp-field">
+            <legend class="mp-field__label">Decision</legend>
+            <div class="mp-field__control-row" role="radiogroup" aria-label="Decision">
+              <label class="mp-choice" for="field-decision-granted">
+                <input id="field-decision-granted" class="mp-radio" type="radio" name="field-decision" checked>
+                Granted
+              </label>
+              <label class="mp-choice" for="field-decision-denied">
+                <input id="field-decision-denied" class="mp-radio" type="radio" name="field-decision">
+                Denied
+              </label>
+              <label class="mp-choice" for="field-decision-partial">
+                <input id="field-decision-partial" class="mp-radio mp-radio--warning" type="radio" name="field-decision">
+                Partial
+              </label>
             </div>
-          </div>
+          </fieldset>
+
+          <fieldset class="mp-field mp-field--invalid">
+            <legend class="mp-field__label">Acknowledgement</legend>
+            <div class="mp-field__control-row">
+              <label class="mp-choice" for="field-ack">
+                <input
+                  id="field-ack"
+                  class="mp-checkbox"
+                  type="checkbox"
+                  aria-invalid="true"
+                  aria-describedby="field-ack-msg"
+                >
+                Policy reviewed
+              </label>
+            </div>
+            <span class="mp-field__message mp-field__message--error" id="field-ack-msg">
+              Confirmation is required before execute.
+            </span>
+          </fieldset>
         </div>
       </article>
 
@@ -416,24 +542,51 @@ document.querySelector('#app').innerHTML = `
         <div class="mp-card__header">
           <span class="mp-icon" aria-hidden="true">⎇</span>
           <div>
-            <p class="mp-card__eyebrow">Toggle</p>
+            <p class="mp-card__eyebrow">Switch</p>
             <h3 class="mp-card__title">Execution Options</h3>
           </div>
         </div>
-        <div class="form-grid">
-          <label class="mp-toggle">
-            <input type="checkbox" checked>
-            <span class="mp-toggle__track" aria-hidden="true"></span>
-            Show verified path only
+        <div class="mp-form-grid">
+          <label class="mp-switch" for="field-switch-verified">
+            <input id="field-switch-verified" class="mp-switch__input" type="checkbox" checked>
+            <span class="mp-switch__track" aria-hidden="true"></span>
+            <span class="mp-switch__label">Show verified path only</span>
           </label>
-          <label class="mp-toggle">
-            <input type="checkbox">
-            <span class="mp-toggle__track" aria-hidden="true"></span>
-            Require manual approval
+
+          <label class="mp-switch" for="field-switch-approval">
+            <input id="field-switch-approval" class="mp-switch__input" type="checkbox">
+            <span class="mp-switch__track" aria-hidden="true"></span>
+            <span class="mp-switch__label">Require manual approval</span>
           </label>
+
+          <label class="mp-switch mp-switch--success" for="field-switch-seal">
+            <input id="field-switch-seal" class="mp-switch__input" type="checkbox" checked>
+            <span class="mp-switch__track" aria-hidden="true"></span>
+            <span class="mp-switch__label">Auto-seal on grant</span>
+          </label>
+
+          <label class="mp-switch" for="field-switch-disabled">
+            <input id="field-switch-disabled" class="mp-switch__input" type="checkbox" disabled>
+            <span class="mp-switch__track" aria-hidden="true"></span>
+            <span class="mp-switch__label">External write (disabled)</span>
+          </label>
+
+          <label class="mp-switch mp-switch--invalid" for="field-switch-invalid">
+            <input
+              id="field-switch-invalid"
+              class="mp-switch__input"
+              type="checkbox"
+              aria-invalid="true"
+              aria-describedby="field-switch-invalid-msg"
+            >
+            <span class="mp-switch__track" aria-hidden="true"></span>
+            <span class="mp-switch__label">Bypass gate</span>
+          </label>
+          <span class="mp-field__message mp-field__message--error" id="field-switch-invalid-msg">
+            Bypass is blocked by policy.
+          </span>
         </div>
       </article>
-
     </div>
   </section>
 
