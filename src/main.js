@@ -6,6 +6,7 @@ import { setupSidebarDemo } from './navigation.js'
 import { setupTabs } from './tabs.js'
 import { setupFilterBar } from './filter-bar.js'
 import { setupCommandPalette, setupContextMenu, setupPagination } from './navigation-extra.js'
+import { setupDialog, setupDropdownMenu, setupPopover } from './overlay.js'
 import { setupCommandInput } from './command.js'
 import './elements/merak-interactive-elements.js'
 import './elements/merak-data-components.js'
@@ -2479,7 +2480,7 @@ document.querySelector('#app').innerHTML = `
       </article>
     </div>
 
-    <div class="mp-grid">
+    <div class="mp-grid mp-grid--start">
       <article class="mp-card">
         <div class="mp-card__header">
           <div>
@@ -2706,7 +2707,7 @@ document.querySelector('#app').innerHTML = `
       </article>
     </div>
 
-    <div class="mp-grid mp-grid--wide">
+    <div class="mp-grid mp-grid--wide mp-grid--start">
       <article class="mp-card">
         <div class="mp-card__header">
           <div>
@@ -2931,6 +2932,244 @@ document.querySelector('#app').innerHTML = `
       </article>
     </div>
   </section>
+
+  <section class="showcase-section" aria-labelledby="overlay-title">
+    <div class="mp-section-heading">
+      <p class="mp-eyebrow">Component 26</p>
+      <h2 id="overlay-title">Overlay</h2>
+      <p>Dialog, drawer, popover, tooltip, and dropdown surfaces for dense gate and archive workflows.</p>
+    </div>
+
+    <div class="mp-grid mp-grid--wide mp-grid--start">
+      <article class="mp-card">
+        <div class="mp-card__header">
+          <div>
+            <p class="mp-card__eyebrow">Modal</p>
+            <h3 class="mp-card__title">Dialog</h3>
+          </div>
+        </div>
+        <div id="dialog-demo" class="mp-overlay-row">
+          <button type="button" class="mp-button mp-button--primary mp-button--sm" data-dialog-open>
+            Open Gate Dialog
+          </button>
+          <dialog class="mp-dialog" aria-labelledby="gate-dialog-title">
+            <div class="mp-dialog__panel">
+              <div class="mp-dialog__header">
+                <div>
+                  <p class="mp-dialog__eyebrow">Permission</p>
+                  <h3 class="mp-dialog__title" id="gate-dialog-title">Confirm access grant.</h3>
+                </div>
+                <button type="button" class="mp-dialog__close" data-dialog-close aria-label="Close dialog">
+                  <svg class="mp-symbol" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="m7 7 10 10"></path>
+                    <path d="m17 7-10 10"></path>
+                  </svg>
+                </button>
+              </div>
+              <p class="mp-dialog__body">
+                Grant <strong>user:alice</strong> read access to <strong>archive:alpha</strong> through group:editors.
+              </p>
+              <div class="mp-dialog__meta">policy:read-path · TRC-0428</div>
+              <div class="mp-dialog__actions">
+                <button type="button" class="mp-button mp-button--secondary mp-button--sm" data-dialog-close>Cancel</button>
+                <button type="button" class="mp-button mp-button--primary mp-button--sm" data-dialog-close>Grant Access</button>
+              </div>
+            </div>
+          </dialog>
+        </div>
+      </article>
+
+      <article class="mp-card">
+        <div class="mp-card__header">
+          <div>
+            <p class="mp-card__eyebrow">Side panel</p>
+            <h3 class="mp-card__title">Drawer</h3>
+          </div>
+        </div>
+        <div id="drawer-demo" class="mp-overlay-row">
+          <button type="button" class="mp-button mp-button--secondary mp-button--sm" data-dialog-open>
+            Open Inspector Drawer
+          </button>
+          <dialog class="mp-drawer mp-drawer--right" aria-labelledby="drawer-title">
+            <div class="mp-dialog__panel">
+              <div class="mp-dialog__header">
+                <div>
+                  <p class="mp-dialog__eyebrow">Inspector</p>
+                  <h3 class="mp-dialog__title" id="drawer-title">TRC-0428</h3>
+                </div>
+                <button type="button" class="mp-dialog__close" data-dialog-close aria-label="Close drawer">
+                  <svg class="mp-symbol" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="m7 7 10 10"></path>
+                    <path d="m17 7-10 10"></path>
+                  </svg>
+                </button>
+              </div>
+              <p class="mp-dialog__body">
+                Source confidence is partial. Two citations support the current path; seal is incomplete.
+              </p>
+              <div class="mp-dialog__meta">user:alice → read → archive:alpha</div>
+              <div class="mp-dialog__actions">
+                <button type="button" class="mp-button mp-button--secondary mp-button--sm" data-dialog-close>Dismiss</button>
+                <button type="button" class="mp-button mp-button--primary mp-button--sm" data-dialog-close>Link Evidence</button>
+              </div>
+            </div>
+          </dialog>
+        </div>
+      </article>
+    </div>
+
+    <div class="mp-grid mp-grid--start">
+      <article class="mp-card">
+        <div class="mp-card__header">
+          <div>
+            <p class="mp-card__eyebrow">Anchored</p>
+            <h3 class="mp-card__title">Popover</h3>
+          </div>
+        </div>
+        <div id="popover-demo" class="mp-overlay-row">
+          <button
+            type="button"
+            class="mp-button mp-button--secondary mp-button--sm"
+            data-popover-trigger
+            aria-haspopup="dialog"
+          >
+            Path Details
+          </button>
+          <div class="mp-popover" id="path-popover" popover="auto" role="dialog" aria-labelledby="path-popover-title">
+            <h4 class="mp-popover__title" id="path-popover-title">Verified inheritance</h4>
+            <p class="mp-popover__body">
+              Access is inherited through group:editors. No direct ACL entry is required.
+            </p>
+            <div class="mp-popover__meta">policy:read-path</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="mp-card">
+        <div class="mp-card__header">
+          <div>
+            <p class="mp-card__eyebrow">Hint</p>
+            <h3 class="mp-card__title">Tooltip</h3>
+          </div>
+        </div>
+        <div class="mp-overlay-row">
+          <span class="mp-tooltip-host">
+            <button type="button" class="mp-button mp-button--ghost mp-button--sm" aria-describedby="seal-tooltip">
+              <svg class="mp-symbol mp-symbol--sm" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 3 5 6v5c0 4.6 2.8 7.8 7 10 4.2-2.2 7-5.4 7-10V6l-7-3Z"></path>
+                <path d="m9.5 12 1.7 1.7 3.6-4"></path>
+              </svg>
+              Seal
+            </button>
+            <span class="mp-tooltip" id="seal-tooltip" role="tooltip">Seal locks the archive record.</span>
+          </span>
+
+          <span class="mp-tooltip-host">
+            <button type="button" class="mp-button mp-button--ghost mp-button--sm" aria-describedby="revoke-tooltip">
+              <svg class="mp-symbol mp-symbol--sm" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 3 5 6v5c0 4.6 2.8 7.8 7 10 4.2-2.2 7-5.4 7-10V6l-7-3Z"></path>
+                <path d="m9 9 6 6"></path>
+                <path d="m15 9-6 6"></path>
+              </svg>
+              Revoke
+            </button>
+            <span class="mp-tooltip" id="revoke-tooltip" role="tooltip">Revoke removes the permission path.</span>
+          </span>
+        </div>
+      </article>
+
+      <article class="mp-card">
+        <div class="mp-card__header">
+          <div>
+            <p class="mp-card__eyebrow">Menu</p>
+            <h3 class="mp-card__title">Dropdown</h3>
+          </div>
+        </div>
+        <div id="dropdown-demo">
+          <div class="mp-dropdown">
+          <button
+            type="button"
+            class="mp-button mp-button--secondary mp-button--sm"
+            data-dropdown-trigger
+            aria-haspopup="menu"
+            aria-expanded="false"
+            aria-controls="trace-dropdown-menu"
+          >
+            Trace Actions
+            <svg class="mp-symbol mp-symbol--sm" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="m7 10 5 5 5-5"></path>
+            </svg>
+          </button>
+
+          <div
+            id="trace-dropdown-menu"
+            class="mp-dropdown-menu"
+            role="menu"
+            aria-label="Trace actions"
+            popover="auto"
+          >
+            <div class="mp-dropdown-menu__label">Trace actions</div>
+            <ul class="mp-dropdown-menu__list">
+              <li role="none">
+                <button type="button" class="mp-dropdown-menu__item" role="menuitem" data-action="Inspect TRC-0428">
+                  <span class="mp-dropdown-menu__item-icon" aria-hidden="true">
+                    <svg class="mp-symbol" viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="M3 12s3.5-6 9-6 9 6 9 6-3.5 6-9 6-9-6-9-6Z"></path>
+                      <circle cx="12" cy="12" r="2.5"></circle>
+                    </svg>
+                  </span>
+                  Inspect
+                  <span class="mp-dropdown-menu__shortcut">I</span>
+                </button>
+              </li>
+              <li role="none">
+                <button type="button" class="mp-dropdown-menu__item" role="menuitem" data-action="Copy path TRC-0428">
+                  <span class="mp-dropdown-menu__item-icon" aria-hidden="true">
+                    <svg class="mp-symbol" viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="M8 8h10v12H8z"></path>
+                      <path d="M6 16H5V4h10v1"></path>
+                    </svg>
+                  </span>
+                  Copy path
+                  <span class="mp-dropdown-menu__shortcut">C</span>
+                </button>
+              </li>
+              <li class="mp-dropdown-menu__separator" role="separator"></li>
+              <li role="none">
+                <button type="button" class="mp-dropdown-menu__item" role="menuitem" data-action="Seal TRC-0428">
+                  <span class="mp-dropdown-menu__item-icon" aria-hidden="true">
+                    <svg class="mp-symbol" viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="M12 3 5 6v5c0 4.6 2.8 7.8 7 10 4.2-2.2 7-5.4 7-10V6l-7-3Z"></path>
+                      <path d="m9.5 12 1.7 1.7 3.6-4"></path>
+                    </svg>
+                  </span>
+                  Seal
+                  <span class="mp-dropdown-menu__shortcut">S</span>
+                </button>
+              </li>
+              <li role="none">
+                <button type="button" class="mp-dropdown-menu__item mp-dropdown-menu__item--danger" role="menuitem" data-action="Revoke TRC-0428">
+                  <span class="mp-dropdown-menu__item-icon" aria-hidden="true">
+                    <svg class="mp-symbol" viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="M12 3 5 6v5c0 4.6 2.8 7.8 7 10 4.2-2.2 7-5.4 7-10V6l-7-3Z"></path>
+                      <path d="m9 9 6 6"></path>
+                      <path d="m15 9-6 6"></path>
+                    </svg>
+                  </span>
+                  Revoke
+                  <span class="mp-dropdown-menu__shortcut">R</span>
+                </button>
+              </li>
+            </ul>
+          </div>
+          </div>
+        <p class="mp-overlay-result" style="margin-top: var(--space-3)">
+          Last action: <span data-dropdown-result>none</span>
+        </p>
+        </div>
+      </article>
+    </div>
+  </section>
 </main>
 `
 
@@ -2992,3 +3231,7 @@ setupFilterBar(document.querySelector('#filter-bar-demo'))
 setupPagination(document.querySelector('#pagination-demo'))
 setupCommandPalette(document.querySelector('#command-palette-demo'))
 setupContextMenu(document.querySelector('#context-menu-demo'))
+setupDialog(document.querySelector('#dialog-demo'))
+setupDialog(document.querySelector('#drawer-demo'))
+setupPopover(document.querySelector('#popover-demo'))
+setupDropdownMenu(document.querySelector('#dropdown-demo'))

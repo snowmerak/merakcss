@@ -1,6 +1,6 @@
 ---
 name: merak-protocol-design-system
-description: Design, implement, review, or extend UI using the Merak Protocol personal design system. Use for dark gray technical dashboards, traceability tools, permission gates, AI agent workflows, archive/knowledge interfaces, graph/timeline/inspector surfaces, identity confidence and decision UI, component CSS, design tokens, copy tone, motion, icons, and product-flow composition that should follow the Merak Protocol visual language.
+description: Design, implement, review, or extend UI using the Merak Protocol personal design system. Use for dark gray technical dashboards, traceability tools, permission gates, AI agent workflows, archive/knowledge interfaces, graph/timeline/inspector surfaces, identity confidence and decision UI, form controls, feedback (toast/progress/skeleton/empty/spinner), navigation (breadcrumb/pagination/command palette/context menu), overlays (dialog/drawer/popover/tooltip/dropdown), component CSS, design tokens, copy tone, motion, icons, and product-flow composition that should follow the Merak Protocol visual language.
 ---
 
 # Merak Protocol Design System
@@ -62,11 +62,13 @@ Spacing and shape:
 
 Use `style.css` for production UI. It contains tokens, base styles, components, and reusable layout patterns. Use `showcase.css` only for the bundled gallery; do not apply its `#app`, `showcase-*`, or hero layout rules to product UI.
 
-Prefer these public layout classes: `mp-eyebrow`, `mp-section-heading`, `mp-grid`, `mp-grid--wide`, `mp-button-row`, `mp-badge-row`, `mp-text--secondary`, `mp-text--muted`, and `mp-heading--section`. Legacy unprefixed showcase names remain compatible but are not the recommended API.
+Prefer these public layout classes: `mp-eyebrow`, `mp-section-heading`, `mp-grid`, `mp-grid--wide`, `mp-grid--start`, `mp-button-row`, `mp-badge-row`, `mp-text--secondary`, `mp-text--muted`, and `mp-heading--section`. Use `mp-grid--start` only when mixed-height cards must not stretch (sparse showcase rows). Legacy unprefixed showcase names remain compatible but are not the recommended API.
 
 Use `mp-list` for semantic ordered and unordered records. Use `mp-list--compact` for dense nested items and `mp-list--task` for checkbox-backed review items. This is the required list mapping for Markdown output. Use `mp-evidence-list` for citation/evidence records in dashboards; do not use it as a Markdown list substitute.
 
-Use native HTML plus Merak CSS for primitive controls and content. Prefer Merak custom elements for stateful composite UI: `merak-tabs`, `merak-command`, `merak-toast-region`, `merak-graph`, `merak-inspector`, `merak-sidebar`, `merak-gate-card`, `merak-agent-panel`, and `merak-timeline`. Pass objects and callbacks through JavaScript properties; use `merak-*` CustomEvents for state changes. Confidence meters, decision banners, evidence lists, and filter bars are CSS-first primitives (plus optional `setupFilterBar`); do not invent custom elements for them unless product state requires it.
+Use native HTML plus Merak CSS for primitive controls and content. Prefer Merak custom elements for stateful composite UI: `merak-tabs`, `merak-command`, `merak-toast-region`, `merak-graph`, `merak-inspector`, `merak-sidebar`, `merak-gate-card`, `merak-agent-panel`, and `merak-timeline`. Pass objects and callbacks through JavaScript properties; use `merak-*` CustomEvents for state changes.
+
+CSS-first primitives (no custom element required): field/form controls, confidence meter, decision banner, evidence list, filter bar, toast/progress/skeleton/empty/spinner, breadcrumb/pagination/command palette/context menu, dialog/drawer/popover/tooltip/dropdown. Showcase helpers (`setupFilterBar`, `setupToastDemo`, `setupCommandPalette`, `setupDialog`, …) live under `src/*.js` and are not package exports unless listed in `package.json`.
 
 ## Voice
 
@@ -175,7 +177,9 @@ Include:
 
 Use inline SVG for search icons. Do not use emoji, icon fonts, external icon libraries, or background images for search icons.
 
-### Alerts and Toasts
+### Alerts, Toasts, and Feedback
+
+#### Alert
 
 Variants:
 - Info: system information or analysis in progress.
@@ -183,7 +187,33 @@ Variants:
 - Warning: partial evidence or possible risk.
 - Error: failure, denied access, missing permission path.
 
-Alert copy should be short. Toast regions may support `top-left`, `top-center`, `top-right`, `center`, `bottom-left`, `bottom-center`, `bottom-right`.
+Alert copy should be short. Prefer `role="status"` for static info/success/warning samples; use `role="alert"` for real error interruptions. Do not put `role="alert"` on static field validation messages—use `aria-invalid` + `aria-describedby` instead.
+
+#### Toast
+
+CSS root: `.mp-toast` inside `.mp-toast-region` (placement modifiers: top/bottom × left/center/right, plus center).
+
+Variants: `--info`, `--success`, `--warning`, `--danger` (`--error` aliases danger).
+
+Live region: the **region** owns announcements (`aria-live` polite, assertive for danger/error). Do not nest `role="status"`/`role="alert"` on each toast. Avoid `aria-atomic="true"` on stacked regions so only new additions are announced (`aria-relevant="additions text"`).
+
+Showcase helper: `showToast` / `setupToastDemo` in `src/alert.js`. Update region placement class when reusing one region across placements.
+
+#### Progress
+
+`.mp-progress` with `--mp-progress` for determinate fill; `.mp-progress--indeterminate` for unknown duration. Use `role="progressbar"` + valuemin/max/now when determinate. Quiet colors; optional semantic modifiers `--success` / `--warning` / `--danger` / `--info`.
+
+#### Skeleton
+
+`.mp-skeleton` with `__circle`, `__line`, `__block`. Shimmer must respect `prefers-reduced-motion` (static wash, no motion).
+
+#### Empty state
+
+`.mp-empty-state` variants: `--default`, `--filtered`, `--archived`, `--denied`. Judgment copy + optional mono meta + actions.
+
+#### Spinner
+
+`.mp-spinner` — restrained ring using border + accent-line, not neon. Pair with `.mp-spinner-label` / `role="status"` when announcing activity.
 
 ### Tables
 
@@ -342,6 +372,56 @@ Showcase helper: `setupFilterBar(root)` from `src/filter-bar.js` (not a package 
 
 Responsive: stack at `max-width: 860px`; search may go full width by `560px`.
 
+### Navigation extras
+
+#### Breadcrumb
+
+`nav.mp-breadcrumb` with `aria-label="Breadcrumb"`. List of links; current page uses `aria-current="page"` (not a link). Separators decorative (`aria-hidden`).
+
+#### Pagination
+
+`nav.mp-pagination` with `aria-label="Pagination"`. Page buttons use `aria-current="page"` for the active page. Prev/next may disable at ends. Showcase: `setupPagination`.
+
+#### Command palette
+
+`.mp-command-palette` dialog surface with search input as combobox (`role="combobox"`, `aria-controls`, `aria-activedescendant`) and `role="listbox"` of `role="option"` items.
+
+Listbox ownership: groups are `role="group"` + `aria-labelledby`; structural `ul`/`li` are `role="none"`. Keep focus in the input; do not move focus onto options on arrow keys.
+
+Default demos closed (`data-open="false"`, palette `hidden`) so page load does not steal focus. Showcase: `setupCommandPalette`.
+
+Hover is neutral gray; Alice Blue only for selected/active option and focus-visible.
+
+#### Context menu
+
+`.mp-context-menu` with `role="menu"` / `menuitem`. Open via contextmenu or Shift+F10 on a focusable target. Arrow keys move items; Escape closes and restores focus. Showcase: `setupContextMenu`.
+
+### Overlay
+
+Prefer native HTML where possible: `<dialog>` for modal/drawer, Popover API for anchored surfaces, CSS-only tooltip on hover/focus-within.
+
+#### Dialog
+
+`.mp-dialog` on `<dialog>`. Open with `showModal()`. Escape and backdrop click close (native + light demo wiring). Include labelled title and explicit close control.
+
+#### Drawer
+
+`.mp-drawer` is a dialog variant. Placement: `--left` / `--right`. Full-height side panel, gray elevated surface.
+
+#### Popover
+
+`.mp-popover` with `popover="auto"`. If `aria-haspopup="dialog"`, the surface must be `role="dialog"` with an accessible name (`aria-labelledby`). Native popover is not auto-anchored—position with JS from the trigger (`beforetoggle`/`toggle`) or CSS anchor positioning when available. Showcase: `setupPopover`.
+
+#### Tooltip
+
+`.mp-tooltip-host` wraps control + `.mp-tooltip` (`role="tooltip"`). Show on `:hover` and `:focus-within`. Wire `aria-describedby` from the control to the tooltip id. No JS required.
+
+#### Dropdown menu
+
+Button trigger (`aria-haspopup="menu"`, `aria-expanded`, `aria-controls`) + `.mp-dropdown-menu` (`role="menu"`). Prefer Popover API; anchor to trigger like popover. Menuitems support arrow keys; Escape returns focus to trigger. Showcase: `setupDropdownMenu`.
+
+Alice Blue only for focus-visible / current menuitem—not plain hover.
+
 ### Motion
 
 Use motion sparingly. Allowed motion:
@@ -408,9 +488,12 @@ When working in the Merak CSS repo, prefer these existing files and patterns:
 - `src/styles/layout.css` for showcase layout.
 - `src/styles/motion.css` for shared animation utilities.
 - `src/styles/components/*.css` for component styles.
-- Identity primitives: `confidence-meter.css`, `decision-banner.css`, `evidence-list.css`, `filter-bar.css`.
-- `src/main.js` for showcase examples.
-- Small JS modules such as `alert.js`, `command.js`, `filter-bar.js`, `graph.js`, `motion.js`, `navigation.js`, and `tabs.js` for interactions.
+- Identity: `confidence-meter.css`, `decision-banner.css`, `evidence-list.css`, `filter-bar.css`.
+- Feedback: `feedback.css` (toast, progress, skeleton, empty, spinner); toast region placement remains in `alert.css`.
+- Navigation: `navigation-extra.css` (breadcrumb, pagination, command palette, context menu).
+- Overlay: `overlay.css` (dialog, drawer, popover, tooltip, dropdown).
+- `src/main.js` for showcase examples (Components 01–26 + Markdown integration).
+- Small JS modules such as `alert.js`, `command.js`, `filter-bar.js`, `graph.js`, `motion.js`, `navigation.js`, `navigation-extra.js`, `overlay.js`, and `tabs.js` for showcase interactions.
 
 When adding a component:
 
@@ -443,4 +526,6 @@ Before finishing, check:
 - Are pending/partial states amber or info blue?
 - Are cards and panels restrained, not overly rounded?
 - Are confidence, decision, evidence, and filters distinct components rather than overloaded alerts or generic lists?
+- Are hover states neutral gray, with Alice Blue reserved for selected/focus/active?
+- Do overlays use native dialog/popover behavior where practical, with correct roles and names?
 - Is myth present through structure and naming rather than decoration?
