@@ -39,73 +39,83 @@
 
 ## 3. Color System
 
-Source of truth: `src/styles/tokens.css` (`--mp-*` only).
+**값의 source of truth는 `src/styles/tokens.css` (`--mp-*`) 하나다.**  
+이 문서는 역할과 사용 규칙만 적는다. hex/rgb를 여기 복제하지 말 것.
 
 ### Surfaces
 
-| Token | Hex / value | Purpose |
-| --- | ---: | --- |
-| `--mp-bg-canvas` | `#171B24` | 최외곽 배경 |
-| `--mp-bg-base` | `#1D2330` | 앱 기본 배경 |
-| `--mp-bg-surface` | `#272E3D` | 카드/패널 |
-| `--mp-bg-inset` | `#1A2030` | 입력, table shell, sunken |
-| `--mp-bg-elevated` | `#323A4D` | dialog, menu, float |
-| `--mp-bg-interactive` | `rgb(255 255 255 / 0.04)` | idle control fill |
-| `--mp-bg-hover` | surface+white mix | hover |
-| `--mp-bg-selected` | accent-200 @ 12% | selected/current |
+| Token | Purpose |
+| --- | --- |
+| `--mp-bg-canvas` | 최외곽 배경 |
+| `--mp-bg-base` | 앱 기본 배경 |
+| `--mp-bg-surface` | 카드/패널 |
+| `--mp-bg-inset` | 입력, table shell, sunken |
+| `--mp-bg-elevated` | dialog, menu, float |
+| `--mp-bg-interactive` | idle control fill |
+| `--mp-bg-hover` | hover |
+| `--mp-bg-selected` | selected/current |
+
+현재 방향: **brighter lavender-gray pastel dark**, stroke-less, flat.
 
 ### Dividers
 
-| Token | Value | Purpose |
-| --- | ---: | --- |
-| `--mp-line-soft` | white 4% | 매우 약한 구분 |
-| `--mp-line-muted` | white 6% | table/header/menu split |
+| Token | Purpose |
+| --- | --- |
+| `--mp-line-soft` | 매우 약한 구분 |
+| `--mp-line-muted` | table/header/menu split |
 
 구조용 카드 stroke가 아니다. divider에만 제한적으로 쓴다.
 
 ### Text
 
-| Token | Hex | Purpose |
-| --- | ---: | --- |
-| `--mp-text-primary` | `#E8EDF3` | 제목, 핵심 수치 |
-| `--mp-text-secondary` | `#C4CDD7` | 본문 |
-| `--mp-text-tertiary` | `#9AA7B5` | 메타 |
-| `--mp-text-muted` | `#788596` | hint, placeholder |
-| `--mp-text-disabled` | `#5E6875` | disabled |
-| `--mp-text-inverse` | `#0F141B` | strong accent 위 텍스트 |
+| Token | Purpose |
+| --- | --- |
+| `--mp-text-primary` | 제목, 핵심 수치 |
+| `--mp-text-secondary` | 본문 |
+| `--mp-text-tertiary` | 메타 |
+| `--mp-text-muted` | hint, placeholder |
+| `--mp-text-disabled` | disabled |
+| `--mp-text-inverse` | strong accent 위 텍스트 |
 
 ### Alice Blue Scale
 
-| Token | Hex | Role |
-| --- | ---: | --- |
-| `--mp-accent-100` | `#EBF4FF` | strong / primary fill |
-| `--mp-accent-200` | `#D7E9FF` | soft |
-| `--mp-accent-300` | `#B9D6FA` | default accent |
-| `--mp-accent-400` | `#94BCEC` | line / icon / focus edge |
-| `--mp-accent-600` | `#5A87BE` | deep / subdued |
+Raw steps: `--mp-accent-50` … `--mp-accent-700`.
 
-Aliases: `--mp-accent-strong`, `--mp-accent-soft`, `--mp-accent`, `--mp-accent-line`, `--mp-accent-deep`, plus `--mp-signal-wash` / `--mp-signal-ring`.
+Roles:
+
+| Token | Role |
+| --- | --- |
+| `--mp-accent-strong` | primary fill |
+| `--mp-accent-soft` | soft companion |
+| `--mp-accent` | default signal |
+| `--mp-accent-line` | icon / link / focus edge |
+| `--mp-accent-deep` | subdued |
+| `--mp-signal-wash` | selected wash helper |
+| `--mp-signal-ring` | focus ring alpha helper |
 
 ### Semantic Palette
 
 각 상태는 `weak` / `soft` / `base` / `text` 4단.
 
-| Family | base | text | 용도 |
-| --- | ---: | ---: | --- |
-| success | `#6DB894` | `#B6E4CB` | 허용, 검증 완료 |
-| warning | `#C9A45A` | `#ECD09A` | 대기, 수동 검토 |
-| danger | `#CC767C` | `#EFB2B6` | 거부, 위험 |
-| neutral | `#7F8A96` | `#B5BEC9` | 미분류, 비활성 |
-| info | accent-400 | accent-200 | 관찰 (accent family) |
+| Family | 용도 |
+| --- | --- |
+| success | 허용, 검증 완료 |
+| warning | 대기, 수동 검토 |
+| danger | 거부, 위험 |
+| neutral | 미분류, 비활성 |
+| info | 관찰 (accent family — 별도 파란 시스템 금지) |
+
+예: `--mp-success-weak`, `--mp-success-soft`, `--mp-success-base`, `--mp-success-text`.
 
 ### Palette Principle
 
-* 구조: surface tier 대비 (stroke-less)
+* 구조: surface tier 대비 (stroke-less, flat)
 * 선택/포커스/신뢰: Alice Blue scale
-* hover: neutral interactive surface (accent 금지)
+* hover: interactive/hover surface (accent 금지)
 * 위험/대기/성공: pastel semantic weak/soft + text
 * float only shadow (`--mp-shadow-float`)
 * 넓은 accent fill 금지 (primary button·strong signal 제외)
+* 값 변경 시 `tokens.css`만 수정하고 문서 hex를 다시 적지 않는다
 
 ## 4. Typography
 

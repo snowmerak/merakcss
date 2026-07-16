@@ -126,7 +126,7 @@ fieldset.mp-field > legend.mp-field__label {
   /* form shell uses sunken fill; validation/focus still use ring + border-color */
   border-radius: var(--radius-sm);
   color: var(--mp-text-primary);
-  background: rgb(0 0 0 / 0.12);
+  background: var(--mp-bg-inset);
   transition:
     background-color 180ms var(--ease-system),
     border-color 180ms var(--ease-system),
@@ -155,7 +155,7 @@ fieldset.mp-field > legend.mp-field__label {
 .mp-textarea:hover:not(:disabled),
 .mp-select:hover:not(:disabled) {
   border-color: var(--field-control-border, transparent);
-  background: rgb(0 0 0 / 0.16);
+  background: var(--mp-bg-base);
 }
 
 .mp-input:focus,
@@ -165,7 +165,7 @@ fieldset.mp-field > legend.mp-field__label {
 .mp-textarea:focus-visible,
 .mp-select:focus-visible {
   border-color: var(--mp-accent-line);
-  background: rgb(0 0 0 / 0.2);
+  background: var(--mp-bg-base);
   box-shadow: 0 0 0 3px var(--mp-signal-ring);
   outline: none;
 }
@@ -269,7 +269,7 @@ fieldset.mp-field > legend.mp-field__label {
   border: 0;
   border-radius: var(--radius-sm);
   color: var(--mp-text-muted);
-  background: rgb(0 0 0 / 0.12);
+  background: var(--mp-bg-inset);
   transition:
     background-color 180ms var(--ease-system),
     border-color 180ms var(--ease-system),
@@ -278,12 +278,12 @@ fieldset.mp-field > legend.mp-field__label {
 
 .mp-search:hover {
   border-color: transparent;
-  background: rgb(0 0 0 / 0.16);
+  background: var(--mp-bg-base);
 }
 
 .mp-search:focus-within {
   border-color: var(--mp-accent-line);
-  background: rgb(0 0 0 / 0.2);
+  background: var(--mp-bg-base);
   box-shadow: 0 0 0 3px var(--mp-signal-ring);
 }
 
@@ -342,7 +342,7 @@ fieldset.mp-field > legend.mp-field__label {
   height: 16px;
   margin: 0;
   border: 0;
-  background: rgb(0 0 0 / 0.16);
+  background: var(--mp-bg-base);
   appearance: none;
   cursor: pointer;
   transition:
@@ -362,7 +362,7 @@ fieldset.mp-field > legend.mp-field__label {
 .mp-checkbox:hover:not(:disabled),
 .mp-radio:hover:not(:disabled) {
   border-color: var(--mp-text-muted);
-  background: rgb(0 0 0 / 0.22);
+  background: var(--mp-bg-base);
 }
 
 .mp-checkbox:focus-visible,
@@ -478,7 +478,7 @@ fieldset.mp-field > legend.mp-field__label {
   height: 20px;
   border: 0;
   border-radius: var(--radius-full);
-  background: rgb(0 0 0 / 0.2);
+  background: var(--mp-bg-base);
   transition:
     background-color 180ms var(--ease-system),
     border-color 180ms var(--ease-system),

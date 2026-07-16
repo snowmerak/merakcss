@@ -15,67 +15,33 @@ Do not make it fantasy UI, neon UI, gold myth UI, game metal UI, green openSUSE-
 
 ## Visual Rules
 
-Token source of truth: `src/styles/tokens.css` (`--mp-*` only). Do not reintroduce legacy `--color-*` / `--surface-*` bridges.
+**Token values live only in** `src/styles/tokens.css` (`--mp-*` only). Do not copy hex into docs/components, and do not reintroduce legacy `--color-*` / `--surface-*` bridges. When a value changes, update `tokens.css`; this skill describes roles and usage.
 
-```css
-/* Surfaces */
---mp-bg-canvas: #171b24;
---mp-bg-base: #1d2330;
---mp-bg-surface: #272e3d;
---mp-bg-inset: #1a2030;
---mp-bg-elevated: #323a4d;
---mp-bg-interactive: rgb(255 255 255 / 0.04);
---mp-bg-hover: color-mix(in srgb, var(--mp-bg-surface) 92%, white 8%);
---mp-bg-selected: rgb(from var(--mp-accent-200) r g b / 0.12);
+### Token roles
 
-/* Dividers only (not card chrome) */
---mp-line-soft: rgb(255 255 255 / 0.04);
---mp-line-muted: rgb(255 255 255 / 0.06);
+| Role group | Tokens | Use for |
+| --- | --- | --- |
+| Surfaces | `--mp-bg-canvas`, `--mp-bg-base`, `--mp-bg-surface`, `--mp-bg-inset`, `--mp-bg-elevated` | page → app → card → sunken → float |
+| Interaction | `--mp-bg-interactive`, `--mp-bg-hover`, `--mp-bg-selected` | idle control, hover, selected/current |
+| Dividers | `--mp-line-soft`, `--mp-line-muted` | table/header/menu splits only — never card chrome |
+| Text | `--mp-text-primary` … `--mp-text-inverse` | title → body → meta → hint → disabled → on-accent |
+| Accent scale | `--mp-accent-50` … `--mp-accent-700` | raw Alice Blue steps |
+| Accent roles | `--mp-accent-strong`, `--mp-accent-soft`, `--mp-accent`, `--mp-accent-line`, `--mp-accent-deep` | primary fill, soft, default, icon/focus edge, subdued |
+| Signal helpers | `--mp-signal-wash`, `--mp-signal-ring` | selected wash, focus ring alpha |
+| Semantic | `--mp-{success,warning,danger,neutral,info}-{weak,soft,base,text}` | state surfaces + marks; info is accent-family |
+| Float | `--mp-shadow-float` | dialog/menu/popover only |
 
-/* Text */
---mp-text-primary: #e8edf3;
---mp-text-secondary: #c4cdd7;
---mp-text-tertiary: #9aa7b5;
---mp-text-muted: #788596;
---mp-text-disabled: #5e6875;
---mp-text-inverse: #0f141b;
+### Palette discipline
 
-/* Alice Blue scale + roles */
---mp-accent-100: #ebf4ff; /* strong / primary fill */
---mp-accent-200: #d7e9ff; /* soft */
---mp-accent-300: #b9d6fa; /* default accent */
---mp-accent-400: #94bcec; /* line / icon / focus edge */
---mp-accent-600: #5a87be; /* deep / subdued */
---mp-accent-strong: var(--mp-accent-100);
---mp-accent-soft: var(--mp-accent-200);
---mp-accent: var(--mp-accent-300);
---mp-accent-line: var(--mp-accent-400);
---mp-accent-deep: var(--mp-accent-600);
---mp-signal-wash: rgb(from var(--mp-accent-200) r g b / 0.1);
---mp-signal-ring: rgb(from var(--mp-accent-line) r g b / 0.2);
-
-/* Semantic: weak / soft / base / text */
---mp-success-base: #6db894; --mp-success-text: #b6e4cb;
---mp-warning-base: #c9a45a; --mp-warning-text: #ecd09a;
---mp-danger-base: #cc767c;  --mp-danger-text: #efb2b6;
-/* info is absorbed into the accent family */
---mp-info-base: var(--mp-accent-400); --mp-info-text: var(--mp-accent-200);
---mp-neutral-base: #7f8a96; --mp-neutral-text: #b5bec9;
-
-/* Float elevation only */
---mp-shadow-float: 0 12px 32px rgb(0 0 0 / 0.28);
-```
-
-Palette discipline:
-- Structure = surface tiers (`canvas` → `base` → `surface` → `inset`/`elevated`). No structural card strokes. Prefer flat fills over decorative gradients.
-- Dividers use `--mp-line-*` sparingly (table splits, menu groups)—never as default panel chrome.
-- Hover uses `--mp-bg-hover` / interactive wash. Do not paint hover with Alice Blue.
-- Selected / current / active uses `--mp-bg-selected` or accent text/line—not full-bleed accent panels.
-- Primary action fill uses `--mp-accent-strong` with `--mp-text-inverse`.
-- Focus uses ring/outline (`--mp-signal-ring` / accent-line)—keep keyboard visibility.
+- Structure = surface tiers. No structural card strokes. Prefer **flat fills** over decorative gradients.
+- Dividers (`--mp-line-*`) sparingly — never default panel chrome.
+- Hover = `--mp-bg-hover` / interactive wash. Do **not** paint hover with Alice Blue.
+- Selected / current / active = `--mp-bg-selected` or accent text/line — not full-bleed accent panels.
+- Primary action fill = `--mp-accent-strong` + `--mp-text-inverse`.
+- Focus = ring/outline via `--mp-signal-ring` / `--mp-accent-line` (keep keyboard visibility).
 - Form control geometry (checkbox/radio/toggle/spinner) may keep shape strokes; validation may use semantic edge + ring.
-- Semantic states use weak/soft fills + base/text marks (pastel, low chroma). Avoid neon.
-- Info is not a second blue system—prefer accent-family info tokens.
+- Semantic states = weak/soft fills + base/text marks (pastel). Avoid neon.
+- Info is not a second blue system — use accent-family info tokens.
 - Shadow only for floating overlays (`--mp-shadow-float`), not default cards.
 - `@media (forced-colors: active)` may restore borders for identification.
 

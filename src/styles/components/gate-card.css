@@ -25,7 +25,7 @@
   padding: var(--space-3);
   border: 0;
   border-radius: var(--radius-sm);
-  background: rgb(0 0 0 / 0.1);
+  background: var(--mp-bg-inset);
 }
 
 .gate-card__label {
@@ -64,7 +64,7 @@
   padding: var(--space-3);
   border: 0;
   border-radius: var(--radius-sm);
-  background: rgb(0 0 0 / 0.08);
+  background: var(--mp-bg-inset);
 }
 
 @media (max-width: 860px) {

@@ -27,7 +27,7 @@
   overflow: auto;
   border: 0;
   border-radius: var(--radius-md);
-  background: rgb(0 0 0 / 0.14);
+  background: var(--mp-bg-inset);
 }
 
 .showcase-toc__title {
@@ -80,7 +80,7 @@
 
 .showcase-toc a:hover {
   color: var(--mp-text-primary);
-  background: rgb(0 0 0 / 0.14);
+  background: var(--mp-bg-hover);
 }
 
 .showcase-toc a:focus-visible {

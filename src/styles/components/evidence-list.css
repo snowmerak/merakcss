@@ -14,7 +14,7 @@
   padding: var(--space-2) var(--space-3);
   border: 0;
   border-radius: var(--radius-sm);
-  background: rgb(0 0 0 / 0.08);
+  background: var(--mp-bg-inset);
 }
 
 .mp-evidence-list__index {

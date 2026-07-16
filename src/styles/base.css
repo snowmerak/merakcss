@@ -115,7 +115,7 @@ code {
   border: 0;
   border-radius: var(--radius-sm);
   color: var(--mp-accent-soft);
-  background: rgb(0 0 0 / 0.2);
+  background: var(--mp-bg-inset);
   font-family: var(--font-mono);
   font-size: 0.88em;
 }

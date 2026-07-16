@@ -47,7 +47,7 @@
   border: 0;
   border-radius: var(--radius-sm);
   color: var(--mp-text-secondary);
-  background: rgb(0 0 0 / 0.1);
+  background: var(--mp-bg-interactive);
   font-family: var(--font-mono);
   font-size: 0.72rem;
   font-weight: 700;
@@ -63,7 +63,7 @@
 .mp-filter-bar__chip:hover {
   border-color: transparent;
   color: var(--mp-text-primary);
-  background: rgb(0 0 0 / 0.16);
+  background: var(--mp-bg-hover);
 }
 
 .mp-filter-bar__chip[aria-pressed="true"] {

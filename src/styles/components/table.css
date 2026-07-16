@@ -28,7 +28,7 @@
   padding: var(--space-3) var(--space-4);
   border-bottom: 0;
   color: var(--mp-text-muted);
-  background: rgb(0 0 0 / 0.1);
+  background: var(--mp-bg-inset);
   font-family: var(--font-mono);
   font-size: 0.72rem;
   font-weight: 700;
@@ -52,7 +52,7 @@
 
 .mp-table th {
   color: var(--mp-text-muted);
-  background: rgb(0 0 0 / 0.12);
+  background: var(--mp-bg-base);
   font-family: var(--font-mono);
   font-size: 0.7rem;
   font-weight: 700;
@@ -124,7 +124,7 @@
   gap: var(--space-3);
   padding: var(--space-3) var(--space-4);
   border-bottom: 0;
-  background: rgb(0 0 0 / 0.08);
+  background: var(--mp-bg-base);
 }
 
 .mp-table-toolbar__title {

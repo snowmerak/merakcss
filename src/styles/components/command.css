@@ -4,7 +4,7 @@
   padding: var(--space-3);
   border: 0;
   border-radius: var(--radius-md);
-  background: rgb(0 0 0 / 0.16);
+  background: var(--mp-bg-base);
 }
 
 .mp-command-shell:focus-within {
@@ -102,7 +102,7 @@
   padding: var(--space-3);
   border: 0;
   border-radius: var(--radius-sm);
-  background: rgb(0 0 0 / 0.1);
+  background: var(--mp-bg-inset);
 }
 
 .mp-command-result__label {

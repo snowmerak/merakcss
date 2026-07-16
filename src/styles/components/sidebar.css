@@ -117,7 +117,7 @@
   gap: var(--space-3);
   padding: var(--space-4) var(--space-5);
   border-bottom: 0;
-  background: rgb(0 0 0 / 0.08);
+  background: var(--mp-bg-inset);
 }
 
 .app-shell-preview__content {

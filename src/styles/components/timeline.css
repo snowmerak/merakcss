@@ -30,7 +30,7 @@
   padding: var(--space-4);
   border: 0;
   border-radius: var(--radius-md);
-  background: rgb(0 0 0 / 0.1);
+  background: var(--mp-bg-inset);
 }
 
 .mp-timeline__item::before {
@@ -108,7 +108,7 @@
   padding: var(--space-3);
   border: 0;
   border-radius: var(--radius-sm);
-  background: rgb(0 0 0 / 0.08);
+  background: var(--mp-bg-inset);
 }
 
 .trace-panel__index {

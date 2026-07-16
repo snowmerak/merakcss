@@ -42,7 +42,7 @@
   overflow: hidden;
   border: 0;
   border-radius: var(--radius-full);
-  background: var(--mp-bg-inset);
+  background: var(--mp-bg-base);
 }
 
 .mp-confidence-meter__fill {

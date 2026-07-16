@@ -66,9 +66,9 @@
   --mp-danger-base: #cc767c;
   --mp-danger-text: #efb2b6;
 
-  /* Info = accent family */
-  --mp-info-weak: rgb(from var(--mp-accent-500) r g b / 0.16);
-  --mp-info-soft: rgb(from var(--mp-accent-400) r g b / 0.22);
+  /* Info = accent family, solid recessed washes (not translucent alpha) */
+  --mp-info-weak: #1c2738;
+  --mp-info-soft: #243448;
   --mp-info-base: var(--mp-accent-400);
   --mp-info-text: var(--mp-accent-200);
 

@@ -40,7 +40,7 @@
 
 .mp-breadcrumb__link:hover {
   color: var(--mp-text-primary);
-  background: rgb(0 0 0 / 0.12);
+  background: var(--mp-bg-hover);
 }
 
 .mp-breadcrumb__link:focus-visible {
@@ -112,7 +112,7 @@
   border: 0;
   border-radius: var(--radius-sm);
   color: var(--mp-text-secondary);
-  background: rgb(0 0 0 / 0.1);
+  background: var(--mp-bg-inset);
   font-family: var(--font-mono);
   font-size: 0.72rem;
   font-weight: 700;
@@ -139,7 +139,7 @@
 .mp-pagination__control:hover:not(:disabled) {
   border-color: transparent;
   color: var(--mp-text-primary);
-  background: rgb(0 0 0 / 0.16);
+  background: var(--mp-bg-hover);
 }
 
 .mp-pagination__page[aria-current="page"] {
@@ -221,7 +221,7 @@
   padding: 0 var(--space-3);
   border: 0;
   border-radius: var(--radius-sm);
-  background: rgb(0 0 0 / 0.16);
+  background: var(--mp-bg-base);
 }
 
 .mp-command-palette__search:focus-within {
@@ -302,7 +302,7 @@
 .mp-command-palette__item:hover {
   border-color: transparent;
   color: var(--mp-text-primary);
-  background: rgb(0 0 0 / 0.12);
+  background: var(--mp-bg-hover);
 }
 
 .mp-command-palette__item[aria-selected="true"],
@@ -433,7 +433,7 @@
 .mp-context-menu__item:hover {
   border-color: transparent;
   color: var(--mp-text-primary);
-  background: rgb(0 0 0 / 0.12);
+  background: var(--mp-bg-hover);
 }
 
 .mp-context-menu__item:focus-visible,
@@ -495,7 +495,7 @@
   padding: var(--space-4);
   border: 0;
   border-radius: var(--radius-md);
-  background: rgb(0 0 0 / 0.08);
+  background: var(--mp-bg-inset);
 }
 
 .mp-context-stage__hint {
@@ -510,14 +510,14 @@
   padding: var(--space-3);
   border: 0;
   border-radius: var(--radius-sm);
-  background: rgb(0 0 0 / 0.12);
+  background: var(--mp-bg-inset);
   cursor: context-menu;
   text-align: left;
 }
 
 .mp-context-stage__target:hover {
   border-color: transparent;
-  background: rgb(0 0 0 / 0.16);
+  background: var(--mp-bg-hover);
 }
 
 .mp-context-stage__target:focus-visible {

@@ -60,7 +60,7 @@
   gap: var(--space-2);
   padding: var(--space-5);
   border-bottom: 0;
-  background: rgb(0 0 0 / 0.1);
+  background: var(--mp-bg-inset);
 }
 
 .mp-inspector__eyebrow {
@@ -129,7 +129,7 @@
   gap: var(--space-2);
   padding: var(--space-4) var(--space-5);
   border-top: 0;
-  background: rgb(0 0 0 / 0.08);
+  background: var(--mp-bg-inset);
 }
 
 @media (max-width: 860px) {

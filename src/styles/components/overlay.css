@@ -88,7 +88,7 @@
 
 .mp-dialog__close:hover {
   color: var(--mp-text-primary);
-  background: rgb(0 0 0 / 0.14);
+  background: var(--mp-bg-hover);
 }
 
 .mp-dialog__close:focus-visible {
@@ -291,7 +291,7 @@
 .mp-dropdown-menu__item:hover {
   border-color: transparent;
   color: var(--mp-text-primary);
-  background: rgb(0 0 0 / 0.12);
+  background: var(--mp-bg-hover);
 }
 
 .mp-dropdown-menu__item:focus-visible,

@@ -12,7 +12,7 @@
   padding: var(--space-4);
   border: 0;
   border-radius: var(--radius-md);
-  background: rgb(0 0 0 / 0.08);
+  background: var(--mp-bg-inset);
 }
 
 .icon-sample__header {
@@ -85,7 +85,7 @@
   border: 0;
   border-radius: var(--radius-md);
   color: var(--mp-text-secondary);
-  background: rgb(0 0 0 / 0.08);
+  background: var(--mp-bg-inset);
   transition:
     background-color 180ms var(--ease-system),
     border-color 180ms var(--ease-system),

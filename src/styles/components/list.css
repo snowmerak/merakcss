@@ -40,7 +40,7 @@
   padding: var(--space-2);
   border: 0;
   border-radius: var(--radius-sm);
-  background: rgb(0 0 0 / 0.08);
+  background: var(--mp-bg-inset);
 }
 
 .mp-list--task input[type="checkbox"] {

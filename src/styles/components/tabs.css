@@ -55,7 +55,7 @@
   padding: var(--space-1);
   border: 0;
   border-radius: var(--radius-md);
-  background: rgb(0 0 0 / 0.12);
+  background: var(--mp-bg-inset);
 }
 
 .mp-segmented-tabs .mp-tabs__tab {
